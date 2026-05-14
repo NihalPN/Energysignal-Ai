@@ -1,0 +1,18 @@
+#Environments
+venv/
+pycache/
+
+#Secrets and API Keys
+.env
+
+#Databases and Big Data
+database/*.db
+database/rag_store/
+*.csv
+
+#Logs
+logs/
+
+#Machine Learning Models
+models/*.json
+*.pth
