@@ -37,7 +37,7 @@ class DataWorker(QThread):
 
             df_full = df_full.sort_index()
 
-            # Train a fresh production model dynamically
+            # Train a fresh production model dynamically to eliminate lookahead bias
             train_df = df_full.dropna(subset=['target_price_24h_ahead'])
             X_train = train_df.drop(columns=['target_price_24h_ahead'])
             y_train = train_df['target_price_24h_ahead']
@@ -54,26 +54,27 @@ class DataWorker(QThread):
             history_df = df_full.tail(672)
             historical_prices = history_df['price_eur_mwh'].values
 
-            # Bracket-free extraction to prevent formatting crashes
+            # Bracket-free extraction for the CURRENT moment to prevent UI crashes
             latest_price = float(history_df['price_eur_mwh'].tail(1).item())
             latest_time = history_df.index.max()
             latest_time_str = latest_time.strftime('%Y-%m-%d %H:%M')
 
-            avg_predicted = float(np.mean(predictions))
-            max_predicted = float(np.max(predictions))
+            # Isolate the prediction for exactly 24 hours from right now
+            last_index = len(predictions) - 1
+            target_price_24h_now = float(predictions.item(last_index))
 
-            # Institutional Trade Logic for the Top KPI
+            # Institutional Trade Logic aligned with VectorBT
             EXPECTED_MARGIN = 40.0
-            best_spread = max_predicted - latest_price
+            current_spread = target_price_24h_now - latest_price
             
-            if best_spread > EXPECTED_MARGIN and latest_price > 0:
+            if current_spread > EXPECTED_MARGIN and latest_price > 0:
                 signal_text = "BUY 10 MWh"
                 signal_color = "#00ff00"
             else:
                 signal_text = "PRESERVE CAPITAL"
                 signal_color = "#ffaa00"
 
-            self.data_loaded.emit(historical_prices, predictions, latest_price, avg_predicted, signal_text, signal_color, latest_time_str)
+            self.data_loaded.emit(historical_prices, predictions, latest_price, target_price_24h_now, signal_text, signal_color, latest_time_str)
 
         except Exception as e:
             self.error_signal.emit(str(e))
@@ -98,9 +99,9 @@ class RAGWorker(QThread):
             
             if not df.empty:
                 # Bracket-free extraction to prevent KeyError crashes
-                price = df['price_eur_mwh'].head(1).item()
-                wind = df['total_renewable'].head(1).item()
-                residual = df['residual_load'].head(1).item()
+                price = float(df['price_eur_mwh'].head(1).item())
+                wind = float(df['total_renewable'].head(1).item())
+                residual = float(df['residual_load'].head(1).item())
                 actual_load = wind + residual
                 
                 real_scenario = (f"Current Market Reality: The price is {price:.2f} EUR/MWh. "
@@ -224,10 +225,10 @@ class TradingTerminal(QMainWindow):
         layout.addLayout(middle_layout)
 
     def setup_predictions_tab(self):
-        """Sets up the new table displaying all 96 XGBoost predictions with INVEST highlights"""
+        """Sets up the table displaying all 96 XGBoost predictions with INVEST highlights"""
         layout = QVBoxLayout(self.tab_predictions)
         
-        self.lbl_pred_header = QLabel("Model Predictions & Profit Opportunities for the Next 24 Hours")
+        self.lbl_pred_header = QLabel("Model Predictions & Profit Opportunities (Next 24 Hours)")
         self.lbl_pred_header.setFont(QFont("Arial", 18, QFont.Weight.Bold))
         self.lbl_pred_header.setStyleSheet("color: #ffaa00; margin-bottom: 10px;")
         self.lbl_pred_header.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -272,7 +273,7 @@ class TradingTerminal(QMainWindow):
         layout.addWidget(self.lbl_live_time)
         layout.addWidget(self.price_table)
 
-    def on_data_loaded(self, hist_prices, future_prices, latest_price, avg_pred, sig_text, sig_color, latest_time_str):
+    def on_data_loaded(self, hist_prices, future_prices, latest_price, target_price_24h_now, sig_text, sig_color, latest_time_str):
         self.plot_widget.clear()
         
         x_hist = np.arange(len(hist_prices))
@@ -291,8 +292,9 @@ class TradingTerminal(QMainWindow):
         latest_timestamp = pd.to_datetime(latest_time_str)
         target_delivery_time = latest_timestamp + pd.Timedelta(hours=24)
         
-        self.lbl_forecast_title.setText(f"24h Avg Forecast ({target_delivery_time.strftime('%b %d')})")
-        self.lbl_forecast_price.setText(f"€{avg_pred:.2f}")
+        # Ensures the KPI is predicting exactly 24h into the future, aligned with VectorBT
+        self.lbl_forecast_title.setText(f"Forecast ({target_delivery_time.strftime('%H:%M')} Tomorrow)")
+        self.lbl_forecast_price.setText(f"€{target_price_24h_now:.2f}")
         
         self.lbl_signal.setText(sig_text)
         self.lbl_signal.setStyleSheet(f"color: {sig_color}; font-weight: bold; font-size: 18px;")
@@ -300,15 +302,17 @@ class TradingTerminal(QMainWindow):
         # Populate the New Predictions Table and apply the INVEST logic
         self.pred_table.setRowCount(len(future_prices))
         EXPECTED_MARGIN = 40.0
+        hist_length = len(hist_prices)
 
         for i, pred_price in enumerate(future_prices):
             block_start = latest_timestamp + pd.Timedelta(minutes=15 * (i + 1))
             block_end = block_start + pd.Timedelta(minutes=15)
             time_label = f"{block_start.strftime('%Y-%m-%d %H:%M')} - {block_end.strftime('%H:%M')}"
             
-            # Extract the actual entry price from 96 steps ago using a bracket-free method
-            today_price = hist_prices.item(i - 96)
-            expected_profit = pred_price - today_price
+            # Extract the actual entry price from exactly 24h ago
+            today_price_index = hist_length - 96 + i
+            today_price = float(hist_prices.item(today_price_index))
+            expected_profit = float(pred_price) - today_price
             
             item_time = QTableWidgetItem(time_label)
             item_time.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
