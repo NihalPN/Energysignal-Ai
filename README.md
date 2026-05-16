@@ -11,7 +11,7 @@ Engineered to operate within constrained local hardware (**8GB RAM**) while hand
 > Replace placeholder image paths after uploading screenshots.
 
 ### 1. Strategy & AI Analyst Terminal
-![Strategy Tab](images/strategy_tab.png)
+![Strategy Tab](Images/strategy_tab.png)
 
 Main PyQt6 institutional desktop interface featuring:
 
@@ -24,7 +24,7 @@ Main PyQt6 institutional desktop interface featuring:
 ---
 
 ### 2. Forecast Ledger
-![Forecasts Tab](images/forecasts_tab.png)
+![Forecasts Tab](Images/forecast_tab.png)
 
 Forecast execution dashboard displaying:
 
@@ -36,7 +36,7 @@ Forecast execution dashboard displaying:
 ---
 
 ### 3. Live Market Monitor
-![Live Monitor](images/live_monitor.png)
+![Live Monitor](Images/live_monitor.png)
 
 Operational monitoring terminal including:
 
@@ -48,7 +48,7 @@ Operational monitoring terminal including:
 ---
 
 ### 4. Backtesting Results
-![Backtest Results](images/backtest_results.png)
+![Backtest Results](Images/backtest_results.png)
 
 VectorBT backtesting output demonstrating:
 
