@@ -1,7 +1,16 @@
+import sys
+import os
 import pandas as pd
 import sqlite3
-import os
 import xgboost as xgb
+
+# Force Python to recognize the root directory so it can find the 'utils' folder
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+try:
+    from utils.notifier import send_alert
+except ImportError:
+    # Failsafe in case the telegram notifier isn't configured yet
+    def send_alert(msg): pass
 
 # Paths
 DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'database', 'energy_market.db')
@@ -14,15 +23,13 @@ def generate_live_signals():
 
     df = df.sort_index()
 
-    # THE FIX: Dynamically identify the latest available day in the database
+    # Dynamically identify the latest available day in the database
     latest_timestamp = df.index.max()
     latest_day = latest_timestamp.floor('D')
     
     print(f"Latest market data found for: {latest_day.strftime('%Y-%m-%d')}")
 
     historical_df = df.dropna(subset=['target_price_24h_ahead']).copy()
-    
-    # Strictly isolate the most recent 24-hour calendar day
     live_df = df[df.index >= latest_day].copy()
 
     X_train = historical_df.drop(columns=['target_price_24h_ahead'])
@@ -34,15 +41,17 @@ def generate_live_signals():
 
     X_live = live_df.drop(columns=['target_price_24h_ahead'])
     
-    # Calculate what day we are actually predicting
     prediction_day = latest_day + pd.Timedelta(days=1)
-    print(f"Predicting prices for tomorrow: {prediction_day.strftime('%Y-%m-%d')}...")
+    print(f"Predicting prices for tomorrow: {prediction_day.strftime('%Y-%m-%d')}...\n")
     
     live_df['predicted_price_tomorrow'] = model.predict(X_live)
 
-    print("\n==================================================")
-    print(f"       LIVE TRADING SIGNALS FOR {prediction_day.strftime('%Y-%m-%d')}          ")
-    print("==================================================")
+    # --- FORMATTED FULL 24-HOUR TABLE OUTPUT ---
+    print("===============================================================================")
+    print(f"       FULL 24-HOUR PRICE FORECAST FOR {prediction_day.strftime('%Y-%m-%d')}          ")
+    print("===============================================================================")
+    print(f"{'Delivery Time Block':<22} | {'Entry Price':<14} | {'Predicted Exit':<16} | {'Action'}")
+    print("-" * 79)
     
     EXPECTED_PROFIT_MARGIN = 40.0  
     trades_found = 0
@@ -50,19 +59,38 @@ def generate_live_signals():
     for timestamp, row in live_df.iterrows():
         # The exact 15-minute delivery block for the trade
         target_delivery_time = timestamp + pd.Timedelta(hours=24)
+        block_end = target_delivery_time + pd.Timedelta(minutes=15)
+        
+        # Format the time block label (e.g., "14:15 - 14:30")
+        time_label = f"{target_delivery_time.strftime('%H:%M')} - {block_end.strftime('%H:%M')}"
         
         current_price = row['price_eur_mwh']
         predicted_price = row['predicted_price_tomorrow']
+        expected_profit = predicted_price - current_price
         
-        if (predicted_price > (current_price + EXPECTED_PROFIT_MARGIN)) and (current_price > 0):
-            print(f" SIGNAL: BUY 10 MWh for delivery at {target_delivery_time.strftime('%Y-%m-%d %H:%M')}")
-            print(f"    Baseline Entry Price: €{current_price:.2f} | Predicted Exit Price: €{predicted_price:.2f}")
-            print(f"    Expected Gross Profit: €{(predicted_price - current_price) * 10:.2f}\n")
+        if (expected_profit > EXPECTED_PROFIT_MARGIN) and (current_price > 0):
+            action = f"BUY (+€{expected_profit:.2f} spread)"
             trades_found += 1
+            
+            # Fire off the asynchronous Telegram alert for valid trades
+            alert_msg = (
+                f"📈 *XGBOOST TRADE SIGNAL* 📈\n\n"
+                f"⚡ *Action:* BUY 10 MWh\n"
+                f"🕒 *Delivery Block:* {target_delivery_time.strftime('%Y-%m-%d %H:%M')}\n"
+                f"💶 *Entry Price:* €{current_price:.2f}\n"
+                f"🎯 *Predicted Exit:* €{predicted_price:.2f}\n"
+                f"💰 *Expected Gross Profit:* €{expected_profit * 10:.2f}"
+            )
+            send_alert(alert_msg)
+        else:
+            action = "IGNORE"
+            
+        # Print every single row
+        print(f"{time_label:<22} | €{current_price:<13.2f} | €{predicted_price:<15.2f} | {action}")
 
-    if trades_found == 0:
-        print(f"\nNo high-conviction trades detected for {prediction_day.strftime('%Y-%m-%d')}.")
-        print("STATUS: Preserving capital.")
+    print("-" * 79)
+    print(f"Total High-Conviction Trades Executed: {trades_found}")
 
 if __name__ == "__main__":
     generate_live_signals()
+
