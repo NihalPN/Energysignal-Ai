@@ -8,7 +8,7 @@ Engineered to operate within constrained local hardware (**8GB RAM**) while hand
 
 ## 📸 System Architecture & Dashboard
 
-> Replace placeholder image paths after uploading screenshots.
+
 
 ### 1. Strategy & AI Analyst Terminal
 ![Strategy Tab](Images/strategy_tab.png)
