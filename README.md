@@ -48,7 +48,7 @@ Operational monitoring terminal including:
 ---
 
 ### 4. Backtesting Results
-![Backtest Results](Images/backtest_results.png)
+![Backtest Results](Images/backtest_result.png)
 
 VectorBT backtesting output demonstrating:
 
