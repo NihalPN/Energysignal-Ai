@@ -33,7 +33,10 @@ jobs:
           restore-keys: |
             sqlite-db-
             
-      
+      - name: Setting database correctly
+        run: |
+          python data_pipeline/patch_generation.py
+        
       - name: Run Data Pipeline
         env:
           ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
