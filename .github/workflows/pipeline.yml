@@ -2,13 +2,15 @@ name: EnergySignal Daily Pipeline
 
 on:
   schedule:
-    # Runs at 12:00 UTC (5:30 PM IST / 14:00 Berlin) every day
     - cron: '0 12 * * *'
-  workflow_dispatch: # Allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   run-pipeline:
     runs-on: ubuntu-latest
+    # Define permissions here so the job can push back to the repo
+    permissions:
+      contents: write 
 
     steps:
       - uses: actions/checkout@v4
@@ -22,22 +24,13 @@ jobs:
         run: |
           pip install pandas xgboost scikit-learn sqlalchemy entsoe-py openmeteo-requests requests-cache retry-requests holidays python-dotenv tenacity
 
-      - name: Setting database
+      - name: Setting database and running pipeline
+        env:
+          ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
         run: |
           python database/schema.py
-
-    
-      - name: Setting database correctly
-        env:
-          ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
-        run: |
           python data_pipeline/backfill.py
           python data_pipeline/patch_generation.py
-
-      - name: Run Data Pipeline
-        env:
-          ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
-        run: |
           python data_pipeline/scheduler.py
           python feature/build_feature.py
 
@@ -50,6 +43,8 @@ jobs:
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
+          # Adding the force flag (-f) to override the .gitignore
           git add -f models/xgb_baseline.json models/metrics.json
           git commit -m "Auto-update: Daily Model Retraining & Metrics" || echo "No changes to commit"
-          git push
+          # Push using the built-in GITHUB_TOKEN
+          git push origin main
