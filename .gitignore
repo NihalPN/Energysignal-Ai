@@ -10,8 +10,6 @@ database/*.db
 database/rag_store/
 *.csv
 
-#Logs
-logs/
 
 #Machine Learning Models
 models/*.json

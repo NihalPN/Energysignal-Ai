@@ -1,0 +1,178 @@
+2026-05-10 15:32:49,538 - INFO - Fetching DA prices from 2026-05-06 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-05-10 15:32:52,873 - INFO - Fetching actual load from 2026-05-06 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-05-10 15:32:54,744 - ERROR - ENTSO-E Fetcher failed: 'DataFrame' object has no attribute 'to_frame'
+2026-05-10 15:36:31,770 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-16 00:00:00+02:00
+2026-05-10 15:36:33,518 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-16 00:00:00+02:00
+2026-05-10 15:36:34,380 - ERROR - ENTSO-E Fetcher failed: 'DataFrame' object has no attribute 'to_frame'
+2026-05-10 15:46:57,425 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:46:59,121 - ERROR - ENTSO-E Fetcher failed for 20260411 to 20260414: Execution failed on sql 'INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (:timestamp, :price_eur_mwh)': (sqlite3.IntegrityError) UNIQUE constraint failed: day_ahead_prices.timestamp
+[SQL: INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (?, ?)]
+[parameters: [('2026-04-11 00:00:00', 147.15), ('2026-04-11 00:15:00', 136.26), ('2026-04-11 00:30:00', 129.36), ('2026-04-11 00:45:00', 123.29), ('2026-04-11 01:00:00', 127.94), ('2026-04-11 01:15:00', 123.91), ('2026-04-11 01:30:00', 115.78), ('2026-04-11 01:45:00', 114.9)  ... displaying 10 of 289 total bound parameter sets ...  ('2026-04-13 23:45:00', 113.23), ('2026-04-14 00:00:00', 123.64)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-05-10 15:47:01,123 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:47:02,884 - ERROR - ENTSO-E Fetcher failed for 20260411 to 20260414: Execution failed on sql 'INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (:timestamp, :price_eur_mwh)': (sqlite3.IntegrityError) UNIQUE constraint failed: day_ahead_prices.timestamp
+[SQL: INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (?, ?)]
+[parameters: [('2026-04-11 00:00:00', 147.15), ('2026-04-11 00:15:00', 136.26), ('2026-04-11 00:30:00', 129.36), ('2026-04-11 00:45:00', 123.29), ('2026-04-11 01:00:00', 127.94), ('2026-04-11 01:15:00', 123.91), ('2026-04-11 01:30:00', 115.78), ('2026-04-11 01:45:00', 114.9)  ... displaying 10 of 289 total bound parameter sets ...  ('2026-04-13 23:45:00', 113.23), ('2026-04-14 00:00:00', 123.64)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-05-10 15:47:06,885 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:47:08,023 - ERROR - ENTSO-E Fetcher failed for 20260411 to 20260414: Execution failed on sql 'INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (:timestamp, :price_eur_mwh)': (sqlite3.IntegrityError) UNIQUE constraint failed: day_ahead_prices.timestamp
+[SQL: INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (?, ?)]
+[parameters: [('2026-04-11 00:00:00', 147.15), ('2026-04-11 00:15:00', 136.26), ('2026-04-11 00:30:00', 129.36), ('2026-04-11 00:45:00', 123.29), ('2026-04-11 01:00:00', 127.94), ('2026-04-11 01:15:00', 123.91), ('2026-04-11 01:30:00', 115.78), ('2026-04-11 01:45:00', 114.9)  ... displaying 10 of 289 total bound parameter sets ...  ('2026-04-13 23:45:00', 113.23), ('2026-04-14 00:00:00', 123.64)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-05-10 15:47:16,024 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:47:16,629 - ERROR - ENTSO-E Fetcher failed for 20260411 to 20260414: Execution failed on sql 'INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (:timestamp, :price_eur_mwh)': (sqlite3.IntegrityError) UNIQUE constraint failed: day_ahead_prices.timestamp
+[SQL: INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (?, ?)]
+[parameters: [('2026-04-11 00:00:00', 147.15), ('2026-04-11 00:15:00', 136.26), ('2026-04-11 00:30:00', 129.36), ('2026-04-11 00:45:00', 123.29), ('2026-04-11 01:00:00', 127.94), ('2026-04-11 01:15:00', 123.91), ('2026-04-11 01:30:00', 115.78), ('2026-04-11 01:45:00', 114.9)  ... displaying 10 of 289 total bound parameter sets ...  ('2026-04-13 23:45:00', 113.23), ('2026-04-14 00:00:00', 123.64)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-05-10 15:47:32,630 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:47:33,315 - ERROR - ENTSO-E Fetcher failed for 20260411 to 20260414: Execution failed on sql 'INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (:timestamp, :price_eur_mwh)': (sqlite3.IntegrityError) UNIQUE constraint failed: day_ahead_prices.timestamp
+[SQL: INSERT INTO day_ahead_prices (timestamp, price_eur_mwh) VALUES (?, ?)]
+[parameters: [('2026-04-11 00:00:00', 147.15), ('2026-04-11 00:15:00', 136.26), ('2026-04-11 00:30:00', 129.36), ('2026-04-11 00:45:00', 123.29), ('2026-04-11 01:00:00', 127.94), ('2026-04-11 01:15:00', 123.91), ('2026-04-11 01:30:00', 115.78), ('2026-04-11 01:45:00', 114.9)  ... displaying 10 of 289 total bound parameter sets ...  ('2026-04-13 23:45:00', 113.23), ('2026-04-14 00:00:00', 123.64)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-05-10 15:55:07,257 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:55:09,146 - INFO - Inserted 289 new rows into day_ahead_prices.
+2026-05-10 15:55:09,147 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:55:09,447 - ERROR - ENTSO-E Fetcher failed for 20260411 to 20260414: 'DataFrame' object has no attribute 'to_frame'
+2026-05-10 15:55:11,449 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:55:12,190 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:55:12,535 - ERROR - ENTSO-E Fetcher failed for 20260411 to 20260414: 'DataFrame' object has no attribute 'to_frame'
+2026-05-10 15:55:18,050 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:55:19,754 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:55:20,075 - ERROR - ENTSO-E Fetcher failed for 20260411 to 20260414: 'DataFrame' object has no attribute 'to_frame'
+2026-05-10 15:55:22,077 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:55:22,803 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:55:23,148 - ERROR - ENTSO-E Fetcher failed for 20260411 to 20260414: 'DataFrame' object has no attribute 'to_frame'
+2026-05-10 15:58:15,560 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:58:17,949 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:58:18,455 - INFO - Inserted 288 new rows into actual_load.
+2026-05-10 15:58:18,456 - INFO - Fetching generation mix from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 15:58:20,479 - INFO - Fetching Open-Meteo data from 2026-04-11 to 2026-04-14
+2026-05-10 15:58:21,948 - ERROR - Weather Fetcher failed: 'list' object has no attribute 'Minutely15'
+2026-05-10 16:01:17,085 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 16:01:19,567 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 16:01:20,034 - INFO - Fetching generation mix from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 16:01:22,577 - INFO - Fetching Open-Meteo data from 2026-04-11 to 2026-04-14
+2026-05-10 16:01:22,587 - ERROR - Weather Fetcher failed: 'list' object has no attribute 'Minutely15'
+2026-05-10 16:03:38,740 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 16:03:40,679 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 16:03:41,541 - INFO - Fetching generation mix from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 16:03:43,388 - INFO - Fetching Open-Meteo data from 2026-04-11 to 2026-04-14
+2026-05-10 16:03:43,397 - ERROR - Weather Fetcher failed: 'list' object has no attribute 'Minutely15'
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     2026-05-10 17:03:55,679 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 17:03:58,504 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 17:03:59,107 - INFO - Fetching generation mix from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 17:04:01,510 - INFO - Fetching Open-Meteo data from 2026-04-11 to 2026-04-14
+2026-05-10 17:04:02,774 - ERROR - Weather Fetcher failed: 'list' object has no attribute 'Minutely15'
+2026-05-10 17:08:26,427 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 17:08:27,927 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 17:08:28,357 - INFO - Fetching generation mix from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 17:08:30,373 - INFO - Fetching Open-Meteo data from 2026-04-11 to 2026-04-14
+2026-05-10 17:08:30,383 - ERROR - Weather Fetcher failed: 'list' object has no attribute 'Minutely15'
+2026-05-10 17:15:59,345 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 17:16:01,353 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 17:16:01,698 - INFO - Fetching generation mix from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-10 17:16:03,287 - INFO - Fetching Open-Meteo data from 2026-04-11 to 2026-04-14
+2026-05-10 17:16:03,461 - INFO - Inserted 384 new rows into weather_data.
+2026-05-10 17:16:08,463 - INFO - Fetching DA prices from 2026-04-14 00:00:00+02:00 to 2026-04-17 00:00:00+02:00
+2026-05-10 17:16:09,635 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-10 17:16:09,635 - INFO - Fetching actual load from 2026-04-14 00:00:00+02:00 to 2026-04-17 00:00:00+02:00
+2026-05-10 17:16:10,280 - INFO - Inserted 288 new rows into actual_load.
+2026-05-10 17:16:10,281 - INFO - Fetching generation mix from 2026-04-14 00:00:00+02:00 to 2026-04-17 00:00:00+02:00
+2026-05-10 17:16:11,806 - INFO - Fetching Open-Meteo data from 2026-04-14 to 2026-04-17
+2026-05-10 17:16:13,229 - INFO - Inserted 288 new rows into weather_data.
+2026-05-10 17:16:18,231 - INFO - Fetching DA prices from 2026-04-17 00:00:00+02:00 to 2026-04-20 00:00:00+02:00
+2026-05-10 17:16:19,112 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-10 17:16:19,112 - INFO - Fetching actual load from 2026-04-17 00:00:00+02:00 to 2026-04-20 00:00:00+02:00
+2026-05-10 17:16:19,679 - INFO - Inserted 288 new rows into actual_load.
+2026-05-10 17:16:19,680 - INFO - Fetching generation mix from 2026-04-17 00:00:00+02:00 to 2026-04-20 00:00:00+02:00
+2026-05-10 17:16:21,160 - INFO - Fetching Open-Meteo data from 2026-04-17 to 2026-04-20
+2026-05-10 17:16:21,691 - INFO - Inserted 288 new rows into weather_data.
+2026-05-10 17:16:26,693 - INFO - Fetching DA prices from 2026-04-20 00:00:00+02:00 to 2026-04-23 00:00:00+02:00
+2026-05-10 17:16:27,461 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-10 17:16:27,462 - INFO - Fetching actual load from 2026-04-20 00:00:00+02:00 to 2026-04-23 00:00:00+02:00
+2026-05-10 17:16:28,028 - INFO - Inserted 288 new rows into actual_load.
+2026-05-10 17:16:28,029 - INFO - Fetching generation mix from 2026-04-20 00:00:00+02:00 to 2026-04-23 00:00:00+02:00
+2026-05-10 17:16:29,611 - INFO - Fetching Open-Meteo data from 2026-04-20 to 2026-04-23
+2026-05-10 17:16:30,358 - INFO - Inserted 288 new rows into weather_data.
+2026-05-10 17:16:35,360 - INFO - Fetching DA prices from 2026-04-23 00:00:00+02:00 to 2026-04-26 00:00:00+02:00
+2026-05-10 17:16:36,235 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-10 17:16:36,236 - INFO - Fetching actual load from 2026-04-23 00:00:00+02:00 to 2026-04-26 00:00:00+02:00
+2026-05-10 17:16:36,774 - INFO - Inserted 288 new rows into actual_load.
+2026-05-10 17:16:36,775 - INFO - Fetching generation mix from 2026-04-23 00:00:00+02:00 to 2026-04-26 00:00:00+02:00
+2026-05-10 17:16:38,399 - INFO - Fetching Open-Meteo data from 2026-04-23 to 2026-04-26
+2026-05-10 17:16:38,953 - INFO - Inserted 288 new rows into weather_data.
+2026-05-10 17:16:43,955 - INFO - Fetching DA prices from 2026-04-26 00:00:00+02:00 to 2026-04-29 00:00:00+02:00
+2026-05-10 17:16:44,728 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-10 17:16:44,729 - INFO - Fetching actual load from 2026-04-26 00:00:00+02:00 to 2026-04-29 00:00:00+02:00
+2026-05-10 17:16:45,229 - INFO - Inserted 288 new rows into actual_load.
+2026-05-10 17:16:45,230 - INFO - Fetching generation mix from 2026-04-26 00:00:00+02:00 to 2026-04-29 00:00:00+02:00
+2026-05-10 17:16:46,684 - INFO - Fetching Open-Meteo data from 2026-04-26 to 2026-04-29
+2026-05-10 17:16:47,158 - INFO - Inserted 288 new rows into weather_data.
+2026-05-10 17:16:52,160 - INFO - Fetching DA prices from 2026-04-29 00:00:00+02:00 to 2026-05-02 00:00:00+02:00
+2026-05-10 17:16:53,085 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-10 17:16:53,086 - INFO - Fetching actual load from 2026-04-29 00:00:00+02:00 to 2026-05-02 00:00:00+02:00
+2026-05-10 17:16:53,616 - INFO - Inserted 288 new rows into actual_load.
+2026-05-10 17:16:53,616 - INFO - Fetching generation mix from 2026-04-29 00:00:00+02:00 to 2026-05-02 00:00:00+02:00
+2026-05-10 17:16:55,119 - INFO - Fetching Open-Meteo data from 2026-04-29 to 2026-05-02
+2026-05-10 17:16:55,696 - INFO - Inserted 288 new rows into weather_data.
+2026-05-10 17:17:00,697 - INFO - Fetching DA prices from 2026-05-02 00:00:00+02:00 to 2026-05-05 00:00:00+02:00
+2026-05-10 17:17:01,849 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-10 17:17:01,849 - INFO - Fetching actual load from 2026-05-02 00:00:00+02:00 to 2026-05-05 00:00:00+02:00
+2026-05-10 17:17:02,703 - INFO - Inserted 288 new rows into actual_load.
+2026-05-10 17:17:02,704 - INFO - Fetching generation mix from 2026-05-02 00:00:00+02:00 to 2026-05-05 00:00:00+02:00
+2026-05-10 17:17:04,167 - INFO - Fetching Open-Meteo data from 2026-05-02 to 2026-05-05
+2026-05-10 17:17:04,684 - INFO - Inserted 288 new rows into weather_data.
+2026-05-10 17:17:09,688 - INFO - Fetching DA prices from 2026-05-05 00:00:00+02:00 to 2026-05-08 00:00:00+02:00
+2026-05-10 17:17:10,620 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-10 17:17:10,621 - INFO - Fetching actual load from 2026-05-05 00:00:00+02:00 to 2026-05-08 00:00:00+02:00
+2026-05-10 17:17:11,188 - INFO - Inserted 288 new rows into actual_load.
+2026-05-10 17:17:11,189 - INFO - Fetching generation mix from 2026-05-05 00:00:00+02:00 to 2026-05-08 00:00:00+02:00
+2026-05-10 17:17:12,659 - INFO - Fetching Open-Meteo data from 2026-05-05 to 2026-05-08
+2026-05-10 17:17:13,227 - INFO - Inserted 288 new rows into weather_data.
+2026-05-10 17:17:18,229 - INFO - Fetching DA prices from 2026-05-08 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-05-10 17:17:19,575 - INFO - Inserted 287 new rows into day_ahead_prices.
+2026-05-10 17:17:19,576 - INFO - Fetching actual load from 2026-05-08 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-05-10 17:17:20,228 - INFO - Inserted 244 new rows into actual_load.
+2026-05-10 17:17:20,229 - INFO - Fetching generation mix from 2026-05-08 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-05-10 17:17:21,565 - INFO - Fetching Open-Meteo data from 2026-05-08 to 2026-05-11
+2026-05-10 17:17:22,068 - INFO - Inserted 288 new rows into weather_data.
+2026-05-13 18:06:30,277 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-13 18:06:30,304 - INFO - Fetching DA prices from 2026-05-12 00:00:00+02:00 to 2026-05-14 00:00:00+02:00
+2026-05-13 18:06:33,106 - INFO - Inserted 192 new rows into day_ahead_prices.
+2026-05-13 18:06:33,107 - INFO - Fetching actual load from 2026-05-12 00:00:00+02:00 to 2026-05-14 00:00:00+02:00
+2026-05-13 18:06:34,352 - INFO - Inserted 151 new rows into actual_load.
+2026-05-13 18:06:34,352 - INFO - Fetching generation mix from 2026-05-12 00:00:00+02:00 to 2026-05-14 00:00:00+02:00
+2026-05-13 18:06:35,875 - INFO - Inserted 153 new rows into generation_mix.
+2026-05-13 18:06:35,876 - INFO - Fetching Open-Meteo data from 2026-05-12 to 2026-05-14
+2026-05-13 18:06:37,870 - INFO - Inserted 192 new rows into weather_data.
+2026-05-13 18:06:37,871 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-14 17:56:59,245 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-14 17:56:59,276 - INFO - Fetching DA prices from 2026-05-13 00:00:00+02:00 to 2026-05-15 00:00:00+02:00
+2026-05-14 17:57:03,631 - INFO - Inserted 96 new rows into day_ahead_prices.
+2026-05-14 17:57:03,631 - INFO - Fetching actual load from 2026-05-13 00:00:00+02:00 to 2026-05-15 00:00:00+02:00
+2026-05-14 17:57:04,221 - INFO - Inserted 96 new rows into actual_load.
+2026-05-14 17:57:04,222 - INFO - Fetching generation mix from 2026-05-13 00:00:00+02:00 to 2026-05-15 00:00:00+02:00
+2026-05-14 17:57:05,844 - INFO - Inserted 95 new rows into generation_mix.
+2026-05-14 17:57:05,845 - INFO - Fetching Open-Meteo data from 2026-05-13 to 2026-05-15
+2026-05-14 17:57:08,839 - INFO - Inserted 96 new rows into weather_data.
+2026-05-14 17:57:08,840 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-16 12:58:14,824 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-16 12:58:14,861 - INFO - Fetching DA prices from 2026-05-15 00:00:00+02:00 to 2026-05-18 00:00:00+02:00
+2026-05-16 12:58:17,465 - INFO - Inserted 96 new rows into day_ahead_prices.
+2026-05-16 12:58:17,465 - INFO - Fetching actual load from 2026-05-15 00:00:00+02:00 to 2026-05-18 00:00:00+02:00
+2026-05-16 12:58:18,367 - INFO - Inserted 131 new rows into actual_load.
+2026-05-16 12:58:18,367 - INFO - Fetching generation mix from 2026-05-15 00:00:00+02:00 to 2026-05-18 00:00:00+02:00
+2026-05-16 12:58:19,512 - INFO - Inserted 132 new rows into generation_mix.
+2026-05-16 12:58:19,513 - INFO - Fetching Open-Meteo data from 2026-05-15 to 2026-05-18
+2026-05-16 12:58:21,086 - INFO - Inserted 192 new rows into weather_data.
+2026-05-16 12:58:21,086 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-17 23:15:55,647 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-17 23:15:55,676 - INFO - Fetching DA prices from 2026-05-16 00:00:00+02:00 to 2026-05-19 00:00:00+02:00
+2026-05-17 23:15:59,972 - INFO - Inserted 96 new rows into day_ahead_prices.
+2026-05-17 23:15:59,973 - INFO - Fetching actual load from 2026-05-16 00:00:00+02:00 to 2026-05-19 00:00:00+02:00
+2026-05-17 23:16:01,698 - INFO - Inserted 119 new rows into actual_load.
+2026-05-17 23:16:01,699 - INFO - Fetching generation mix from 2026-05-16 00:00:00+02:00 to 2026-05-19 00:00:00+02:00
+2026-05-17 23:16:03,619 - INFO - Inserted 119 new rows into generation_mix.
+2026-05-17 23:16:03,621 - INFO - Fetching Open-Meteo data from 2026-05-16 to 2026-05-19
+2026-05-17 23:16:05,158 - INFO - Inserted 96 new rows into weather_data.
+2026-05-17 23:16:05,158 - INFO - === PIPELINE RUN COMPLETE ===
