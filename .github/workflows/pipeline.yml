@@ -34,6 +34,8 @@ jobs:
             sqlite-db-
             
       - name: Setting database correctly
+      	env:
+          ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
         run: |
           python data_pipeline/patch_generation.py
         
