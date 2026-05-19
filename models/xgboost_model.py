@@ -12,7 +12,9 @@ DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 def train_xgboost_baseline():
     print("Loading master features from database...")
     conn = sqlite3.connect(DB_PATH)
+    
     df = pd.read_sql_query("SELECT * FROM master_features", conn, parse_dates=['timestamp'], index_col='timestamp')
+    df=df.dropna()
     conn.close()
 
     # Sort strictly by index to prevent lookahead bias

@@ -176,3 +176,62 @@
 2026-05-17 23:16:03,621 - INFO - Fetching Open-Meteo data from 2026-05-16 to 2026-05-19
 2026-05-17 23:16:05,158 - INFO - Inserted 96 new rows into weather_data.
 2026-05-17 23:16:05,158 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-19 20:10:16,803 - INFO - Inserted 35 new rows into generation_mix.
+2026-05-19 20:10:22,533 - INFO - Inserted 21 new rows into generation_mix.
+2026-05-19 20:10:33,445 - INFO - Inserted 10 new rows into generation_mix.
+2026-05-19 20:23:42,870 - INFO - Fetching DA prices from 2024-05-20 00:00:00+02:00 to 2024-05-23 00:00:00+02:00
+2026-05-19 20:23:44,256 - INFO - Fetching actual load from 2024-05-20 00:00:00+02:00 to 2024-05-23 00:00:00+02:00
+2026-05-19 20:23:44,934 - INFO - Fetching generation mix from 2024-05-20 00:00:00+02:00 to 2024-05-23 00:00:00+02:00
+2026-05-19 20:23:47,253 - INFO - Fetching Open-Meteo data from 2024-05-20 to 2024-05-23
+2026-05-19 20:23:57,062 - INFO - Fetching DA prices from 2024-05-23 00:00:00+02:00 to 2024-05-26 00:00:00+02:00
+2026-05-19 20:23:57,656 - INFO - Fetching actual load from 2024-05-23 00:00:00+02:00 to 2024-05-26 00:00:00+02:00
+2026-05-19 20:23:57,973 - INFO - Fetching generation mix from 2024-05-23 00:00:00+02:00 to 2024-05-26 00:00:00+02:00
+2026-05-19 20:23:59,516 - INFO - Fetching Open-Meteo data from 2024-05-23 to 2024-05-26
+2026-05-19 20:24:04,919 - INFO - Fetching DA prices from 2024-05-26 00:00:00+02:00 to 2024-05-29 00:00:00+02:00
+2026-05-19 20:24:05,723 - INFO - Fetching actual load from 2024-05-26 00:00:00+02:00 to 2024-05-29 00:00:00+02:00
+2026-05-19 20:24:06,154 - INFO - Fetching generation mix from 2024-05-26 00:00:00+02:00 to 2024-05-29 00:00:00+02:00
+2026-05-19 20:24:07,820 - INFO - Fetching Open-Meteo data from 2024-05-26 to 2024-05-29
+2026-05-19 20:24:13,547 - INFO - Fetching DA prices from 2024-05-29 00:00:00+02:00 to 2024-06-01 00:00:00+02:00
+2026-05-19 20:24:14,411 - INFO - Fetching actual load from 2024-05-29 00:00:00+02:00 to 2024-06-01 00:00:00+02:00
+2026-05-19 20:24:15,062 - INFO - Fetching generation mix from 2024-05-29 00:00:00+02:00 to 2024-06-01 00:00:00+02:00
+2026-05-19 20:24:16,998 - INFO - Fetching Open-Meteo data from 2024-05-29 to 2024-06-01
+2026-05-19 20:24:22,529 - INFO - Fetching DA prices from 2024-06-01 00:00:00+02:00 to 2024-06-04 00:00:00+02:00
+2026-05-19 20:24:23,288 - INFO - Fetching actual load from 2024-06-01 00:00:00+02:00 to 2024-06-04 00:00:00+02:00
+2026-05-19 20:24:24,201 - INFO - Fetching generation mix from 2024-06-01 00:00:00+02:00 to 2024-06-04 00:00:00+02:00
+2026-05-19 20:24:26,212 - INFO - Fetching Open-Meteo data from 2024-06-01 to 2024-06-04
+2026-05-19 20:24:31,687 - INFO - Fetching DA prices from 2024-06-04 00:00:00+02:00 to 2024-06-07 00:00:00+02:00
+2026-05-19 20:24:32,270 - INFO - Fetching actual load from 2024-06-04 00:00:00+02:00 to 2024-06-07 00:00:00+02:00
+2026-05-19 20:24:32,619 - INFO - Fetching generation mix from 2024-06-04 00:00:00+02:00 to 2024-06-07 00:00:00+02:00
+2026-05-19 20:24:34,426 - INFO - Fetching Open-Meteo data from 2024-06-04 to 2024-06-07
+2026-05-19 20:24:39,845 - INFO - Fetching DA prices from 2024-06-07 00:00:00+02:00 to 2024-06-10 00:00:00+02:00
+2026-05-19 20:24:40,537 - INFO - Fetching actual load from 2024-06-07 00:00:00+02:00 to 2024-06-10 00:00:00+02:00
+2026-05-19 20:24:40,883 - INFO - Fetching generation mix from 2024-06-07 00:00:00+02:00 to 2024-06-10 00:00:00+02:00
+2026-05-19 20:24:42,799 - INFO - Fetching Open-Meteo data from 2024-06-07 to 2024-06-10
+2026-05-19 20:24:48,315 - INFO - Fetching DA prices from 2024-06-10 00:00:00+02:00 to 2024-06-13 00:00:00+02:00
+2026-05-19 20:24:48,935 - INFO - Fetching actual load from 2024-06-10 00:00:00+02:00 to 2024-06-13 00:00:00+02:00
+2026-05-19 20:24:49,263 - INFO - Fetching generation mix from 2024-06-10 00:00:00+02:00 to 2024-06-13 00:00:00+02:00
+2026-05-19 20:24:51,026 - INFO - Fetching Open-Meteo data from 2024-06-10 to 2024-06-13
+2026-05-19 20:24:56,710 - INFO - Fetching DA prices from 2024-06-13 00:00:00+02:00 to 2024-06-16 00:00:00+02:00
+2026-05-19 20:24:57,434 - INFO - Fetching actual load from 2024-06-13 00:00:00+02:00 to 2024-06-16 00:00:00+02:00
+2026-05-19 20:24:57,863 - INFO - Fetching generation mix from 2024-06-13 00:00:00+02:00 to 2024-06-16 00:00:00+02:00
+2026-05-19 20:24:59,666 - INFO - Fetching Open-Meteo data from 2024-06-13 to 2024-06-16
+2026-05-19 20:25:05,174 - INFO - Fetching DA prices from 2024-06-16 00:00:00+02:00 to 2024-06-19 00:00:00+02:00
+2026-05-19 20:25:05,916 - INFO - Fetching actual load from 2024-06-16 00:00:00+02:00 to 2024-06-19 00:00:00+02:00
+2026-05-19 20:25:06,404 - INFO - Fetching generation mix from 2024-06-16 00:00:00+02:00 to 2024-06-19 00:00:00+02:00
+2026-05-19 20:25:08,269 - INFO - Fetching Open-Meteo data from 2024-06-16 to 2024-06-19
+2026-05-19 20:25:14,149 - INFO - Fetching DA prices from 2024-06-19 00:00:00+02:00 to 2024-06-22 00:00:00+02:00
+2026-05-19 20:25:14,841 - INFO - Fetching actual load from 2024-06-19 00:00:00+02:00 to 2024-06-22 00:00:00+02:00
+2026-05-19 20:25:15,374 - INFO - Fetching generation mix from 2024-06-19 00:00:00+02:00 to 2024-06-22 00:00:00+02:00
+2026-05-19 20:25:18,167 - INFO - Fetching Open-Meteo data from 2024-06-19 to 2024-06-22
+2026-05-19 20:25:23,672 - INFO - Fetching DA prices from 2024-06-22 00:00:00+02:00 to 2024-06-25 00:00:00+02:00
+2026-05-19 20:25:25,561 - INFO - Fetching actual load from 2024-06-22 00:00:00+02:00 to 2024-06-25 00:00:00+02:00
+2026-05-19 20:25:26,128 - INFO - Fetching generation mix from 2024-06-22 00:00:00+02:00 to 2024-06-25 00:00:00+02:00
+2026-05-19 20:25:27,840 - INFO - Fetching Open-Meteo data from 2024-06-22 to 2024-06-25
+2026-05-19 20:25:33,328 - INFO - Fetching DA prices from 2024-06-25 00:00:00+02:00 to 2024-06-28 00:00:00+02:00
+2026-05-19 20:25:36,228 - INFO - Fetching actual load from 2024-06-25 00:00:00+02:00 to 2024-06-28 00:00:00+02:00
+2026-05-19 20:25:37,186 - INFO - Fetching generation mix from 2024-06-25 00:00:00+02:00 to 2024-06-28 00:00:00+02:00
+2026-05-19 20:25:38,779 - INFO - Fetching Open-Meteo data from 2024-06-25 to 2024-06-28
+2026-05-19 20:25:44,234 - INFO - Fetching DA prices from 2024-06-28 00:00:00+02:00 to 2024-07-01 00:00:00+02:00
+2026-05-19 20:25:46,337 - INFO - Fetching actual load from 2024-06-28 00:00:00+02:00 to 2024-07-01 00:00:00+02:00
+2026-05-19 20:25:46,703 - INFO - Fetching generation mix from 2024-06-28 00:00:00+02:00 to 2024-07-01 00:00:00+02:00
+2026-05-19 20:25:48,383 - INFO - Fetching Open-Meteo data from 2024-06-28 to 2024-07-01
