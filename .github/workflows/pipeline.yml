@@ -1,0 +1,50 @@
+name: EnergySignal Daily Pipeline
+
+on:
+  schedule:
+    # Runs at 12:00 UTC (5:30 PM IST / 14:00 Berlin) every day
+    - cron: '0 12 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Install Dependencies
+        run: |
+          pip install pandas xgboost scikit-learn sqlalchemy entsoe-py openmeteo-requests requests-cache retry-requests holidays
+          
+      - name: Restore SQLite Database Cache
+        uses: actions/cache@v3
+        with:
+          path: database/energy_market.db
+          key: sqlite-db-${{ github.run_id }}
+          restore-keys: |
+            sqlite-db-
+            
+      - name: Run Data Pipeline
+        env:
+          ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
+        run: |
+          python scripts/scheduler.py
+          python features/build_features.py
+          
+      - name: Train Model & Export Metrics
+        run: |
+          python models/xgboost_model.py
+          python scripts/export_metrics.py
+          
+      - name: Commit and Push Updated Models
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "action@github.com"
+          git add models/xgb_baseline.json models/metrics.json
+          git commit -m "Auto-update: Daily Model Retraining & Metrics" || echo "No changes to commit"
+          git push

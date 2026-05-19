@@ -1,0 +1,217 @@
+import sys
+import os
+import sqlite3
+import pandas as pd
+import pyqtgraph as pg
+import qdarktheme
+import xgboost as xgb
+from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
+                             QHBoxLayout, QLabel, QPushButton, QTextEdit, QFrame, QGridLayout)
+from PyQt6.QtCore import Qt, QThread, pyqtSignal
+from PyQt6.QtGui import QFont
+
+# Ensure the script can find your backend modules
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from llm.rag_analyst import analyze_market_condition
+from llm.llm_classifier import fetch_live_german_energy_news
+
+DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'database', 'energy_market.db')
+MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'models', 'xgb_baseline.json')
+
+class RAGWorker(QThread):
+    """
+    Background thread to fetch live news, pull live DB stats, and run the LLM without freezing the GUI.
+    """
+    update_signal = pyqtSignal(str)
+    finished_signal = pyqtSignal()
+
+    def run(self):
+        try:
+            self.update_signal.emit("📡 Fetching live news from SMARD.de...")
+            live_news = fetch_live_german_energy_news()
+            news_text = " | ".join(live_news) if live_news else "No major news today."
+            self.update_signal.emit(f"📰 Live Headlines: {news_text}\n")
+            
+            self.update_signal.emit("📊 Extracting latest grid physics from local database...")
+            conn = sqlite3.connect(DB_PATH)
+            df = pd.read_sql_query("SELECT * FROM master_features ORDER BY timestamp DESC LIMIT 1", conn)
+            conn.close()
+            
+	    if not df.empty:
+                # THE FIX: Calculate the load on the fly
+		first_row = int("0")
+		price = df['price_eur_mwh'].iloc[first_row]
+		wind = df['total_renewable'].iloc[first_row]
+		residual = df['residual_load'].iloc[first_row]
+		actual_load = wind + residual
+		real_scenario = (f"Current Market Reality: The price is {price:.2f} EUR/MWh. "
+		                f"Renewable generation is {wind:.2f} MW against a grid load of {actual_load:.2f} MW. "
+                     f"Latest Live News: {news_text}")
+
+            else:
+                real_scenario = f"Latest Live News: {news_text}"
+
+            self.update_signal.emit("🧠 Searching LanceDB for historical precedents and prompting Groq...\n")
+            
+            # Run the actual RAG analysis
+            analysis = analyze_market_condition(real_scenario)
+            self.update_signal.emit(f"=== 🤖 LIVE AI TRADING ANALYSIS ===\n\n{analysis}")
+            
+        except Exception as e:
+            self.update_signal.emit(f"\n❌ Error connecting to AI: {str(e)}")
+        finally:
+            self.finished_signal.emit()
+
+class TradingTerminal(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("EnergySignal AI - Institutional Terminal")
+        self.resize(1280, 850)
+
+        main_widget = QWidget()
+        self.setCentralWidget(main_widget)
+        layout = QVBoxLayout(main_widget)
+
+        # --- TOP: KPI Dashboard ---
+        kpi_frame = QFrame()
+        kpi_frame.setStyleSheet("QFrame { background-color: #1e1e2e; border-radius: 8px; }")
+        kpi_layout = QGridLayout(kpi_frame)
+        
+        # Labels
+        self.lbl_current_title = QLabel("Current Clearing Price")
+        self.lbl_current_price = QLabel("Loading...")
+        self.lbl_forecast_title = QLabel("XGBoost 24h Forecast")
+        self.lbl_forecast_price = QLabel("Loading...")
+        self.lbl_signal_title = QLabel("Algorithmic Signal")
+        self.lbl_signal = QLabel("Loading...")
+        
+        # Styling KPIs
+        title_font = QFont("Arial", 10, QFont.Weight.Bold)
+        value_font = QFont("Arial", 16, QFont.Weight.Bold)
+        
+        for lbl in [self.lbl_current_title, self.lbl_forecast_title, self.lbl_signal_title]:
+            lbl.setFont(title_font)
+            lbl.setStyleSheet("color: #8c8c8c;")
+            lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            
+        for lbl in [self.lbl_current_price, self.lbl_forecast_price, self.lbl_signal]:
+            lbl.setFont(value_font)
+            lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        kpi_layout.addWidget(self.lbl_current_title, 0, 0)
+        kpi_layout.addWidget(self.lbl_current_price, 1, 0)
+        kpi_layout.addWidget(self.lbl_forecast_title, 0, 1)
+        kpi_layout.addWidget(self.lbl_forecast_price, 1, 1)
+        kpi_layout.addWidget(self.lbl_signal_title, 0, 2)
+        kpi_layout.addWidget(self.lbl_signal, 1, 2)
+        
+        layout.addWidget(kpi_frame)
+
+        # --- MIDDLE: Chart and AI ---
+        middle_layout = QHBoxLayout()
+        
+        # Left: PyQtGraph Chart
+        chart_frame = QFrame()
+        chart_layout = QVBoxLayout(chart_frame)
+        self.plot_widget = pg.PlotWidget()
+        self.plot_widget.setTitle("DE-LU 15-Minute Resolution", color="w", size="12pt")
+        self.plot_widget.setLabel("left", "Price", units="€/MWh")
+        self.plot_widget.setLabel("bottom", "Time Steps (Last 7 Days)")
+        self.plot_widget.showGrid(x=True, y=True, alpha=0.3)
+        chart_layout.addWidget(self.plot_widget)
+        middle_layout.addWidget(chart_frame, stretch=2)
+
+        # Right: AI RAG Analyst
+        ai_frame = QFrame()
+        ai_layout = QVBoxLayout(ai_frame)
+        ai_label = QLabel("RAG Market Analyst")
+        ai_label.setFont(QFont("Arial", 12, QFont.Weight.Bold))
+        
+        self.ai_output = QTextEdit()
+        self.ai_output.setReadOnly(True)
+        self.ai_output.setText("System ready. Click below to fetch live news and generate AI context.")
+        
+        self.btn_run_ai = QPushButton("Run Live AI Analysis")
+        self.btn_run_ai.setMinimumHeight(45)
+        self.btn_run_ai.setStyleSheet("QPushButton { font-weight: bold; font-size: 14px; }")
+        self.btn_run_ai.clicked.connect(self.trigger_ai_analysis)
+
+        ai_layout.addWidget(ai_label)
+        ai_layout.addWidget(self.ai_output)
+        ai_layout.addWidget(self.btn_run_ai)
+        middle_layout.addWidget(ai_frame, stretch=1)
+
+        layout.addLayout(middle_layout)
+
+        # Initialize Data
+        self.load_data_and_kpis()
+
+    def load_data_and_kpis(self):
+        """Fetches SQLite data, plots chart, and runs live XGBoost inference."""
+        try:
+            conn = sqlite3.connect(DB_PATH)
+            # Fetch 7 days of 15-min data (672 rows)
+            query = "SELECT * FROM master_features ORDER BY timestamp DESC LIMIT 672"
+            df = pd.read_sql_query(query, conn, index_col='timestamp')
+            conn.close()
+
+            if df.empty:
+                self.plot_widget.setTitle("No data found. Run pipeline first.", color="r")
+                return
+
+            df = df.iloc[::-1] # Reverse to chronological
+            prices = df['price_eur_mwh'].values
+
+            # Plotting the Chart
+            self.plot_widget.clear()
+            pen = pg.mkPen(color='#00d2ff', width=2) 
+            self.plot_widget.plot(prices, pen=pen, fillLevel=min(prices), brush=(0, 210, 255, 50))
+            
+            # KPI Updates & XGBoost Inference
+            latest_price = prices[int("-1")]
+            self.lbl_current_price.setText(f"€{latest_price:.2f}")
+            
+            # Predict tomorrow using the very last row
+            latest_features = df.drop(columns=['target_price_24h_ahead'], errors='ignore').iloc[[-1]]
+            
+            model = xgb.XGBRegressor()
+            model.load_model(MODEL_PATH)
+            predicted_price = model.predict(latest_features)[int("0")]
+            
+            self.lbl_forecast_price.setText(f"€{predicted_price:.2f}")
+            
+            # Apply institutional trade logic
+            EXPECTED_MARGIN = 40.0
+            if (predicted_price > (latest_price + EXPECTED_MARGIN)) and (latest_price > 0):
+                self.lbl_signal.setText("BUY 10 MWh")
+                self.lbl_signal.setStyleSheet("color: #00ff00; font-weight: bold; font-size: 18px;")
+            else:
+                self.lbl_signal.setText("PRESERVE CAPITAL")
+                self.lbl_signal.setStyleSheet("color: #ffaa00; font-weight: bold; font-size: 18px;")
+
+        except Exception as e:
+            self.plot_widget.setTitle(f"Backend Error: {e}", color="r")
+
+    def trigger_ai_analysis(self):
+        """Starts the RAG LLM query in a background thread."""
+        self.btn_run_ai.setEnabled(False)
+        self.ai_output.clear()
+        
+        self.worker = RAGWorker()
+        self.worker.update_signal.connect(self.append_ai_text)
+        self.worker.finished_signal.connect(self.ai_finished)
+        self.worker.start()
+
+    def append_ai_text(self, text):
+        """Appends text line-by-line so it feels like a live stream."""
+        self.ai_output.append(text)
+        
+    def ai_finished(self):
+        self.btn_run_ai.setEnabled(True)
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    qdarktheme.setup_theme("dark", corner_shape="sharp")
+    window = TradingTerminal()
+    window.show()
+    sys.exit(app.exec())
