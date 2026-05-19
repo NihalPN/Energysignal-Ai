@@ -33,8 +33,8 @@ jobs:
         env:
           ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
         run: |
-          python scripts/scheduler.py
-          python features/build_features.py
+          python data_pipeline/scheduler.py
+          python feature/build_feature.py
           
       - name: Train Model & Export Metrics
         run: |
