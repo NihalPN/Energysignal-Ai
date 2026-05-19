@@ -20,6 +20,10 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install pandas xgboost scikit-learn sqlalchemy entsoe-py openmeteo-requests requests-cache retry-requests holidays python-dotenv tenacity 
+      
+      - name: Setting database
+        run: |
+          python database/schema.py
           
       - name: Restore SQLite Database Cache
         uses: actions/cache@v3
@@ -29,6 +33,7 @@ jobs:
           restore-keys: |
             sqlite-db-
             
+      
       - name: Run Data Pipeline
         env:
           ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
