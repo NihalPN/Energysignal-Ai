@@ -19,7 +19,7 @@ jobs:
           
       - name: Install Dependencies
         run: |
-          pip install pandas xgboost scikit-learn sqlalchemy entsoe-py openmeteo-requests requests-cache retry-requests holidays
+          pip install pandas xgboost scikit-learn sqlalchemy entsoe-py openmeteo-requests requests-cache retry-requests holidays python-dotenv 
           
       - name: Restore SQLite Database Cache
         uses: actions/cache@v3
