@@ -50,6 +50,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
-          git add models/xgb_baseline.json models/metrics.json
+          git add -f models/xgb_baseline.json models/metrics.json
           git commit -m "Auto-update: Daily Model Retraining & Metrics" || echo "No changes to commit"
           git push
