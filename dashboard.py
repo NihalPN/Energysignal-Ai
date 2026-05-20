@@ -10,6 +10,42 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
+import streamlit.components.v1 as components
+
+def live_berlin_clock():
+    """Renders a live ticking clock in the browser using zero server resources."""
+    clock_html = """
+    <div style="display: flex; justify-content: flex-end; align-items: center; padding: 5px;">
+        <div style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: #4CAF50; background-color: #1E1E1E; padding: 8px 15px; border-radius: 5px; border: 1px solid #333;">
+            🇩🇪 Berlin: <span id="berlin-time"></span>
+        </div>
+    </div>
+
+    <script>
+    function updateClock() {
+        const now = new Date();
+        // Force the time to calculate based on the Europe/Berlin timezone
+        const options = { 
+            timeZone: 'Europe/Berlin', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit', 
+            hour12: false 
+        };
+        const formatter = new Intl.DateTimeFormat('en-GB', options);
+        document.getElementById('berlin-time').innerText = formatter.format(now);
+    }
+    // Update the clock every 1000 milliseconds (1 second)
+    setInterval(updateClock, 1000);
+    updateClock(); // Run immediately on load
+    </script>
+    """
+    # Render the HTML component
+    components.html(clock_html, height=60)
+
+
+
+
 # --- LLM Imports ---
 try:
     from llm.rag_analyst_cloud import analyze_market_condition
