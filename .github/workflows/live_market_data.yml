@@ -1,0 +1,49 @@
+name: Hourly Live Market Data Pipeline
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs automatically at the top of every hour
+  workflow_dispatch:      # Allows you to trigger it manually via the GitHub UI
+
+jobs:
+  fetch-and-sync-data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: '12.3'
+        cache: 'pip'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Install only what the data script needs to save time/resources
+        pip install pandas numpy requests
+
+    - name: Run ENTSO-E Data Fetcher
+      run: |
+        # FIXME: Replace 'scheduler.py' with the exact name of your data fetching script
+        python data_pipeline/scheduler.py 
+
+    - name: Commit and Push Live Database
+      run: |
+        git config --global user.name "GitHub Action Bot"
+        git config --global user.email "action@github.com"
+        
+        # Force add the database file to bypass any .gitignore rules
+        git add -f database/energy_market.db
+        
+        # Commit only if data actually changed, preventing empty commit errors
+        git commit -m "Auto-sync: Hourly Live ENTSO-E Data Update" || echo "No new data found"
+        git push origin main
+
+    - name: Trigger Render Deploy Hook
+      if: success()
+      run: |
+        # This forces Render to pull the newly pushed database immediately
+        curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
