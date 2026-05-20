@@ -4,8 +4,9 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+
 
 async def async_telegram_push(message: str):
     """Phase 4: True asynchronous, non-blocking push notification."""
@@ -23,6 +24,7 @@ async def async_telegram_push(message: str):
             response.raise_for_status()
         except Exception as e:
             print(f"Async Alert Failed: {e}")
+
 
 def send_alert(message: str):
     """Wrapper to trigger the async task from synchronous scripts."""

@@ -1,11 +1,11 @@
 import sqlite3
 import pandas as pd
 
-DB_PATH = 'database/energy_market.db'
+DB_PATH = "database/energy_market.db"
 conn = sqlite3.connect(DB_PATH)
 
 print("=== RAW TABLE ROW COUNTS ===")
-tables = ['day_ahead_prices', 'generation_mix', 'actual_load', 'weather_data']
+tables = ["day_ahead_prices", "generation_mix", "actual_load", "weather_data"]
 for t in tables:
     # The fix:.iloc gets the first row and first column of the result
     count = pd.read_sql(f"SELECT COUNT(*) as c FROM {t}", conn).iloc
