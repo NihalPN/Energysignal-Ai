@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 
 # --- LLM Imports ---
 try:
-    from llm.rag_analyst import analyze_market_condition
+    from llm.rag_analyst_cloud import analyze_market_condition
     from llm.llm_classifier import fetch_live_german_energy_news
 except ImportError:
     st.error("Error importing LLM modules. Ensure 'llm/rag_analyst.py' and 'llm/llm_classifier.py' exist.")
@@ -166,8 +166,7 @@ else:
             st.info("Generating future predictions...")
 
     # === TAB 3: LIVE MARKET ===
-    # === TAB 3: LIVE MARKET ===
-# === TAB 3: LIVE MARKET ===
+
     with tab_live:
         st.subheader("Today's Clearing Prices")
         
@@ -175,8 +174,6 @@ else:
         today_str = datetime.now(berlin_tz).strftime('%Y-%m-%d')
         
         try:
-            # Safely check if the database has any rows matching today's date string
-            # This avoids KeyError crashes if the date index doesn't exist yet
             today_mask = df_full.index.astype(str).str.startswith(today_str)
             today_df = df_full[today_mask].copy()
             
@@ -185,7 +182,9 @@ else:
                 display_df.columns = ["Time Block", "Clearing Price (€/MWh)"]
                 display_df['Time Block'] = display_df['Time Block'].dt.strftime('%H:%M')
                 
-                st.dataframe(display_df.style.map(color_profit, subset=["Clearing Price (€/MWh)"]), use_container_width=True, hide_index=True)
+                # THE FIX: Removed the .style.map() logic that was silently crashing Streamlit
+                st.dataframe(display_df, use_container_width=True, hide_index=True)
+                
             else:
                 st.info(f"No prices cleared for today ({today_str}) yet. Ensure the database has been updated.")
                 
