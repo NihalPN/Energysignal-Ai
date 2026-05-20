@@ -167,15 +167,27 @@ else:
 
     # === TAB 3: LIVE MARKET ===
     # === TAB 3: LIVE MARKET ===
+# === TAB 3: LIVE MARKET ===
     with tab_live:
         st.subheader("Today's Clearing Prices")
         
         berlin_tz = ZoneInfo("Europe/Berlin")
         today_str = datetime.now(berlin_tz).strftime('%Y-%m-%d')
         
-        # FIX: Use Pandas native .loc slicing instead of string conversion
         try:
-            today_df = df_full.loc[today_str].copy()
-        except KeyError:
-            # If the date doesn't exist in the index at all, return empty
-            today_df = pd.DataFrame()
+            # Safely check if the database has any rows matching today's date string
+            # This avoids KeyError crashes if the date index doesn't exist yet
+            today_mask = df_full.index.astype(str).str.startswith(today_str)
+            today_df = df_full[today_mask].copy()
+            
+            if not today_df.empty:
+                display_df = today_df[['price_eur_mwh']].reset_index()
+                display_df.columns = ["Time Block", "Clearing Price (€/MWh)"]
+                display_df['Time Block'] = display_df['Time Block'].dt.strftime('%H:%M')
+                
+                st.dataframe(display_df.style.map(color_profit, subset=["Clearing Price (€/MWh)"]), use_container_width=True, hide_index=True)
+            else:
+                st.info(f"No prices cleared for today ({today_str}) yet. Ensure the database has been updated.")
+                
+        except Exception as e:
+            st.error(f"Error loading live data: {e}")
