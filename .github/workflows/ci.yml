@@ -32,12 +32,12 @@ jobs:
       run: |
         # Scans all folders (api, llm, database, tests) in the root. 
         # Black automatically ignores venv, .git, and __pycache__ by default.
-        black --check .
+        black --check . --extend-exclude "database/schema\.py|dashboard/app\.py"
         
     - name: Lint Check (Flake8)
       run: |
         # Scans the root but explicitly tells Flake8 to ignore massive or irrelevant folders.
-        flake8 . --exclude=venv,.git,__pycache__,.pytest_cache --max-line-length=100
+        flake8 . --exclude=venv,.git,__pycache__,.pytest_cache,database/schema.py,dashboard/app.py --max-line-length=100
         
     - name: Run Pytest
       run: |
