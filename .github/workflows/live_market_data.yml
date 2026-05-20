@@ -44,12 +44,12 @@ jobs:
         # Commit the new data
         git commit -m "Auto-sync: Hourly Live ENTSO-E Data Update" || echo "No new data found"
         
-        # THE FIX: Pull the latest code from GitHub before pushing!
-        git pull --rebase origin main
+        # THE FIX: Add --autostash to temporarily hide the log/pycache files during the pull
+        git pull --rebase --autostash origin main
         
         # Finally, push the merged result
         git push origin main
-
+        
     - name: Trigger Render Deploy Hook
       if: success()
       run: |
