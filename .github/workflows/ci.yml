@@ -12,10 +12,10 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     
     - name: Set up Python 3.10
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
         
@@ -23,16 +23,23 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pytest black flake8
+        
+        # NOTE: If your project needs specific libraries to run (like pandas, requests, etc.), 
+        # uncomment the line below to install them on the GitHub server so your tests don't fail.
         # pip install -r requirements.txt
         
     - name: Format Check (Black)
       run: |
-        black --check src/ tests/
+        # Scans all folders (api, llm, database, tests) in the root. 
+        # Black automatically ignores venv, .git, and __pycache__ by default.
+        black --check .
         
     - name: Lint Check (Flake8)
       run: |
-        flake8 src/ tests/ --max-line-length=100
+        # Scans the root but explicitly tells Flake8 to ignore massive or irrelevant folders.
+        flake8 . --exclude=venv,.git,__pycache__,.pytest_cache --max-line-length=100
         
     - name: Run Pytest
       run: |
+        # Executes all tests inside your dedicated tests/ folder
         pytest tests/ -v
