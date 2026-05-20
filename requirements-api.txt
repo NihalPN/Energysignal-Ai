@@ -7,3 +7,8 @@ scikit-learn==1.8.0
 pydantic==2.13.4
 streamlit>=1.36.0
 tzdata
+requests          
+groq              
+openai            
+langchain     
+beautifulsoup4  
