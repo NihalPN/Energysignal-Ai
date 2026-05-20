@@ -73,6 +73,10 @@ def generate_forecast(payload: FeaturePayload):
         raise HTTPException(status_code=503, detail="Model weights not yet deployed.")
     try:
         input_data = pd.DataFrame([payload.model_dump()])
+        # Drop the column if it's there but the model doesn't need it for inference
+        if 'price_eur_mwh' in input_data.columns:
+            input_data = input_data.drop(columns=['price_eur_mwh'])
+            
         prediction = float(model.predict(input_data))
         return {
             "predicted_price_eur_mwh": round(prediction, 2),
