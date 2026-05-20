@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python 3.10
       uses: actions/setup-python@v5
       with:
-        python-version: '12.3'
+        python-version: '3.10'
         cache: 'pip'
 
     - name: Install Dependencies
@@ -26,7 +26,10 @@ jobs:
         pip install pandas numpy requests
 
     - name: Run ENTSO-E Data Fetcher
+      env:
+          ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
       run: |
+        
         # FIXME: Replace 'scheduler.py' with the exact name of your data fetching script
         python data_pipeline/scheduler.py 
 
