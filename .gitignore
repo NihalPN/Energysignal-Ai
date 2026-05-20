@@ -6,9 +6,6 @@ pycache/
 .env
 
 #Databases and Big Data
-database/*.db
-database/rag_store/
-*.csv
 
 
 #Machine Learning Models
