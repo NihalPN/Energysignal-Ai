@@ -38,11 +38,16 @@ jobs:
         git config --global user.name "GitHub Action Bot"
         git config --global user.email "action@github.com"
         
-        # Force add the database file to bypass any .gitignore rules
+        # Force add the database file
         git add -f database/energy_market.db
         
-        # Commit only if data actually changed, preventing empty commit errors
+        # Commit the new data
         git commit -m "Auto-sync: Hourly Live ENTSO-E Data Update" || echo "No new data found"
+        
+        # THE FIX: Pull the latest code from GitHub before pushing!
+        git pull --rebase origin main
+        
+        # Finally, push the merged result
         git push origin main
 
     - name: Trigger Render Deploy Hook
