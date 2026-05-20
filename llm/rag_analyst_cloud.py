@@ -13,7 +13,7 @@ embeddings_model = HuggingFaceInferenceAPIEmbeddings(
 groq_api_key = os.environ.get("GROQ_API_KEY")
 llm = ChatGroq(
     temperature=0.2, 
-    model_name="llama3-70b-8192", 
+    model_name="openai/gpt-oss-120b", 
     api_key=groq_api_key
 )
 
