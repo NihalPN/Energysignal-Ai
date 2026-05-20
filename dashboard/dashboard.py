@@ -5,6 +5,7 @@ import numpy as np
 import xgboost as xgb
 import json
 import os
+from zoneinfo import ZoneInfo
 from datetime import datetime, timedelta
 
 # --- 1. CONFIGURATION ---
@@ -135,7 +136,9 @@ else:
     # === TAB 3: LIVE MARKET ===
     with tab_live:
         st.subheader("Today's Clearing Prices")
-        today_str = datetime.now().strftime('%Y-%m-%d')
+        # Ensure you are using the same timezone as your data pipeline
+        berlin_tz = ZoneInfo("Europe/Berlin")
+        today_str = datetime.now(berlin_tz).strftime('%Y-%m-%d')
         today_df = df_full[df_full.index.astype(str).str.startswith(today_str)].copy()
         
         if not today_df.empty:
