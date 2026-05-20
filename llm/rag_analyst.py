@@ -78,13 +78,13 @@ def analyze_market_condition(current_condition: str):
     Our vector database retrieved these mathematically similar historical events for reference:
     {historical_evidence}
     
-    Based ONLY on this historical evidence, explain in 3 short, punchy sentences what is likely to happen to the electricity price today and why. Do not use pleasantries.
+    Based ONLY on this historical evidence, explain what is likely to happen to the electricity price today and why. Do not use pleasantries.
     """
     
     try:
         chat_completion = client.chat.completions.create(
             messages=[{"role": "user", "content": prompt}],
-            model="openai/gpt-oss-20b",
+            model="openai/gpt-oss-120b",
             temperature=0.2
         )
         
