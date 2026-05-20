@@ -21,7 +21,11 @@ def build_and_store_master_features():
     )
 
     print("Merging master feature dataset...")
-    master_df = tech_df.join(ren_df, how="inner").join(weather_df, how="inner")
+    master_df = tech_df.join(ren_df, how="outer").join(weather_df, how="outer")
+
+    # THE FIX 2: Forward-fill the missing actuals (Generation/Load) into the afternoon
+    # limit=32 means it will safely carry forward up to 8 hours of missing data, no more.
+    master_df = master_df.ffill(limit=32)
 
     # Define the Target Variable: The price 24 hours (96 steps) into the future
     master_df["target_price_24h_ahead"] = master_df["price_eur_mwh"].shift(-96)

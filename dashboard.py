@@ -43,7 +43,6 @@ def live_berlin_clock():
     updateClock(); // Run immediately on load
     </script>
     """
-    # Render the HTML component
     components.html(clock_html, height=60)
 
 
@@ -69,7 +68,7 @@ def load_model():
     return model
 
 
-@st.cache_data(ttl=60)  # Refreshes database reads every 60 seconds
+@st.cache_data(ttl=60)
 def fetch_master_features():
     if not os.path.exists(DB_PATH):
         return pd.DataFrame()
@@ -83,7 +82,7 @@ def fetch_master_features():
     )
     conn.close()
 
-    # THE FIX: Force the naive time into UTC, then convert to Berlin time
+    # Force the naive time into UTC, then convert to Berlin time
     if df.index.tz is None:
         df.index = df.index.tz_localize('UTC')
         
@@ -92,7 +91,7 @@ def fetch_master_features():
     return df.sort_index()
 
 
-@st.cache_data(ttl=3600, show_spinner="🤖 AI Analyst is reading the market...")  # Runs only once per hour
+@st.cache_data(ttl=3600, show_spinner="🤖 AI Analyst is reading the market...")
 def get_hourly_ai_analysis(latest_price, wind_generation, residual_load):
     try:
         live_news = fetch_live_german_energy_news()
@@ -110,7 +109,7 @@ def get_hourly_ai_analysis(latest_price, wind_generation, residual_load):
 
 
 def color_profit(val):
-    """Pandas styler to color table cells like PyQt"""
+    """Pandas styler to color table cells"""
     if isinstance(val, str) and "INVEST" in val:
         return 'color: #00ff00; font-weight: bold;'
     elif isinstance(val, (int, float)) and val < 0:
@@ -133,10 +132,8 @@ else:
     latest_price = float(history_df['price_eur_mwh'].tail(1).item())
 
     live_df = df_full.tail(96)
-    # Drop target for inference
     X_live = live_df.drop(columns=['target_price_24h_ahead'], errors='ignore')
 
-    # Ensure all required columns are present for XGBoost
     if 'price_eur_mwh' in model.feature_names_in_ and 'price_eur_mwh' not in X_live.columns:
         X_live['price_eur_mwh'] = history_df['price_eur_mwh'].tail(96).values
 
@@ -156,7 +153,6 @@ else:
 
     # === TAB 1: STRATEGY & AI ===
     with tab_strategy:
-        # KPIs
         col1, col2, col3 = st.columns(3)
         with col1:
             st.metric(label="Last Cleared Price", value=f"€{latest_price:.2f}")
@@ -167,12 +163,10 @@ else:
 
         st.divider()
 
-        # Chart & AI Layout
         chart_col, ai_col = st.columns([2, 1])
 
         with chart_col:
             st.subheader("Market Timeline (7 Days + 24h Forecast)")
-            # Combine history and future for a seamless chart
             hist_series = history_df['price_eur_mwh']
             future_dates = [hist_series.index[-1] + timedelta(minutes=15 * i) for i in range(1, 97)]
             future_series = pd.Series(predictions, index=future_dates)
@@ -182,12 +176,9 @@ else:
 
         with ai_col:
             st.subheader("🤖 RAG Market Analyst")
-
-            # Extract current grid physics for the LLM
             latest_wind = float(history_df['total_renewable'].tail(1).item()) if 'total_renewable' in history_df else 0.0
             latest_residual = float(history_df['residual_load'].tail(1).item()) if 'residual_load' in history_df else 0.0
 
-            # Call the cached LLM function
             ai_text = get_hourly_ai_analysis(latest_price, latest_wind, latest_residual)
             st.markdown(f"> {ai_text}")
 
@@ -224,13 +215,11 @@ else:
     # === TAB 3: LIVE MARKET ===
     with tab_live:
         berlin_tz = ZoneInfo("Europe/Berlin")
-        # Get the actual date object in Berlin, not a string
         today_date = datetime.now(berlin_tz).date()
 
         st.subheader(f"Today's Clearing Prices ({today_date})")
 
         try:
-            # THE FIX: Filter safely using Pandas datetime properties, not strings!
             today_mask = df_full.index.date == today_date
             today_df = df_full[today_mask].copy()
 

@@ -46,13 +46,17 @@ def safe_insert(df, table_name):
 
 
 @retry(wait=wait_exponential(multiplier=2, min=2, max=30), stop=stop_after_attempt(5))
-@retry(wait=wait_exponential(multiplier=2, min=2, max=30), stop=stop_after_attempt(5))
+
 def fetch_and_store_entsoe_data(start_date: str, end_date: str):
     start = pd.Timestamp(start_date, tz=TZ)
     end = pd.Timestamp(end_date, tz=TZ)
+    
+    # NEW: Define a strict cutoff for "Actuals" so we don't ask for the future
+    now_berlin = pd.Timestamp.now(tz=TZ)
+    actuals_end = end if end < now_berlin else now_berlin
 
     try:
-        # 1. Fetch Day-Ahead Prices (Uses DE_LU)
+        # 1. Fetch Day-Ahead Prices (Uses DE_LU) - Can pull the future
         logging.info(f"Fetching DA prices from {start} to {end}")
         da_prices = client.query_day_ahead_prices("DE_LU", start=start, end=end)
 
@@ -67,9 +71,9 @@ def fetch_and_store_entsoe_data(start_date: str, end_date: str):
         df_prices.index = df_prices.index.strftime("%Y-%m-%d %H:%M:%S")
         safe_insert(df_prices, "day_ahead_prices")
 
-        # 2. Fetch Actual Load (Uses DE_LU)
-        logging.info(f"Fetching actual load from {start} to {end}")
-        load = client.query_load("DE_LU", start=start, end=end)
+        # 2. Fetch Actual Load (Uses DE_LU) - STRICTLY up to 'actuals_end'
+        logging.info(f"Fetching actual load from {start} to {actuals_end}")
+        load = client.query_load("DE_LU", start=start, end=actuals_end)
 
         if isinstance(load, pd.Series):
             df_load = load.to_frame(name="load_mw")
@@ -82,9 +86,9 @@ def fetch_and_store_entsoe_data(start_date: str, end_date: str):
         df_load.index = df_load.index.strftime("%Y-%m-%d %H:%M:%S")
         safe_insert(df_load, "actual_load")
 
-        # 3. Fetch Generation by Type (Uses DE Country Code)
-        logging.info(f"Fetching generation mix from {start} to {end}")
-        generation = client.query_generation("DE", start=start, end=end)
+        # 3. Fetch Generation by Type (Uses DE Country Code) - STRICTLY up to 'actuals_end'
+        logging.info(f"Fetching generation mix from {start} to {actuals_end}")
+        generation = client.query_generation("DE", start=start, end=actuals_end)
 
         if isinstance(generation.columns, pd.MultiIndex):
             first_level = int("0")
