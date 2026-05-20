@@ -3,18 +3,23 @@ import sqlite3
 import pandas as pd
 import numpy as np
 import xgboost as xgb
-import json
 import os
-from zoneinfo import ZoneInfo
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
+
+# --- LLM Imports ---
+try:
+    from llm.rag_analyst import analyze_market_condition
+    from llm.llm_classifier import fetch_live_german_energy_news
+except ImportError:
+    st.error("Error importing LLM modules. Ensure 'llm/rag_analyst.py' and 'llm/llm_classifier.py' exist.")
 
 # --- 1. CONFIGURATION ---
 st.set_page_config(page_title="EnergySignal AI Terminal", layout="wide", page_icon="⚡")
 DB_PATH = 'database/energy_market.db'
 MODEL_PATH = 'models/xgb_baseline.json'
-ANALYSIS_PATH = 'models/latest_analysis.json'
 
-# --- 2. SHARED DATA LOGIC ---
+# --- 2. SHARED DATA & AI LOGIC ---
 @st.cache_resource
 def load_model():
     model = xgb.XGBRegressor()
@@ -22,7 +27,7 @@ def load_model():
         model.load_model(MODEL_PATH)
     return model
 
-@st.cache_data(ttl=60) # Refreshes every 60 seconds automatically
+@st.cache_data(ttl=60) # Refreshes database reads every 60 seconds
 def fetch_master_features():
     if not os.path.exists(DB_PATH):
         return pd.DataFrame()
@@ -30,6 +35,22 @@ def fetch_master_features():
     df = pd.read_sql_query("SELECT * FROM master_features", conn, index_col='timestamp', parse_dates=['timestamp'])
     conn.close()
     return df.sort_index()
+
+@st.cache_data(ttl=3600, show_spinner="🤖 AI Analyst is reading the market...") # Runs only once per hour
+def get_hourly_ai_analysis(latest_price, wind_generation, residual_load):
+    try:
+        live_news = fetch_live_german_energy_news()
+        news_text = " | ".join(live_news) if live_news else "No major news today."
+        
+        actual_load = wind_generation + residual_load
+        real_scenario = (f"Current Market Reality: The price is {latest_price:.2f} EUR/MWh. "
+                         f"Renewable generation is {wind_generation:.2f} MW against a grid load of {actual_load:.2f} MW. "
+                         f"Latest Live News: {news_text}")
+                         
+        analysis = analyze_market_condition(real_scenario)
+        return analysis
+    except Exception as e:
+        return f"AI Analysis temporarily unavailable: {str(e)}"
 
 def color_profit(val):
     """Pandas styler to color table cells like PyQt"""
@@ -46,15 +67,20 @@ df_full = fetch_master_features()
 model = load_model()
 
 if df_full.empty:
-    st.warning("Database is empty or missing. Please run the data pipeline.")
+    st.warning("Database is empty or missing. Please ensure your data pipeline has run and the database is pushed to GitHub.")
 else:
-    # --- MATH & PREDICTIONS (Same as PyQt DataWorker) ---
+    # --- MATH & PREDICTIONS ---
     history_df = df_full.tail(672) # Last 7 days
     latest_price = float(history_df['price_eur_mwh'].tail(1).item())
     
     live_df = df_full.tail(96)
     # Drop target for inference
     X_live = live_df.drop(columns=['target_price_24h_ahead'], errors='ignore') 
+    
+    # Ensure all required columns are present for XGBoost
+    if 'price_eur_mwh' in model.feature_names_in_ and 'price_eur_mwh' not in X_live.columns:
+        X_live['price_eur_mwh'] = history_df['price_eur_mwh'].tail(96).values
+
     predictions = model.predict(X_live)
     target_price_24h_now = float(predictions[-1])
     
@@ -93,29 +119,30 @@ else:
             future_series = pd.Series(predictions, index=future_dates)
             
             chart_df = pd.DataFrame({"Historical": hist_series, "Forecast": future_series})
-            st.line_chart(chart_df, color=["#00d2ff", "#ffaa00"]) # Blue history, Orange future
+            st.line_chart(chart_df, color=["#00d2ff", "#ffaa00"]) 
             
         with ai_col:
             st.subheader("🤖 RAG Market Analyst")
-            if os.path.exists(ANALYSIS_PATH):
-                with open(ANALYSIS_PATH, 'r') as f:
-                    ai_data = json.load(f)
-                st.caption(f"Last updated: {ai_data.get('timestamp', 'Unknown')}")
-                st.markdown(f"> {ai_data.get('analysis', '')}")
-            else:
-                st.info("Waiting for background worker to generate analysis...")
+            
+            # Extract current grid physics for the LLM
+            latest_wind = float(history_df['total_renewable'].tail(1).item()) if 'total_renewable' in history_df else 0.0
+            latest_residual = float(history_df['residual_load'].tail(1).item()) if 'residual_load' in history_df else 0.0
+            
+            # Call the cached LLM function
+            ai_text = get_hourly_ai_analysis(latest_price, latest_wind, latest_residual)
+            st.markdown(f"> {ai_text}")
 
     # === TAB 2: PREDICTIONS ===
     with tab_preds:
         st.subheader("Model Predictions & Profit Opportunities (Next 24 Hours)")
         
-        # Build the dataframe like the PyQt Table
         pred_data = []
         hist_length = len(history_df)
         
         for i, pred_price in enumerate(predictions):
             block_start = history_df.index[-1] + timedelta(minutes=15 * (i + 1))
             today_price_index = hist_length - 96 + i
+            
             if today_price_index >= 0:
                 today_price = float(history_df['price_eur_mwh'].iloc[today_price_index])
                 expected_profit = float(pred_price) - today_price
@@ -129,16 +156,20 @@ else:
                     "Predicted Price (€/MWh)": status
                 })
         
-        pred_df = pd.DataFrame(pred_data)
-        # Apply the color styling and display
-        st.dataframe(pred_df.style.map(color_profit, subset=["Predicted Price (€/MWh)"]), use_container_width=True, hide_index=True)
+        if pred_data:
+            pred_df = pd.DataFrame(pred_data)
+            st.dataframe(pred_df.style.map(color_profit, subset=["Predicted Price (€/MWh)"]), use_container_width=True, hide_index=True)
+        else:
+            st.info("Generating future predictions...")
 
     # === TAB 3: LIVE MARKET ===
     with tab_live:
         st.subheader("Today's Clearing Prices")
-        # Ensure you are using the same timezone as your data pipeline
+        
+        # Uses standard library zoneinfo instead of pytz
         berlin_tz = ZoneInfo("Europe/Berlin")
         today_str = datetime.now(berlin_tz).strftime('%Y-%m-%d')
+        
         today_df = df_full[df_full.index.astype(str).str.startswith(today_str)].copy()
         
         if not today_df.empty:
@@ -148,4 +179,4 @@ else:
             
             st.dataframe(display_df.style.map(color_profit, subset=["Clearing Price (€/MWh)"]), use_container_width=True, hide_index=True)
         else:
-            st.info("No prices cleared for today yet.")
+            st.info(f"No prices cleared for today ({today_str}) yet. Ensure the database has been updated.")
