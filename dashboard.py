@@ -80,6 +80,7 @@ def fetch_master_features():
     )
     conn.close()
 
+    # Streamlit inherently creates timezone-aware indexes here
     if df.index.tz is None:
         df.index = df.index.tz_localize('UTC')
         
@@ -87,7 +88,6 @@ def fetch_master_features():
     return df.sort_index()
 
 
-# Restored the TTL Cache to strictly limit API calls and protect your credits
 @st.cache_data(ttl=3600, show_spinner="🤖 AI Analyst is reading the market...")
 def get_hourly_ai_analysis(latest_price, wind_generation, residual_load):
     try:
@@ -108,8 +108,10 @@ def get_hourly_ai_analysis(latest_price, wind_generation, residual_load):
 def color_profit(val):
     if isinstance(val, str) and "INVEST" in val:
         return 'color: #00ff00; font-weight: bold;'
-    elif isinstance(val, str) and "Error:" in val:
+    elif isinstance(val, str) and "Err:" in val:
         return 'color: #ffaa00;' 
+    elif isinstance(val, str) and "Negative" in val:
+        return 'color: #ff4444;'
     elif isinstance(val, (int, float)) and val < 0:
         return 'color: #ff4444;'
     return ''
@@ -125,11 +127,21 @@ model = load_model()
 if df_full.empty:
     st.warning("Database is empty or missing. Please ensure your data pipeline has run.")
 else:
-    # --- MATH & PREDICTIONS ---
-    history_df = df_full.tail(672)  # Last 7 days
-    latest_price = float(history_df['price_eur_mwh'].tail(1).item())
+    # --- TIME ANCHORS ---
+    berlin_now = pd.Timestamp.now(tz="Europe/Berlin")
+    today_midnight = berlin_now.replace(hour=0, minute=0, second=0, microsecond=0)
+    yesterday_midnight = today_midnight - pd.Timedelta(days=1)
 
-    live_df = df_full.tail(96)
+    # Filter out the Day-Ahead Leak strictly for Tab 1 so it stays anchored to the physical present
+    df_current = df_full[df_full.index <= berlin_now]
+    if df_current.empty: 
+        df_current = df_full
+
+    # --- TAB 1 MATH (7-Day Analyst View) ---
+    history_df = df_current.tail(672)  # Last 7 days
+    latest_price = float(history_df['price_eur_mwh'].iloc[-1])
+
+    live_df = df_current.tail(96)
     X_live = live_df.drop(columns=['target_price_24h_ahead'], errors='ignore')
 
     if 'price_eur_mwh' in model.feature_names_in_ and 'price_eur_mwh' not in X_live.columns:
@@ -147,9 +159,9 @@ else:
         signal_text = "🟠 PRESERVE CAPITAL"
 
     # --- TABS LAYOUT ---
-    tab_strategy, tab_preds, tab_live = st.tabs(["Strategy & AI Analyst", "XGBoost 24h Forecasts", "Live Market Monitor"])
+    tab_strategy, tab_preds, tab_live = st.tabs(["Strategy & AI Analyst", "Xg Boost Forecast Monitor", "Live Market Monitor"])
 
-    # === TAB 1: STRATEGY & AI ===
+    # === TAB 1: STRATEGY & AI (UNCHANGED 7-DAY VIEW) ===
     with tab_strategy:
         col1, col2, col3 = st.columns(3)
         last_dt = history_df.index[-1].strftime('%Y-%m-%d %H:%M')
@@ -188,7 +200,6 @@ else:
             st.line_chart(chart_df, color=["#00d2ff", "#ff00ff", "#ffaa00"])
 
         with ai_col:
-            # Restored automatic, cached RAG call
             st.subheader("🤖 RAG Market Analyst")
             latest_wind = float(history_df['total_renewable'].tail(1).item()) if 'total_renewable' in history_df else 0.0
             latest_residual = float(history_df['residual_load'].tail(1).item()) if 'residual_load' in history_df else 0.0
@@ -196,86 +207,88 @@ else:
             ai_text = get_hourly_ai_analysis(latest_price, latest_wind, latest_residual)
             st.markdown(f"> {ai_text}")
 
-    # === TAB 2: PREDICTIONS & CROSS-CHECK ===
+    # === TAB 2: PREDICTIONS & CROSS-CHECK (3-DAY HORIZON) ===
     with tab_preds:
-        st.subheader("Model Cross-Check (Past 24h) & Profit Opportunities (Next 24h)")
+        st.subheader("Execution  & AI Cross-Check")
 
-        pred_data = []
+        # 1. Generate 3-Day Horizon Data
+        feature_df = df_full[df_full.index >= yesterday_midnight].copy()
+        X_to_predict = feature_df.drop(columns=["target_price_24h_ahead"], errors="ignore")
+        raw_preds = model.predict(X_to_predict)
         
-        if len(history_df) >= 192:
-            past_actuals = history_df.tail(96)
-            X_past = history_df.iloc[-192:-96].drop(columns=['target_price_24h_ahead'], errors='ignore')
-            
-            try:
-                past_preds = model.predict(X_past)
-                
-                st.markdown("#### 📉 Visual Cross-Check: AI Prediction vs Actual Market (Past 24h)")
-                cross_check_df = pd.DataFrame({
-                    "Actual Price": past_actuals['price_eur_mwh'].values,
-                    "AI Prediction": past_preds
-                }, index=past_actuals.index)
-                
-                st.line_chart(cross_check_df, color=["#ffffff", "#00ff00"])
-                st.divider()
+        pred_dates = X_to_predict.index + pd.Timedelta(days=1)
+        pred_df = pd.DataFrame({"AI Forecast": raw_preds}, index=pred_dates)
+        
+        actuals_df = df_full[df_full.index >= today_midnight][["price_eur_mwh"]]
+        actuals_df.rename(columns={"price_eur_mwh": "Actual Price"}, inplace=True)
+        
+        combined_df = pred_df.join(actuals_df, how="outer")
+        end_of_d2 = today_midnight + pd.Timedelta(days=3) - pd.Timedelta(minutes=15)
+        combined_df = combined_df[(combined_df.index >= today_midnight) & (combined_df.index <= end_of_d2)]
 
-                for i in range(96):
-                    dt = past_actuals.index[i]
-                    actual = float(past_actuals['price_eur_mwh'].iloc[i])
-                    pred = float(past_preds[i])
-                    error = pred - actual
-                    
-                    status = f"€{pred:.2f} (Actual: €{actual:.2f} | Error: €{error:+.2f})"
-                    pred_data.append({
-                        "Delivery Time Block": dt.strftime('%Y-%m-%d %H:%M') + " (Cross-Check)",
-                        "Predicted Price (€/MWh)": status
-                    })
-            except Exception as e:
-                st.warning(f"Could not calculate historical cross-check: {e}")
+        # 2. Render Graph
+        st.markdown("#### 📉 Visual Tracker: AI Prediction vs Actual Market")
+        # Streamlit automatically handles the NaNs natively, drawing the actual line as far as it goes, 
+        # while the forecast line maps all the way out to D+2.
+        st.line_chart(combined_df[["Actual Price", "AI Forecast"]], color=["#ffffff", "#00ff00"])
+        st.divider()
 
-        hist_length = len(history_df)
-        for i, pred_price in enumerate(predictions):
-            block_start = history_df.index[-1] + timedelta(minutes=15 * (i + 1))
-            today_price_index = hist_length - 96 + i
+        # 3. Render Table
+        pred_data = []
+        for dt, row in combined_df.iterrows():
+            time_label = dt.strftime('%b %d, %H:%M')
+            act = row["Actual Price"]
+            pred = row["AI Forecast"]
 
-            if today_price_index >= 0 and today_price_index < hist_length:
-                today_price = float(history_df['price_eur_mwh'].iloc[today_price_index])
-                expected_profit = float(pred_price) - today_price
+            if pd.notna(act):
+                # Has Cleared Actual Market Data
+                if pd.notna(pred):
+                    err = pred - act
+                    status = f"€{pred:.2f} (Actual: €{act:.2f} | Err: €{err:+.2f})"
+                else:
+                    status = f"Actual: €{act:.2f} (No AI Forecast)"
+                time_label += " (Cross-Check)"
+            else:
+                # Future Unknown (Pure Forecast)
+                if pd.notna(pred):
+                    expected_profit = pred - latest_price
+                    if pred < 0:
+                        status = f"€{pred:.2f} (Negative)"
+                    elif expected_profit > EXPECTED_MARGIN and latest_price > 0:
+                        status = f"€{pred:.2f} | INVEST (+€{expected_profit:.2f})"
+                    else:
+                        status = f"€{pred:.2f} (Spread: €{expected_profit:.2f})"
+                else:
+                    status = "Awaiting Weather Data..."
+                time_label += " (Forecast)"
 
-                status = f"€{pred_price:.2f}"
-                if expected_profit > EXPECTED_MARGIN and today_price > 0:
-                    status = f"€{pred_price:.2f} | INVEST (+€{expected_profit:.2f})"
-
-                pred_data.append({
-                    "Delivery Time Block": block_start.strftime('%Y-%m-%d %H:%M') + " (Forecast)",
-                    "Predicted Price (€/MWh)": status
-                })
+            pred_data.append({
+                "Delivery Time Block": time_label,
+                "Predicted Price (€/MWh)": status
+            })
 
         if pred_data:
             st.markdown("#### 📊 Execution Tape (Spread & Signals)")
-            pred_df = pd.DataFrame(pred_data)
-            st.dataframe(pred_df.style.map(color_profit, subset=["Predicted Price (€/MWh)"]), use_container_width=True, hide_index=True)
-        else:
-            st.info("Generating future predictions...")
+            pred_df_table = pd.DataFrame(pred_data)
+            st.dataframe(pred_df_table.style.map(color_profit, subset=["Predicted Price (€/MWh)"]), use_container_width=True, hide_index=True)
 
-    # === TAB 3: LIVE MARKET ===
+    # === TAB 3: LIVE MARKET MONITOR ===
     with tab_live:
-        berlin_tz = ZoneInfo("Europe/Berlin")
-        today_date = datetime.now(berlin_tz).date()
-
-        st.subheader(f"Today's Clearing Prices ({today_date})")
+        st.subheader("Live Market Horizon")
 
         try:
-            today_mask = df_full.index.date == today_date
-            today_df = df_full[today_mask].copy()
+            # Grab everything from today midnight onwards to show Today + Tomorrow's leak
+            live_market_df = df_full[df_full.index >= today_midnight].copy()
+            live_market_df = live_market_df.dropna(subset=["price_eur_mwh"])
 
-            if not today_df.empty:
-                display_df = today_df[['price_eur_mwh']].reset_index()
+            if not live_market_df.empty:
+                display_df = live_market_df[['price_eur_mwh']].reset_index()
                 display_df.columns = ["Delivery Time Block", "Clearing Price (€/MWh)"]
-                display_df['Delivery Time Block'] = display_df['Delivery Time Block'].dt.strftime('%Y-%m-%d %H:%M')
+                display_df['Delivery Time Block'] = display_df['Delivery Time Block'].dt.strftime('%b %d - %H:%M')
 
                 st.dataframe(display_df, use_container_width=True, hide_index=True)
             else:
-                st.info(f"No prices cleared for today ({today_date}) yet. Ensure the database has been updated.")
+                st.info("No prices cleared yet. Ensure the database has been updated.")
 
         except Exception as e:
             st.error(f"Error loading live data: {e}")

@@ -26,7 +26,6 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
 from PyQt6.QtGui import QFont, QColor
 
-# Ensure the script can find your backend modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from llm.rag_analyst import analyze_market_condition
 from llm.llm_classifier import fetch_live_german_energy_news
@@ -40,8 +39,8 @@ MODEL_PATH = os.path.join(
 
 
 class DataWorker(QThread):
-    """Background thread to train a fresh XGBoost model so predictions are never outdated."""
-    data_loaded = pyqtSignal(object, object, object, float, float, str, str, str)
+    """Calculates independent timelines for Tab 1 (7-Day) and Tab 2 (3-Day)."""
+    data_loaded = pyqtSignal(object) 
     error_signal = pyqtSignal(str)
 
     def run(self):
@@ -60,7 +59,6 @@ class DataWorker(QThread):
 
             df_full = df_full.sort_index()
 
-            # Train a fresh production model
             train_df = df_full.dropna(subset=["target_price_24h_ahead"])
             X_train = train_df.drop(columns=["target_price_24h_ahead"])
             y_train = train_df["target_price_24h_ahead"]
@@ -68,25 +66,28 @@ class DataWorker(QThread):
             model = xgb.XGBRegressor(n_estimators=100, learning_rate=0.05, max_depth=5)
             model.fit(X_train, y_train)
 
-            # Predict the next 24 hours using the last 96 rows
-            live_df = df_full.tail(96)
-            X_live = live_df.drop(columns=["target_price_24h_ahead"])
-            predictions = model.predict(X_live)
+            # THE FIX: .tz_localize(None) strips the timezone awareness so it can safely 
+            # be compared to the timezone-naive datetime64[ns] index from SQLite.
+            berlin_now = pd.Timestamp.now(tz="Europe/Berlin").tz_localize(None)
+            today_midnight = berlin_now.floor("D")
 
-            # Get the last 7 days for the chart
-            history_df = df_full.tail(672)
-            historical_prices = history_df["price_eur_mwh"].values
+            # ==========================================
+            # TAB 1 LOGIC: 7 Days Past + 24 Hours Future
+            # ==========================================
+            df_current = df_full[df_full.index <= berlin_now]
+            if df_current.empty: 
+                df_current = df_full
 
-            # Force the model to predict the historical period so we can cross-check it
-            X_history = history_df.drop(columns=["target_price_24h_ahead"])
-            historical_predictions = model.predict(X_history)
+            history_df = df_current.tail(672) # Last 7 days
+            t1_hist_prices = history_df["price_eur_mwh"].values
+            t1_hist_preds = model.predict(history_df.drop(columns=["target_price_24h_ahead"], errors="ignore"))
 
-            latest_price = float(history_df["price_eur_mwh"].tail(1).item())
-            latest_time = history_df.index.max()
-            latest_time_str = latest_time.strftime("%Y-%m-%d %H:%M")
+            live_df = df_current.tail(96)
+            t1_future_prices = model.predict(live_df.drop(columns=["target_price_24h_ahead"], errors="ignore"))
 
-            last_index = len(predictions) - 1
-            target_price_24h_now = float(predictions.item(last_index))
+            latest_price = float(history_df["price_eur_mwh"].iloc[-1])
+            latest_time_str = history_df.index[-1].strftime("%Y-%m-%d %H:%M")
+            target_price_24h_now = float(t1_future_prices[-1])
 
             EXPECTED_MARGIN = 40.0
             current_spread = target_price_24h_now - latest_price
@@ -98,22 +99,48 @@ class DataWorker(QThread):
                 signal_text = "PRESERVE CAPITAL"
                 signal_color = "#ffaa00"
 
-            self.data_loaded.emit(
-                historical_prices,
-                historical_predictions,
-                predictions,
-                latest_price,
-                target_price_24h_now,
-                signal_text,
-                signal_color,
-                latest_time_str,
-            )
+            # ==========================================
+            # TAB 2 LOGIC: 3-Day Forward Horizon 
+            # (Today, Tomorrow, Day After Tomorrow)
+            # ==========================================
+            yesterday_midnight = today_midnight - pd.Timedelta(days=1)
+            
+            # Extract features to build predictions starting precisely at Today Midnight
+            feature_df = df_full[df_full.index >= yesterday_midnight].copy()
+            X_to_predict = feature_df.drop(columns=["target_price_24h_ahead"], errors="ignore")
+            raw_preds = model.predict(X_to_predict)
+            
+            # Shift index forward 24h to align predictions with their target time
+            pred_dates = X_to_predict.index + pd.Timedelta(days=1)
+            pred_df = pd.DataFrame({"ai_forecast": raw_preds}, index=pred_dates)
+
+            actuals_df = df_full[df_full.index >= today_midnight][["price_eur_mwh"]]
+
+            combined_df = pred_df.join(actuals_df, how="outer")
+            end_of_d2 = today_midnight + pd.Timedelta(days=3) - pd.Timedelta(minutes=15)
+            combined_df = combined_df[(combined_df.index >= today_midnight) & (combined_df.index <= end_of_d2)]
+
+            payload = {
+                "t1_hist_prices": t1_hist_prices,
+                "t1_hist_preds": t1_hist_preds,
+                "t1_future_prices": t1_future_prices,
+                "latest_price": latest_price,
+                "latest_time_str": latest_time_str,
+                "target_price_24h_now": target_price_24h_now,
+                "sig_text": signal_text,
+                "sig_color": signal_color,
+                "t2_timestamps": combined_df.index,
+                "t2_actuals": combined_df["price_eur_mwh"].values,
+                "t2_forecasts": combined_df["ai_forecast"].values,
+            }
+
+            self.data_loaded.emit(payload)
 
         except Exception as e:
             self.error_signal.emit(str(e))
 
+
 class RAGWorker(QThread):
-    """Background thread to fetch live news, pull live DB stats, and run the LLM."""
     update_signal = pyqtSignal(str)
     finished_signal = pyqtSignal()
 
@@ -126,7 +153,6 @@ class RAGWorker(QThread):
 
             self.update_signal.emit("📊 Extracting latest grid physics from local database...")
             conn = sqlite3.connect(DB_PATH)
-            
             df = pd.read_sql_query(
                 "SELECT * FROM master_features WHERE total_renewable IS NOT NULL AND residual_load IS NOT NULL ORDER BY timestamp DESC LIMIT 1", 
                 conn
@@ -147,10 +173,7 @@ class RAGWorker(QThread):
             else:
                 real_scenario = f"Latest Live News: {news_text}"
 
-            self.update_signal.emit(
-                "🧠 Searching LanceDB for historical precedents and prompting Groq...\n"
-            )
-
+            self.update_signal.emit("🧠 Searching LanceDB for historical precedents and prompting Groq...\n")
             analysis = analyze_market_condition(real_scenario)
             self.update_signal.emit(f"=== 🤖 LIVE AI TRADING ANALYSIS ===\n\n{analysis}")
 
@@ -174,7 +197,7 @@ class TradingTerminal(QMainWindow):
         self.tab_live = QWidget()
 
         self.tabs.addTab(self.tab_strategy, "Strategy & AI Analyst")
-        self.tabs.addTab(self.tab_predictions, "XGBoost 24h Forecasts")
+        self.tabs.addTab(self.tab_predictions, "3-Day Trading Horizon")
         self.tabs.addTab(self.tab_live, "Live Market Monitor")
 
         self.setup_strategy_tab()
@@ -188,7 +211,6 @@ class TradingTerminal(QMainWindow):
         self.timer.timeout.connect(self.update_live_clock)
         self.timer.start(1000)
 
-        # Fire off the background thread
         self.data_worker = DataWorker()
         self.data_worker.data_loaded.connect(self.on_data_loaded)
         self.data_worker.error_signal.connect(self.on_data_error)
@@ -203,7 +225,7 @@ class TradingTerminal(QMainWindow):
 
         self.lbl_current_title = QLabel("Last Cleared Price")
         self.lbl_current_price = QLabel("Loading...")
-        self.lbl_forecast_title = QLabel("XGBoost 24h Forecast")
+        self.lbl_forecast_title = QLabel("XGBoost Target Forecast")
         self.lbl_forecast_price = QLabel("Loading...")
         self.lbl_signal_title = QLabel("Algorithmic Signal")
         self.lbl_signal = QLabel("Loading...")
@@ -233,7 +255,7 @@ class TradingTerminal(QMainWindow):
         chart_frame = QFrame()
         chart_layout = QVBoxLayout(chart_frame)
         self.plot_widget = pg.PlotWidget()
-        self.plot_widget.setTitle("Training Live Model & Fetching Data...", color="y", size="12pt")
+        self.plot_widget.setTitle("DE-LU 15-Minute Resolution", color="w", size="12pt")
         self.plot_widget.setLabel("left", "Price", units="€/MWh")
         self.plot_widget.setLabel("bottom", "Time Steps")
         self.plot_widget.addLegend()
@@ -249,15 +271,11 @@ class TradingTerminal(QMainWindow):
         self.ai_output = QTextEdit()
         self.ai_output.setReadOnly(True)
         self.ai_output.setStyleSheet("QTextEdit { font-size: 14px; line-height: 1.5; }")
-        self.ai_output.setText(
-            "System ready. Click below to fetch live news and generate AI context."
-        )
+        self.ai_output.setText("System ready. Click below to fetch live news and generate AI context.")
 
         self.btn_run_ai = QPushButton("Run Live AI Analysis")
         self.btn_run_ai.setMinimumHeight(45)
-        self.btn_run_ai.setStyleSheet(
-            "QPushButton { font-weight: bold; font-size: 14px; background-color: #4169E1; }"
-        )
+        self.btn_run_ai.setStyleSheet("QPushButton { font-weight: bold; font-size: 14px; background-color: #4169E1; }")
         self.btn_run_ai.clicked.connect(self.trigger_ai_analysis)
 
         ai_layout.addWidget(ai_label)
@@ -268,41 +286,33 @@ class TradingTerminal(QMainWindow):
         layout.addLayout(middle_layout)
 
     def setup_predictions_tab(self):
-        """Sets up the table displaying all 96 XGBoost predictions with INVEST highlights and a Cross-Check Graph."""
         layout = QVBoxLayout(self.tab_predictions)
 
-        self.lbl_pred_header = QLabel("Model Cross-Check (Past 24h) & Profit Opportunities (Next 24h)")
+        self.lbl_pred_header = QLabel("3-Day Execution Tape & AI Cross-Check")
         self.lbl_pred_header.setFont(QFont("Arial", 18, QFont.Weight.Bold))
         self.lbl_pred_header.setStyleSheet("color: #ffffff; margin-bottom: 5px;")
         
-        # --- NEW: Visual Cross Check PlotWidget ---
         self.cross_check_plot = pg.PlotWidget()
-        self.cross_check_plot.setTitle("📉 Visual Cross-Check: AI Prediction vs Actual Market (Past 24h)", color="w", size="12pt")
+        self.cross_check_plot.setTitle("📉 Visual Tracker: AI Prediction vs Actual Market", color="w", size="12pt")
         self.cross_check_plot.setLabel("left", "Price", units="€/MWh")
-        self.cross_check_plot.setLabel("bottom", "Past 24h (15-min blocks)")
+        self.cross_check_plot.setLabel("bottom", "Today, Tomorrow, Day After Tomorrow (15m Blocks)")
         self.cross_check_plot.addLegend()
         self.cross_check_plot.showGrid(x=True, y=True, alpha=0.3)
-        self.cross_check_plot.setFixedHeight(280) # Keep it compact so the table still fits well
-        # ------------------------------------------
+        self.cross_check_plot.setFixedHeight(280)
 
         self.pred_table = QTableWidget()
         self.pred_table.setColumnCount(2)
-        self.pred_table.setHorizontalHeaderLabels(
-            ("Delivery Time Block", "Predicted Price (€/MWh)")
-        )
+        self.pred_table.setHorizontalHeaderLabels(("Delivery Time Block", "Predicted Price (€/MWh)"))
         self.pred_table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
         self.pred_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
         self.pred_table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
-
         self.pred_table.setStyleSheet(
-            """
-            QTableWidget { font-size: 16px; background-color: #1e1e2e; color: #ffffff; gridline-color: #333333; }
-            QHeaderView::section { background-color: #282a36; font-weight: bold; font-size: 14px; padding: 5px; border: 1px solid #444; }
-        """
+            "QTableWidget { font-size: 16px; background-color: #1e1e2e; color: #ffffff; gridline-color: #333333; } "
+            "QHeaderView::section { background-color: #282a36; font-weight: bold; font-size: 14px; padding: 5px; border: 1px solid #444; }"
         )
 
         layout.addWidget(self.lbl_pred_header)
-        layout.addWidget(self.cross_check_plot) # Insert the new graph above the table
+        layout.addWidget(self.cross_check_plot)
         layout.addWidget(self.pred_table)
 
     def setup_live_tab(self):
@@ -315,151 +325,116 @@ class TradingTerminal(QMainWindow):
 
         self.price_table = QTableWidget()
         self.price_table.setColumnCount(2)
-        self.price_table.setHorizontalHeaderLabels(("Time Block", "Clearing Price (€/MWh)"))
+        self.price_table.setHorizontalHeaderLabels(("Date & Time Block", "Actual Clearing Price (€/MWh)"))
         self.price_table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
         self.price_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
         self.price_table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.price_table.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
-
         self.price_table.setStyleSheet(
-            """
-            QTableWidget { font-size: 16px; background-color: #1e1e2e; color: #ffffff; gridline-color: #333333; }
-            QHeaderView::section { background-color: #282a36; font-weight: bold; font-size: 14px; padding: 5px; border: 1px solid #444; }
-        """
+            "QTableWidget { font-size: 16px; background-color: #1e1e2e; color: #ffffff; gridline-color: #333333; } "
+            "QHeaderView::section { background-color: #282a36; font-weight: bold; font-size: 14px; padding: 5px; border: 1px solid #444; }"
         )
 
         layout.addWidget(self.lbl_live_time)
         layout.addWidget(self.price_table)
 
-    def on_data_loaded(
-        self,
-        hist_prices,
-        hist_preds,
-        future_prices,
-        latest_price,
-        target_price_24h_now,
-        sig_text,
-        sig_color,
-        latest_time_str,
-    ):
-        # === UPDATE MAIN TAB 1 GRAPH ===
+    def on_data_loaded(self, payload):
+        # === TAB 1: MACRO GRAPH (Restored to 7-Day + 24h) ===
         self.plot_widget.clear()
-
-        # 1. Plot the True Historical Prices (Solid Cyan)
-        x_hist = np.arange(len(hist_prices))
-        pen_hist = pg.mkPen(color="#00d2ff", width=2)
-        self.plot_widget.plot(x_hist, hist_prices, pen=pen_hist, name="Actual Prices (7 Days)")
-
-        # 2. Plot the Model's Historical Predictions (Dotted Magenta)
-        pen_hist_pred = pg.mkPen(color="#ff55ff", width=2, style=Qt.PenStyle.DotLine)
-        self.plot_widget.plot(x_hist, hist_preds, pen=pen_hist_pred, name="Model Cross-Check")
-
-        # 3. Plot the Future Forecast (Dashed Orange)
-        x_future = np.arange(len(hist_prices), len(hist_prices) + len(future_prices))
-        pen_future = pg.mkPen(color="#ffaa00", width=2, style=Qt.PenStyle.DashLine)
-        self.plot_widget.plot(
-            x_future, future_prices, pen=pen_future, name="XGBoost Forecast (Next 24h)"
-        )
-
-        self.plot_widget.setTitle("DE-LU 15-Minute Resolution", color="w", size="12pt")
-
-        self.lbl_current_title.setText(f"Price at {latest_time_str}")
-        self.lbl_current_price.setText(f"€{latest_price:.2f}")
-
-        latest_timestamp = pd.to_datetime(latest_time_str)
-        target_delivery_time = latest_timestamp + pd.Timedelta(hours=24)
-
-        self.lbl_forecast_title.setText(
-            f"Forecast ({target_delivery_time.strftime('%H:%M')} Tomorrow)"
-        )
-        self.lbl_forecast_price.setText(f"€{target_price_24h_now:.2f}")
-
-        self.lbl_signal.setText(sig_text)
-        self.lbl_signal.setStyleSheet(f"color: {sig_color}; font-weight: bold; font-size: 18px;")
-
-        # === UPDATE TAB 2 PREDICTIONS & CROSS-CHECK GRAPH ===
-        past_blocks = 96
-        total_rows = past_blocks + len(future_prices)
-        self.pred_table.setRowCount(total_rows)
         
-        recent_hist_preds = hist_preds[-past_blocks:]
-        recent_hist_actuals = hist_prices[-past_blocks:]
+        t1_hist = payload["t1_hist_prices"]
+        t1_preds = payload["t1_hist_preds"]
+        t1_future = payload["t1_future_prices"]
         
-        # --- NEW: Plot the Micro Cross-Check Graph ---
+        x_hist = np.arange(len(t1_hist))
+        self.plot_widget.plot(x_hist, t1_hist, pen=pg.mkPen("#00d2ff", width=2), name="Actual Prices (7 Days)")
+        self.plot_widget.plot(x_hist, t1_preds, pen=pg.mkPen("#ff55ff", width=2, style=Qt.PenStyle.DotLine), name="Model Cross-Check")
+
+        x_future = np.arange(len(t1_hist), len(t1_hist) + len(t1_future))
+        self.plot_widget.plot(x_future, t1_future, pen=pg.mkPen("#ffaa00", width=2, style=Qt.PenStyle.DashLine), name="XGBoost Forecast (Next 24h)")
+
+        self.lbl_current_title.setText(f"Price at {payload['latest_time_str']}")
+        self.lbl_current_price.setText(f"€{payload['latest_price']:.2f}")
+
+        target_time = pd.to_datetime(payload['latest_time_str']) + pd.Timedelta(hours=24)
+        self.lbl_forecast_title.setText(f"Forecast ({target_time.strftime('%H:%M')} Tomorrow)")
+        self.lbl_forecast_price.setText(f"€{payload['target_price_24h_now']:.2f}")
+
+        self.lbl_signal.setText(payload["sig_text"])
+        self.lbl_signal.setStyleSheet(f"color: {payload['sig_color']}; font-weight: bold; font-size: 18px;")
+
+        # === TAB 2: 3-DAY HORIZON GRAPH & TABLE ===
         self.cross_check_plot.clear()
-        x_cross = np.arange(past_blocks)
-        pen_actual = pg.mkPen(color="#ffffff", width=2) # White line for Actuals
-        pen_pred = pg.mkPen(color="#00ff00", width=2)   # Bright Green for Predictions
         
-        self.cross_check_plot.plot(x_cross, recent_hist_actuals, pen=pen_actual, name="Actual Price")
-        self.cross_check_plot.plot(x_cross, recent_hist_preds, pen=pen_pred, name="AI Prediction")
-        # ---------------------------------------------
+        t2_ts = payload["t2_timestamps"]
+        t2_act = payload["t2_actuals"]
+        t2_fcast = payload["t2_forecasts"]
+        x_cross = np.arange(len(t2_ts))
 
-        row_idx = 0
+        # Add midnight separators for Today, Tomorrow, D+2
+        self.cross_check_plot.addItem(pg.InfiniteLine(pos=96, angle=90, pen=pg.mkPen('w', style=Qt.PenStyle.DashLine, alpha=100)))
+        self.cross_check_plot.addItem(pg.InfiniteLine(pos=192, angle=90, pen=pg.mkPen('w', style=Qt.PenStyle.DashLine, alpha=100)))
 
-        # Part A: Populate the Past 24 Hours (Cross-Check) table data
-        start_of_past = latest_timestamp - pd.Timedelta(minutes=15 * (past_blocks - 1))
-        for i in range(past_blocks):
-            block_start = start_of_past + pd.Timedelta(minutes=15 * i)
-            block_end = block_start + pd.Timedelta(minutes=15)
-            time_label = f"{block_start.strftime('%Y-%m-%d %H:%M')} - {block_end.strftime('%H:%M')}"
-            
-            pred_price = float(recent_hist_preds.item(i))
-            actual_price = float(recent_hist_actuals.item(i))
-            error = pred_price - actual_price
+        valid_act = ~pd.isna(t2_act)
+        valid_fcast = ~pd.isna(t2_fcast)
+        
+        if valid_act.any():
+            self.cross_check_plot.plot(x_cross[valid_act], t2_act[valid_act], pen=pg.mkPen("#ffffff", width=2), name="Actual Price")
+        if valid_fcast.any():
+            self.cross_check_plot.plot(x_cross[valid_fcast], t2_fcast[valid_fcast], pen=pg.mkPen("#00ff00", width=2), name="AI Forecast")
 
-            item_time = QTableWidgetItem(time_label)
-            item_time.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
-            item_time.setForeground(QColor("#888888")) 
-
-            price_label = f"€{pred_price:.2f} (Actual: €{actual_price:.2f} | Error: €{error:+.2f})"
-            item_price = QTableWidgetItem(price_label)
-            item_price.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
-            item_price.setForeground(QColor("#ff55ff")) 
-
-            self.pred_table.setItem(row_idx, 0, item_time)
-            self.pred_table.setItem(row_idx, 1, item_price)
-            row_idx += 1
-
-        # Part B: Populate the Future 24 Hours (Forecast & Signals) table data
+        self.pred_table.setRowCount(len(t2_ts))
         EXPECTED_MARGIN = 40.0
-        hist_length = len(hist_prices)
+        latest_price = payload["latest_price"]
 
-        for i, pred_price in enumerate(future_prices):
-            block_start = latest_timestamp + pd.Timedelta(minutes=15 * (i + 1))
-            block_end = block_start + pd.Timedelta(minutes=15)
-            time_label = f"{block_start.strftime('%Y-%m-%d %H:%M')} - {block_end.strftime('%H:%M')}"
-
-            today_price_index = hist_length - 96 + i
-            today_price = float(hist_prices.item(today_price_index))
-            expected_profit = float(pred_price) - today_price
+        for i in range(len(t2_ts)):
+            time_label = pd.Timestamp(t2_ts[i]).strftime('%b %d, %H:%M')
+            pred = t2_fcast[i]
+            act = t2_act[i]
 
             item_time = QTableWidgetItem(time_label)
             item_time.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
 
-            if pred_price < 0:
-                price_label = f"€{pred_price:.2f} (Negative)"
+            if not pd.isna(act):
+                # Has Cleared Actual Market Data
+                item_time.setForeground(QColor("#888888"))
+                if not pd.isna(pred):
+                    error = pred - act
+                    price_label = f"€{pred:.2f} (Actual: €{act:.2f} | Err: €{error:+.2f})"
+                else:
+                    price_label = f"Actual: €{act:.2f} (No AI Forecast)"
+                
                 item_price = QTableWidgetItem(price_label)
-                item_price.setForeground(QColor("#ff4444"))
-            elif expected_profit > EXPECTED_MARGIN and today_price > 0:
-                price_label = f"€{pred_price:.2f} | INVEST (+€{expected_profit:.2f})"
-                item_price = QTableWidgetItem(price_label)
-                item_price.setForeground(QColor("#00ff00"))
-                item_time.setForeground(QColor("#00ff00"))
-
-                font = QFont()
-                font.setBold(True)
-                item_price.setFont(font)
-                item_time.setFont(font)
+                item_price.setForeground(QColor("#ff55ff"))
             else:
-                price_label = f"€{pred_price:.2f} (Spread: €{expected_profit:.2f})"
-                item_price = QTableWidgetItem(price_label)
-                item_price.setForeground(QColor("#ffaa00"))
+                # Future Unknown (Pure Forecast)
+                if not pd.isna(pred):
+                    expected_profit = pred - latest_price
+                    if pred < 0:
+                        price_label = f"€{pred:.2f} (Negative)"
+                        item_price = QTableWidgetItem(price_label)
+                        item_price.setForeground(QColor("#ff4444"))
+                    elif expected_profit > EXPECTED_MARGIN and latest_price > 0:
+                        price_label = f"€{pred:.2f} | INVEST (+€{expected_profit:.2f})"
+                        item_price = QTableWidgetItem(price_label)
+                        item_price.setForeground(QColor("#00ff00"))
+                        item_time.setForeground(QColor("#00ff00"))
+                        font = QFont()
+                        font.setBold(True)
+                        item_price.setFont(font)
+                        item_time.setFont(font)
+                    else:
+                        price_label = f"€{pred:.2f} (Spread: €{expected_profit:.2f})"
+                        item_price = QTableWidgetItem(price_label)
+                        item_price.setForeground(QColor("#ffaa00"))
+                else:
+                    price_label = "Awaiting Weather Data..."
+                    item_price = QTableWidgetItem(price_label)
+                    item_price.setForeground(QColor("#888888"))
 
             item_price.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
-            self.pred_table.setItem(row_idx, 0, item_time)
-            self.pred_table.setItem(row_idx, 1, item_price)
-            row_idx += 1
+            self.pred_table.setItem(i, 0, item_time)
+            self.pred_table.setItem(i, 1, item_price)
 
     def on_data_error(self, err_msg):
         self.plot_widget.setTitle(f"Data Error: {err_msg}", color="r")
@@ -468,22 +443,20 @@ class TradingTerminal(QMainWindow):
         berlin_time = pd.Timestamp.now(tz="Europe/Berlin")
         block_start = berlin_time.floor("15min")
 
-        self.lbl_live_time.setText(
-            f"Berlin Time: {berlin_time.strftime('%Y-%m-%d %H:%M:%S')}  |  Active Block: {block_start.strftime('%H:%M')}"
-        )
+        self.lbl_live_time.setText(f"Berlin Time: {berlin_time.strftime('%Y-%m-%d %H:%M:%S')}  |  Active Block: {block_start.strftime('%H:%M')}")
 
         current_date_str = berlin_time.strftime("%Y-%m-%d")
-
         if self.today_date_str != current_date_str:
             self.today_date_str = current_date_str
-            self.load_today_prices(current_date_str)
+            self.load_horizon_prices(current_date_str)
 
         self.highlight_current_block(block_start)
 
-    def load_today_prices(self, date_str):
+    def load_horizon_prices(self, date_str):
         try:
             conn = sqlite3.connect(DB_PATH)
-            query = f"SELECT timestamp, price_eur_mwh FROM day_ahead_prices WHERE timestamp LIKE '{date_str}%' AND price_eur_mwh IS NOT NULL ORDER BY timestamp ASC"
+            # Fetch EVERYTHING from Today's midnight onwards (Today + Tomorrow actuals if leaked)
+            query = f"SELECT timestamp, price_eur_mwh FROM day_ahead_prices WHERE timestamp >= '{date_str} 00:00:00' AND price_eur_mwh IS NOT NULL ORDER BY timestamp ASC"
             df = pd.read_sql_query(query, conn)
             conn.close()
 
@@ -491,15 +464,13 @@ class TradingTerminal(QMainWindow):
 
             for i, row in df.iterrows():
                 ts = pd.Timestamp(row["timestamp"])
-                end_ts = ts + pd.Timedelta(minutes=15)
-                time_label = f"{ts.strftime('%H:%M')} - {end_ts.strftime('%H:%M')}"
+                time_label = f"{ts.strftime('%b %d - %H:%M')}"
 
                 price = row["price_eur_mwh"]
                 price_str = f"€{price:.2f}"
 
                 item_time = QTableWidgetItem(time_label)
                 item_price = QTableWidgetItem(price_str)
-
                 item_time.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
                 item_price.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
 
