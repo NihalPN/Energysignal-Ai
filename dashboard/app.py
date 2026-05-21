@@ -41,8 +41,7 @@ MODEL_PATH = os.path.join(
 
 class DataWorker(QThread):
     """Background thread to train a fresh XGBoost model so predictions are never outdated."""
-
-    data_loaded = pyqtSignal(object, object, float, float, str, str, str)
+    data_loaded = pyqtSignal(object, object, object, float, float, str, str, str)
     error_signal = pyqtSignal(str)
 
     def run(self):
@@ -61,7 +60,7 @@ class DataWorker(QThread):
 
             df_full = df_full.sort_index()
 
-            # Train a fresh production model dynamically to eliminate lookahead bias
+            # Train a fresh production model
             train_df = df_full.dropna(subset=["target_price_24h_ahead"])
             X_train = train_df.drop(columns=["target_price_24h_ahead"])
             y_train = train_df["target_price_24h_ahead"]
@@ -78,16 +77,17 @@ class DataWorker(QThread):
             history_df = df_full.tail(672)
             historical_prices = history_df["price_eur_mwh"].values
 
-            # Bracket-free extraction for the CURRENT moment to prevent UI crashes
+            # Force the model to predict the historical period so we can cross-check it
+            X_history = history_df.drop(columns=["target_price_24h_ahead"])
+            historical_predictions = model.predict(X_history)
+
             latest_price = float(history_df["price_eur_mwh"].tail(1).item())
             latest_time = history_df.index.max()
             latest_time_str = latest_time.strftime("%Y-%m-%d %H:%M")
 
-            # Isolate the prediction for exactly 24 hours from right now
             last_index = len(predictions) - 1
             target_price_24h_now = float(predictions.item(last_index))
 
-            # Institutional Trade Logic aligned with VectorBT
             EXPECTED_MARGIN = 40.0
             current_spread = target_price_24h_now - latest_price
 
@@ -100,6 +100,7 @@ class DataWorker(QThread):
 
             self.data_loaded.emit(
                 historical_prices,
+                historical_predictions,
                 predictions,
                 latest_price,
                 target_price_24h_now,
@@ -111,10 +112,8 @@ class DataWorker(QThread):
         except Exception as e:
             self.error_signal.emit(str(e))
 
-
 class RAGWorker(QThread):
     """Background thread to fetch live news, pull live DB stats, and run the LLM."""
-
     update_signal = pyqtSignal(str)
     finished_signal = pyqtSignal()
 
@@ -128,7 +127,6 @@ class RAGWorker(QThread):
             self.update_signal.emit("📊 Extracting latest grid physics from local database...")
             conn = sqlite3.connect(DB_PATH)
             
-            # THE FIX: We must filter out tomorrow's rows which have NULL physics data
             df = pd.read_sql_query(
                 "SELECT * FROM master_features WHERE total_renewable IS NOT NULL AND residual_load IS NOT NULL ORDER BY timestamp DESC LIMIT 1", 
                 conn
@@ -136,7 +134,6 @@ class RAGWorker(QThread):
             conn.close()
 
             if not df.empty:
-                # Bracket-free extraction to prevent KeyError crashes
                 price = float(df["price_eur_mwh"].head(1).item())
                 wind = float(df["total_renewable"].head(1).item())
                 residual = float(df["residual_load"].head(1).item())
@@ -271,13 +268,22 @@ class TradingTerminal(QMainWindow):
         layout.addLayout(middle_layout)
 
     def setup_predictions_tab(self):
-        """Sets up the table displaying all 96 XGBoost predictions with INVEST highlights"""
+        """Sets up the table displaying all 96 XGBoost predictions with INVEST highlights and a Cross-Check Graph."""
         layout = QVBoxLayout(self.tab_predictions)
 
-        self.lbl_pred_header = QLabel("Model Predictions & Profit Opportunities (Next 24 Hours)")
+        self.lbl_pred_header = QLabel("Model Cross-Check (Past 24h) & Profit Opportunities (Next 24h)")
         self.lbl_pred_header.setFont(QFont("Arial", 18, QFont.Weight.Bold))
-        self.lbl_pred_header.setStyleSheet("color: #ffaa00; margin-bottom: 10px;")
-        self.lbl_pred_header.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.lbl_pred_header.setStyleSheet("color: #ffffff; margin-bottom: 5px;")
+        
+        # --- NEW: Visual Cross Check PlotWidget ---
+        self.cross_check_plot = pg.PlotWidget()
+        self.cross_check_plot.setTitle("📉 Visual Cross-Check: AI Prediction vs Actual Market (Past 24h)", color="w", size="12pt")
+        self.cross_check_plot.setLabel("left", "Price", units="€/MWh")
+        self.cross_check_plot.setLabel("bottom", "Past 24h (15-min blocks)")
+        self.cross_check_plot.addLegend()
+        self.cross_check_plot.showGrid(x=True, y=True, alpha=0.3)
+        self.cross_check_plot.setFixedHeight(280) # Keep it compact so the table still fits well
+        # ------------------------------------------
 
         self.pred_table = QTableWidget()
         self.pred_table.setColumnCount(2)
@@ -296,10 +302,10 @@ class TradingTerminal(QMainWindow):
         )
 
         layout.addWidget(self.lbl_pred_header)
+        layout.addWidget(self.cross_check_plot) # Insert the new graph above the table
         layout.addWidget(self.pred_table)
 
     def setup_live_tab(self):
-        """Sets up the Live Table Monitor in Tab 3"""
         layout = QVBoxLayout(self.tab_live)
 
         self.lbl_live_time = QLabel("Berlin Time: --:--:--")
@@ -328,6 +334,7 @@ class TradingTerminal(QMainWindow):
     def on_data_loaded(
         self,
         hist_prices,
+        hist_preds,
         future_prices,
         latest_price,
         target_price_24h_now,
@@ -335,12 +342,19 @@ class TradingTerminal(QMainWindow):
         sig_color,
         latest_time_str,
     ):
+        # === UPDATE MAIN TAB 1 GRAPH ===
         self.plot_widget.clear()
 
+        # 1. Plot the True Historical Prices (Solid Cyan)
         x_hist = np.arange(len(hist_prices))
         pen_hist = pg.mkPen(color="#00d2ff", width=2)
-        self.plot_widget.plot(x_hist, hist_prices, pen=pen_hist, name="Historical (7 Days)")
+        self.plot_widget.plot(x_hist, hist_prices, pen=pen_hist, name="Actual Prices (7 Days)")
 
+        # 2. Plot the Model's Historical Predictions (Dotted Magenta)
+        pen_hist_pred = pg.mkPen(color="#ff55ff", width=2, style=Qt.PenStyle.DotLine)
+        self.plot_widget.plot(x_hist, hist_preds, pen=pen_hist_pred, name="Model Cross-Check")
+
+        # 3. Plot the Future Forecast (Dashed Orange)
         x_future = np.arange(len(hist_prices), len(hist_prices) + len(future_prices))
         pen_future = pg.mkPen(color="#ffaa00", width=2, style=Qt.PenStyle.DashLine)
         self.plot_widget.plot(
@@ -355,7 +369,6 @@ class TradingTerminal(QMainWindow):
         latest_timestamp = pd.to_datetime(latest_time_str)
         target_delivery_time = latest_timestamp + pd.Timedelta(hours=24)
 
-        # Ensures the KPI is predicting exactly 24h into the future, aligned with VectorBT
         self.lbl_forecast_title.setText(
             f"Forecast ({target_delivery_time.strftime('%H:%M')} Tomorrow)"
         )
@@ -364,8 +377,51 @@ class TradingTerminal(QMainWindow):
         self.lbl_signal.setText(sig_text)
         self.lbl_signal.setStyleSheet(f"color: {sig_color}; font-weight: bold; font-size: 18px;")
 
-        # Populate the New Predictions Table and apply the INVEST logic
-        self.pred_table.setRowCount(len(future_prices))
+        # === UPDATE TAB 2 PREDICTIONS & CROSS-CHECK GRAPH ===
+        past_blocks = 96
+        total_rows = past_blocks + len(future_prices)
+        self.pred_table.setRowCount(total_rows)
+        
+        recent_hist_preds = hist_preds[-past_blocks:]
+        recent_hist_actuals = hist_prices[-past_blocks:]
+        
+        # --- NEW: Plot the Micro Cross-Check Graph ---
+        self.cross_check_plot.clear()
+        x_cross = np.arange(past_blocks)
+        pen_actual = pg.mkPen(color="#ffffff", width=2) # White line for Actuals
+        pen_pred = pg.mkPen(color="#00ff00", width=2)   # Bright Green for Predictions
+        
+        self.cross_check_plot.plot(x_cross, recent_hist_actuals, pen=pen_actual, name="Actual Price")
+        self.cross_check_plot.plot(x_cross, recent_hist_preds, pen=pen_pred, name="AI Prediction")
+        # ---------------------------------------------
+
+        row_idx = 0
+
+        # Part A: Populate the Past 24 Hours (Cross-Check) table data
+        start_of_past = latest_timestamp - pd.Timedelta(minutes=15 * (past_blocks - 1))
+        for i in range(past_blocks):
+            block_start = start_of_past + pd.Timedelta(minutes=15 * i)
+            block_end = block_start + pd.Timedelta(minutes=15)
+            time_label = f"{block_start.strftime('%Y-%m-%d %H:%M')} - {block_end.strftime('%H:%M')}"
+            
+            pred_price = float(recent_hist_preds.item(i))
+            actual_price = float(recent_hist_actuals.item(i))
+            error = pred_price - actual_price
+
+            item_time = QTableWidgetItem(time_label)
+            item_time.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+            item_time.setForeground(QColor("#888888")) 
+
+            price_label = f"€{pred_price:.2f} (Actual: €{actual_price:.2f} | Error: €{error:+.2f})"
+            item_price = QTableWidgetItem(price_label)
+            item_price.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+            item_price.setForeground(QColor("#ff55ff")) 
+
+            self.pred_table.setItem(row_idx, 0, item_time)
+            self.pred_table.setItem(row_idx, 1, item_price)
+            row_idx += 1
+
+        # Part B: Populate the Future 24 Hours (Forecast & Signals) table data
         EXPECTED_MARGIN = 40.0
         hist_length = len(hist_prices)
 
@@ -374,7 +430,6 @@ class TradingTerminal(QMainWindow):
             block_end = block_start + pd.Timedelta(minutes=15)
             time_label = f"{block_start.strftime('%Y-%m-%d %H:%M')} - {block_end.strftime('%H:%M')}"
 
-            # Extract the actual entry price from exactly 24h ago
             today_price_index = hist_length - 96 + i
             today_price = float(hist_prices.item(today_price_index))
             expected_profit = float(pred_price) - today_price
@@ -402,8 +457,9 @@ class TradingTerminal(QMainWindow):
                 item_price.setForeground(QColor("#ffaa00"))
 
             item_price.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
-            self.pred_table.setItem(i, 0, item_time)
-            self.pred_table.setItem(i, 1, item_price)
+            self.pred_table.setItem(row_idx, 0, item_time)
+            self.pred_table.setItem(row_idx, 1, item_price)
+            row_idx += 1
 
     def on_data_error(self, err_msg):
         self.plot_widget.setTitle(f"Data Error: {err_msg}", color="r")
@@ -427,7 +483,6 @@ class TradingTerminal(QMainWindow):
     def load_today_prices(self, date_str):
         try:
             conn = sqlite3.connect(DB_PATH)
-            # THE FIX: Only fetch rows where the price is not NULL so it strictly shows available data
             query = f"SELECT timestamp, price_eur_mwh FROM day_ahead_prices WHERE timestamp LIKE '{date_str}%' AND price_eur_mwh IS NOT NULL ORDER BY timestamp ASC"
             df = pd.read_sql_query(query, conn)
             conn.close()

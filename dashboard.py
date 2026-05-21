@@ -27,7 +27,6 @@ def live_berlin_clock():
     <script>
     function updateClock() {
         const now = new Date();
-        // Force the time to calculate based on the Europe/Berlin timezone
         const options = {
             timeZone: 'Europe/Berlin',
             hour: '2-digit',
@@ -38,9 +37,8 @@ def live_berlin_clock():
         const formatter = new Intl.DateTimeFormat('en-GB', options);
         document.getElementById('berlin-time').innerText = formatter.format(now);
     }
-    // Update the clock every 1000 milliseconds (1 second)
     setInterval(updateClock, 1000);
-    updateClock(); // Run immediately on load
+    updateClock(); 
     </script>
     """
     components.html(clock_html, height=60)
@@ -82,15 +80,14 @@ def fetch_master_features():
     )
     conn.close()
 
-    # Force the naive time into UTC, then convert to Berlin time
     if df.index.tz is None:
         df.index = df.index.tz_localize('UTC')
         
     df.index = df.index.tz_convert('Europe/Berlin')
-    
     return df.sort_index()
 
 
+# Restored the TTL Cache to strictly limit API calls and protect your credits
 @st.cache_data(ttl=3600, show_spinner="🤖 AI Analyst is reading the market...")
 def get_hourly_ai_analysis(latest_price, wind_generation, residual_load):
     try:
@@ -109,9 +106,10 @@ def get_hourly_ai_analysis(latest_price, wind_generation, residual_load):
 
 
 def color_profit(val):
-    """Pandas styler to color table cells"""
     if isinstance(val, str) and "INVEST" in val:
         return 'color: #00ff00; font-weight: bold;'
+    elif isinstance(val, str) and "Error:" in val:
+        return 'color: #ffaa00;' 
     elif isinstance(val, (int, float)) and val < 0:
         return 'color: #ff4444;'
     return ''
@@ -125,7 +123,7 @@ df_full = fetch_master_features()
 model = load_model()
 
 if df_full.empty:
-    st.warning("Database is empty or missing. Please ensure your data pipeline has run and the database is pushed to GitHub.")
+    st.warning("Database is empty or missing. Please ensure your data pipeline has run.")
 else:
     # --- MATH & PREDICTIONS ---
     history_df = df_full.tail(672)  # Last 7 days
@@ -154,10 +152,13 @@ else:
     # === TAB 1: STRATEGY & AI ===
     with tab_strategy:
         col1, col2, col3 = st.columns(3)
+        last_dt = history_df.index[-1].strftime('%Y-%m-%d %H:%M')
+        tomorrow_dt = (history_df.index[-1] + timedelta(days=1)).strftime('%H:%M')
+        
         with col1:
-            st.metric(label="Last Cleared Price", value=f"€{latest_price:.2f}")
+            st.metric(label=f"Price at {last_dt}", value=f"€{latest_price:.2f}")
         with col2:
-            st.metric(label="XGBoost 24h Forecast", value=f"€{target_price_24h_now:.2f}", delta=f"{current_spread:.2f} Spread")
+            st.metric(label=f"Forecast ({tomorrow_dt} Tomorrow)", value=f"€{target_price_24h_now:.2f}")
         with col3:
             st.metric(label="Algorithmic Signal", value=signal_text)
 
@@ -166,15 +167,28 @@ else:
         chart_col, ai_col = st.columns([2, 1])
 
         with chart_col:
-            st.subheader("Market Timeline (7 Days + 24h Forecast)")
-            hist_series = history_df['price_eur_mwh']
-            future_dates = [hist_series.index[-1] + timedelta(minutes=15 * i) for i in range(1, 97)]
-            future_series = pd.Series(predictions, index=future_dates)
+            st.subheader("DE-LU 15-Minute Resolution")
+            
+            future_dates = [history_df.index[-1] + timedelta(minutes=15 * i) for i in range(1, 97)]
+            full_index = history_df.index.append(pd.Index(future_dates))
+            chart_df = pd.DataFrame(index=full_index)
+            
+            chart_df["Actual Prices (7 Days)"] = history_df['price_eur_mwh']
+            
+            cross_check = pd.Series(index=history_df.index, dtype=float)
+            if len(history_df) > 96:
+                X_past = history_df.iloc[:-96].drop(columns=['target_price_24h_ahead'], errors='ignore')
+                past_preds = model.predict(X_past)
+                cross_check.iloc[96:] = past_preds
+            chart_df["Model Cross-Check"] = cross_check
+            
+            forecast_series = pd.Series(predictions, index=future_dates)
+            chart_df["XGBoost Forecast (Next 24h)"] = forecast_series
 
-            chart_df = pd.DataFrame({"Historical": hist_series, "Forecast": future_series})
-            st.line_chart(chart_df, color=["#00d2ff", "#ffaa00"])
+            st.line_chart(chart_df, color=["#00d2ff", "#ff00ff", "#ffaa00"])
 
         with ai_col:
+            # Restored automatic, cached RAG call
             st.subheader("🤖 RAG Market Analyst")
             latest_wind = float(history_df['total_renewable'].tail(1).item()) if 'total_renewable' in history_df else 0.0
             latest_residual = float(history_df['residual_load'].tail(1).item()) if 'residual_load' in history_df else 0.0
@@ -182,18 +196,48 @@ else:
             ai_text = get_hourly_ai_analysis(latest_price, latest_wind, latest_residual)
             st.markdown(f"> {ai_text}")
 
-    # === TAB 2: PREDICTIONS ===
+    # === TAB 2: PREDICTIONS & CROSS-CHECK ===
     with tab_preds:
-        st.subheader("Model Predictions & Profit Opportunities (Next 24 Hours)")
+        st.subheader("Model Cross-Check (Past 24h) & Profit Opportunities (Next 24h)")
 
         pred_data = []
-        hist_length = len(history_df)
+        
+        if len(history_df) >= 192:
+            past_actuals = history_df.tail(96)
+            X_past = history_df.iloc[-192:-96].drop(columns=['target_price_24h_ahead'], errors='ignore')
+            
+            try:
+                past_preds = model.predict(X_past)
+                
+                st.markdown("#### 📉 Visual Cross-Check: AI Prediction vs Actual Market (Past 24h)")
+                cross_check_df = pd.DataFrame({
+                    "Actual Price": past_actuals['price_eur_mwh'].values,
+                    "AI Prediction": past_preds
+                }, index=past_actuals.index)
+                
+                st.line_chart(cross_check_df, color=["#ffffff", "#00ff00"])
+                st.divider()
 
+                for i in range(96):
+                    dt = past_actuals.index[i]
+                    actual = float(past_actuals['price_eur_mwh'].iloc[i])
+                    pred = float(past_preds[i])
+                    error = pred - actual
+                    
+                    status = f"€{pred:.2f} (Actual: €{actual:.2f} | Error: €{error:+.2f})"
+                    pred_data.append({
+                        "Delivery Time Block": dt.strftime('%Y-%m-%d %H:%M') + " (Cross-Check)",
+                        "Predicted Price (€/MWh)": status
+                    })
+            except Exception as e:
+                st.warning(f"Could not calculate historical cross-check: {e}")
+
+        hist_length = len(history_df)
         for i, pred_price in enumerate(predictions):
             block_start = history_df.index[-1] + timedelta(minutes=15 * (i + 1))
             today_price_index = hist_length - 96 + i
 
-            if today_price_index >= 0:
+            if today_price_index >= 0 and today_price_index < hist_length:
                 today_price = float(history_df['price_eur_mwh'].iloc[today_price_index])
                 expected_profit = float(pred_price) - today_price
 
@@ -202,11 +246,12 @@ else:
                     status = f"€{pred_price:.2f} | INVEST (+€{expected_profit:.2f})"
 
                 pred_data.append({
-                    "Delivery Time Block": block_start.strftime('%Y-%m-%d %H:%M'),
+                    "Delivery Time Block": block_start.strftime('%Y-%m-%d %H:%M') + " (Forecast)",
                     "Predicted Price (€/MWh)": status
                 })
 
         if pred_data:
+            st.markdown("#### 📊 Execution Tape (Spread & Signals)")
             pred_df = pd.DataFrame(pred_data)
             st.dataframe(pred_df.style.map(color_profit, subset=["Predicted Price (€/MWh)"]), use_container_width=True, hide_index=True)
         else:

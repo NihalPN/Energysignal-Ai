@@ -4340,3 +4340,20 @@
 2026-05-21 13:55:17,485 - INFO - Inserted 1 new rows into generation_mix.
 2026-05-21 13:55:17,486 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
 2026-05-21 13:55:17,558 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-21 17:30:04,805 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-21 17:30:04,821 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 17:30:56,939 - ERROR - ENTSO-E Fetcher failed for 20260520 to 20260523: 503 Server Error: Service Unavailable for url: https://web-api.tp.entsoe.eu/api?documentType=A44&in_Domain=10Y1001A1001A82H&out_Domain=10Y1001A1001A82H&offset=100&contract_MarketAgreement.type=A01&classificationSequence_AttributeInstanceComponent.position=1&securityToken=c174a659-4f7d-4fcc-8ff1-3dae26733c29&periodStart=202605182200&periodEnd=202605232200
+2026-05-21 17:30:58,941 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 17:30:59,601 - ERROR - ENTSO-E Fetcher failed for 20260520 to 20260523: 503 Server Error: Service Unavailable for url: https://web-api.tp.entsoe.eu/api?documentType=A44&in_Domain=10Y1001A1001A82H&out_Domain=10Y1001A1001A82H&offset=0&contract_MarketAgreement.type=A01&classificationSequence_AttributeInstanceComponent.position=1&securityToken=c174a659-4f7d-4fcc-8ff1-3dae26733c29&periodStart=202605182200&periodEnd=202605232200
+2026-05-21 17:31:03,603 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 17:31:05,237 - ERROR - ENTSO-E Fetcher failed for 20260520 to 20260523: 503 Server Error: Service Unavailable for url: https://web-api.tp.entsoe.eu/api?documentType=A44&in_Domain=10Y1001A1001A82H&out_Domain=10Y1001A1001A82H&offset=0&contract_MarketAgreement.type=A01&classificationSequence_AttributeInstanceComponent.position=1&securityToken=c174a659-4f7d-4fcc-8ff1-3dae26733c29&periodStart=202605182200&periodEnd=202605232200
+2026-05-21 17:31:13,239 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 17:31:14,969 - ERROR - ENTSO-E Fetcher failed for 20260520 to 20260523: 503 Server Error: Service Unavailable for url: https://web-api.tp.entsoe.eu/api?documentType=A44&in_Domain=10Y1001A1001A82H&out_Domain=10Y1001A1001A82H&offset=0&contract_MarketAgreement.type=A01&classificationSequence_AttributeInstanceComponent.position=1&securityToken=c174a659-4f7d-4fcc-8ff1-3dae26733c29&periodStart=202605182200&periodEnd=202605232200
+2026-05-21 17:31:30,971 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 17:31:52,838 - INFO - Inserted 96 new rows into day_ahead_prices.
+2026-05-21 17:31:52,838 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-21 14:01:30.971235+02:00
+2026-05-21 17:31:53,339 - INFO - Inserted 82 new rows into actual_load.
+2026-05-21 17:31:53,339 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-21 14:01:30.971235+02:00
+2026-05-21 17:31:56,220 - INFO - Inserted 14 new rows into generation_mix.
+2026-05-21 17:31:56,221 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
+2026-05-21 17:31:57,725 - INFO - === PIPELINE RUN COMPLETE ===
