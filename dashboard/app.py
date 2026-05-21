@@ -127,8 +127,11 @@ class RAGWorker(QThread):
 
             self.update_signal.emit("📊 Extracting latest grid physics from local database...")
             conn = sqlite3.connect(DB_PATH)
+            
+            # THE FIX: We must filter out tomorrow's rows which have NULL physics data
             df = pd.read_sql_query(
-                "SELECT * FROM master_features ORDER BY timestamp DESC LIMIT 1", conn
+                "SELECT * FROM master_features WHERE total_renewable IS NOT NULL AND residual_load IS NOT NULL ORDER BY timestamp DESC LIMIT 1", 
+                conn
             )
             conn.close()
 
@@ -424,7 +427,8 @@ class TradingTerminal(QMainWindow):
     def load_today_prices(self, date_str):
         try:
             conn = sqlite3.connect(DB_PATH)
-            query = f"SELECT timestamp, price_eur_mwh FROM day_ahead_prices WHERE timestamp LIKE '{date_str}%' ORDER BY timestamp ASC"
+            # THE FIX: Only fetch rows where the price is not NULL so it strictly shows available data
+            query = f"SELECT timestamp, price_eur_mwh FROM day_ahead_prices WHERE timestamp LIKE '{date_str}%' AND price_eur_mwh IS NOT NULL ORDER BY timestamp ASC"
             df = pd.read_sql_query(query, conn)
             conn.close()
 

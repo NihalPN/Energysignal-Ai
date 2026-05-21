@@ -18,7 +18,7 @@ logging.basicConfig(
 
 API_KEY = os.getenv("ENTSOE_API_KEY")
 if not API_KEY:
-    raise ValueError("Missing ENTSOE_API_KEY in.env file")
+    raise ValueError("Missing ENTSOE_API_KEY in .env file")
 
 client = EntsoePandasClient(api_key=API_KEY)
 TZ = "Europe/Berlin"
@@ -46,7 +46,6 @@ def safe_insert(df, table_name):
 
 
 @retry(wait=wait_exponential(multiplier=2, min=2, max=30), stop=stop_after_attempt(5))
-
 def fetch_and_store_entsoe_data(start_date: str, end_date: str):
     start = pd.Timestamp(start_date, tz=TZ)
     end = pd.Timestamp(end_date, tz=TZ)
@@ -60,55 +59,67 @@ def fetch_and_store_entsoe_data(start_date: str, end_date: str):
         logging.info(f"Fetching DA prices from {start} to {end}")
         da_prices = client.query_day_ahead_prices("DE_LU", start=start, end=end)
 
-        if isinstance(da_prices, pd.Series):
-            df_prices = da_prices.to_frame(name="price_eur_mwh")
+        # FIX 1: Empty Data Shield for DA Prices
+        if da_prices is None or (isinstance(da_prices, (pd.Series, pd.DataFrame)) and da_prices.empty):
+            logging.warning(f"ENTSO-E returned empty DA prices for {start}. Skipping.")
         else:
-            df_prices = da_prices.copy()
-            df_prices = df_prices.iloc[:, :1]
-            df_prices.columns = ["price_eur_mwh"]
+            if isinstance(da_prices, pd.Series):
+                df_prices = da_prices.to_frame(name="price_eur_mwh")
+            else:
+                df_prices = da_prices.copy()
+                df_prices = df_prices.iloc[:, :1]
+                df_prices.columns = ["price_eur_mwh"]
 
-        df_prices = df_prices.resample("15min").ffill()
-        df_prices.index = df_prices.index.strftime("%Y-%m-%d %H:%M:%S")
-        safe_insert(df_prices, "day_ahead_prices")
+            df_prices = df_prices.resample("15min").ffill()
+            df_prices.index = df_prices.index.tz_convert(TZ).strftime("%Y-%m-%d %H:%M:%S")
+            safe_insert(df_prices, "day_ahead_prices")
 
         # 2. Fetch Actual Load (Uses DE_LU) - STRICTLY up to 'actuals_end'
         logging.info(f"Fetching actual load from {start} to {actuals_end}")
         load = client.query_load("DE_LU", start=start, end=actuals_end)
 
-        if isinstance(load, pd.Series):
-            df_load = load.to_frame(name="load_mw")
+        # FIX 1: Empty Data Shield for Actual Load
+        if load is None or (isinstance(load, (pd.Series, pd.DataFrame)) and load.empty):
+            logging.warning(f"ENTSO-E returned empty actual load for {start}. Skipping.")
         else:
-            df_load = load.copy()
-            df_load = df_load.iloc[:, :1]
-            df_load.columns = ["load_mw"]
+            if isinstance(load, pd.Series):
+                df_load = load.to_frame(name="load_mw")
+            else:
+                df_load = load.copy()
+                df_load = df_load.iloc[:, :1]
+                df_load.columns = ["load_mw"]
 
-        df_load = df_load.resample("15min").ffill()
-        df_load.index = df_load.index.strftime("%Y-%m-%d %H:%M:%S")
-        safe_insert(df_load, "actual_load")
-
+            df_load = df_load.resample("15min").ffill()
+            df_load.index = df_load.index.tz_convert(TZ).strftime("%Y-%m-%d %H:%M:%S")
+            safe_insert(df_load, "actual_load")
+        
         # 3. Fetch Generation by Type (Uses DE Country Code) - STRICTLY up to 'actuals_end'
         logging.info(f"Fetching generation mix from {start} to {actuals_end}")
         generation = client.query_generation("DE", start=start, end=actuals_end)
 
-        if isinstance(generation.columns, pd.MultiIndex):
-            first_level = int("0")
-            generation.columns = generation.columns.get_level_values(first_level)
-        generation = generation.loc[:, ~generation.columns.duplicated()]
+        # FIX 1: Empty Data Shield for Generation Mix
+        if generation is None or (isinstance(generation, (pd.Series, pd.DataFrame)) and generation.empty):
+            logging.warning(f"ENTSO-E returned empty generation mix for {start}. Skipping.")
+        else:
+            if isinstance(generation.columns, pd.MultiIndex):
+                first_level = int("0")
+                generation.columns = generation.columns.get_level_values(first_level)
+            generation = generation.loc[:, ~generation.columns.duplicated()]
 
-        gen_mapping = {
-            "Wind Onshore": "wind_onshore",
-            "Wind Offshore": "wind_offshore",
-            "Solar": "solar",
-            "Nuclear": "nuclear",
-            "Fossil Gas": "fossil_gas",
-            "Fossil Hard coal": "fossil_hard_coal",
-        }
-        df_gen = generation.rename(columns=gen_mapping)
-        cols_to_keep = [col for col in df_gen.columns if col in gen_mapping.values()]
-        df_gen = df_gen[cols_to_keep]
-        df_gen = df_gen.resample("15min").ffill()
-        df_gen.index = df_gen.index.strftime("%Y-%m-%d %H:%M:%S")
-        safe_insert(df_gen, "generation_mix")
+            gen_mapping = {
+                "Wind Onshore": "wind_onshore",
+                "Wind Offshore": "wind_offshore",
+                "Solar": "solar",
+                "Nuclear": "nuclear",
+                "Fossil Gas": "fossil_gas",
+                "Fossil Hard coal": "fossil_hard_coal",
+            }
+            df_gen = generation.rename(columns=gen_mapping)
+            cols_to_keep = [col for col in df_gen.columns if col in gen_mapping.values()]
+            df_gen = df_gen[cols_to_keep]
+            df_gen = df_gen.resample("15min").ffill()
+            df_gen.index = df_gen.index.tz_convert(TZ).strftime("%Y-%m-%d %H:%M:%S")
+            safe_insert(df_gen, "generation_mix")
 
         print(f"ENTSO-E chunk {start_date} to {end_date} safely stored.")
 

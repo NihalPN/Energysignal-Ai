@@ -31,7 +31,8 @@ jobs:
       run: |
         
         # FIXME: Replace 'scheduler.py' with the exact name of your data fetching script
-        python data_pipeline/scheduler.py 
+        python data_pipeline/scheduler.py
+        python feature/build_feature.py
 
     - name: Commit and Push Live Database
       run: |

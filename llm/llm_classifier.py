@@ -58,7 +58,7 @@ def classify_news_sentiment(headline: str):
     try:
         chat_completion = client.chat.completions.create(
             messages=[{"role": "system", "content": policy}, {"role": "user", "content": headline}],
-            model="openai/gpt-oss-safeguard-20b",
+            model="openai/gpt-oss-120b",
             temperature=0.0,
             response_format={"type": "json_object"},
         )

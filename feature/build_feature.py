@@ -23,16 +23,20 @@ def build_and_store_master_features():
     print("Merging master feature dataset...")
     master_df = tech_df.join(ren_df, how="outer").join(weather_df, how="outer")
 
-    # THE FIX 2: Forward-fill the missing actuals (Generation/Load) into the afternoon
-    # limit=32 means it will safely carry forward up to 8 hours of missing data, no more.
+    # THE FIX: Drop rows where the REAL exchange price doesn't exist yet (e.g., tomorrow's weather forecast)
+    master_df = master_df.dropna(subset=['price_eur_mwh'])
+
+    # NOW safely forward-fill the missing grid actuals (load/generation) up to 8 hours
     master_df = master_df.ffill(limit=32)
 
     # Define the Target Variable: The price 24 hours (96 steps) into the future
     master_df["target_price_24h_ahead"] = master_df["price_eur_mwh"].shift(-96)
 
-    # THE FIX: Drop NaNs from the historical lags, but KEEP the NaNs in the target variable
-    cols_to_check = [col for col in master_df.columns if col != "target_price_24h_ahead"]
-    master_df = master_df.dropna(subset=cols_to_check)
+    # THE FIX 3 (CRITICAL): Stop deleting tomorrow's prices! 
+    # Only drop rows if Technical (Prices) or Weather are missing (clears historical lag NaNs). 
+    # We allow Renewable/Load features to be NaN in the future so the model doesn't go blind.
+    safe_cols_to_check = list(tech_df.columns) + list(weather_df.columns)
+    master_df = master_df.dropna(subset=safe_cols_to_check)
 
     master_df.to_sql("master_features", con=conn, if_exists="replace")
     conn.close()

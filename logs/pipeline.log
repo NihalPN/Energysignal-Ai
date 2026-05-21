@@ -2316,3 +2316,2027 @@
 2026-05-21 01:23:46,410 - INFO - Fetching actual load from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
 2026-05-21 01:23:46,781 - INFO - Fetching generation mix from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
 2026-05-21 01:23:48,379 - INFO - Fetching Open-Meteo data from 2024-05-21 to 2024-05-24
+2026-05-21 02:00:09,683 - INFO - Fetching DA prices from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
+2026-05-21 02:00:31,220 - ERROR - ENTSO-E Fetcher failed for 20240521 to 20240524: (sqlite3.OperationalError) no such table: day_ahead_prices
+[SQL: SELECT timestamp FROM day_ahead_prices WHERE timestamp >= '2024-05-21 00:00:00' AND timestamp <= '2024-05-24 00:00:00']
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-21 02:00:33,220 - INFO - Fetching DA prices from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
+2026-05-21 02:00:42,171 - ERROR - ENTSO-E Fetcher failed for 20240521 to 20240524: (sqlite3.OperationalError) no such table: day_ahead_prices
+[SQL: SELECT timestamp FROM day_ahead_prices WHERE timestamp >= '2024-05-21 00:00:00' AND timestamp <= '2024-05-24 00:00:00']
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-21 02:00:46,171 - INFO - Fetching DA prices from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
+2026-05-21 02:00:49,776 - ERROR - ENTSO-E Fetcher failed for 20240521 to 20240524: (sqlite3.OperationalError) no such table: day_ahead_prices
+[SQL: SELECT timestamp FROM day_ahead_prices WHERE timestamp >= '2024-05-21 00:00:00' AND timestamp <= '2024-05-24 00:00:00']
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-21 02:00:57,776 - INFO - Fetching DA prices from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
+2026-05-21 02:00:58,380 - ERROR - ENTSO-E Fetcher failed for 20240521 to 20240524: (sqlite3.OperationalError) no such table: day_ahead_prices
+[SQL: SELECT timestamp FROM day_ahead_prices WHERE timestamp >= '2024-05-21 00:00:00' AND timestamp <= '2024-05-24 00:00:00']
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-21 02:01:14,381 - INFO - Fetching DA prices from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
+2026-05-21 02:01:15,251 - ERROR - ENTSO-E Fetcher failed for 20240521 to 20240524: (sqlite3.OperationalError) no such table: day_ahead_prices
+[SQL: SELECT timestamp FROM day_ahead_prices WHERE timestamp >= '2024-05-21 00:00:00' AND timestamp <= '2024-05-24 00:00:00']
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-21 02:03:27,615 - INFO - Fetching DA prices from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
+2026-05-21 02:03:29,382 - INFO - Inserted 289 new rows into day_ahead_prices.
+2026-05-21 02:03:29,383 - INFO - Fetching actual load from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
+2026-05-21 02:03:29,883 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:03:29,884 - INFO - Fetching generation mix from 2024-05-21 00:00:00+02:00 to 2024-05-24 00:00:00+02:00
+2026-05-21 02:03:31,740 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:03:31,740 - INFO - Fetching Open-Meteo data from 2024-05-21 to 2024-05-24
+2026-05-21 02:03:31,885 - INFO - Inserted 384 new rows into weather_data.
+2026-05-21 02:03:36,887 - INFO - Fetching DA prices from 2024-05-24 00:00:00+02:00 to 2024-05-27 00:00:00+02:00
+2026-05-21 02:03:37,813 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:03:37,814 - INFO - Fetching actual load from 2024-05-24 00:00:00+02:00 to 2024-05-27 00:00:00+02:00
+2026-05-21 02:03:38,292 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:03:38,293 - INFO - Fetching generation mix from 2024-05-24 00:00:00+02:00 to 2024-05-27 00:00:00+02:00
+2026-05-21 02:03:40,175 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:03:40,175 - INFO - Fetching Open-Meteo data from 2024-05-24 to 2024-05-27
+2026-05-21 02:03:41,930 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:03:46,932 - INFO - Fetching DA prices from 2024-05-27 00:00:00+02:00 to 2024-05-30 00:00:00+02:00
+2026-05-21 02:03:47,669 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:03:47,670 - INFO - Fetching actual load from 2024-05-27 00:00:00+02:00 to 2024-05-30 00:00:00+02:00
+2026-05-21 02:03:48,426 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:03:48,426 - INFO - Fetching generation mix from 2024-05-27 00:00:00+02:00 to 2024-05-30 00:00:00+02:00
+2026-05-21 02:03:50,613 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:03:50,613 - INFO - Fetching Open-Meteo data from 2024-05-27 to 2024-05-30
+2026-05-21 02:03:51,392 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:03:56,393 - INFO - Fetching DA prices from 2024-05-30 00:00:00+02:00 to 2024-06-02 00:00:00+02:00
+2026-05-21 02:03:57,421 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:03:57,421 - INFO - Fetching actual load from 2024-05-30 00:00:00+02:00 to 2024-06-02 00:00:00+02:00
+2026-05-21 02:03:57,944 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:03:57,944 - INFO - Fetching generation mix from 2024-05-30 00:00:00+02:00 to 2024-06-02 00:00:00+02:00
+2026-05-21 02:03:59,812 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:03:59,813 - INFO - Fetching Open-Meteo data from 2024-05-30 to 2024-06-02
+2026-05-21 02:04:00,425 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:04:05,426 - INFO - Fetching DA prices from 2024-06-02 00:00:00+02:00 to 2024-06-05 00:00:00+02:00
+2026-05-21 02:04:06,144 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:04:06,145 - INFO - Fetching actual load from 2024-06-02 00:00:00+02:00 to 2024-06-05 00:00:00+02:00
+2026-05-21 02:04:06,723 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:04:06,723 - INFO - Fetching generation mix from 2024-06-02 00:00:00+02:00 to 2024-06-05 00:00:00+02:00
+2026-05-21 02:04:08,635 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:04:08,636 - INFO - Fetching Open-Meteo data from 2024-06-02 to 2024-06-05
+2026-05-21 02:04:09,248 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:04:14,249 - INFO - Fetching DA prices from 2024-06-05 00:00:00+02:00 to 2024-06-08 00:00:00+02:00
+2026-05-21 02:04:15,000 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:04:15,001 - INFO - Fetching actual load from 2024-06-05 00:00:00+02:00 to 2024-06-08 00:00:00+02:00
+2026-05-21 02:04:15,546 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:04:15,546 - INFO - Fetching generation mix from 2024-06-05 00:00:00+02:00 to 2024-06-08 00:00:00+02:00
+2026-05-21 02:04:17,334 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:04:17,335 - INFO - Fetching Open-Meteo data from 2024-06-05 to 2024-06-08
+2026-05-21 02:04:17,925 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:04:22,927 - INFO - Fetching DA prices from 2024-06-08 00:00:00+02:00 to 2024-06-11 00:00:00+02:00
+2026-05-21 02:04:23,923 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:04:23,923 - INFO - Fetching actual load from 2024-06-08 00:00:00+02:00 to 2024-06-11 00:00:00+02:00
+2026-05-21 02:04:24,560 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:04:24,560 - INFO - Fetching generation mix from 2024-06-08 00:00:00+02:00 to 2024-06-11 00:00:00+02:00
+2026-05-21 02:04:26,598 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:04:26,598 - INFO - Fetching Open-Meteo data from 2024-06-08 to 2024-06-11
+2026-05-21 02:04:27,544 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:04:32,545 - INFO - Fetching DA prices from 2024-06-11 00:00:00+02:00 to 2024-06-14 00:00:00+02:00
+2026-05-21 02:04:33,311 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:04:33,311 - INFO - Fetching actual load from 2024-06-11 00:00:00+02:00 to 2024-06-14 00:00:00+02:00
+2026-05-21 02:04:33,846 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:04:33,846 - INFO - Fetching generation mix from 2024-06-11 00:00:00+02:00 to 2024-06-14 00:00:00+02:00
+2026-05-21 02:04:35,702 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:04:35,702 - INFO - Fetching Open-Meteo data from 2024-06-11 to 2024-06-14
+2026-05-21 02:04:36,226 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:04:41,227 - INFO - Fetching DA prices from 2024-06-14 00:00:00+02:00 to 2024-06-17 00:00:00+02:00
+2026-05-21 02:04:42,067 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:04:42,068 - INFO - Fetching actual load from 2024-06-14 00:00:00+02:00 to 2024-06-17 00:00:00+02:00
+2026-05-21 02:04:42,590 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:04:42,591 - INFO - Fetching generation mix from 2024-06-14 00:00:00+02:00 to 2024-06-17 00:00:00+02:00
+2026-05-21 02:04:44,861 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:04:44,861 - INFO - Fetching Open-Meteo data from 2024-06-14 to 2024-06-17
+2026-05-21 02:04:45,385 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:04:50,386 - INFO - Fetching DA prices from 2024-06-17 00:00:00+02:00 to 2024-06-20 00:00:00+02:00
+2026-05-21 02:04:51,286 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:04:51,286 - INFO - Fetching actual load from 2024-06-17 00:00:00+02:00 to 2024-06-20 00:00:00+02:00
+2026-05-21 02:04:51,776 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:04:51,776 - INFO - Fetching generation mix from 2024-06-17 00:00:00+02:00 to 2024-06-20 00:00:00+02:00
+2026-05-21 02:04:53,572 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:04:53,573 - INFO - Fetching Open-Meteo data from 2024-06-17 to 2024-06-20
+2026-05-21 02:04:54,776 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:04:59,777 - INFO - Fetching DA prices from 2024-06-20 00:00:00+02:00 to 2024-06-23 00:00:00+02:00
+2026-05-21 02:05:01,198 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:05:01,198 - INFO - Fetching actual load from 2024-06-20 00:00:00+02:00 to 2024-06-23 00:00:00+02:00
+2026-05-21 02:05:02,159 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:05:02,159 - INFO - Fetching generation mix from 2024-06-20 00:00:00+02:00 to 2024-06-23 00:00:00+02:00
+2026-05-21 02:05:04,203 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:05:04,203 - INFO - Fetching Open-Meteo data from 2024-06-20 to 2024-06-23
+2026-05-21 02:05:04,838 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:05:09,839 - INFO - Fetching DA prices from 2024-06-23 00:00:00+02:00 to 2024-06-26 00:00:00+02:00
+2026-05-21 02:05:10,723 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:05:10,723 - INFO - Fetching actual load from 2024-06-23 00:00:00+02:00 to 2024-06-26 00:00:00+02:00
+2026-05-21 02:05:11,313 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:05:11,313 - INFO - Fetching generation mix from 2024-06-23 00:00:00+02:00 to 2024-06-26 00:00:00+02:00
+2026-05-21 02:05:13,849 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:05:13,850 - INFO - Fetching Open-Meteo data from 2024-06-23 to 2024-06-26
+2026-05-21 02:05:14,351 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:05:19,353 - INFO - Fetching DA prices from 2024-06-26 00:00:00+02:00 to 2024-06-29 00:00:00+02:00
+2026-05-21 02:05:20,709 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:05:20,710 - INFO - Fetching actual load from 2024-06-26 00:00:00+02:00 to 2024-06-29 00:00:00+02:00
+2026-05-21 02:05:21,287 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:05:21,288 - INFO - Fetching generation mix from 2024-06-26 00:00:00+02:00 to 2024-06-29 00:00:00+02:00
+2026-05-21 02:05:23,147 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:05:23,148 - INFO - Fetching Open-Meteo data from 2024-06-26 to 2024-06-29
+2026-05-21 02:05:23,672 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:05:28,674 - INFO - Fetching DA prices from 2024-06-29 00:00:00+02:00 to 2024-07-02 00:00:00+02:00
+2026-05-21 02:05:29,482 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:05:29,483 - INFO - Fetching actual load from 2024-06-29 00:00:00+02:00 to 2024-07-02 00:00:00+02:00
+2026-05-21 02:05:30,197 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:05:30,198 - INFO - Fetching generation mix from 2024-06-29 00:00:00+02:00 to 2024-07-02 00:00:00+02:00
+2026-05-21 02:05:32,398 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:05:32,399 - INFO - Fetching Open-Meteo data from 2024-06-29 to 2024-07-02
+2026-05-21 02:05:33,056 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:05:38,059 - INFO - Fetching DA prices from 2024-07-02 00:00:00+02:00 to 2024-07-05 00:00:00+02:00
+2026-05-21 02:05:38,850 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:05:38,851 - INFO - Fetching actual load from 2024-07-02 00:00:00+02:00 to 2024-07-05 00:00:00+02:00
+2026-05-21 02:05:39,840 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:05:39,841 - INFO - Fetching generation mix from 2024-07-02 00:00:00+02:00 to 2024-07-05 00:00:00+02:00
+2026-05-21 02:05:42,038 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:05:42,039 - INFO - Fetching Open-Meteo data from 2024-07-02 to 2024-07-05
+2026-05-21 02:05:42,629 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:05:47,631 - INFO - Fetching DA prices from 2024-07-05 00:00:00+02:00 to 2024-07-08 00:00:00+02:00
+2026-05-21 02:05:48,834 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:05:48,835 - INFO - Fetching actual load from 2024-07-05 00:00:00+02:00 to 2024-07-08 00:00:00+02:00
+2026-05-21 02:05:49,427 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:05:49,428 - INFO - Fetching generation mix from 2024-07-05 00:00:00+02:00 to 2024-07-08 00:00:00+02:00
+2026-05-21 02:05:51,472 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:05:51,473 - INFO - Fetching Open-Meteo data from 2024-07-05 to 2024-07-08
+2026-05-21 02:05:51,996 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:05:56,999 - INFO - Fetching DA prices from 2024-07-08 00:00:00+02:00 to 2024-07-11 00:00:00+02:00
+2026-05-21 02:05:57,735 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:05:57,735 - INFO - Fetching actual load from 2024-07-08 00:00:00+02:00 to 2024-07-11 00:00:00+02:00
+2026-05-21 02:05:58,969 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:05:58,970 - INFO - Fetching generation mix from 2024-07-08 00:00:00+02:00 to 2024-07-11 00:00:00+02:00
+2026-05-21 02:06:01,220 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:06:01,221 - INFO - Fetching Open-Meteo data from 2024-07-08 to 2024-07-11
+2026-05-21 02:06:01,733 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:06:06,736 - INFO - Fetching DA prices from 2024-07-11 00:00:00+02:00 to 2024-07-14 00:00:00+02:00
+2026-05-21 02:06:07,505 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:06:07,505 - INFO - Fetching actual load from 2024-07-11 00:00:00+02:00 to 2024-07-14 00:00:00+02:00
+2026-05-21 02:06:07,972 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:06:07,973 - INFO - Fetching generation mix from 2024-07-11 00:00:00+02:00 to 2024-07-14 00:00:00+02:00
+2026-05-21 02:06:10,321 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:06:10,322 - INFO - Fetching Open-Meteo data from 2024-07-11 to 2024-07-14
+2026-05-21 02:06:11,012 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:06:16,014 - INFO - Fetching DA prices from 2024-07-14 00:00:00+02:00 to 2024-07-17 00:00:00+02:00
+2026-05-21 02:06:16,971 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:06:16,972 - INFO - Fetching actual load from 2024-07-14 00:00:00+02:00 to 2024-07-17 00:00:00+02:00
+2026-05-21 02:06:17,588 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:06:17,589 - INFO - Fetching generation mix from 2024-07-14 00:00:00+02:00 to 2024-07-17 00:00:00+02:00
+2026-05-21 02:06:20,269 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:06:20,270 - INFO - Fetching Open-Meteo data from 2024-07-14 to 2024-07-17
+2026-05-21 02:06:20,937 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:06:25,940 - INFO - Fetching DA prices from 2024-07-17 00:00:00+02:00 to 2024-07-20 00:00:00+02:00
+2026-05-21 02:06:26,816 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:06:26,816 - INFO - Fetching actual load from 2024-07-17 00:00:00+02:00 to 2024-07-20 00:00:00+02:00
+2026-05-21 02:06:27,394 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:06:27,395 - INFO - Fetching generation mix from 2024-07-17 00:00:00+02:00 to 2024-07-20 00:00:00+02:00
+2026-05-21 02:06:29,406 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:06:29,407 - INFO - Fetching Open-Meteo data from 2024-07-17 to 2024-07-20
+2026-05-21 02:06:30,007 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:06:35,009 - INFO - Fetching DA prices from 2024-07-20 00:00:00+02:00 to 2024-07-23 00:00:00+02:00
+2026-05-21 02:06:36,138 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:06:36,139 - INFO - Fetching actual load from 2024-07-20 00:00:00+02:00 to 2024-07-23 00:00:00+02:00
+2026-05-21 02:06:36,678 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:06:36,678 - INFO - Fetching generation mix from 2024-07-20 00:00:00+02:00 to 2024-07-23 00:00:00+02:00
+2026-05-21 02:06:38,789 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:06:38,790 - INFO - Fetching Open-Meteo data from 2024-07-20 to 2024-07-23
+2026-05-21 02:06:39,468 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:06:44,470 - INFO - Fetching DA prices from 2024-07-23 00:00:00+02:00 to 2024-07-26 00:00:00+02:00
+2026-05-21 02:06:45,385 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:06:45,385 - INFO - Fetching actual load from 2024-07-23 00:00:00+02:00 to 2024-07-26 00:00:00+02:00
+2026-05-21 02:06:46,163 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:06:46,164 - INFO - Fetching generation mix from 2024-07-23 00:00:00+02:00 to 2024-07-26 00:00:00+02:00
+2026-05-21 02:06:48,073 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:06:48,074 - INFO - Fetching Open-Meteo data from 2024-07-23 to 2024-07-26
+2026-05-21 02:06:48,691 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:06:53,693 - INFO - Fetching DA prices from 2024-07-26 00:00:00+02:00 to 2024-07-29 00:00:00+02:00
+2026-05-21 02:06:54,464 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:06:54,464 - INFO - Fetching actual load from 2024-07-26 00:00:00+02:00 to 2024-07-29 00:00:00+02:00
+2026-05-21 02:06:55,020 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:06:55,021 - INFO - Fetching generation mix from 2024-07-26 00:00:00+02:00 to 2024-07-29 00:00:00+02:00
+2026-05-21 02:06:57,761 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:06:57,762 - INFO - Fetching Open-Meteo data from 2024-07-26 to 2024-07-29
+2026-05-21 02:06:58,519 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:07:03,521 - INFO - Fetching DA prices from 2024-07-29 00:00:00+02:00 to 2024-08-01 00:00:00+02:00
+2026-05-21 02:07:04,303 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:07:04,303 - INFO - Fetching actual load from 2024-07-29 00:00:00+02:00 to 2024-08-01 00:00:00+02:00
+2026-05-21 02:07:04,804 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:07:04,804 - INFO - Fetching generation mix from 2024-07-29 00:00:00+02:00 to 2024-08-01 00:00:00+02:00
+2026-05-21 02:07:06,704 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:07:06,705 - INFO - Fetching Open-Meteo data from 2024-07-29 to 2024-08-01
+2026-05-21 02:07:07,307 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:07:12,310 - INFO - Fetching DA prices from 2024-08-01 00:00:00+02:00 to 2024-08-04 00:00:00+02:00
+2026-05-21 02:07:13,179 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:07:13,180 - INFO - Fetching actual load from 2024-08-01 00:00:00+02:00 to 2024-08-04 00:00:00+02:00
+2026-05-21 02:07:13,658 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:07:13,659 - INFO - Fetching generation mix from 2024-08-01 00:00:00+02:00 to 2024-08-04 00:00:00+02:00
+2026-05-21 02:07:15,659 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:07:15,660 - INFO - Fetching Open-Meteo data from 2024-08-01 to 2024-08-04
+2026-05-21 02:07:16,604 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:07:21,606 - INFO - Fetching DA prices from 2024-08-04 00:00:00+02:00 to 2024-08-07 00:00:00+02:00
+2026-05-21 02:07:22,419 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:07:22,420 - INFO - Fetching actual load from 2024-08-04 00:00:00+02:00 to 2024-08-07 00:00:00+02:00
+2026-05-21 02:07:23,064 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:07:23,065 - INFO - Fetching generation mix from 2024-08-04 00:00:00+02:00 to 2024-08-07 00:00:00+02:00
+2026-05-21 02:07:25,098 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:07:25,099 - INFO - Fetching Open-Meteo data from 2024-08-04 to 2024-08-07
+2026-05-21 02:07:25,744 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:07:30,747 - INFO - Fetching DA prices from 2024-08-07 00:00:00+02:00 to 2024-08-10 00:00:00+02:00
+2026-05-21 02:07:31,624 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:07:31,624 - INFO - Fetching actual load from 2024-08-07 00:00:00+02:00 to 2024-08-10 00:00:00+02:00
+2026-05-21 02:07:32,102 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:07:32,103 - INFO - Fetching generation mix from 2024-08-07 00:00:00+02:00 to 2024-08-10 00:00:00+02:00
+2026-05-21 02:07:33,773 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:07:33,774 - INFO - Fetching Open-Meteo data from 2024-08-07 to 2024-08-10
+2026-05-21 02:07:34,319 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:07:39,322 - INFO - Fetching DA prices from 2024-08-10 00:00:00+02:00 to 2024-08-13 00:00:00+02:00
+2026-05-21 02:07:40,115 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:07:40,116 - INFO - Fetching actual load from 2024-08-10 00:00:00+02:00 to 2024-08-13 00:00:00+02:00
+2026-05-21 02:07:40,627 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:07:40,628 - INFO - Fetching generation mix from 2024-08-10 00:00:00+02:00 to 2024-08-13 00:00:00+02:00
+2026-05-21 02:07:42,377 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:07:42,378 - INFO - Fetching Open-Meteo data from 2024-08-10 to 2024-08-13
+2026-05-21 02:07:43,386 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:07:48,388 - INFO - Fetching DA prices from 2024-08-13 00:00:00+02:00 to 2024-08-16 00:00:00+02:00
+2026-05-21 02:07:49,219 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:07:49,219 - INFO - Fetching actual load from 2024-08-13 00:00:00+02:00 to 2024-08-16 00:00:00+02:00
+2026-05-21 02:07:49,897 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:07:49,898 - INFO - Fetching generation mix from 2024-08-13 00:00:00+02:00 to 2024-08-16 00:00:00+02:00
+2026-05-21 02:07:51,609 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:07:51,610 - INFO - Fetching Open-Meteo data from 2024-08-13 to 2024-08-16
+2026-05-21 02:07:52,144 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:07:57,147 - INFO - Fetching DA prices from 2024-08-16 00:00:00+02:00 to 2024-08-19 00:00:00+02:00
+2026-05-21 02:07:57,971 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:07:57,972 - INFO - Fetching actual load from 2024-08-16 00:00:00+02:00 to 2024-08-19 00:00:00+02:00
+2026-05-21 02:07:58,708 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:07:58,709 - INFO - Fetching generation mix from 2024-08-16 00:00:00+02:00 to 2024-08-19 00:00:00+02:00
+2026-05-21 02:08:00,664 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:08:00,665 - INFO - Fetching Open-Meteo data from 2024-08-16 to 2024-08-19
+2026-05-21 02:08:01,177 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:08:06,180 - INFO - Fetching DA prices from 2024-08-19 00:00:00+02:00 to 2024-08-22 00:00:00+02:00
+2026-05-21 02:08:07,050 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:08:07,051 - INFO - Fetching actual load from 2024-08-19 00:00:00+02:00 to 2024-08-22 00:00:00+02:00
+2026-05-21 02:08:07,529 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:08:07,529 - INFO - Fetching generation mix from 2024-08-19 00:00:00+02:00 to 2024-08-22 00:00:00+02:00
+2026-05-21 02:08:09,607 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:08:09,608 - INFO - Fetching Open-Meteo data from 2024-08-19 to 2024-08-22
+2026-05-21 02:08:10,120 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:08:15,123 - INFO - Fetching DA prices from 2024-08-22 00:00:00+02:00 to 2024-08-25 00:00:00+02:00
+2026-05-21 02:08:15,872 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:08:15,872 - INFO - Fetching actual load from 2024-08-22 00:00:00+02:00 to 2024-08-25 00:00:00+02:00
+2026-05-21 02:08:16,439 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:08:16,440 - INFO - Fetching generation mix from 2024-08-22 00:00:00+02:00 to 2024-08-25 00:00:00+02:00
+2026-05-21 02:08:18,133 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:08:18,134 - INFO - Fetching Open-Meteo data from 2024-08-22 to 2024-08-25
+2026-05-21 02:08:19,415 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:08:24,418 - INFO - Fetching DA prices from 2024-08-25 00:00:00+02:00 to 2024-08-28 00:00:00+02:00
+2026-05-21 02:08:25,212 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:08:25,212 - INFO - Fetching actual load from 2024-08-25 00:00:00+02:00 to 2024-08-28 00:00:00+02:00
+2026-05-21 02:08:25,835 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:08:25,835 - INFO - Fetching generation mix from 2024-08-25 00:00:00+02:00 to 2024-08-28 00:00:00+02:00
+2026-05-21 02:08:27,502 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:08:27,503 - INFO - Fetching Open-Meteo data from 2024-08-25 to 2024-08-28
+2026-05-21 02:08:28,071 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:08:33,073 - INFO - Fetching DA prices from 2024-08-28 00:00:00+02:00 to 2024-08-31 00:00:00+02:00
+2026-05-21 02:08:33,809 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:08:33,810 - INFO - Fetching actual load from 2024-08-28 00:00:00+02:00 to 2024-08-31 00:00:00+02:00
+2026-05-21 02:08:34,299 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:08:34,299 - INFO - Fetching generation mix from 2024-08-28 00:00:00+02:00 to 2024-08-31 00:00:00+02:00
+2026-05-21 02:08:36,242 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:08:36,243 - INFO - Fetching Open-Meteo data from 2024-08-28 to 2024-08-31
+2026-05-21 02:08:36,878 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:08:41,880 - INFO - Fetching DA prices from 2024-08-31 00:00:00+02:00 to 2024-09-03 00:00:00+02:00
+2026-05-21 02:08:42,670 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:08:42,671 - INFO - Fetching actual load from 2024-08-31 00:00:00+02:00 to 2024-09-03 00:00:00+02:00
+2026-05-21 02:08:43,434 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:08:43,435 - INFO - Fetching generation mix from 2024-08-31 00:00:00+02:00 to 2024-09-03 00:00:00+02:00
+2026-05-21 02:08:45,024 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:08:45,025 - INFO - Fetching Open-Meteo data from 2024-08-31 to 2024-09-03
+2026-05-21 02:08:45,692 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:08:50,694 - INFO - Fetching DA prices from 2024-09-03 00:00:00+02:00 to 2024-09-06 00:00:00+02:00
+2026-05-21 02:08:51,532 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:08:51,532 - INFO - Fetching actual load from 2024-09-03 00:00:00+02:00 to 2024-09-06 00:00:00+02:00
+2026-05-21 02:08:52,011 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:08:52,011 - INFO - Fetching generation mix from 2024-09-03 00:00:00+02:00 to 2024-09-06 00:00:00+02:00
+2026-05-21 02:08:53,922 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:08:53,923 - INFO - Fetching Open-Meteo data from 2024-09-03 to 2024-09-06
+2026-05-21 02:08:54,480 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:08:59,482 - INFO - Fetching DA prices from 2024-09-06 00:00:00+02:00 to 2024-09-09 00:00:00+02:00
+2026-05-21 02:09:00,174 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:09:00,175 - INFO - Fetching actual load from 2024-09-06 00:00:00+02:00 to 2024-09-09 00:00:00+02:00
+2026-05-21 02:09:00,920 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:09:00,920 - INFO - Fetching generation mix from 2024-09-06 00:00:00+02:00 to 2024-09-09 00:00:00+02:00
+2026-05-21 02:09:02,931 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:09:02,932 - INFO - Fetching Open-Meteo data from 2024-09-06 to 2024-09-09
+2026-05-21 02:09:03,600 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:09:08,602 - INFO - Fetching DA prices from 2024-09-09 00:00:00+02:00 to 2024-09-12 00:00:00+02:00
+2026-05-21 02:09:09,323 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:09:09,324 - INFO - Fetching actual load from 2024-09-09 00:00:00+02:00 to 2024-09-12 00:00:00+02:00
+2026-05-21 02:09:09,856 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:09:09,857 - INFO - Fetching generation mix from 2024-09-09 00:00:00+02:00 to 2024-09-12 00:00:00+02:00
+2026-05-21 02:09:11,548 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:09:11,549 - INFO - Fetching Open-Meteo data from 2024-09-09 to 2024-09-12
+2026-05-21 02:09:12,095 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:09:17,097 - INFO - Fetching DA prices from 2024-09-12 00:00:00+02:00 to 2024-09-15 00:00:00+02:00
+2026-05-21 02:09:18,034 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:09:18,034 - INFO - Fetching actual load from 2024-09-12 00:00:00+02:00 to 2024-09-15 00:00:00+02:00
+2026-05-21 02:09:18,545 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:09:18,545 - INFO - Fetching generation mix from 2024-09-12 00:00:00+02:00 to 2024-09-15 00:00:00+02:00
+2026-05-21 02:09:21,003 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:09:21,004 - INFO - Fetching Open-Meteo data from 2024-09-12 to 2024-09-15
+2026-05-21 02:09:22,182 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:09:27,185 - INFO - Fetching DA prices from 2024-09-15 00:00:00+02:00 to 2024-09-18 00:00:00+02:00
+2026-05-21 02:09:28,031 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:09:28,031 - INFO - Fetching actual load from 2024-09-15 00:00:00+02:00 to 2024-09-18 00:00:00+02:00
+2026-05-21 02:09:28,514 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:09:28,515 - INFO - Fetching generation mix from 2024-09-15 00:00:00+02:00 to 2024-09-18 00:00:00+02:00
+2026-05-21 02:09:30,353 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:09:30,354 - INFO - Fetching Open-Meteo data from 2024-09-15 to 2024-09-18
+2026-05-21 02:09:30,999 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:09:36,002 - INFO - Fetching DA prices from 2024-09-18 00:00:00+02:00 to 2024-09-21 00:00:00+02:00
+2026-05-21 02:09:36,982 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:09:36,983 - INFO - Fetching actual load from 2024-09-18 00:00:00+02:00 to 2024-09-21 00:00:00+02:00
+2026-05-21 02:09:37,694 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:09:37,694 - INFO - Fetching generation mix from 2024-09-18 00:00:00+02:00 to 2024-09-21 00:00:00+02:00
+2026-05-21 02:09:39,376 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:09:39,377 - INFO - Fetching Open-Meteo data from 2024-09-18 to 2024-09-21
+2026-05-21 02:09:40,111 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:09:45,114 - INFO - Fetching DA prices from 2024-09-21 00:00:00+02:00 to 2024-09-24 00:00:00+02:00
+2026-05-21 02:09:45,890 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:09:45,891 - INFO - Fetching actual load from 2024-09-21 00:00:00+02:00 to 2024-09-24 00:00:00+02:00
+2026-05-21 02:09:46,424 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:09:46,425 - INFO - Fetching generation mix from 2024-09-21 00:00:00+02:00 to 2024-09-24 00:00:00+02:00
+2026-05-21 02:09:48,186 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:09:48,186 - INFO - Fetching Open-Meteo data from 2024-09-21 to 2024-09-24
+2026-05-21 02:09:48,895 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:09:53,897 - INFO - Fetching DA prices from 2024-09-24 00:00:00+02:00 to 2024-09-27 00:00:00+02:00
+2026-05-21 02:09:54,887 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:09:54,887 - INFO - Fetching actual load from 2024-09-24 00:00:00+02:00 to 2024-09-27 00:00:00+02:00
+2026-05-21 02:09:55,662 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:09:55,663 - INFO - Fetching generation mix from 2024-09-24 00:00:00+02:00 to 2024-09-27 00:00:00+02:00
+2026-05-21 02:09:57,471 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:09:57,472 - INFO - Fetching Open-Meteo data from 2024-09-24 to 2024-09-27
+2026-05-21 02:09:58,072 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:10:03,075 - INFO - Fetching DA prices from 2024-09-27 00:00:00+02:00 to 2024-09-30 00:00:00+02:00
+2026-05-21 02:10:04,047 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:10:04,048 - INFO - Fetching actual load from 2024-09-27 00:00:00+02:00 to 2024-09-30 00:00:00+02:00
+2026-05-21 02:10:04,826 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:10:04,827 - INFO - Fetching generation mix from 2024-09-27 00:00:00+02:00 to 2024-09-30 00:00:00+02:00
+2026-05-21 02:10:06,574 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:10:06,574 - INFO - Fetching Open-Meteo data from 2024-09-27 to 2024-09-30
+2026-05-21 02:10:07,180 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:10:12,183 - INFO - Fetching DA prices from 2024-09-30 00:00:00+02:00 to 2024-10-03 00:00:00+02:00
+2026-05-21 02:10:13,039 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:10:13,040 - INFO - Fetching actual load from 2024-09-30 00:00:00+02:00 to 2024-10-03 00:00:00+02:00
+2026-05-21 02:10:13,573 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:10:13,573 - INFO - Fetching generation mix from 2024-09-30 00:00:00+02:00 to 2024-10-03 00:00:00+02:00
+2026-05-21 02:10:15,422 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:10:15,423 - INFO - Fetching Open-Meteo data from 2024-09-30 to 2024-10-03
+2026-05-21 02:10:16,001 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:10:21,003 - INFO - Fetching DA prices from 2024-10-03 00:00:00+02:00 to 2024-10-06 00:00:00+02:00
+2026-05-21 02:10:21,942 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:10:21,943 - INFO - Fetching actual load from 2024-10-03 00:00:00+02:00 to 2024-10-06 00:00:00+02:00
+2026-05-21 02:10:22,465 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:10:22,466 - INFO - Fetching generation mix from 2024-10-03 00:00:00+02:00 to 2024-10-06 00:00:00+02:00
+2026-05-21 02:10:24,488 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:10:24,489 - INFO - Fetching Open-Meteo data from 2024-10-03 to 2024-10-06
+2026-05-21 02:10:25,239 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:10:30,241 - INFO - Fetching DA prices from 2024-10-06 00:00:00+02:00 to 2024-10-09 00:00:00+02:00
+2026-05-21 02:10:31,259 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:10:31,260 - INFO - Fetching actual load from 2024-10-06 00:00:00+02:00 to 2024-10-09 00:00:00+02:00
+2026-05-21 02:10:31,793 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:10:31,794 - INFO - Fetching generation mix from 2024-10-06 00:00:00+02:00 to 2024-10-09 00:00:00+02:00
+2026-05-21 02:10:34,263 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:10:34,264 - INFO - Fetching Open-Meteo data from 2024-10-06 to 2024-10-09
+2026-05-21 02:10:34,754 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:10:39,756 - INFO - Fetching DA prices from 2024-10-09 00:00:00+02:00 to 2024-10-12 00:00:00+02:00
+2026-05-21 02:10:40,570 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:10:40,571 - INFO - Fetching actual load from 2024-10-09 00:00:00+02:00 to 2024-10-12 00:00:00+02:00
+2026-05-21 02:10:41,119 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:10:41,120 - INFO - Fetching generation mix from 2024-10-09 00:00:00+02:00 to 2024-10-12 00:00:00+02:00
+2026-05-21 02:10:43,134 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:10:43,135 - INFO - Fetching Open-Meteo data from 2024-10-09 to 2024-10-12
+2026-05-21 02:10:43,725 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:10:48,728 - INFO - Fetching DA prices from 2024-10-12 00:00:00+02:00 to 2024-10-15 00:00:00+02:00
+2026-05-21 02:10:49,618 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:10:49,618 - INFO - Fetching actual load from 2024-10-12 00:00:00+02:00 to 2024-10-15 00:00:00+02:00
+2026-05-21 02:10:50,108 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:10:50,108 - INFO - Fetching generation mix from 2024-10-12 00:00:00+02:00 to 2024-10-15 00:00:00+02:00
+2026-05-21 02:10:52,067 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:10:52,068 - INFO - Fetching Open-Meteo data from 2024-10-12 to 2024-10-15
+2026-05-21 02:10:52,636 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:10:57,639 - INFO - Fetching DA prices from 2024-10-15 00:00:00+02:00 to 2024-10-18 00:00:00+02:00
+2026-05-21 02:10:58,378 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:10:58,379 - INFO - Fetching actual load from 2024-10-15 00:00:00+02:00 to 2024-10-18 00:00:00+02:00
+2026-05-21 02:10:58,879 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:10:58,880 - INFO - Fetching generation mix from 2024-10-15 00:00:00+02:00 to 2024-10-18 00:00:00+02:00
+2026-05-21 02:11:01,158 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:11:01,159 - INFO - Fetching Open-Meteo data from 2024-10-15 to 2024-10-18
+2026-05-21 02:11:01,660 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:11:06,662 - INFO - Fetching DA prices from 2024-10-18 00:00:00+02:00 to 2024-10-21 00:00:00+02:00
+2026-05-21 02:11:07,465 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:11:07,466 - INFO - Fetching actual load from 2024-10-18 00:00:00+02:00 to 2024-10-21 00:00:00+02:00
+2026-05-21 02:11:08,013 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:11:08,013 - INFO - Fetching generation mix from 2024-10-18 00:00:00+02:00 to 2024-10-21 00:00:00+02:00
+2026-05-21 02:11:09,950 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:11:09,951 - INFO - Fetching Open-Meteo data from 2024-10-18 to 2024-10-21
+2026-05-21 02:11:10,696 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:11:15,699 - INFO - Fetching DA prices from 2024-10-21 00:00:00+02:00 to 2024-10-24 00:00:00+02:00
+2026-05-21 02:11:16,458 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:11:16,459 - INFO - Fetching actual load from 2024-10-21 00:00:00+02:00 to 2024-10-24 00:00:00+02:00
+2026-05-21 02:11:17,004 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:11:17,004 - INFO - Fetching generation mix from 2024-10-21 00:00:00+02:00 to 2024-10-24 00:00:00+02:00
+2026-05-21 02:11:19,078 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:11:19,079 - INFO - Fetching Open-Meteo data from 2024-10-21 to 2024-10-24
+2026-05-21 02:11:19,735 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:11:24,738 - INFO - Fetching DA prices from 2024-10-24 00:00:00+02:00 to 2024-10-27 00:00:00+02:00
+2026-05-21 02:11:25,474 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:11:25,475 - INFO - Fetching actual load from 2024-10-24 00:00:00+02:00 to 2024-10-27 00:00:00+02:00
+2026-05-21 02:11:25,964 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:11:25,964 - INFO - Fetching generation mix from 2024-10-24 00:00:00+02:00 to 2024-10-27 00:00:00+02:00
+2026-05-21 02:11:28,475 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:11:28,476 - INFO - Fetching Open-Meteo data from 2024-10-24 to 2024-10-27
+2026-05-21 02:11:29,159 - INFO - Inserted 284 new rows into weather_data.
+2026-05-21 02:11:34,162 - INFO - Fetching DA prices from 2024-10-27 00:00:00+02:00 to 2024-10-29 00:00:00+01:00
+2026-05-21 02:11:35,008 - INFO - Inserted 192 new rows into day_ahead_prices.
+2026-05-21 02:11:35,008 - INFO - Fetching actual load from 2024-10-27 00:00:00+02:00 to 2024-10-29 00:00:00+01:00
+2026-05-21 02:11:35,653 - INFO - Inserted 192 new rows into actual_load.
+2026-05-21 02:11:35,654 - INFO - Fetching generation mix from 2024-10-27 00:00:00+02:00 to 2024-10-29 00:00:00+01:00
+2026-05-21 02:11:37,225 - INFO - Inserted 192 new rows into generation_mix.
+2026-05-21 02:11:37,226 - INFO - Fetching Open-Meteo data from 2024-10-27 to 2024-10-29
+2026-05-21 02:11:37,772 - INFO - Inserted 192 new rows into weather_data.
+2026-05-21 02:11:42,774 - INFO - Fetching DA prices from 2024-10-29 00:00:00+01:00 to 2024-11-01 00:00:00+01:00
+2026-05-21 02:11:43,602 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:11:43,602 - INFO - Fetching actual load from 2024-10-29 00:00:00+01:00 to 2024-11-01 00:00:00+01:00
+2026-05-21 02:11:44,203 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:11:44,203 - INFO - Fetching generation mix from 2024-10-29 00:00:00+01:00 to 2024-11-01 00:00:00+01:00
+2026-05-21 02:11:46,196 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:11:46,197 - INFO - Fetching Open-Meteo data from 2024-10-29 to 2024-11-01
+2026-05-21 02:11:46,858 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:11:51,860 - INFO - Fetching DA prices from 2024-11-01 00:00:00+01:00 to 2024-11-04 00:00:00+01:00
+2026-05-21 02:11:52,775 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:11:52,776 - INFO - Fetching actual load from 2024-11-01 00:00:00+01:00 to 2024-11-04 00:00:00+01:00
+2026-05-21 02:11:53,232 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:11:53,233 - INFO - Fetching generation mix from 2024-11-01 00:00:00+01:00 to 2024-11-04 00:00:00+01:00
+2026-05-21 02:11:55,187 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:11:55,188 - INFO - Fetching Open-Meteo data from 2024-11-01 to 2024-11-04
+2026-05-21 02:11:55,700 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:12:00,703 - INFO - Fetching DA prices from 2024-11-04 00:00:00+01:00 to 2024-11-07 00:00:00+01:00
+2026-05-21 02:12:02,621 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:12:02,622 - INFO - Fetching actual load from 2024-11-04 00:00:00+01:00 to 2024-11-07 00:00:00+01:00
+2026-05-21 02:12:03,389 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:12:03,389 - INFO - Fetching generation mix from 2024-11-04 00:00:00+01:00 to 2024-11-07 00:00:00+01:00
+2026-05-21 02:12:05,567 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:12:05,568 - INFO - Fetching Open-Meteo data from 2024-11-04 to 2024-11-07
+2026-05-21 02:12:06,169 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:12:11,171 - INFO - Fetching DA prices from 2024-11-07 00:00:00+01:00 to 2024-11-10 00:00:00+01:00
+2026-05-21 02:12:12,010 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:12:12,011 - INFO - Fetching actual load from 2024-11-07 00:00:00+01:00 to 2024-11-10 00:00:00+01:00
+2026-05-21 02:12:12,544 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:12:12,545 - INFO - Fetching generation mix from 2024-11-07 00:00:00+01:00 to 2024-11-10 00:00:00+01:00
+2026-05-21 02:12:14,301 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:12:14,301 - INFO - Fetching Open-Meteo data from 2024-11-07 to 2024-11-10
+2026-05-21 02:12:14,869 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:12:19,871 - INFO - Fetching DA prices from 2024-11-10 00:00:00+01:00 to 2024-11-13 00:00:00+01:00
+2026-05-21 02:12:20,675 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:12:20,676 - INFO - Fetching actual load from 2024-11-10 00:00:00+01:00 to 2024-11-13 00:00:00+01:00
+2026-05-21 02:12:21,176 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:12:21,176 - INFO - Fetching generation mix from 2024-11-10 00:00:00+01:00 to 2024-11-13 00:00:00+01:00
+2026-05-21 02:12:22,979 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:12:22,980 - INFO - Fetching Open-Meteo data from 2024-11-10 to 2024-11-13
+2026-05-21 02:12:23,673 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:12:28,676 - INFO - Fetching DA prices from 2024-11-13 00:00:00+01:00 to 2024-11-16 00:00:00+01:00
+2026-05-21 02:12:29,548 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:12:29,549 - INFO - Fetching actual load from 2024-11-13 00:00:00+01:00 to 2024-11-16 00:00:00+01:00
+2026-05-21 02:12:30,475 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:12:30,475 - INFO - Fetching generation mix from 2024-11-13 00:00:00+01:00 to 2024-11-16 00:00:00+01:00
+2026-05-21 02:12:33,036 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:12:33,037 - INFO - Fetching Open-Meteo data from 2024-11-13 to 2024-11-16
+2026-05-21 02:12:33,649 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:12:38,651 - INFO - Fetching DA prices from 2024-11-16 00:00:00+01:00 to 2024-11-19 00:00:00+01:00
+2026-05-21 02:12:39,412 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:12:39,413 - INFO - Fetching actual load from 2024-11-16 00:00:00+01:00 to 2024-11-19 00:00:00+01:00
+2026-05-21 02:12:39,858 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:12:39,858 - INFO - Fetching generation mix from 2024-11-16 00:00:00+01:00 to 2024-11-19 00:00:00+01:00
+2026-05-21 02:12:41,847 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:12:41,848 - INFO - Fetching Open-Meteo data from 2024-11-16 to 2024-11-19
+2026-05-21 02:12:42,705 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:12:47,706 - INFO - Fetching DA prices from 2024-11-19 00:00:00+01:00 to 2024-11-22 00:00:00+01:00
+2026-05-21 02:12:48,427 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:12:48,428 - INFO - Fetching actual load from 2024-11-19 00:00:00+01:00 to 2024-11-22 00:00:00+01:00
+2026-05-21 02:12:49,007 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:12:49,007 - INFO - Fetching generation mix from 2024-11-19 00:00:00+01:00 to 2024-11-22 00:00:00+01:00
+2026-05-21 02:12:51,129 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:12:51,130 - INFO - Fetching Open-Meteo data from 2024-11-19 to 2024-11-22
+2026-05-21 02:12:51,664 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:12:56,667 - INFO - Fetching DA prices from 2024-11-22 00:00:00+01:00 to 2024-11-25 00:00:00+01:00
+2026-05-21 02:12:57,475 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:12:57,476 - INFO - Fetching actual load from 2024-11-22 00:00:00+01:00 to 2024-11-25 00:00:00+01:00
+2026-05-21 02:12:58,154 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:12:58,154 - INFO - Fetching generation mix from 2024-11-22 00:00:00+01:00 to 2024-11-25 00:00:00+01:00
+2026-05-21 02:13:00,143 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:13:00,145 - INFO - Fetching Open-Meteo data from 2024-11-22 to 2024-11-25
+2026-05-21 02:13:00,814 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:13:05,817 - INFO - Fetching DA prices from 2024-11-25 00:00:00+01:00 to 2024-11-28 00:00:00+01:00
+2026-05-21 02:13:06,553 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:13:06,553 - INFO - Fetching actual load from 2024-11-25 00:00:00+01:00 to 2024-11-28 00:00:00+01:00
+2026-05-21 02:13:07,065 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:13:07,065 - INFO - Fetching generation mix from 2024-11-25 00:00:00+01:00 to 2024-11-28 00:00:00+01:00
+2026-05-21 02:13:09,104 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:13:09,105 - INFO - Fetching Open-Meteo data from 2024-11-25 to 2024-11-28
+2026-05-21 02:13:09,695 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:13:14,698 - INFO - Fetching DA prices from 2024-11-28 00:00:00+01:00 to 2024-12-01 00:00:00+01:00
+2026-05-21 02:13:15,511 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:13:15,511 - INFO - Fetching actual load from 2024-11-28 00:00:00+01:00 to 2024-12-01 00:00:00+01:00
+2026-05-21 02:13:16,217 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:13:16,217 - INFO - Fetching generation mix from 2024-11-28 00:00:00+01:00 to 2024-12-01 00:00:00+01:00
+2026-05-21 02:13:18,289 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:13:18,290 - INFO - Fetching Open-Meteo data from 2024-11-28 to 2024-12-01
+2026-05-21 02:13:19,140 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:13:24,142 - INFO - Fetching DA prices from 2024-12-01 00:00:00+01:00 to 2024-12-04 00:00:00+01:00
+2026-05-21 02:13:25,285 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:13:25,286 - INFO - Fetching actual load from 2024-12-01 00:00:00+01:00 to 2024-12-04 00:00:00+01:00
+2026-05-21 02:13:25,969 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:13:25,969 - INFO - Fetching generation mix from 2024-12-01 00:00:00+01:00 to 2024-12-04 00:00:00+01:00
+2026-05-21 02:13:27,791 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:13:27,792 - INFO - Fetching Open-Meteo data from 2024-12-01 to 2024-12-04
+2026-05-21 02:13:28,415 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:13:33,418 - INFO - Fetching DA prices from 2024-12-04 00:00:00+01:00 to 2024-12-07 00:00:00+01:00
+2026-05-21 02:13:34,929 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:13:34,930 - INFO - Fetching actual load from 2024-12-04 00:00:00+01:00 to 2024-12-07 00:00:00+01:00
+2026-05-21 02:13:35,430 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:13:35,431 - INFO - Fetching generation mix from 2024-12-04 00:00:00+01:00 to 2024-12-07 00:00:00+01:00
+2026-05-21 02:13:37,172 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:13:37,173 - INFO - Fetching Open-Meteo data from 2024-12-04 to 2024-12-07
+2026-05-21 02:13:37,696 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:13:42,698 - INFO - Fetching DA prices from 2024-12-07 00:00:00+01:00 to 2024-12-10 00:00:00+01:00
+2026-05-21 02:13:43,415 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:13:43,415 - INFO - Fetching actual load from 2024-12-07 00:00:00+01:00 to 2024-12-10 00:00:00+01:00
+2026-05-21 02:13:43,949 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:13:43,950 - INFO - Fetching generation mix from 2024-12-07 00:00:00+01:00 to 2024-12-10 00:00:00+01:00
+2026-05-21 02:13:45,894 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:13:45,895 - INFO - Fetching Open-Meteo data from 2024-12-07 to 2024-12-10
+2026-05-21 02:13:47,406 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:13:52,409 - INFO - Fetching DA prices from 2024-12-10 00:00:00+01:00 to 2024-12-13 00:00:00+01:00
+2026-05-21 02:13:53,235 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:13:53,235 - INFO - Fetching actual load from 2024-12-10 00:00:00+01:00 to 2024-12-13 00:00:00+01:00
+2026-05-21 02:13:53,940 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:13:53,941 - INFO - Fetching generation mix from 2024-12-10 00:00:00+01:00 to 2024-12-13 00:00:00+01:00
+2026-05-21 02:13:55,819 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:13:55,820 - INFO - Fetching Open-Meteo data from 2024-12-10 to 2024-12-13
+2026-05-21 02:13:57,076 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:14:02,079 - INFO - Fetching DA prices from 2024-12-13 00:00:00+01:00 to 2024-12-16 00:00:00+01:00
+2026-05-21 02:14:02,953 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:14:02,954 - INFO - Fetching actual load from 2024-12-13 00:00:00+01:00 to 2024-12-16 00:00:00+01:00
+2026-05-21 02:14:03,409 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:14:03,410 - INFO - Fetching generation mix from 2024-12-13 00:00:00+01:00 to 2024-12-16 00:00:00+01:00
+2026-05-21 02:14:05,233 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:14:05,234 - INFO - Fetching Open-Meteo data from 2024-12-13 to 2024-12-16
+2026-05-21 02:14:05,757 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:14:10,759 - INFO - Fetching DA prices from 2024-12-16 00:00:00+01:00 to 2024-12-19 00:00:00+01:00
+2026-05-21 02:14:11,554 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:14:11,554 - INFO - Fetching actual load from 2024-12-16 00:00:00+01:00 to 2024-12-19 00:00:00+01:00
+2026-05-21 02:14:12,210 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:14:12,211 - INFO - Fetching generation mix from 2024-12-16 00:00:00+01:00 to 2024-12-19 00:00:00+01:00
+2026-05-21 02:14:13,978 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:14:13,979 - INFO - Fetching Open-Meteo data from 2024-12-16 to 2024-12-19
+2026-05-21 02:14:14,657 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:14:19,660 - INFO - Fetching DA prices from 2024-12-19 00:00:00+01:00 to 2024-12-22 00:00:00+01:00
+2026-05-21 02:14:20,468 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:14:20,469 - INFO - Fetching actual load from 2024-12-19 00:00:00+01:00 to 2024-12-22 00:00:00+01:00
+2026-05-21 02:14:21,013 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:14:21,014 - INFO - Fetching generation mix from 2024-12-19 00:00:00+01:00 to 2024-12-22 00:00:00+01:00
+2026-05-21 02:14:23,038 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:14:23,038 - INFO - Fetching Open-Meteo data from 2024-12-19 to 2024-12-22
+2026-05-21 02:14:23,574 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:14:28,576 - INFO - Fetching DA prices from 2024-12-22 00:00:00+01:00 to 2024-12-25 00:00:00+01:00
+2026-05-21 02:14:29,490 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:14:29,490 - INFO - Fetching actual load from 2024-12-22 00:00:00+01:00 to 2024-12-25 00:00:00+01:00
+2026-05-21 02:14:29,958 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:14:29,958 - INFO - Fetching generation mix from 2024-12-22 00:00:00+01:00 to 2024-12-25 00:00:00+01:00
+2026-05-21 02:14:31,741 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:14:31,741 - INFO - Fetching Open-Meteo data from 2024-12-22 to 2024-12-25
+2026-05-21 02:14:32,513 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:14:37,516 - INFO - Fetching DA prices from 2024-12-25 00:00:00+01:00 to 2024-12-28 00:00:00+01:00
+2026-05-21 02:14:38,526 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:14:38,526 - INFO - Fetching actual load from 2024-12-25 00:00:00+01:00 to 2024-12-28 00:00:00+01:00
+2026-05-21 02:14:39,127 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:14:39,127 - INFO - Fetching generation mix from 2024-12-25 00:00:00+01:00 to 2024-12-28 00:00:00+01:00
+2026-05-21 02:14:40,905 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:14:40,906 - INFO - Fetching Open-Meteo data from 2024-12-25 to 2024-12-28
+2026-05-21 02:14:41,663 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:14:46,665 - INFO - Fetching DA prices from 2024-12-28 00:00:00+01:00 to 2024-12-31 00:00:00+01:00
+2026-05-21 02:14:47,406 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:14:47,407 - INFO - Fetching actual load from 2024-12-28 00:00:00+01:00 to 2024-12-31 00:00:00+01:00
+2026-05-21 02:14:47,929 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:14:47,930 - INFO - Fetching generation mix from 2024-12-28 00:00:00+01:00 to 2024-12-31 00:00:00+01:00
+2026-05-21 02:14:49,947 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:14:49,948 - INFO - Fetching Open-Meteo data from 2024-12-28 to 2024-12-31
+2026-05-21 02:14:50,483 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:14:55,485 - INFO - Fetching DA prices from 2024-12-31 00:00:00+01:00 to 2025-01-03 00:00:00+01:00
+2026-05-21 02:14:56,363 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:14:56,363 - INFO - Fetching actual load from 2024-12-31 00:00:00+01:00 to 2025-01-03 00:00:00+01:00
+2026-05-21 02:14:56,941 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:14:56,942 - INFO - Fetching generation mix from 2024-12-31 00:00:00+01:00 to 2025-01-03 00:00:00+01:00
+2026-05-21 02:14:58,842 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:14:58,843 - INFO - Fetching Open-Meteo data from 2024-12-31 to 2025-01-03
+2026-05-21 02:15:00,038 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:15:05,041 - INFO - Fetching DA prices from 2025-01-03 00:00:00+01:00 to 2025-01-06 00:00:00+01:00
+2026-05-21 02:15:07,185 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:15:07,185 - INFO - Fetching actual load from 2025-01-03 00:00:00+01:00 to 2025-01-06 00:00:00+01:00
+2026-05-21 02:15:08,666 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:15:08,666 - INFO - Fetching generation mix from 2025-01-03 00:00:00+01:00 to 2025-01-06 00:00:00+01:00
+2026-05-21 02:15:10,967 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:15:10,968 - INFO - Fetching Open-Meteo data from 2025-01-03 to 2025-01-06
+2026-05-21 02:15:11,535 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:15:16,538 - INFO - Fetching DA prices from 2025-01-06 00:00:00+01:00 to 2025-01-09 00:00:00+01:00
+2026-05-21 02:15:17,335 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:15:17,336 - INFO - Fetching actual load from 2025-01-06 00:00:00+01:00 to 2025-01-09 00:00:00+01:00
+2026-05-21 02:15:17,847 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:15:17,847 - INFO - Fetching generation mix from 2025-01-06 00:00:00+01:00 to 2025-01-09 00:00:00+01:00
+2026-05-21 02:15:20,449 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:15:20,450 - INFO - Fetching Open-Meteo data from 2025-01-06 to 2025-01-09
+2026-05-21 02:15:21,057 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:15:26,059 - INFO - Fetching DA prices from 2025-01-09 00:00:00+01:00 to 2025-01-12 00:00:00+01:00
+2026-05-21 02:15:27,388 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:15:27,389 - INFO - Fetching actual load from 2025-01-09 00:00:00+01:00 to 2025-01-12 00:00:00+01:00
+2026-05-21 02:15:28,122 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:15:28,123 - INFO - Fetching generation mix from 2025-01-09 00:00:00+01:00 to 2025-01-12 00:00:00+01:00
+2026-05-21 02:15:30,835 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:15:30,836 - INFO - Fetching Open-Meteo data from 2025-01-09 to 2025-01-12
+2026-05-21 02:15:31,482 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:15:36,484 - INFO - Fetching DA prices from 2025-01-12 00:00:00+01:00 to 2025-01-15 00:00:00+01:00
+2026-05-21 02:15:37,300 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:15:37,301 - INFO - Fetching actual load from 2025-01-12 00:00:00+01:00 to 2025-01-15 00:00:00+01:00
+2026-05-21 02:15:38,012 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:15:38,013 - INFO - Fetching generation mix from 2025-01-12 00:00:00+01:00 to 2025-01-15 00:00:00+01:00
+2026-05-21 02:15:40,215 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:15:40,216 - INFO - Fetching Open-Meteo data from 2025-01-12 to 2025-01-15
+2026-05-21 02:15:40,845 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:15:45,848 - INFO - Fetching DA prices from 2025-01-15 00:00:00+01:00 to 2025-01-18 00:00:00+01:00
+2026-05-21 02:15:46,695 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:15:46,695 - INFO - Fetching actual load from 2025-01-15 00:00:00+01:00 to 2025-01-18 00:00:00+01:00
+2026-05-21 02:15:47,418 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:15:47,419 - INFO - Fetching generation mix from 2025-01-15 00:00:00+01:00 to 2025-01-18 00:00:00+01:00
+2026-05-21 02:15:50,297 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:15:50,297 - INFO - Fetching Open-Meteo data from 2025-01-15 to 2025-01-18
+2026-05-21 02:15:50,944 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:15:55,946 - INFO - Fetching DA prices from 2025-01-18 00:00:00+01:00 to 2025-01-21 00:00:00+01:00
+2026-05-21 02:15:56,736 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:15:56,737 - INFO - Fetching actual load from 2025-01-18 00:00:00+01:00 to 2025-01-21 00:00:00+01:00
+2026-05-21 02:15:57,247 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:15:57,248 - INFO - Fetching generation mix from 2025-01-18 00:00:00+01:00 to 2025-01-21 00:00:00+01:00
+2026-05-21 02:15:59,559 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:15:59,560 - INFO - Fetching Open-Meteo data from 2025-01-18 to 2025-01-21
+2026-05-21 02:16:00,139 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:16:05,140 - INFO - Fetching DA prices from 2025-01-21 00:00:00+01:00 to 2025-01-24 00:00:00+01:00
+2026-05-21 02:16:05,933 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:16:05,934 - INFO - Fetching actual load from 2025-01-21 00:00:00+01:00 to 2025-01-24 00:00:00+01:00
+2026-05-21 02:16:06,406 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:16:06,406 - INFO - Fetching generation mix from 2025-01-21 00:00:00+01:00 to 2025-01-24 00:00:00+01:00
+2026-05-21 02:16:08,584 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:16:08,585 - INFO - Fetching Open-Meteo data from 2025-01-21 to 2025-01-24
+2026-05-21 02:16:09,130 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:16:14,133 - INFO - Fetching DA prices from 2025-01-24 00:00:00+01:00 to 2025-01-27 00:00:00+01:00
+2026-05-21 02:16:15,307 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:16:15,307 - INFO - Fetching actual load from 2025-01-24 00:00:00+01:00 to 2025-01-27 00:00:00+01:00
+2026-05-21 02:16:15,908 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:16:15,908 - INFO - Fetching generation mix from 2025-01-24 00:00:00+01:00 to 2025-01-27 00:00:00+01:00
+2026-05-21 02:16:17,980 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:16:17,981 - INFO - Fetching Open-Meteo data from 2025-01-24 to 2025-01-27
+2026-05-21 02:16:18,582 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:16:23,585 - INFO - Fetching DA prices from 2025-01-27 00:00:00+01:00 to 2025-01-30 00:00:00+01:00
+2026-05-21 02:16:24,381 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:16:24,381 - INFO - Fetching actual load from 2025-01-27 00:00:00+01:00 to 2025-01-30 00:00:00+01:00
+2026-05-21 02:16:24,926 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:16:24,926 - INFO - Fetching generation mix from 2025-01-27 00:00:00+01:00 to 2025-01-30 00:00:00+01:00
+2026-05-21 02:16:27,038 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:16:27,039 - INFO - Fetching Open-Meteo data from 2025-01-27 to 2025-01-30
+2026-05-21 02:16:27,718 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:16:32,720 - INFO - Fetching DA prices from 2025-01-30 00:00:00+01:00 to 2025-02-02 00:00:00+01:00
+2026-05-21 02:16:33,513 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:16:33,513 - INFO - Fetching actual load from 2025-01-30 00:00:00+01:00 to 2025-02-02 00:00:00+01:00
+2026-05-21 02:16:34,136 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:16:34,136 - INFO - Fetching generation mix from 2025-01-30 00:00:00+01:00 to 2025-02-02 00:00:00+01:00
+2026-05-21 02:16:35,892 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:16:35,893 - INFO - Fetching Open-Meteo data from 2025-01-30 to 2025-02-02
+2026-05-21 02:16:36,472 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:16:41,474 - INFO - Fetching DA prices from 2025-02-02 00:00:00+01:00 to 2025-02-05 00:00:00+01:00
+2026-05-21 02:16:42,167 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:16:42,167 - INFO - Fetching actual load from 2025-02-02 00:00:00+01:00 to 2025-02-05 00:00:00+01:00
+2026-05-21 02:16:42,778 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:16:42,779 - INFO - Fetching generation mix from 2025-02-02 00:00:00+01:00 to 2025-02-05 00:00:00+01:00
+2026-05-21 02:16:44,446 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:16:44,447 - INFO - Fetching Open-Meteo data from 2025-02-02 to 2025-02-05
+2026-05-21 02:16:44,970 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:16:49,973 - INFO - Fetching DA prices from 2025-02-05 00:00:00+01:00 to 2025-02-08 00:00:00+01:00
+2026-05-21 02:16:50,809 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:16:50,810 - INFO - Fetching actual load from 2025-02-05 00:00:00+01:00 to 2025-02-08 00:00:00+01:00
+2026-05-21 02:16:51,321 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:16:51,322 - INFO - Fetching generation mix from 2025-02-05 00:00:00+01:00 to 2025-02-08 00:00:00+01:00
+2026-05-21 02:16:52,956 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:16:52,957 - INFO - Fetching Open-Meteo data from 2025-02-05 to 2025-02-08
+2026-05-21 02:16:53,457 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:16:58,460 - INFO - Fetching DA prices from 2025-02-08 00:00:00+01:00 to 2025-02-11 00:00:00+01:00
+2026-05-21 02:16:59,287 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:16:59,288 - INFO - Fetching actual load from 2025-02-08 00:00:00+01:00 to 2025-02-11 00:00:00+01:00
+2026-05-21 02:16:59,744 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:16:59,745 - INFO - Fetching generation mix from 2025-02-08 00:00:00+01:00 to 2025-02-11 00:00:00+01:00
+2026-05-21 02:17:01,578 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:17:01,579 - INFO - Fetching Open-Meteo data from 2025-02-08 to 2025-02-11
+2026-05-21 02:17:02,240 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:17:07,243 - INFO - Fetching DA prices from 2025-02-11 00:00:00+01:00 to 2025-02-14 00:00:00+01:00
+2026-05-21 02:17:07,980 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:17:07,981 - INFO - Fetching actual load from 2025-02-11 00:00:00+01:00 to 2025-02-14 00:00:00+01:00
+2026-05-21 02:17:08,426 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:17:08,426 - INFO - Fetching generation mix from 2025-02-11 00:00:00+01:00 to 2025-02-14 00:00:00+01:00
+2026-05-21 02:17:10,205 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:17:10,206 - INFO - Fetching Open-Meteo data from 2025-02-11 to 2025-02-14
+2026-05-21 02:17:10,771 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:17:15,774 - INFO - Fetching DA prices from 2025-02-14 00:00:00+01:00 to 2025-02-17 00:00:00+01:00
+2026-05-21 02:17:16,514 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:17:16,515 - INFO - Fetching actual load from 2025-02-14 00:00:00+01:00 to 2025-02-17 00:00:00+01:00
+2026-05-21 02:17:17,211 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:17:17,211 - INFO - Fetching generation mix from 2025-02-14 00:00:00+01:00 to 2025-02-17 00:00:00+01:00
+2026-05-21 02:17:19,078 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:17:19,079 - INFO - Fetching Open-Meteo data from 2025-02-14 to 2025-02-17
+2026-05-21 02:17:19,780 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:17:24,782 - INFO - Fetching DA prices from 2025-02-17 00:00:00+01:00 to 2025-02-20 00:00:00+01:00
+2026-05-21 02:17:25,633 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:17:25,633 - INFO - Fetching actual load from 2025-02-17 00:00:00+01:00 to 2025-02-20 00:00:00+01:00
+2026-05-21 02:17:26,611 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:17:26,612 - INFO - Fetching generation mix from 2025-02-17 00:00:00+01:00 to 2025-02-20 00:00:00+01:00
+2026-05-21 02:17:28,712 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:17:28,713 - INFO - Fetching Open-Meteo data from 2025-02-17 to 2025-02-20
+2026-05-21 02:17:29,208 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:17:34,210 - INFO - Fetching DA prices from 2025-02-20 00:00:00+01:00 to 2025-02-23 00:00:00+01:00
+2026-05-21 02:17:34,976 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:17:34,976 - INFO - Fetching actual load from 2025-02-20 00:00:00+01:00 to 2025-02-23 00:00:00+01:00
+2026-05-21 02:17:35,577 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:17:35,577 - INFO - Fetching generation mix from 2025-02-20 00:00:00+01:00 to 2025-02-23 00:00:00+01:00
+2026-05-21 02:17:37,882 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:17:37,883 - INFO - Fetching Open-Meteo data from 2025-02-20 to 2025-02-23
+2026-05-21 02:17:38,597 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:17:43,599 - INFO - Fetching DA prices from 2025-02-23 00:00:00+01:00 to 2025-02-26 00:00:00+01:00
+2026-05-21 02:17:44,307 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:17:44,307 - INFO - Fetching actual load from 2025-02-23 00:00:00+01:00 to 2025-02-26 00:00:00+01:00
+2026-05-21 02:17:44,763 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:17:44,764 - INFO - Fetching generation mix from 2025-02-23 00:00:00+01:00 to 2025-02-26 00:00:00+01:00
+2026-05-21 02:17:46,542 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:17:46,543 - INFO - Fetching Open-Meteo data from 2025-02-23 to 2025-02-26
+2026-05-21 02:17:47,177 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:17:52,179 - INFO - Fetching DA prices from 2025-02-26 00:00:00+01:00 to 2025-03-01 00:00:00+01:00
+2026-05-21 02:17:52,916 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:17:52,917 - INFO - Fetching actual load from 2025-02-26 00:00:00+01:00 to 2025-03-01 00:00:00+01:00
+2026-05-21 02:17:53,484 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:17:53,484 - INFO - Fetching generation mix from 2025-02-26 00:00:00+01:00 to 2025-03-01 00:00:00+01:00
+2026-05-21 02:17:55,151 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:17:55,152 - INFO - Fetching Open-Meteo data from 2025-02-26 to 2025-03-01
+2026-05-21 02:17:55,720 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:18:00,721 - INFO - Fetching DA prices from 2025-03-01 00:00:00+01:00 to 2025-03-04 00:00:00+01:00
+2026-05-21 02:18:02,388 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:18:02,389 - INFO - Fetching actual load from 2025-03-01 00:00:00+01:00 to 2025-03-04 00:00:00+01:00
+2026-05-21 02:18:02,889 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:18:02,890 - INFO - Fetching generation mix from 2025-03-01 00:00:00+01:00 to 2025-03-04 00:00:00+01:00
+2026-05-21 02:18:04,835 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:18:04,835 - INFO - Fetching Open-Meteo data from 2025-03-01 to 2025-03-04
+2026-05-21 02:18:05,381 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:18:10,383 - INFO - Fetching DA prices from 2025-03-04 00:00:00+01:00 to 2025-03-07 00:00:00+01:00
+2026-05-21 02:18:11,303 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:18:11,304 - INFO - Fetching actual load from 2025-03-04 00:00:00+01:00 to 2025-03-07 00:00:00+01:00
+2026-05-21 02:18:11,904 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:18:11,905 - INFO - Fetching generation mix from 2025-03-04 00:00:00+01:00 to 2025-03-07 00:00:00+01:00
+2026-05-21 02:18:15,004 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:18:15,005 - INFO - Fetching Open-Meteo data from 2025-03-04 to 2025-03-07
+2026-05-21 02:18:15,517 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:18:20,519 - INFO - Fetching DA prices from 2025-03-07 00:00:00+01:00 to 2025-03-10 00:00:00+01:00
+2026-05-21 02:18:21,530 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:18:21,530 - INFO - Fetching actual load from 2025-03-07 00:00:00+01:00 to 2025-03-10 00:00:00+01:00
+2026-05-21 02:18:22,042 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:18:22,042 - INFO - Fetching generation mix from 2025-03-07 00:00:00+01:00 to 2025-03-10 00:00:00+01:00
+2026-05-21 02:18:23,934 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:18:23,935 - INFO - Fetching Open-Meteo data from 2025-03-07 to 2025-03-10
+2026-05-21 02:18:24,569 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:18:29,572 - INFO - Fetching DA prices from 2025-03-10 00:00:00+01:00 to 2025-03-13 00:00:00+01:00
+2026-05-21 02:18:30,313 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:18:30,314 - INFO - Fetching actual load from 2025-03-10 00:00:00+01:00 to 2025-03-13 00:00:00+01:00
+2026-05-21 02:18:30,859 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:18:30,859 - INFO - Fetching generation mix from 2025-03-10 00:00:00+01:00 to 2025-03-13 00:00:00+01:00
+2026-05-21 02:18:33,162 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:18:33,162 - INFO - Fetching Open-Meteo data from 2025-03-10 to 2025-03-13
+2026-05-21 02:18:33,719 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:18:38,722 - INFO - Fetching DA prices from 2025-03-13 00:00:00+01:00 to 2025-03-16 00:00:00+01:00
+2026-05-21 02:18:39,473 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:18:39,473 - INFO - Fetching actual load from 2025-03-13 00:00:00+01:00 to 2025-03-16 00:00:00+01:00
+2026-05-21 02:18:39,996 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:18:39,996 - INFO - Fetching generation mix from 2025-03-13 00:00:00+01:00 to 2025-03-16 00:00:00+01:00
+2026-05-21 02:18:42,136 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:18:42,137 - INFO - Fetching Open-Meteo data from 2025-03-13 to 2025-03-16
+2026-05-21 02:18:42,737 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:18:47,740 - INFO - Fetching DA prices from 2025-03-16 00:00:00+01:00 to 2025-03-19 00:00:00+01:00
+2026-05-21 02:18:48,487 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:18:48,488 - INFO - Fetching actual load from 2025-03-16 00:00:00+01:00 to 2025-03-19 00:00:00+01:00
+2026-05-21 02:18:49,104 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:18:49,104 - INFO - Fetching generation mix from 2025-03-16 00:00:00+01:00 to 2025-03-19 00:00:00+01:00
+2026-05-21 02:18:51,249 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:18:51,250 - INFO - Fetching Open-Meteo data from 2025-03-16 to 2025-03-19
+2026-05-21 02:18:51,829 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:18:56,831 - INFO - Fetching DA prices from 2025-03-19 00:00:00+01:00 to 2025-03-22 00:00:00+01:00
+2026-05-21 02:18:57,553 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:18:57,553 - INFO - Fetching actual load from 2025-03-19 00:00:00+01:00 to 2025-03-22 00:00:00+01:00
+2026-05-21 02:18:57,987 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:18:57,988 - INFO - Fetching generation mix from 2025-03-19 00:00:00+01:00 to 2025-03-22 00:00:00+01:00
+2026-05-21 02:19:00,080 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:19:00,080 - INFO - Fetching Open-Meteo data from 2025-03-19 to 2025-03-22
+2026-05-21 02:19:00,693 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:19:05,695 - INFO - Fetching DA prices from 2025-03-22 00:00:00+01:00 to 2025-03-25 00:00:00+01:00
+2026-05-21 02:19:06,628 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:19:06,628 - INFO - Fetching actual load from 2025-03-22 00:00:00+01:00 to 2025-03-25 00:00:00+01:00
+2026-05-21 02:19:07,217 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:19:07,218 - INFO - Fetching generation mix from 2025-03-22 00:00:00+01:00 to 2025-03-25 00:00:00+01:00
+2026-05-21 02:19:09,073 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:19:09,073 - INFO - Fetching Open-Meteo data from 2025-03-22 to 2025-03-25
+2026-05-21 02:19:09,586 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:19:14,588 - INFO - Fetching DA prices from 2025-03-25 00:00:00+01:00 to 2025-03-28 00:00:00+01:00
+2026-05-21 02:19:15,384 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:19:15,384 - INFO - Fetching actual load from 2025-03-25 00:00:00+01:00 to 2025-03-28 00:00:00+01:00
+2026-05-21 02:19:15,929 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:19:15,929 - INFO - Fetching generation mix from 2025-03-25 00:00:00+01:00 to 2025-03-28 00:00:00+01:00
+2026-05-21 02:19:18,423 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:19:18,424 - INFO - Fetching Open-Meteo data from 2025-03-25 to 2025-03-28
+2026-05-21 02:19:19,119 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:19:24,122 - INFO - Fetching DA prices from 2025-03-28 00:00:00+01:00 to 2025-04-01 00:00:00+02:00
+2026-05-21 02:19:25,002 - INFO - Inserted 380 new rows into day_ahead_prices.
+2026-05-21 02:19:25,003 - INFO - Fetching actual load from 2025-03-28 00:00:00+01:00 to 2025-04-01 00:00:00+02:00
+2026-05-21 02:19:25,569 - INFO - Inserted 380 new rows into actual_load.
+2026-05-21 02:19:25,570 - INFO - Fetching generation mix from 2025-03-28 00:00:00+01:00 to 2025-04-01 00:00:00+02:00
+2026-05-21 02:19:28,042 - INFO - Inserted 380 new rows into generation_mix.
+2026-05-21 02:19:28,043 - INFO - Fetching Open-Meteo data from 2025-03-28 to 2025-04-01
+2026-05-21 02:19:29,214 - INFO - Inserted 384 new rows into weather_data.
+2026-05-21 02:19:34,217 - INFO - Fetching DA prices from 2025-04-01 00:00:00+02:00 to 2025-04-04 00:00:00+02:00
+2026-05-21 02:19:34,903 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:19:34,903 - INFO - Fetching actual load from 2025-04-01 00:00:00+02:00 to 2025-04-04 00:00:00+02:00
+2026-05-21 02:19:35,437 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:19:35,438 - INFO - Fetching generation mix from 2025-04-01 00:00:00+02:00 to 2025-04-04 00:00:00+02:00
+2026-05-21 02:19:37,399 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:19:37,400 - INFO - Fetching Open-Meteo data from 2025-04-01 to 2025-04-04
+2026-05-21 02:19:38,026 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:19:43,029 - INFO - Fetching DA prices from 2025-04-04 00:00:00+02:00 to 2025-04-07 00:00:00+02:00
+2026-05-21 02:19:43,969 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:19:43,969 - INFO - Fetching actual load from 2025-04-04 00:00:00+02:00 to 2025-04-07 00:00:00+02:00
+2026-05-21 02:19:44,436 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:19:44,437 - INFO - Fetching generation mix from 2025-04-04 00:00:00+02:00 to 2025-04-07 00:00:00+02:00
+2026-05-21 02:19:46,140 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:19:46,141 - INFO - Fetching Open-Meteo data from 2025-04-04 to 2025-04-07
+2026-05-21 02:19:46,709 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:19:51,711 - INFO - Fetching DA prices from 2025-04-07 00:00:00+02:00 to 2025-04-10 00:00:00+02:00
+2026-05-21 02:19:52,450 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:19:52,451 - INFO - Fetching actual load from 2025-04-07 00:00:00+02:00 to 2025-04-10 00:00:00+02:00
+2026-05-21 02:19:52,962 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:19:52,963 - INFO - Fetching generation mix from 2025-04-07 00:00:00+02:00 to 2025-04-10 00:00:00+02:00
+2026-05-21 02:19:54,685 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:19:54,686 - INFO - Fetching Open-Meteo data from 2025-04-07 to 2025-04-10
+2026-05-21 02:19:55,220 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:20:00,222 - INFO - Fetching DA prices from 2025-04-10 00:00:00+02:00 to 2025-04-13 00:00:00+02:00
+2026-05-21 02:20:02,152 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:20:02,153 - INFO - Fetching actual load from 2025-04-10 00:00:00+02:00 to 2025-04-13 00:00:00+02:00
+2026-05-21 02:20:10,575 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:20:10,576 - INFO - Fetching generation mix from 2025-04-10 00:00:00+02:00 to 2025-04-13 00:00:00+02:00
+2026-05-21 02:20:14,357 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:20:14,358 - INFO - Fetching Open-Meteo data from 2025-04-10 to 2025-04-13
+2026-05-21 02:20:15,015 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:20:20,018 - INFO - Fetching DA prices from 2025-04-13 00:00:00+02:00 to 2025-04-16 00:00:00+02:00
+2026-05-21 02:20:21,678 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:20:21,679 - INFO - Fetching actual load from 2025-04-13 00:00:00+02:00 to 2025-04-16 00:00:00+02:00
+2026-05-21 02:20:22,213 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:20:22,213 - INFO - Fetching generation mix from 2025-04-13 00:00:00+02:00 to 2025-04-16 00:00:00+02:00
+2026-05-21 02:20:24,254 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:20:24,255 - INFO - Fetching Open-Meteo data from 2025-04-13 to 2025-04-16
+2026-05-21 02:20:24,911 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:20:29,914 - INFO - Fetching DA prices from 2025-04-16 00:00:00+02:00 to 2025-04-19 00:00:00+02:00
+2026-05-21 02:20:30,672 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:20:30,673 - INFO - Fetching actual load from 2025-04-16 00:00:00+02:00 to 2025-04-19 00:00:00+02:00
+2026-05-21 02:20:31,362 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:20:31,363 - INFO - Fetching generation mix from 2025-04-16 00:00:00+02:00 to 2025-04-19 00:00:00+02:00
+2026-05-21 02:20:34,001 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:20:34,002 - INFO - Fetching Open-Meteo data from 2025-04-16 to 2025-04-19
+2026-05-21 02:20:34,537 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:20:39,539 - INFO - Fetching DA prices from 2025-04-19 00:00:00+02:00 to 2025-04-22 00:00:00+02:00
+2026-05-21 02:20:40,367 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:20:40,367 - INFO - Fetching actual load from 2025-04-19 00:00:00+02:00 to 2025-04-22 00:00:00+02:00
+2026-05-21 02:20:41,012 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:20:41,013 - INFO - Fetching generation mix from 2025-04-19 00:00:00+02:00 to 2025-04-22 00:00:00+02:00
+2026-05-21 02:20:42,993 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:20:42,994 - INFO - Fetching Open-Meteo data from 2025-04-19 to 2025-04-22
+2026-05-21 02:20:43,666 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:20:48,668 - INFO - Fetching DA prices from 2025-04-22 00:00:00+02:00 to 2025-04-25 00:00:00+02:00
+2026-05-21 02:20:49,478 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:20:49,479 - INFO - Fetching actual load from 2025-04-22 00:00:00+02:00 to 2025-04-25 00:00:00+02:00
+2026-05-21 02:20:49,924 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:20:49,924 - INFO - Fetching generation mix from 2025-04-22 00:00:00+02:00 to 2025-04-25 00:00:00+02:00
+2026-05-21 02:20:52,268 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:20:52,269 - INFO - Fetching Open-Meteo data from 2025-04-22 to 2025-04-25
+2026-05-21 02:20:52,881 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:20:57,884 - INFO - Fetching DA prices from 2025-04-25 00:00:00+02:00 to 2025-04-28 00:00:00+02:00
+2026-05-21 02:20:58,656 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:20:58,657 - INFO - Fetching actual load from 2025-04-25 00:00:00+02:00 to 2025-04-28 00:00:00+02:00
+2026-05-21 02:20:59,124 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:20:59,124 - INFO - Fetching generation mix from 2025-04-25 00:00:00+02:00 to 2025-04-28 00:00:00+02:00
+2026-05-21 02:21:01,286 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:21:01,287 - INFO - Fetching Open-Meteo data from 2025-04-25 to 2025-04-28
+2026-05-21 02:21:01,914 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:21:06,916 - INFO - Fetching DA prices from 2025-04-28 00:00:00+02:00 to 2025-05-01 00:00:00+02:00
+2026-05-21 02:21:08,319 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:21:08,320 - INFO - Fetching actual load from 2025-04-28 00:00:00+02:00 to 2025-05-01 00:00:00+02:00
+2026-05-21 02:21:10,776 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:21:10,776 - INFO - Fetching generation mix from 2025-04-28 00:00:00+02:00 to 2025-05-01 00:00:00+02:00
+2026-05-21 02:21:12,866 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:21:12,867 - INFO - Fetching Open-Meteo data from 2025-04-28 to 2025-05-01
+2026-05-21 02:21:13,457 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:21:18,458 - INFO - Fetching DA prices from 2025-05-01 00:00:00+02:00 to 2025-05-04 00:00:00+02:00
+2026-05-21 02:21:19,322 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:21:19,323 - INFO - Fetching actual load from 2025-05-01 00:00:00+02:00 to 2025-05-04 00:00:00+02:00
+2026-05-21 02:21:19,951 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:21:19,952 - INFO - Fetching generation mix from 2025-05-01 00:00:00+02:00 to 2025-05-04 00:00:00+02:00
+2026-05-21 02:21:22,575 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:21:22,575 - INFO - Fetching Open-Meteo data from 2025-05-01 to 2025-05-04
+2026-05-21 02:21:23,143 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:21:28,146 - INFO - Fetching DA prices from 2025-05-04 00:00:00+02:00 to 2025-05-07 00:00:00+02:00
+2026-05-21 02:21:28,997 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:21:28,997 - INFO - Fetching actual load from 2025-05-04 00:00:00+02:00 to 2025-05-07 00:00:00+02:00
+2026-05-21 02:21:29,538 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:21:29,539 - INFO - Fetching generation mix from 2025-05-04 00:00:00+02:00 to 2025-05-07 00:00:00+02:00
+2026-05-21 02:21:31,461 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:21:31,462 - INFO - Fetching Open-Meteo data from 2025-05-04 to 2025-05-07
+2026-05-21 02:21:31,941 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:21:36,943 - INFO - Fetching DA prices from 2025-05-07 00:00:00+02:00 to 2025-05-10 00:00:00+02:00
+2026-05-21 02:21:37,740 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:21:37,741 - INFO - Fetching actual load from 2025-05-07 00:00:00+02:00 to 2025-05-10 00:00:00+02:00
+2026-05-21 02:21:38,219 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:21:38,220 - INFO - Fetching generation mix from 2025-05-07 00:00:00+02:00 to 2025-05-10 00:00:00+02:00
+2026-05-21 02:21:40,284 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:21:40,285 - INFO - Fetching Open-Meteo data from 2025-05-07 to 2025-05-10
+2026-05-21 02:21:41,085 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:21:46,087 - INFO - Fetching DA prices from 2025-05-10 00:00:00+02:00 to 2025-05-13 00:00:00+02:00
+2026-05-21 02:21:46,893 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:21:46,894 - INFO - Fetching actual load from 2025-05-10 00:00:00+02:00 to 2025-05-13 00:00:00+02:00
+2026-05-21 02:21:47,405 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:21:47,406 - INFO - Fetching generation mix from 2025-05-10 00:00:00+02:00 to 2025-05-13 00:00:00+02:00
+2026-05-21 02:21:49,175 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:21:49,176 - INFO - Fetching Open-Meteo data from 2025-05-10 to 2025-05-13
+2026-05-21 02:21:49,710 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:21:54,713 - INFO - Fetching DA prices from 2025-05-13 00:00:00+02:00 to 2025-05-16 00:00:00+02:00
+2026-05-21 02:21:55,526 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:21:55,526 - INFO - Fetching actual load from 2025-05-13 00:00:00+02:00 to 2025-05-16 00:00:00+02:00
+2026-05-21 02:21:56,060 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:21:56,061 - INFO - Fetching generation mix from 2025-05-13 00:00:00+02:00 to 2025-05-16 00:00:00+02:00
+2026-05-21 02:21:57,732 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:21:57,733 - INFO - Fetching Open-Meteo data from 2025-05-13 to 2025-05-16
+2026-05-21 02:21:58,701 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:22:03,703 - INFO - Fetching DA prices from 2025-05-16 00:00:00+02:00 to 2025-05-19 00:00:00+02:00
+2026-05-21 02:22:04,462 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:22:04,463 - INFO - Fetching actual load from 2025-05-16 00:00:00+02:00 to 2025-05-19 00:00:00+02:00
+2026-05-21 02:22:05,063 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:22:05,064 - INFO - Fetching generation mix from 2025-05-16 00:00:00+02:00 to 2025-05-19 00:00:00+02:00
+2026-05-21 02:22:06,853 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:22:06,854 - INFO - Fetching Open-Meteo data from 2025-05-16 to 2025-05-19
+2026-05-21 02:22:07,366 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:22:12,368 - INFO - Fetching DA prices from 2025-05-19 00:00:00+02:00 to 2025-05-22 00:00:00+02:00
+2026-05-21 02:22:13,240 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:22:13,241 - INFO - Fetching actual load from 2025-05-19 00:00:00+02:00 to 2025-05-22 00:00:00+02:00
+2026-05-21 02:22:13,764 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:22:13,764 - INFO - Fetching generation mix from 2025-05-19 00:00:00+02:00 to 2025-05-22 00:00:00+02:00
+2026-05-21 02:22:15,631 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:22:15,633 - INFO - Fetching Open-Meteo data from 2025-05-19 to 2025-05-22
+2026-05-21 02:22:16,267 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:22:21,269 - INFO - Fetching DA prices from 2025-05-22 00:00:00+02:00 to 2025-05-25 00:00:00+02:00
+2026-05-21 02:22:22,133 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:22:22,134 - INFO - Fetching actual load from 2025-05-22 00:00:00+02:00 to 2025-05-25 00:00:00+02:00
+2026-05-21 02:22:22,779 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:22:22,779 - INFO - Fetching generation mix from 2025-05-22 00:00:00+02:00 to 2025-05-25 00:00:00+02:00
+2026-05-21 02:22:24,752 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:22:24,753 - INFO - Fetching Open-Meteo data from 2025-05-22 to 2025-05-25
+2026-05-21 02:22:25,354 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:22:30,356 - INFO - Fetching DA prices from 2025-05-25 00:00:00+02:00 to 2025-05-28 00:00:00+02:00
+2026-05-21 02:22:31,562 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:22:31,562 - INFO - Fetching actual load from 2025-05-25 00:00:00+02:00 to 2025-05-28 00:00:00+02:00
+2026-05-21 02:22:32,140 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:22:32,141 - INFO - Fetching generation mix from 2025-05-25 00:00:00+02:00 to 2025-05-28 00:00:00+02:00
+2026-05-21 02:22:33,935 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:22:33,936 - INFO - Fetching Open-Meteo data from 2025-05-25 to 2025-05-28
+2026-05-21 02:22:34,459 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:22:39,462 - INFO - Fetching DA prices from 2025-05-28 00:00:00+02:00 to 2025-05-31 00:00:00+02:00
+2026-05-21 02:22:40,358 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:22:40,359 - INFO - Fetching actual load from 2025-05-28 00:00:00+02:00 to 2025-05-31 00:00:00+02:00
+2026-05-21 02:22:40,926 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:22:40,926 - INFO - Fetching generation mix from 2025-05-28 00:00:00+02:00 to 2025-05-31 00:00:00+02:00
+2026-05-21 02:22:42,920 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:22:42,920 - INFO - Fetching Open-Meteo data from 2025-05-28 to 2025-05-31
+2026-05-21 02:22:43,468 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:22:48,471 - INFO - Fetching DA prices from 2025-05-31 00:00:00+02:00 to 2025-06-03 00:00:00+02:00
+2026-05-21 02:22:49,535 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:22:49,535 - INFO - Fetching actual load from 2025-05-31 00:00:00+02:00 to 2025-06-03 00:00:00+02:00
+2026-05-21 02:22:50,092 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:22:50,092 - INFO - Fetching generation mix from 2025-05-31 00:00:00+02:00 to 2025-06-03 00:00:00+02:00
+2026-05-21 02:22:51,826 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:22:51,827 - INFO - Fetching Open-Meteo data from 2025-05-31 to 2025-06-03
+2026-05-21 02:22:52,428 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:22:57,430 - INFO - Fetching DA prices from 2025-06-03 00:00:00+02:00 to 2025-06-06 00:00:00+02:00
+2026-05-21 02:22:58,417 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:22:58,417 - INFO - Fetching actual load from 2025-06-03 00:00:00+02:00 to 2025-06-06 00:00:00+02:00
+2026-05-21 02:22:58,973 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:22:58,974 - INFO - Fetching generation mix from 2025-06-03 00:00:00+02:00 to 2025-06-06 00:00:00+02:00
+2026-05-21 02:23:00,685 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:23:00,686 - INFO - Fetching Open-Meteo data from 2025-06-03 to 2025-06-06
+2026-05-21 02:23:01,487 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:23:06,489 - INFO - Fetching DA prices from 2025-06-06 00:00:00+02:00 to 2025-06-09 00:00:00+02:00
+2026-05-21 02:23:07,226 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:23:07,226 - INFO - Fetching actual load from 2025-06-06 00:00:00+02:00 to 2025-06-09 00:00:00+02:00
+2026-05-21 02:23:07,727 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:23:07,727 - INFO - Fetching generation mix from 2025-06-06 00:00:00+02:00 to 2025-06-09 00:00:00+02:00
+2026-05-21 02:23:09,439 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:23:09,439 - INFO - Fetching Open-Meteo data from 2025-06-06 to 2025-06-09
+2026-05-21 02:23:10,096 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:23:15,099 - INFO - Fetching DA prices from 2025-06-09 00:00:00+02:00 to 2025-06-12 00:00:00+02:00
+2026-05-21 02:23:15,907 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:23:15,908 - INFO - Fetching actual load from 2025-06-09 00:00:00+02:00 to 2025-06-12 00:00:00+02:00
+2026-05-21 02:23:16,430 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:23:16,431 - INFO - Fetching generation mix from 2025-06-09 00:00:00+02:00 to 2025-06-12 00:00:00+02:00
+2026-05-21 02:23:18,436 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:23:18,437 - INFO - Fetching Open-Meteo data from 2025-06-09 to 2025-06-12
+2026-05-21 02:23:19,116 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:23:24,118 - INFO - Fetching DA prices from 2025-06-12 00:00:00+02:00 to 2025-06-15 00:00:00+02:00
+2026-05-21 02:23:24,891 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:23:24,891 - INFO - Fetching actual load from 2025-06-12 00:00:00+02:00 to 2025-06-15 00:00:00+02:00
+2026-05-21 02:23:25,445 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:23:25,445 - INFO - Fetching generation mix from 2025-06-12 00:00:00+02:00 to 2025-06-15 00:00:00+02:00
+2026-05-21 02:23:27,534 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:23:27,535 - INFO - Fetching Open-Meteo data from 2025-06-12 to 2025-06-15
+2026-05-21 02:23:28,091 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:23:33,093 - INFO - Fetching DA prices from 2025-06-15 00:00:00+02:00 to 2025-06-18 00:00:00+02:00
+2026-05-21 02:23:33,943 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:23:33,943 - INFO - Fetching actual load from 2025-06-15 00:00:00+02:00 to 2025-06-18 00:00:00+02:00
+2026-05-21 02:23:34,500 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:23:34,500 - INFO - Fetching generation mix from 2025-06-15 00:00:00+02:00 to 2025-06-18 00:00:00+02:00
+2026-05-21 02:23:37,805 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:23:37,806 - INFO - Fetching Open-Meteo data from 2025-06-15 to 2025-06-18
+2026-05-21 02:23:38,433 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:23:43,436 - INFO - Fetching DA prices from 2025-06-18 00:00:00+02:00 to 2025-06-21 00:00:00+02:00
+2026-05-21 02:23:44,161 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:23:44,162 - INFO - Fetching actual load from 2025-06-18 00:00:00+02:00 to 2025-06-21 00:00:00+02:00
+2026-05-21 02:23:44,629 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:23:44,629 - INFO - Fetching generation mix from 2025-06-18 00:00:00+02:00 to 2025-06-21 00:00:00+02:00
+2026-05-21 02:23:46,321 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:23:46,322 - INFO - Fetching Open-Meteo data from 2025-06-18 to 2025-06-21
+2026-05-21 02:23:46,867 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:23:51,870 - INFO - Fetching DA prices from 2025-06-21 00:00:00+02:00 to 2025-06-24 00:00:00+02:00
+2026-05-21 02:23:52,670 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:23:52,671 - INFO - Fetching actual load from 2025-06-21 00:00:00+02:00 to 2025-06-24 00:00:00+02:00
+2026-05-21 02:23:53,304 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:23:53,305 - INFO - Fetching generation mix from 2025-06-21 00:00:00+02:00 to 2025-06-24 00:00:00+02:00
+2026-05-21 02:23:54,994 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:23:54,995 - INFO - Fetching Open-Meteo data from 2025-06-21 to 2025-06-24
+2026-05-21 02:23:56,663 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:24:01,665 - INFO - Fetching DA prices from 2025-06-24 00:00:00+02:00 to 2025-06-27 00:00:00+02:00
+2026-05-21 02:24:02,454 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:24:02,454 - INFO - Fetching actual load from 2025-06-24 00:00:00+02:00 to 2025-06-27 00:00:00+02:00
+2026-05-21 02:24:03,198 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:24:03,198 - INFO - Fetching generation mix from 2025-06-24 00:00:00+02:00 to 2025-06-27 00:00:00+02:00
+2026-05-21 02:24:04,988 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:24:04,988 - INFO - Fetching Open-Meteo data from 2025-06-24 to 2025-06-27
+2026-05-21 02:24:05,578 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:24:10,580 - INFO - Fetching DA prices from 2025-06-27 00:00:00+02:00 to 2025-06-30 00:00:00+02:00
+2026-05-21 02:24:11,386 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:24:11,387 - INFO - Fetching actual load from 2025-06-27 00:00:00+02:00 to 2025-06-30 00:00:00+02:00
+2026-05-21 02:24:11,887 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:24:11,888 - INFO - Fetching generation mix from 2025-06-27 00:00:00+02:00 to 2025-06-30 00:00:00+02:00
+2026-05-21 02:24:13,733 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:24:13,734 - INFO - Fetching Open-Meteo data from 2025-06-27 to 2025-06-30
+2026-05-21 02:24:14,223 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:24:19,226 - INFO - Fetching DA prices from 2025-06-30 00:00:00+02:00 to 2025-07-03 00:00:00+02:00
+2026-05-21 02:24:19,976 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:24:19,977 - INFO - Fetching actual load from 2025-06-30 00:00:00+02:00 to 2025-07-03 00:00:00+02:00
+2026-05-21 02:24:20,466 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:24:20,466 - INFO - Fetching generation mix from 2025-06-30 00:00:00+02:00 to 2025-07-03 00:00:00+02:00
+2026-05-21 02:24:22,358 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:24:22,359 - INFO - Fetching Open-Meteo data from 2025-06-30 to 2025-07-03
+2026-05-21 02:24:23,538 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:24:28,540 - INFO - Fetching DA prices from 2025-07-03 00:00:00+02:00 to 2025-07-06 00:00:00+02:00
+2026-05-21 02:24:29,336 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:24:29,336 - INFO - Fetching actual load from 2025-07-03 00:00:00+02:00 to 2025-07-06 00:00:00+02:00
+2026-05-21 02:24:29,824 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:24:29,824 - INFO - Fetching generation mix from 2025-07-03 00:00:00+02:00 to 2025-07-06 00:00:00+02:00
+2026-05-21 02:24:31,574 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:24:31,575 - INFO - Fetching Open-Meteo data from 2025-07-03 to 2025-07-06
+2026-05-21 02:24:32,120 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:24:37,122 - INFO - Fetching DA prices from 2025-07-06 00:00:00+02:00 to 2025-07-09 00:00:00+02:00
+2026-05-21 02:24:37,908 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:24:37,909 - INFO - Fetching actual load from 2025-07-06 00:00:00+02:00 to 2025-07-09 00:00:00+02:00
+2026-05-21 02:24:38,476 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:24:38,476 - INFO - Fetching generation mix from 2025-07-06 00:00:00+02:00 to 2025-07-09 00:00:00+02:00
+2026-05-21 02:24:40,806 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:24:40,807 - INFO - Fetching Open-Meteo data from 2025-07-06 to 2025-07-09
+2026-05-21 02:24:41,319 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:24:46,322 - INFO - Fetching DA prices from 2025-07-09 00:00:00+02:00 to 2025-07-12 00:00:00+02:00
+2026-05-21 02:24:47,052 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:24:47,053 - INFO - Fetching actual load from 2025-07-09 00:00:00+02:00 to 2025-07-12 00:00:00+02:00
+2026-05-21 02:24:47,609 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:24:47,609 - INFO - Fetching generation mix from 2025-07-09 00:00:00+02:00 to 2025-07-12 00:00:00+02:00
+2026-05-21 02:24:50,113 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:24:50,114 - INFO - Fetching Open-Meteo data from 2025-07-09 to 2025-07-12
+2026-05-21 02:24:50,808 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:24:55,810 - INFO - Fetching DA prices from 2025-07-12 00:00:00+02:00 to 2025-07-15 00:00:00+02:00
+2026-05-21 02:24:56,662 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:24:56,662 - INFO - Fetching actual load from 2025-07-12 00:00:00+02:00 to 2025-07-15 00:00:00+02:00
+2026-05-21 02:24:57,324 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:24:57,325 - INFO - Fetching generation mix from 2025-07-12 00:00:00+02:00 to 2025-07-15 00:00:00+02:00
+2026-05-21 02:24:59,036 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:24:59,037 - INFO - Fetching Open-Meteo data from 2025-07-12 to 2025-07-15
+2026-05-21 02:24:59,581 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:25:04,584 - INFO - Fetching DA prices from 2025-07-15 00:00:00+02:00 to 2025-07-18 00:00:00+02:00
+2026-05-21 02:25:05,478 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:25:05,479 - INFO - Fetching actual load from 2025-07-15 00:00:00+02:00 to 2025-07-18 00:00:00+02:00
+2026-05-21 02:25:06,087 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:25:06,088 - INFO - Fetching generation mix from 2025-07-15 00:00:00+02:00 to 2025-07-18 00:00:00+02:00
+2026-05-21 02:25:07,891 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:25:07,892 - INFO - Fetching Open-Meteo data from 2025-07-15 to 2025-07-18
+2026-05-21 02:25:08,470 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:25:13,472 - INFO - Fetching DA prices from 2025-07-18 00:00:00+02:00 to 2025-07-21 00:00:00+02:00
+2026-05-21 02:25:14,247 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:25:14,247 - INFO - Fetching actual load from 2025-07-18 00:00:00+02:00 to 2025-07-21 00:00:00+02:00
+2026-05-21 02:25:14,759 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:25:14,759 - INFO - Fetching generation mix from 2025-07-18 00:00:00+02:00 to 2025-07-21 00:00:00+02:00
+2026-05-21 02:25:16,686 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:25:16,686 - INFO - Fetching Open-Meteo data from 2025-07-18 to 2025-07-21
+2026-05-21 02:25:17,430 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:25:22,433 - INFO - Fetching DA prices from 2025-07-21 00:00:00+02:00 to 2025-07-24 00:00:00+02:00
+2026-05-21 02:25:23,252 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:25:23,252 - INFO - Fetching actual load from 2025-07-21 00:00:00+02:00 to 2025-07-24 00:00:00+02:00
+2026-05-21 02:25:23,819 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:25:23,820 - INFO - Fetching generation mix from 2025-07-21 00:00:00+02:00 to 2025-07-24 00:00:00+02:00
+2026-05-21 02:25:26,041 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:25:26,042 - INFO - Fetching Open-Meteo data from 2025-07-21 to 2025-07-24
+2026-05-21 02:25:26,803 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:25:31,805 - INFO - Fetching DA prices from 2025-07-24 00:00:00+02:00 to 2025-07-27 00:00:00+02:00
+2026-05-21 02:25:32,567 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:25:32,567 - INFO - Fetching actual load from 2025-07-24 00:00:00+02:00 to 2025-07-27 00:00:00+02:00
+2026-05-21 02:25:33,123 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:25:33,124 - INFO - Fetching generation mix from 2025-07-24 00:00:00+02:00 to 2025-07-27 00:00:00+02:00
+2026-05-21 02:25:34,857 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:25:34,858 - INFO - Fetching Open-Meteo data from 2025-07-24 to 2025-07-27
+2026-05-21 02:25:35,359 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:25:40,362 - INFO - Fetching DA prices from 2025-07-27 00:00:00+02:00 to 2025-07-30 00:00:00+02:00
+2026-05-21 02:25:41,144 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:25:41,144 - INFO - Fetching actual load from 2025-07-27 00:00:00+02:00 to 2025-07-30 00:00:00+02:00
+2026-05-21 02:25:41,645 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:25:41,645 - INFO - Fetching generation mix from 2025-07-27 00:00:00+02:00 to 2025-07-30 00:00:00+02:00
+2026-05-21 02:25:43,479 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:25:43,480 - INFO - Fetching Open-Meteo data from 2025-07-27 to 2025-07-30
+2026-05-21 02:25:44,070 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:25:49,073 - INFO - Fetching DA prices from 2025-07-30 00:00:00+02:00 to 2025-08-02 00:00:00+02:00
+2026-05-21 02:25:49,831 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:25:49,831 - INFO - Fetching actual load from 2025-07-30 00:00:00+02:00 to 2025-08-02 00:00:00+02:00
+2026-05-21 02:25:50,343 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:25:50,343 - INFO - Fetching generation mix from 2025-07-30 00:00:00+02:00 to 2025-08-02 00:00:00+02:00
+2026-05-21 02:25:52,142 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:25:52,143 - INFO - Fetching Open-Meteo data from 2025-07-30 to 2025-08-02
+2026-05-21 02:25:52,744 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:25:57,746 - INFO - Fetching DA prices from 2025-08-02 00:00:00+02:00 to 2025-08-05 00:00:00+02:00
+2026-05-21 02:25:58,519 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:25:58,519 - INFO - Fetching actual load from 2025-08-02 00:00:00+02:00 to 2025-08-05 00:00:00+02:00
+2026-05-21 02:25:58,953 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:25:58,954 - INFO - Fetching generation mix from 2025-08-02 00:00:00+02:00 to 2025-08-05 00:00:00+02:00
+2026-05-21 02:26:01,265 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:26:01,266 - INFO - Fetching Open-Meteo data from 2025-08-02 to 2025-08-05
+2026-05-21 02:26:01,823 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:26:06,825 - INFO - Fetching DA prices from 2025-08-05 00:00:00+02:00 to 2025-08-08 00:00:00+02:00
+2026-05-21 02:26:07,606 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:26:07,607 - INFO - Fetching actual load from 2025-08-05 00:00:00+02:00 to 2025-08-08 00:00:00+02:00
+2026-05-21 02:26:08,085 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:26:08,085 - INFO - Fetching generation mix from 2025-08-05 00:00:00+02:00 to 2025-08-08 00:00:00+02:00
+2026-05-21 02:26:10,089 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:26:10,090 - INFO - Fetching Open-Meteo data from 2025-08-05 to 2025-08-08
+2026-05-21 02:26:10,613 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:26:15,616 - INFO - Fetching DA prices from 2025-08-08 00:00:00+02:00 to 2025-08-11 00:00:00+02:00
+2026-05-21 02:26:16,504 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:26:16,504 - INFO - Fetching actual load from 2025-08-08 00:00:00+02:00 to 2025-08-11 00:00:00+02:00
+2026-05-21 02:26:16,994 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:26:16,994 - INFO - Fetching generation mix from 2025-08-08 00:00:00+02:00 to 2025-08-11 00:00:00+02:00
+2026-05-21 02:26:19,038 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:26:19,038 - INFO - Fetching Open-Meteo data from 2025-08-08 to 2025-08-11
+2026-05-21 02:26:19,773 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:26:24,775 - INFO - Fetching DA prices from 2025-08-11 00:00:00+02:00 to 2025-08-14 00:00:00+02:00
+2026-05-21 02:26:25,556 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:26:25,557 - INFO - Fetching actual load from 2025-08-11 00:00:00+02:00 to 2025-08-14 00:00:00+02:00
+2026-05-21 02:26:26,080 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:26:26,080 - INFO - Fetching generation mix from 2025-08-11 00:00:00+02:00 to 2025-08-14 00:00:00+02:00
+2026-05-21 02:26:28,103 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:26:28,104 - INFO - Fetching Open-Meteo data from 2025-08-11 to 2025-08-14
+2026-05-21 02:26:28,660 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:26:33,663 - INFO - Fetching DA prices from 2025-08-14 00:00:00+02:00 to 2025-08-17 00:00:00+02:00
+2026-05-21 02:26:34,475 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:26:34,476 - INFO - Fetching actual load from 2025-08-14 00:00:00+02:00 to 2025-08-17 00:00:00+02:00
+2026-05-21 02:26:35,042 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:26:35,042 - INFO - Fetching generation mix from 2025-08-14 00:00:00+02:00 to 2025-08-17 00:00:00+02:00
+2026-05-21 02:26:36,798 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:26:36,799 - INFO - Fetching Open-Meteo data from 2025-08-14 to 2025-08-17
+2026-05-21 02:26:37,449 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:26:42,452 - INFO - Fetching DA prices from 2025-08-17 00:00:00+02:00 to 2025-08-20 00:00:00+02:00
+2026-05-21 02:26:43,259 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:26:43,260 - INFO - Fetching actual load from 2025-08-17 00:00:00+02:00 to 2025-08-20 00:00:00+02:00
+2026-05-21 02:26:43,838 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:26:43,839 - INFO - Fetching generation mix from 2025-08-17 00:00:00+02:00 to 2025-08-20 00:00:00+02:00
+2026-05-21 02:26:45,672 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:26:45,673 - INFO - Fetching Open-Meteo data from 2025-08-17 to 2025-08-20
+2026-05-21 02:26:46,263 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:26:51,266 - INFO - Fetching DA prices from 2025-08-20 00:00:00+02:00 to 2025-08-23 00:00:00+02:00
+2026-05-21 02:26:52,139 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:26:52,140 - INFO - Fetching actual load from 2025-08-20 00:00:00+02:00 to 2025-08-23 00:00:00+02:00
+2026-05-21 02:26:52,618 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:26:52,618 - INFO - Fetching generation mix from 2025-08-20 00:00:00+02:00 to 2025-08-23 00:00:00+02:00
+2026-05-21 02:26:54,430 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:26:54,431 - INFO - Fetching Open-Meteo data from 2025-08-20 to 2025-08-23
+2026-05-21 02:26:55,032 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:27:00,034 - INFO - Fetching DA prices from 2025-08-23 00:00:00+02:00 to 2025-08-26 00:00:00+02:00
+2026-05-21 02:27:01,373 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:27:01,374 - INFO - Fetching actual load from 2025-08-23 00:00:00+02:00 to 2025-08-26 00:00:00+02:00
+2026-05-21 02:27:02,941 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:27:02,942 - INFO - Fetching generation mix from 2025-08-23 00:00:00+02:00 to 2025-08-26 00:00:00+02:00
+2026-05-21 02:27:04,753 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:27:04,754 - INFO - Fetching Open-Meteo data from 2025-08-23 to 2025-08-26
+2026-05-21 02:27:05,299 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:27:10,302 - INFO - Fetching DA prices from 2025-08-26 00:00:00+02:00 to 2025-08-29 00:00:00+02:00
+2026-05-21 02:27:11,092 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:27:11,093 - INFO - Fetching actual load from 2025-08-26 00:00:00+02:00 to 2025-08-29 00:00:00+02:00
+2026-05-21 02:27:11,560 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:27:11,560 - INFO - Fetching generation mix from 2025-08-26 00:00:00+02:00 to 2025-08-29 00:00:00+02:00
+2026-05-21 02:27:13,416 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:27:13,417 - INFO - Fetching Open-Meteo data from 2025-08-26 to 2025-08-29
+2026-05-21 02:27:13,996 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:27:18,998 - INFO - Fetching DA prices from 2025-08-29 00:00:00+02:00 to 2025-09-01 00:00:00+02:00
+2026-05-21 02:27:19,719 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:27:19,719 - INFO - Fetching actual load from 2025-08-29 00:00:00+02:00 to 2025-09-01 00:00:00+02:00
+2026-05-21 02:27:20,165 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:27:20,166 - INFO - Fetching generation mix from 2025-08-29 00:00:00+02:00 to 2025-09-01 00:00:00+02:00
+2026-05-21 02:27:21,960 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:27:21,961 - INFO - Fetching Open-Meteo data from 2025-08-29 to 2025-09-01
+2026-05-21 02:27:22,506 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:27:27,508 - INFO - Fetching DA prices from 2025-09-01 00:00:00+02:00 to 2025-09-04 00:00:00+02:00
+2026-05-21 02:27:28,411 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:27:28,411 - INFO - Fetching actual load from 2025-09-01 00:00:00+02:00 to 2025-09-04 00:00:00+02:00
+2026-05-21 02:27:28,988 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:27:28,988 - INFO - Fetching generation mix from 2025-09-01 00:00:00+02:00 to 2025-09-04 00:00:00+02:00
+2026-05-21 02:27:30,789 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:27:30,790 - INFO - Fetching Open-Meteo data from 2025-09-01 to 2025-09-04
+2026-05-21 02:27:31,269 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:27:36,271 - INFO - Fetching DA prices from 2025-09-04 00:00:00+02:00 to 2025-09-07 00:00:00+02:00
+2026-05-21 02:27:37,185 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:27:37,185 - INFO - Fetching actual load from 2025-09-04 00:00:00+02:00 to 2025-09-07 00:00:00+02:00
+2026-05-21 02:27:37,652 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:27:37,653 - INFO - Fetching generation mix from 2025-09-04 00:00:00+02:00 to 2025-09-07 00:00:00+02:00
+2026-05-21 02:27:39,412 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:27:39,413 - INFO - Fetching Open-Meteo data from 2025-09-04 to 2025-09-07
+2026-05-21 02:27:40,046 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:27:45,048 - INFO - Fetching DA prices from 2025-09-07 00:00:00+02:00 to 2025-09-10 00:00:00+02:00
+2026-05-21 02:27:45,841 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:27:45,841 - INFO - Fetching actual load from 2025-09-07 00:00:00+02:00 to 2025-09-10 00:00:00+02:00
+2026-05-21 02:27:46,464 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:27:46,464 - INFO - Fetching generation mix from 2025-09-07 00:00:00+02:00 to 2025-09-10 00:00:00+02:00
+2026-05-21 02:27:48,490 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:27:48,491 - INFO - Fetching Open-Meteo data from 2025-09-07 to 2025-09-10
+2026-05-21 02:27:50,045 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:27:55,048 - INFO - Fetching DA prices from 2025-09-10 00:00:00+02:00 to 2025-09-13 00:00:00+02:00
+2026-05-21 02:27:55,864 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:27:55,865 - INFO - Fetching actual load from 2025-09-10 00:00:00+02:00 to 2025-09-13 00:00:00+02:00
+2026-05-21 02:27:56,509 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:27:56,510 - INFO - Fetching generation mix from 2025-09-10 00:00:00+02:00 to 2025-09-13 00:00:00+02:00
+2026-05-21 02:27:58,518 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:27:58,519 - INFO - Fetching Open-Meteo data from 2025-09-10 to 2025-09-13
+2026-05-21 02:27:59,053 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:28:04,055 - INFO - Fetching DA prices from 2025-09-13 00:00:00+02:00 to 2025-09-16 00:00:00+02:00
+2026-05-21 02:28:04,770 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:28:04,770 - INFO - Fetching actual load from 2025-09-13 00:00:00+02:00 to 2025-09-16 00:00:00+02:00
+2026-05-21 02:28:05,260 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:28:05,260 - INFO - Fetching generation mix from 2025-09-13 00:00:00+02:00 to 2025-09-16 00:00:00+02:00
+2026-05-21 02:28:07,228 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:28:07,229 - INFO - Fetching Open-Meteo data from 2025-09-13 to 2025-09-16
+2026-05-21 02:28:07,875 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:28:12,877 - INFO - Fetching DA prices from 2025-09-16 00:00:00+02:00 to 2025-09-19 00:00:00+02:00
+2026-05-21 02:28:13,916 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:28:13,917 - INFO - Fetching actual load from 2025-09-16 00:00:00+02:00 to 2025-09-19 00:00:00+02:00
+2026-05-21 02:28:14,550 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:28:14,551 - INFO - Fetching generation mix from 2025-09-16 00:00:00+02:00 to 2025-09-19 00:00:00+02:00
+2026-05-21 02:28:16,773 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:28:16,774 - INFO - Fetching Open-Meteo data from 2025-09-16 to 2025-09-19
+2026-05-21 02:28:17,491 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:28:22,494 - INFO - Fetching DA prices from 2025-09-19 00:00:00+02:00 to 2025-09-22 00:00:00+02:00
+2026-05-21 02:28:23,226 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:28:23,226 - INFO - Fetching actual load from 2025-09-19 00:00:00+02:00 to 2025-09-22 00:00:00+02:00
+2026-05-21 02:28:23,972 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:28:23,973 - INFO - Fetching generation mix from 2025-09-19 00:00:00+02:00 to 2025-09-22 00:00:00+02:00
+2026-05-21 02:28:25,947 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:28:25,948 - INFO - Fetching Open-Meteo data from 2025-09-19 to 2025-09-22
+2026-05-21 02:28:26,565 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:28:31,567 - INFO - Fetching DA prices from 2025-09-22 00:00:00+02:00 to 2025-09-25 00:00:00+02:00
+2026-05-21 02:28:32,327 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:28:32,327 - INFO - Fetching actual load from 2025-09-22 00:00:00+02:00 to 2025-09-25 00:00:00+02:00
+2026-05-21 02:28:32,950 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:28:32,951 - INFO - Fetching generation mix from 2025-09-22 00:00:00+02:00 to 2025-09-25 00:00:00+02:00
+2026-05-21 02:28:35,106 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:28:35,107 - INFO - Fetching Open-Meteo data from 2025-09-22 to 2025-09-25
+2026-05-21 02:28:35,742 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:28:40,744 - INFO - Fetching DA prices from 2025-09-25 00:00:00+02:00 to 2025-09-28 00:00:00+02:00
+2026-05-21 02:28:41,623 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:28:41,624 - INFO - Fetching actual load from 2025-09-25 00:00:00+02:00 to 2025-09-28 00:00:00+02:00
+2026-05-21 02:28:42,180 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:28:42,180 - INFO - Fetching generation mix from 2025-09-25 00:00:00+02:00 to 2025-09-28 00:00:00+02:00
+2026-05-21 02:28:44,658 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:28:44,660 - INFO - Fetching Open-Meteo data from 2025-09-25 to 2025-09-28
+2026-05-21 02:28:45,582 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:28:50,583 - INFO - Fetching DA prices from 2025-09-28 00:00:00+02:00 to 2025-10-01 00:00:00+02:00
+2026-05-21 02:28:51,492 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:28:51,492 - INFO - Fetching actual load from 2025-09-28 00:00:00+02:00 to 2025-10-01 00:00:00+02:00
+2026-05-21 02:28:51,948 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:28:51,949 - INFO - Fetching generation mix from 2025-09-28 00:00:00+02:00 to 2025-10-01 00:00:00+02:00
+2026-05-21 02:28:54,196 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:28:54,197 - INFO - Fetching Open-Meteo data from 2025-09-28 to 2025-10-01
+2026-05-21 02:28:54,731 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:28:59,733 - INFO - Fetching DA prices from 2025-10-01 00:00:00+02:00 to 2025-10-04 00:00:00+02:00
+2026-05-21 02:29:00,753 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:29:00,753 - INFO - Fetching actual load from 2025-10-01 00:00:00+02:00 to 2025-10-04 00:00:00+02:00
+2026-05-21 02:29:01,265 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:29:01,265 - INFO - Fetching generation mix from 2025-10-01 00:00:00+02:00 to 2025-10-04 00:00:00+02:00
+2026-05-21 02:29:03,355 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:29:03,356 - INFO - Fetching Open-Meteo data from 2025-10-01 to 2025-10-04
+2026-05-21 02:29:03,990 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:29:08,992 - INFO - Fetching DA prices from 2025-10-04 00:00:00+02:00 to 2025-10-07 00:00:00+02:00
+2026-05-21 02:29:09,797 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:29:09,797 - INFO - Fetching actual load from 2025-10-04 00:00:00+02:00 to 2025-10-07 00:00:00+02:00
+2026-05-21 02:29:10,221 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:29:10,221 - INFO - Fetching generation mix from 2025-10-04 00:00:00+02:00 to 2025-10-07 00:00:00+02:00
+2026-05-21 02:29:12,444 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:29:12,445 - INFO - Fetching Open-Meteo data from 2025-10-04 to 2025-10-07
+2026-05-21 02:29:12,957 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:29:17,959 - INFO - Fetching DA prices from 2025-10-07 00:00:00+02:00 to 2025-10-10 00:00:00+02:00
+2026-05-21 02:29:18,773 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:29:18,773 - INFO - Fetching actual load from 2025-10-07 00:00:00+02:00 to 2025-10-10 00:00:00+02:00
+2026-05-21 02:29:19,232 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:29:19,233 - INFO - Fetching generation mix from 2025-10-07 00:00:00+02:00 to 2025-10-10 00:00:00+02:00
+2026-05-21 02:29:21,492 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:29:21,493 - INFO - Fetching Open-Meteo data from 2025-10-07 to 2025-10-10
+2026-05-21 02:29:22,294 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:29:27,296 - INFO - Fetching DA prices from 2025-10-10 00:00:00+02:00 to 2025-10-13 00:00:00+02:00
+2026-05-21 02:29:28,315 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:29:28,316 - INFO - Fetching actual load from 2025-10-10 00:00:00+02:00 to 2025-10-13 00:00:00+02:00
+2026-05-21 02:29:28,957 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:29:28,958 - INFO - Fetching generation mix from 2025-10-10 00:00:00+02:00 to 2025-10-13 00:00:00+02:00
+2026-05-21 02:29:31,105 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:29:31,106 - INFO - Fetching Open-Meteo data from 2025-10-10 to 2025-10-13
+2026-05-21 02:29:31,811 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:29:36,814 - INFO - Fetching DA prices from 2025-10-13 00:00:00+02:00 to 2025-10-16 00:00:00+02:00
+2026-05-21 02:29:37,747 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:29:37,747 - INFO - Fetching actual load from 2025-10-13 00:00:00+02:00 to 2025-10-16 00:00:00+02:00
+2026-05-21 02:29:38,213 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:29:38,214 - INFO - Fetching generation mix from 2025-10-13 00:00:00+02:00 to 2025-10-16 00:00:00+02:00
+2026-05-21 02:29:40,536 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:29:40,537 - INFO - Fetching Open-Meteo data from 2025-10-13 to 2025-10-16
+2026-05-21 02:29:41,049 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:29:46,052 - INFO - Fetching DA prices from 2025-10-16 00:00:00+02:00 to 2025-10-19 00:00:00+02:00
+2026-05-21 02:29:46,793 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:29:46,794 - INFO - Fetching actual load from 2025-10-16 00:00:00+02:00 to 2025-10-19 00:00:00+02:00
+2026-05-21 02:29:47,228 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:29:47,228 - INFO - Fetching generation mix from 2025-10-16 00:00:00+02:00 to 2025-10-19 00:00:00+02:00
+2026-05-21 02:29:49,422 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:29:49,423 - INFO - Fetching Open-Meteo data from 2025-10-16 to 2025-10-19
+2026-05-21 02:29:51,302 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:29:56,304 - INFO - Fetching DA prices from 2025-10-19 00:00:00+02:00 to 2025-10-22 00:00:00+02:00
+2026-05-21 02:29:57,192 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:29:57,193 - INFO - Fetching actual load from 2025-10-19 00:00:00+02:00 to 2025-10-22 00:00:00+02:00
+2026-05-21 02:29:57,674 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:29:57,674 - INFO - Fetching generation mix from 2025-10-19 00:00:00+02:00 to 2025-10-22 00:00:00+02:00
+2026-05-21 02:29:59,813 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:29:59,814 - INFO - Fetching Open-Meteo data from 2025-10-19 to 2025-10-22
+2026-05-21 02:30:00,369 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:30:05,372 - INFO - Fetching DA prices from 2025-10-22 00:00:00+02:00 to 2025-10-25 00:00:00+02:00
+2026-05-21 02:31:17,241 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:31:17,241 - INFO - Fetching actual load from 2025-10-22 00:00:00+02:00 to 2025-10-25 00:00:00+02:00
+2026-05-21 02:31:21,500 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:31:21,500 - INFO - Fetching generation mix from 2025-10-22 00:00:00+02:00 to 2025-10-25 00:00:00+02:00
+2026-05-21 02:31:34,413 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:31:34,414 - INFO - Fetching Open-Meteo data from 2025-10-22 to 2025-10-25
+2026-05-21 02:31:36,037 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:31:41,040 - INFO - Fetching DA prices from 2025-10-25 00:00:00+02:00 to 2025-10-27 00:00:00+01:00
+2026-05-21 02:31:48,756 - INFO - Inserted 192 new rows into day_ahead_prices.
+2026-05-21 02:31:48,757 - INFO - Fetching actual load from 2025-10-25 00:00:00+02:00 to 2025-10-27 00:00:00+01:00
+2026-05-21 02:31:49,243 - INFO - Inserted 192 new rows into actual_load.
+2026-05-21 02:31:49,244 - INFO - Fetching generation mix from 2025-10-25 00:00:00+02:00 to 2025-10-27 00:00:00+01:00
+2026-05-21 02:31:56,705 - INFO - Inserted 192 new rows into generation_mix.
+2026-05-21 02:31:56,705 - INFO - Fetching Open-Meteo data from 2025-10-25 to 2025-10-27
+2026-05-21 02:31:57,967 - INFO - Inserted 188 new rows into weather_data.
+2026-05-21 02:32:02,969 - INFO - Fetching DA prices from 2025-10-27 00:00:00+01:00 to 2025-10-30 00:00:00+01:00
+2026-05-21 02:32:07,567 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:32:07,568 - INFO - Fetching actual load from 2025-10-27 00:00:00+01:00 to 2025-10-30 00:00:00+01:00
+2026-05-21 02:32:10,802 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:32:10,802 - INFO - Fetching generation mix from 2025-10-27 00:00:00+01:00 to 2025-10-30 00:00:00+01:00
+2026-05-21 02:32:16,475 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:32:16,476 - INFO - Fetching Open-Meteo data from 2025-10-27 to 2025-10-30
+2026-05-21 02:32:17,043 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:32:22,045 - INFO - Fetching DA prices from 2025-10-30 00:00:00+01:00 to 2025-11-02 00:00:00+01:00
+2026-05-21 02:32:23,228 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:32:23,229 - INFO - Fetching actual load from 2025-10-30 00:00:00+01:00 to 2025-11-02 00:00:00+01:00
+2026-05-21 02:32:24,018 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:32:24,018 - INFO - Fetching generation mix from 2025-10-30 00:00:00+01:00 to 2025-11-02 00:00:00+01:00
+2026-05-21 02:32:27,507 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:32:27,508 - INFO - Fetching Open-Meteo data from 2025-10-30 to 2025-11-02
+2026-05-21 02:32:28,209 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:32:33,212 - INFO - Fetching DA prices from 2025-11-02 00:00:00+01:00 to 2025-11-05 00:00:00+01:00
+2026-05-21 02:32:34,995 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:32:34,996 - INFO - Fetching actual load from 2025-11-02 00:00:00+01:00 to 2025-11-05 00:00:00+01:00
+2026-05-21 02:32:35,484 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:32:35,485 - INFO - Fetching generation mix from 2025-11-02 00:00:00+01:00 to 2025-11-05 00:00:00+01:00
+2026-05-21 02:32:39,407 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:32:39,408 - INFO - Fetching Open-Meteo data from 2025-11-02 to 2025-11-05
+2026-05-21 02:32:40,201 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:32:45,204 - INFO - Fetching DA prices from 2025-11-05 00:00:00+01:00 to 2025-11-08 00:00:00+01:00
+2026-05-21 02:32:46,073 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:32:46,074 - INFO - Fetching actual load from 2025-11-05 00:00:00+01:00 to 2025-11-08 00:00:00+01:00
+2026-05-21 02:32:47,257 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:32:47,257 - INFO - Fetching generation mix from 2025-11-05 00:00:00+01:00 to 2025-11-08 00:00:00+01:00
+2026-05-21 02:32:50,513 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:32:50,514 - INFO - Fetching Open-Meteo data from 2025-11-05 to 2025-11-08
+2026-05-21 02:32:51,948 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:32:56,951 - INFO - Fetching DA prices from 2025-11-08 00:00:00+01:00 to 2025-11-11 00:00:00+01:00
+2026-05-21 02:32:58,539 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:32:58,539 - INFO - Fetching actual load from 2025-11-08 00:00:00+01:00 to 2025-11-11 00:00:00+01:00
+2026-05-21 02:32:59,695 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:32:59,696 - INFO - Fetching generation mix from 2025-11-08 00:00:00+01:00 to 2025-11-11 00:00:00+01:00
+2026-05-21 02:33:02,907 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:33:02,908 - INFO - Fetching Open-Meteo data from 2025-11-08 to 2025-11-11
+2026-05-21 02:33:03,620 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:33:08,623 - INFO - Fetching DA prices from 2025-11-11 00:00:00+01:00 to 2025-11-14 00:00:00+01:00
+2026-05-21 02:33:09,491 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:33:09,492 - INFO - Fetching actual load from 2025-11-11 00:00:00+01:00 to 2025-11-14 00:00:00+01:00
+2026-05-21 02:33:11,681 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:33:11,682 - INFO - Fetching generation mix from 2025-11-11 00:00:00+01:00 to 2025-11-14 00:00:00+01:00
+2026-05-21 02:33:15,363 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:33:15,363 - INFO - Fetching Open-Meteo data from 2025-11-11 to 2025-11-14
+2026-05-21 02:33:15,876 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:33:20,878 - INFO - Fetching DA prices from 2025-11-14 00:00:00+01:00 to 2025-11-17 00:00:00+01:00
+2026-05-21 02:33:22,366 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:33:22,367 - INFO - Fetching actual load from 2025-11-14 00:00:00+01:00 to 2025-11-17 00:00:00+01:00
+2026-05-21 02:33:23,412 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:33:23,412 - INFO - Fetching generation mix from 2025-11-14 00:00:00+01:00 to 2025-11-17 00:00:00+01:00
+2026-05-21 02:33:26,457 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:33:26,458 - INFO - Fetching Open-Meteo data from 2025-11-14 to 2025-11-17
+2026-05-21 02:33:26,948 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:33:31,951 - INFO - Fetching DA prices from 2025-11-17 00:00:00+01:00 to 2025-11-20 00:00:00+01:00
+2026-05-21 02:33:33,558 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:33:33,559 - INFO - Fetching actual load from 2025-11-17 00:00:00+01:00 to 2025-11-20 00:00:00+01:00
+2026-05-21 02:33:34,348 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:33:34,348 - INFO - Fetching generation mix from 2025-11-17 00:00:00+01:00 to 2025-11-20 00:00:00+01:00
+2026-05-21 02:33:37,735 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:33:37,736 - INFO - Fetching Open-Meteo data from 2025-11-17 to 2025-11-20
+2026-05-21 02:33:38,292 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:33:43,295 - INFO - Fetching DA prices from 2025-11-20 00:00:00+01:00 to 2025-11-23 00:00:00+01:00
+2026-05-21 02:33:45,495 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:33:45,496 - INFO - Fetching actual load from 2025-11-20 00:00:00+01:00 to 2025-11-23 00:00:00+01:00
+2026-05-21 02:33:46,085 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:33:46,086 - INFO - Fetching generation mix from 2025-11-20 00:00:00+01:00 to 2025-11-23 00:00:00+01:00
+2026-05-21 02:33:48,653 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:33:48,654 - INFO - Fetching Open-Meteo data from 2025-11-20 to 2025-11-23
+2026-05-21 02:33:49,216 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:33:54,219 - INFO - Fetching DA prices from 2025-11-23 00:00:00+01:00 to 2025-11-26 00:00:00+01:00
+2026-05-21 02:33:55,058 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:33:55,058 - INFO - Fetching actual load from 2025-11-23 00:00:00+01:00 to 2025-11-26 00:00:00+01:00
+2026-05-21 02:33:55,914 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:33:55,915 - INFO - Fetching generation mix from 2025-11-23 00:00:00+01:00 to 2025-11-26 00:00:00+01:00
+2026-05-21 02:33:59,380 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:33:59,381 - INFO - Fetching Open-Meteo data from 2025-11-23 to 2025-11-26
+2026-05-21 02:34:00,582 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:34:05,585 - INFO - Fetching DA prices from 2025-11-26 00:00:00+01:00 to 2025-11-29 00:00:00+01:00
+2026-05-21 02:34:06,646 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:34:06,646 - INFO - Fetching actual load from 2025-11-26 00:00:00+01:00 to 2025-11-29 00:00:00+01:00
+2026-05-21 02:34:07,391 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:34:07,392 - INFO - Fetching generation mix from 2025-11-26 00:00:00+01:00 to 2025-11-29 00:00:00+01:00
+2026-05-21 02:34:10,356 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:34:10,357 - INFO - Fetching Open-Meteo data from 2025-11-26 to 2025-11-29
+2026-05-21 02:34:10,891 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:34:15,893 - INFO - Fetching DA prices from 2025-11-29 00:00:00+01:00 to 2025-12-02 00:00:00+01:00
+2026-05-21 02:34:16,777 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:34:16,777 - INFO - Fetching actual load from 2025-11-29 00:00:00+01:00 to 2025-12-02 00:00:00+01:00
+2026-05-21 02:34:17,405 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:34:17,406 - INFO - Fetching generation mix from 2025-11-29 00:00:00+01:00 to 2025-12-02 00:00:00+01:00
+2026-05-21 02:34:19,715 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:34:19,715 - INFO - Fetching Open-Meteo data from 2025-11-29 to 2025-12-02
+2026-05-21 02:34:20,294 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:34:25,295 - INFO - Fetching DA prices from 2025-12-02 00:00:00+01:00 to 2025-12-05 00:00:00+01:00
+2026-05-21 02:34:26,663 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:34:26,663 - INFO - Fetching actual load from 2025-12-02 00:00:00+01:00 to 2025-12-05 00:00:00+01:00
+2026-05-21 02:34:27,446 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:34:27,447 - INFO - Fetching generation mix from 2025-12-02 00:00:00+01:00 to 2025-12-05 00:00:00+01:00
+2026-05-21 02:34:29,408 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:34:29,408 - INFO - Fetching Open-Meteo data from 2025-12-02 to 2025-12-05
+2026-05-21 02:34:30,319 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:34:35,321 - INFO - Fetching DA prices from 2025-12-05 00:00:00+01:00 to 2025-12-08 00:00:00+01:00
+2026-05-21 02:34:36,323 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:34:36,324 - INFO - Fetching actual load from 2025-12-05 00:00:00+01:00 to 2025-12-08 00:00:00+01:00
+2026-05-21 02:34:37,093 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:34:37,094 - INFO - Fetching generation mix from 2025-12-05 00:00:00+01:00 to 2025-12-08 00:00:00+01:00
+2026-05-21 02:34:39,173 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:34:39,174 - INFO - Fetching Open-Meteo data from 2025-12-05 to 2025-12-08
+2026-05-21 02:34:40,299 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:34:45,301 - INFO - Fetching DA prices from 2025-12-08 00:00:00+01:00 to 2025-12-11 00:00:00+01:00
+2026-05-21 02:34:46,269 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:34:46,270 - INFO - Fetching actual load from 2025-12-08 00:00:00+01:00 to 2025-12-11 00:00:00+01:00
+2026-05-21 02:34:46,815 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:34:46,815 - INFO - Fetching generation mix from 2025-12-08 00:00:00+01:00 to 2025-12-11 00:00:00+01:00
+2026-05-21 02:34:50,027 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:34:50,028 - INFO - Fetching Open-Meteo data from 2025-12-08 to 2025-12-11
+2026-05-21 02:34:51,591 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:34:56,593 - INFO - Fetching DA prices from 2025-12-11 00:00:00+01:00 to 2025-12-14 00:00:00+01:00
+2026-05-21 02:34:57,388 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:34:57,388 - INFO - Fetching actual load from 2025-12-11 00:00:00+01:00 to 2025-12-14 00:00:00+01:00
+2026-05-21 02:34:57,967 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:34:57,967 - INFO - Fetching generation mix from 2025-12-11 00:00:00+01:00 to 2025-12-14 00:00:00+01:00
+2026-05-21 02:35:01,017 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:35:01,018 - INFO - Fetching Open-Meteo data from 2025-12-11 to 2025-12-14
+2026-05-21 02:35:01,651 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:35:06,653 - INFO - Fetching DA prices from 2025-12-14 00:00:00+01:00 to 2025-12-17 00:00:00+01:00
+2026-05-21 02:35:07,861 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:35:07,862 - INFO - Fetching actual load from 2025-12-14 00:00:00+01:00 to 2025-12-17 00:00:00+01:00
+2026-05-21 02:35:08,750 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:35:08,750 - INFO - Fetching generation mix from 2025-12-14 00:00:00+01:00 to 2025-12-17 00:00:00+01:00
+2026-05-21 02:35:11,628 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:35:11,629 - INFO - Fetching Open-Meteo data from 2025-12-14 to 2025-12-17
+2026-05-21 02:35:12,211 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:35:17,214 - INFO - Fetching DA prices from 2025-12-17 00:00:00+01:00 to 2025-12-20 00:00:00+01:00
+2026-05-21 02:35:18,483 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:35:18,483 - INFO - Fetching actual load from 2025-12-17 00:00:00+01:00 to 2025-12-20 00:00:00+01:00
+2026-05-21 02:35:19,061 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:35:19,062 - INFO - Fetching generation mix from 2025-12-17 00:00:00+01:00 to 2025-12-20 00:00:00+01:00
+2026-05-21 02:35:21,465 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:35:21,466 - INFO - Fetching Open-Meteo data from 2025-12-17 to 2025-12-20
+2026-05-21 02:35:22,101 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:35:27,103 - INFO - Fetching DA prices from 2025-12-20 00:00:00+01:00 to 2025-12-23 00:00:00+01:00
+2026-05-21 02:35:27,965 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:35:27,965 - INFO - Fetching actual load from 2025-12-20 00:00:00+01:00 to 2025-12-23 00:00:00+01:00
+2026-05-21 02:35:28,488 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:35:28,488 - INFO - Fetching generation mix from 2025-12-20 00:00:00+01:00 to 2025-12-23 00:00:00+01:00
+2026-05-21 02:35:31,249 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:35:31,250 - INFO - Fetching Open-Meteo data from 2025-12-20 to 2025-12-23
+2026-05-21 02:35:31,984 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:35:36,987 - INFO - Fetching DA prices from 2025-12-23 00:00:00+01:00 to 2025-12-26 00:00:00+01:00
+2026-05-21 02:35:37,897 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:35:37,898 - INFO - Fetching actual load from 2025-12-23 00:00:00+01:00 to 2025-12-26 00:00:00+01:00
+2026-05-21 02:35:38,634 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:35:38,634 - INFO - Fetching generation mix from 2025-12-23 00:00:00+01:00 to 2025-12-26 00:00:00+01:00
+2026-05-21 02:35:41,138 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:35:41,139 - INFO - Fetching Open-Meteo data from 2025-12-23 to 2025-12-26
+2026-05-21 02:35:41,629 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:35:46,632 - INFO - Fetching DA prices from 2025-12-26 00:00:00+01:00 to 2025-12-29 00:00:00+01:00
+2026-05-21 02:35:47,792 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:35:47,792 - INFO - Fetching actual load from 2025-12-26 00:00:00+01:00 to 2025-12-29 00:00:00+01:00
+2026-05-21 02:35:48,366 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:35:48,367 - INFO - Fetching generation mix from 2025-12-26 00:00:00+01:00 to 2025-12-29 00:00:00+01:00
+2026-05-21 02:35:50,904 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:35:50,905 - INFO - Fetching Open-Meteo data from 2025-12-26 to 2025-12-29
+2026-05-21 02:35:51,460 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:35:56,463 - INFO - Fetching DA prices from 2025-12-29 00:00:00+01:00 to 2026-01-01 00:00:00+01:00
+2026-05-21 02:35:57,618 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:35:57,618 - INFO - Fetching actual load from 2025-12-29 00:00:00+01:00 to 2026-01-01 00:00:00+01:00
+2026-05-21 02:35:58,296 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:35:58,297 - INFO - Fetching generation mix from 2025-12-29 00:00:00+01:00 to 2026-01-01 00:00:00+01:00
+2026-05-21 02:36:00,653 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:36:00,654 - INFO - Fetching Open-Meteo data from 2025-12-29 to 2026-01-01
+2026-05-21 02:36:01,166 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:36:06,169 - INFO - Fetching DA prices from 2026-01-01 00:00:00+01:00 to 2026-01-04 00:00:00+01:00
+2026-05-21 02:36:07,243 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:36:07,244 - INFO - Fetching actual load from 2026-01-01 00:00:00+01:00 to 2026-01-04 00:00:00+01:00
+2026-05-21 02:36:07,811 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:36:07,811 - INFO - Fetching generation mix from 2026-01-01 00:00:00+01:00 to 2026-01-04 00:00:00+01:00
+2026-05-21 02:36:10,170 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:36:10,170 - INFO - Fetching Open-Meteo data from 2026-01-01 to 2026-01-04
+2026-05-21 02:36:10,683 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:36:15,686 - INFO - Fetching DA prices from 2026-01-04 00:00:00+01:00 to 2026-01-07 00:00:00+01:00
+2026-05-21 02:36:16,598 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:36:16,598 - INFO - Fetching actual load from 2026-01-04 00:00:00+01:00 to 2026-01-07 00:00:00+01:00
+2026-05-21 02:36:17,320 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:36:17,320 - INFO - Fetching generation mix from 2026-01-04 00:00:00+01:00 to 2026-01-07 00:00:00+01:00
+2026-05-21 02:36:19,590 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:36:19,591 - INFO - Fetching Open-Meteo data from 2026-01-04 to 2026-01-07
+2026-05-21 02:36:20,092 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:36:25,094 - INFO - Fetching DA prices from 2026-01-07 00:00:00+01:00 to 2026-01-10 00:00:00+01:00
+2026-05-21 02:36:26,534 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:36:26,535 - INFO - Fetching actual load from 2026-01-07 00:00:00+01:00 to 2026-01-10 00:00:00+01:00
+2026-05-21 02:36:27,424 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:36:27,425 - INFO - Fetching generation mix from 2026-01-07 00:00:00+01:00 to 2026-01-10 00:00:00+01:00
+2026-05-21 02:36:29,638 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:36:29,639 - INFO - Fetching Open-Meteo data from 2026-01-07 to 2026-01-10
+2026-05-21 02:36:30,151 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:36:35,154 - INFO - Fetching DA prices from 2026-01-10 00:00:00+01:00 to 2026-01-13 00:00:00+01:00
+2026-05-21 02:36:36,079 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:36:36,080 - INFO - Fetching actual load from 2026-01-10 00:00:00+01:00 to 2026-01-13 00:00:00+01:00
+2026-05-21 02:36:37,047 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:36:37,047 - INFO - Fetching generation mix from 2026-01-10 00:00:00+01:00 to 2026-01-13 00:00:00+01:00
+2026-05-21 02:36:39,645 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:36:39,646 - INFO - Fetching Open-Meteo data from 2026-01-10 to 2026-01-13
+2026-05-21 02:36:40,269 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:36:45,272 - INFO - Fetching DA prices from 2026-01-13 00:00:00+01:00 to 2026-01-16 00:00:00+01:00
+2026-05-21 02:36:46,173 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:36:46,174 - INFO - Fetching actual load from 2026-01-13 00:00:00+01:00 to 2026-01-16 00:00:00+01:00
+2026-05-21 02:36:47,174 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:36:47,174 - INFO - Fetching generation mix from 2026-01-13 00:00:00+01:00 to 2026-01-16 00:00:00+01:00
+2026-05-21 02:36:49,902 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:36:49,903 - INFO - Fetching Open-Meteo data from 2026-01-13 to 2026-01-16
+2026-05-21 02:36:50,548 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:36:55,551 - INFO - Fetching DA prices from 2026-01-16 00:00:00+01:00 to 2026-01-19 00:00:00+01:00
+2026-05-21 02:36:56,565 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:36:56,565 - INFO - Fetching actual load from 2026-01-16 00:00:00+01:00 to 2026-01-19 00:00:00+01:00
+2026-05-21 02:36:57,626 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:36:57,627 - INFO - Fetching generation mix from 2026-01-16 00:00:00+01:00 to 2026-01-19 00:00:00+01:00
+2026-05-21 02:37:00,038 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:37:00,039 - INFO - Fetching Open-Meteo data from 2026-01-16 to 2026-01-19
+2026-05-21 02:37:00,618 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:37:05,620 - INFO - Fetching DA prices from 2026-01-19 00:00:00+01:00 to 2026-01-22 00:00:00+01:00
+2026-05-21 02:37:06,570 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:37:06,571 - INFO - Fetching actual load from 2026-01-19 00:00:00+01:00 to 2026-01-22 00:00:00+01:00
+2026-05-21 02:37:07,405 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:37:07,405 - INFO - Fetching generation mix from 2026-01-19 00:00:00+01:00 to 2026-01-22 00:00:00+01:00
+2026-05-21 02:37:09,728 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:37:09,729 - INFO - Fetching Open-Meteo data from 2026-01-19 to 2026-01-22
+2026-05-21 02:37:10,274 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:37:15,277 - INFO - Fetching DA prices from 2026-01-22 00:00:00+01:00 to 2026-01-25 00:00:00+01:00
+2026-05-21 02:37:16,174 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:37:16,174 - INFO - Fetching actual load from 2026-01-22 00:00:00+01:00 to 2026-01-25 00:00:00+01:00
+2026-05-21 02:37:16,908 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:37:16,908 - INFO - Fetching generation mix from 2026-01-22 00:00:00+01:00 to 2026-01-25 00:00:00+01:00
+2026-05-21 02:37:19,117 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:37:19,118 - INFO - Fetching Open-Meteo data from 2026-01-22 to 2026-01-25
+2026-05-21 02:37:19,751 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:37:24,754 - INFO - Fetching DA prices from 2026-01-25 00:00:00+01:00 to 2026-01-28 00:00:00+01:00
+2026-05-21 02:37:25,724 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:37:25,725 - INFO - Fetching actual load from 2026-01-25 00:00:00+01:00 to 2026-01-28 00:00:00+01:00
+2026-05-21 02:37:26,458 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:37:26,459 - INFO - Fetching generation mix from 2026-01-25 00:00:00+01:00 to 2026-01-28 00:00:00+01:00
+2026-05-21 02:37:28,497 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:37:28,498 - INFO - Fetching Open-Meteo data from 2026-01-25 to 2026-01-28
+2026-05-21 02:37:29,010 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:37:34,013 - INFO - Fetching DA prices from 2026-01-28 00:00:00+01:00 to 2026-01-31 00:00:00+01:00
+2026-05-21 02:37:34,915 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:37:34,915 - INFO - Fetching actual load from 2026-01-28 00:00:00+01:00 to 2026-01-31 00:00:00+01:00
+2026-05-21 02:37:35,782 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:37:35,783 - INFO - Fetching generation mix from 2026-01-28 00:00:00+01:00 to 2026-01-31 00:00:00+01:00
+2026-05-21 02:37:38,499 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:37:38,500 - INFO - Fetching Open-Meteo data from 2026-01-28 to 2026-01-31
+2026-05-21 02:37:39,047 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:37:44,050 - INFO - Fetching DA prices from 2026-01-31 00:00:00+01:00 to 2026-02-03 00:00:00+01:00
+2026-05-21 02:37:44,968 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:37:44,969 - INFO - Fetching actual load from 2026-01-31 00:00:00+01:00 to 2026-02-03 00:00:00+01:00
+2026-05-21 02:37:46,247 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:37:46,248 - INFO - Fetching generation mix from 2026-01-31 00:00:00+01:00 to 2026-02-03 00:00:00+01:00
+2026-05-21 02:37:49,621 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:37:49,622 - INFO - Fetching Open-Meteo data from 2026-01-31 to 2026-02-03
+2026-05-21 02:37:50,233 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:37:55,237 - INFO - Fetching DA prices from 2026-02-03 00:00:00+01:00 to 2026-02-06 00:00:00+01:00
+2026-05-21 02:37:56,247 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:37:56,247 - INFO - Fetching actual load from 2026-02-03 00:00:00+01:00 to 2026-02-06 00:00:00+01:00
+2026-05-21 02:37:56,861 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:37:56,861 - INFO - Fetching generation mix from 2026-02-03 00:00:00+01:00 to 2026-02-06 00:00:00+01:00
+2026-05-21 02:37:59,549 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:37:59,550 - INFO - Fetching Open-Meteo data from 2026-02-03 to 2026-02-06
+2026-05-21 02:38:00,234 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:38:05,237 - INFO - Fetching DA prices from 2026-02-06 00:00:00+01:00 to 2026-02-09 00:00:00+01:00
+2026-05-21 02:38:06,173 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:38:06,173 - INFO - Fetching actual load from 2026-02-06 00:00:00+01:00 to 2026-02-09 00:00:00+01:00
+2026-05-21 02:38:06,696 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:38:06,697 - INFO - Fetching generation mix from 2026-02-06 00:00:00+01:00 to 2026-02-09 00:00:00+01:00
+2026-05-21 02:38:09,075 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:38:09,076 - INFO - Fetching Open-Meteo data from 2026-02-06 to 2026-02-09
+2026-05-21 02:38:09,677 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:38:14,679 - INFO - Fetching DA prices from 2026-02-09 00:00:00+01:00 to 2026-02-12 00:00:00+01:00
+2026-05-21 02:38:15,583 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:38:15,583 - INFO - Fetching actual load from 2026-02-09 00:00:00+01:00 to 2026-02-12 00:00:00+01:00
+2026-05-21 02:38:16,219 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:38:16,220 - INFO - Fetching generation mix from 2026-02-09 00:00:00+01:00 to 2026-02-12 00:00:00+01:00
+2026-05-21 02:38:18,472 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:38:18,473 - INFO - Fetching Open-Meteo data from 2026-02-09 to 2026-02-12
+2026-05-21 02:38:19,310 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:38:24,313 - INFO - Fetching DA prices from 2026-02-12 00:00:00+01:00 to 2026-02-15 00:00:00+01:00
+2026-05-21 02:38:25,276 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:38:25,276 - INFO - Fetching actual load from 2026-02-12 00:00:00+01:00 to 2026-02-15 00:00:00+01:00
+2026-05-21 02:38:25,966 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:38:25,966 - INFO - Fetching generation mix from 2026-02-12 00:00:00+01:00 to 2026-02-15 00:00:00+01:00
+2026-05-21 02:38:30,977 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:38:30,978 - INFO - Fetching Open-Meteo data from 2026-02-12 to 2026-02-15
+2026-05-21 02:38:31,801 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:38:36,804 - INFO - Fetching DA prices from 2026-02-15 00:00:00+01:00 to 2026-02-18 00:00:00+01:00
+2026-05-21 02:38:37,845 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:38:37,846 - INFO - Fetching actual load from 2026-02-15 00:00:00+01:00 to 2026-02-18 00:00:00+01:00
+2026-05-21 02:38:38,735 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:38:38,736 - INFO - Fetching generation mix from 2026-02-15 00:00:00+01:00 to 2026-02-18 00:00:00+01:00
+2026-05-21 02:38:42,151 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:38:42,152 - INFO - Fetching Open-Meteo data from 2026-02-15 to 2026-02-18
+2026-05-21 02:38:42,653 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:38:47,655 - INFO - Fetching DA prices from 2026-02-18 00:00:00+01:00 to 2026-02-21 00:00:00+01:00
+2026-05-21 02:38:48,866 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:38:48,866 - INFO - Fetching actual load from 2026-02-18 00:00:00+01:00 to 2026-02-21 00:00:00+01:00
+2026-05-21 02:38:49,609 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:38:49,610 - INFO - Fetching generation mix from 2026-02-18 00:00:00+01:00 to 2026-02-21 00:00:00+01:00
+2026-05-21 02:38:53,358 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:38:53,359 - INFO - Fetching Open-Meteo data from 2026-02-18 to 2026-02-21
+2026-05-21 02:38:54,248 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:38:59,251 - INFO - Fetching DA prices from 2026-02-21 00:00:00+01:00 to 2026-02-24 00:00:00+01:00
+2026-05-21 02:39:00,143 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:39:00,143 - INFO - Fetching actual load from 2026-02-21 00:00:00+01:00 to 2026-02-24 00:00:00+01:00
+2026-05-21 02:39:01,177 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:39:01,178 - INFO - Fetching generation mix from 2026-02-21 00:00:00+01:00 to 2026-02-24 00:00:00+01:00
+2026-05-21 02:39:05,067 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:39:05,068 - INFO - Fetching Open-Meteo data from 2026-02-21 to 2026-02-24
+2026-05-21 02:39:05,591 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:39:10,593 - INFO - Fetching DA prices from 2026-02-24 00:00:00+01:00 to 2026-02-27 00:00:00+01:00
+2026-05-21 02:39:11,508 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:39:11,509 - INFO - Fetching actual load from 2026-02-24 00:00:00+01:00 to 2026-02-27 00:00:00+01:00
+2026-05-21 02:39:12,053 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:39:12,054 - INFO - Fetching generation mix from 2026-02-24 00:00:00+01:00 to 2026-02-27 00:00:00+01:00
+2026-05-21 02:39:15,155 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:39:15,156 - INFO - Fetching Open-Meteo data from 2026-02-24 to 2026-02-27
+2026-05-21 02:39:15,656 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:39:20,659 - INFO - Fetching DA prices from 2026-02-27 00:00:00+01:00 to 2026-03-02 00:00:00+01:00
+2026-05-21 02:39:21,815 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:39:21,816 - INFO - Fetching actual load from 2026-02-27 00:00:00+01:00 to 2026-03-02 00:00:00+01:00
+2026-05-21 02:39:22,706 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:39:22,706 - INFO - Fetching generation mix from 2026-02-27 00:00:00+01:00 to 2026-03-02 00:00:00+01:00
+2026-05-21 02:39:26,110 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:39:26,111 - INFO - Fetching Open-Meteo data from 2026-02-27 to 2026-03-02
+2026-05-21 02:39:26,739 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:39:31,742 - INFO - Fetching DA prices from 2026-03-02 00:00:00+01:00 to 2026-03-05 00:00:00+01:00
+2026-05-21 02:39:32,697 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:39:32,697 - INFO - Fetching actual load from 2026-03-02 00:00:00+01:00 to 2026-03-05 00:00:00+01:00
+2026-05-21 02:39:33,523 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:39:33,523 - INFO - Fetching generation mix from 2026-03-02 00:00:00+01:00 to 2026-03-05 00:00:00+01:00
+2026-05-21 02:39:35,791 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:39:35,792 - INFO - Fetching Open-Meteo data from 2026-03-02 to 2026-03-05
+2026-05-21 02:39:36,470 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:39:41,473 - INFO - Fetching DA prices from 2026-03-05 00:00:00+01:00 to 2026-03-08 00:00:00+01:00
+2026-05-21 02:39:42,232 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:39:42,232 - INFO - Fetching actual load from 2026-03-05 00:00:00+01:00 to 2026-03-08 00:00:00+01:00
+2026-05-21 02:39:42,955 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:39:42,955 - INFO - Fetching generation mix from 2026-03-05 00:00:00+01:00 to 2026-03-08 00:00:00+01:00
+2026-05-21 02:39:45,404 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:39:45,405 - INFO - Fetching Open-Meteo data from 2026-03-05 to 2026-03-08
+2026-05-21 02:39:46,261 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:39:51,264 - INFO - Fetching DA prices from 2026-03-08 00:00:00+01:00 to 2026-03-11 00:00:00+01:00
+2026-05-21 02:39:52,126 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:39:52,127 - INFO - Fetching actual load from 2026-03-08 00:00:00+01:00 to 2026-03-11 00:00:00+01:00
+2026-05-21 02:39:52,849 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:39:52,850 - INFO - Fetching generation mix from 2026-03-08 00:00:00+01:00 to 2026-03-11 00:00:00+01:00
+2026-05-21 02:39:55,219 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:39:55,220 - INFO - Fetching Open-Meteo data from 2026-03-08 to 2026-03-11
+2026-05-21 02:39:55,742 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:40:00,745 - INFO - Fetching DA prices from 2026-03-11 00:00:00+01:00 to 2026-03-14 00:00:00+01:00
+2026-05-21 02:40:02,196 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:40:02,196 - INFO - Fetching actual load from 2026-03-11 00:00:00+01:00 to 2026-03-14 00:00:00+01:00
+2026-05-21 02:40:03,152 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:40:03,153 - INFO - Fetching generation mix from 2026-03-11 00:00:00+01:00 to 2026-03-14 00:00:00+01:00
+2026-05-21 02:40:06,312 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:40:06,313 - INFO - Fetching Open-Meteo data from 2026-03-11 to 2026-03-14
+2026-05-21 02:40:06,869 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:40:11,871 - INFO - Fetching DA prices from 2026-03-14 00:00:00+01:00 to 2026-03-17 00:00:00+01:00
+2026-05-21 02:40:12,912 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:40:12,913 - INFO - Fetching actual load from 2026-03-14 00:00:00+01:00 to 2026-03-17 00:00:00+01:00
+2026-05-21 02:40:13,829 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:40:13,830 - INFO - Fetching generation mix from 2026-03-14 00:00:00+01:00 to 2026-03-17 00:00:00+01:00
+2026-05-21 02:40:15,741 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:40:15,742 - INFO - Fetching Open-Meteo data from 2026-03-14 to 2026-03-17
+2026-05-21 02:40:16,432 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:40:21,434 - INFO - Fetching DA prices from 2026-03-17 00:00:00+01:00 to 2026-03-20 00:00:00+01:00
+2026-05-21 02:40:22,265 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:40:22,266 - INFO - Fetching actual load from 2026-03-17 00:00:00+01:00 to 2026-03-20 00:00:00+01:00
+2026-05-21 02:40:23,099 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:40:23,100 - INFO - Fetching generation mix from 2026-03-17 00:00:00+01:00 to 2026-03-20 00:00:00+01:00
+2026-05-21 02:40:25,178 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:40:25,179 - INFO - Fetching Open-Meteo data from 2026-03-17 to 2026-03-20
+2026-05-21 02:40:25,858 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:40:30,861 - INFO - Fetching DA prices from 2026-03-20 00:00:00+01:00 to 2026-03-23 00:00:00+01:00
+2026-05-21 02:40:32,302 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:40:32,302 - INFO - Fetching actual load from 2026-03-20 00:00:00+01:00 to 2026-03-23 00:00:00+01:00
+2026-05-21 02:40:33,147 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:40:33,148 - INFO - Fetching generation mix from 2026-03-20 00:00:00+01:00 to 2026-03-23 00:00:00+01:00
+2026-05-21 02:40:35,348 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:40:35,349 - INFO - Fetching Open-Meteo data from 2026-03-20 to 2026-03-23
+2026-05-21 02:40:36,184 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:40:41,186 - INFO - Fetching DA prices from 2026-03-23 00:00:00+01:00 to 2026-03-26 00:00:00+01:00
+2026-05-21 02:40:42,676 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:40:42,676 - INFO - Fetching actual load from 2026-03-23 00:00:00+01:00 to 2026-03-26 00:00:00+01:00
+2026-05-21 02:40:43,288 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:40:43,288 - INFO - Fetching generation mix from 2026-03-23 00:00:00+01:00 to 2026-03-26 00:00:00+01:00
+2026-05-21 02:40:45,350 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:40:45,351 - INFO - Fetching Open-Meteo data from 2026-03-23 to 2026-03-26
+2026-05-21 02:40:45,996 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:40:50,998 - INFO - Fetching DA prices from 2026-03-26 00:00:00+01:00 to 2026-03-30 00:00:00+02:00
+2026-05-21 02:40:51,857 - INFO - Inserted 380 new rows into day_ahead_prices.
+2026-05-21 02:40:51,857 - INFO - Fetching actual load from 2026-03-26 00:00:00+01:00 to 2026-03-30 00:00:00+02:00
+2026-05-21 02:40:52,472 - INFO - Inserted 380 new rows into actual_load.
+2026-05-21 02:40:52,473 - INFO - Fetching generation mix from 2026-03-26 00:00:00+01:00 to 2026-03-30 00:00:00+02:00
+2026-05-21 02:40:55,938 - INFO - Inserted 380 new rows into generation_mix.
+2026-05-21 02:40:55,939 - INFO - Fetching Open-Meteo data from 2026-03-26 to 2026-03-30
+2026-05-21 02:40:56,473 - INFO - Inserted 384 new rows into weather_data.
+2026-05-21 02:41:01,475 - INFO - Fetching DA prices from 2026-03-30 00:00:00+02:00 to 2026-04-02 00:00:00+02:00
+2026-05-21 02:41:02,357 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:41:02,357 - INFO - Fetching actual load from 2026-03-30 00:00:00+02:00 to 2026-04-02 00:00:00+02:00
+2026-05-21 02:41:03,135 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:41:03,136 - INFO - Fetching generation mix from 2026-03-30 00:00:00+02:00 to 2026-04-02 00:00:00+02:00
+2026-05-21 02:41:05,528 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:41:05,529 - INFO - Fetching Open-Meteo data from 2026-03-30 to 2026-04-02
+2026-05-21 02:41:06,079 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:41:11,082 - INFO - Fetching DA prices from 2026-04-02 00:00:00+02:00 to 2026-04-05 00:00:00+02:00
+2026-05-21 02:41:12,008 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:41:12,008 - INFO - Fetching actual load from 2026-04-02 00:00:00+02:00 to 2026-04-05 00:00:00+02:00
+2026-05-21 02:41:12,731 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:41:12,731 - INFO - Fetching generation mix from 2026-04-02 00:00:00+02:00 to 2026-04-05 00:00:00+02:00
+2026-05-21 02:41:14,910 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:41:14,911 - INFO - Fetching Open-Meteo data from 2026-04-02 to 2026-04-05
+2026-05-21 02:41:15,447 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:41:20,450 - INFO - Fetching DA prices from 2026-04-05 00:00:00+02:00 to 2026-04-08 00:00:00+02:00
+2026-05-21 02:41:21,326 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:41:21,327 - INFO - Fetching actual load from 2026-04-05 00:00:00+02:00 to 2026-04-08 00:00:00+02:00
+2026-05-21 02:41:22,127 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:41:22,128 - INFO - Fetching generation mix from 2026-04-05 00:00:00+02:00 to 2026-04-08 00:00:00+02:00
+2026-05-21 02:41:23,816 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:41:23,817 - INFO - Fetching Open-Meteo data from 2026-04-05 to 2026-04-08
+2026-05-21 02:41:24,462 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:41:29,465 - INFO - Fetching DA prices from 2026-04-08 00:00:00+02:00 to 2026-04-11 00:00:00+02:00
+2026-05-21 02:41:30,313 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:41:30,314 - INFO - Fetching actual load from 2026-04-08 00:00:00+02:00 to 2026-04-11 00:00:00+02:00
+2026-05-21 02:41:31,259 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:41:31,259 - INFO - Fetching generation mix from 2026-04-08 00:00:00+02:00 to 2026-04-11 00:00:00+02:00
+2026-05-21 02:41:33,160 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:41:33,160 - INFO - Fetching Open-Meteo data from 2026-04-08 to 2026-04-11
+2026-05-21 02:41:33,828 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:41:38,830 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-21 02:41:39,785 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:41:39,786 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-21 02:41:40,309 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:41:40,309 - INFO - Fetching generation mix from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-05-21 02:41:42,134 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:41:42,135 - INFO - Fetching Open-Meteo data from 2026-04-11 to 2026-04-14
+2026-05-21 02:41:43,681 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:41:48,683 - INFO - Fetching DA prices from 2026-04-14 00:00:00+02:00 to 2026-04-17 00:00:00+02:00
+2026-05-21 02:41:49,724 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:41:49,725 - INFO - Fetching actual load from 2026-04-14 00:00:00+02:00 to 2026-04-17 00:00:00+02:00
+2026-05-21 02:41:50,248 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:41:50,248 - INFO - Fetching generation mix from 2026-04-14 00:00:00+02:00 to 2026-04-17 00:00:00+02:00
+2026-05-21 02:41:52,460 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:41:52,460 - INFO - Fetching Open-Meteo data from 2026-04-14 to 2026-04-17
+2026-05-21 02:41:52,972 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:41:57,975 - INFO - Fetching DA prices from 2026-04-17 00:00:00+02:00 to 2026-04-20 00:00:00+02:00
+2026-05-21 02:41:58,750 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:41:58,751 - INFO - Fetching actual load from 2026-04-17 00:00:00+02:00 to 2026-04-20 00:00:00+02:00
+2026-05-21 02:41:59,284 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:41:59,285 - INFO - Fetching generation mix from 2026-04-17 00:00:00+02:00 to 2026-04-20 00:00:00+02:00
+2026-05-21 02:42:01,233 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:42:01,234 - INFO - Fetching Open-Meteo data from 2026-04-17 to 2026-04-20
+2026-05-21 02:42:01,946 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:42:06,949 - INFO - Fetching DA prices from 2026-04-20 00:00:00+02:00 to 2026-04-23 00:00:00+02:00
+2026-05-21 02:42:07,766 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:42:07,767 - INFO - Fetching actual load from 2026-04-20 00:00:00+02:00 to 2026-04-23 00:00:00+02:00
+2026-05-21 02:42:08,567 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:42:08,568 - INFO - Fetching generation mix from 2026-04-20 00:00:00+02:00 to 2026-04-23 00:00:00+02:00
+2026-05-21 02:42:11,190 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:42:11,191 - INFO - Fetching Open-Meteo data from 2026-04-20 to 2026-04-23
+2026-05-21 02:42:11,759 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:42:16,761 - INFO - Fetching DA prices from 2026-04-23 00:00:00+02:00 to 2026-04-26 00:00:00+02:00
+2026-05-21 02:42:17,650 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:42:17,651 - INFO - Fetching actual load from 2026-04-23 00:00:00+02:00 to 2026-04-26 00:00:00+02:00
+2026-05-21 02:42:18,333 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:42:18,333 - INFO - Fetching generation mix from 2026-04-23 00:00:00+02:00 to 2026-04-26 00:00:00+02:00
+2026-05-21 02:42:20,282 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:42:20,283 - INFO - Fetching Open-Meteo data from 2026-04-23 to 2026-04-26
+2026-05-21 02:42:20,909 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:42:25,912 - INFO - Fetching DA prices from 2026-04-26 00:00:00+02:00 to 2026-04-29 00:00:00+02:00
+2026-05-21 02:42:26,845 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:42:26,845 - INFO - Fetching actual load from 2026-04-26 00:00:00+02:00 to 2026-04-29 00:00:00+02:00
+2026-05-21 02:42:27,479 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:42:27,479 - INFO - Fetching generation mix from 2026-04-26 00:00:00+02:00 to 2026-04-29 00:00:00+02:00
+2026-05-21 02:42:29,436 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:42:29,436 - INFO - Fetching Open-Meteo data from 2026-04-26 to 2026-04-29
+2026-05-21 02:42:30,085 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:42:35,088 - INFO - Fetching DA prices from 2026-04-29 00:00:00+02:00 to 2026-05-02 00:00:00+02:00
+2026-05-21 02:42:36,077 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:42:36,077 - INFO - Fetching actual load from 2026-04-29 00:00:00+02:00 to 2026-05-02 00:00:00+02:00
+2026-05-21 02:42:36,733 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:42:36,734 - INFO - Fetching generation mix from 2026-04-29 00:00:00+02:00 to 2026-05-02 00:00:00+02:00
+2026-05-21 02:42:38,874 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:42:38,875 - INFO - Fetching Open-Meteo data from 2026-04-29 to 2026-05-02
+2026-05-21 02:42:39,409 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:42:44,412 - INFO - Fetching DA prices from 2026-05-02 00:00:00+02:00 to 2026-05-05 00:00:00+02:00
+2026-05-21 02:42:45,326 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:42:45,327 - INFO - Fetching actual load from 2026-05-02 00:00:00+02:00 to 2026-05-05 00:00:00+02:00
+2026-05-21 02:42:46,121 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:42:46,121 - INFO - Fetching generation mix from 2026-05-02 00:00:00+02:00 to 2026-05-05 00:00:00+02:00
+2026-05-21 02:42:48,494 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:42:48,495 - INFO - Fetching Open-Meteo data from 2026-05-02 to 2026-05-05
+2026-05-21 02:42:49,101 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:42:54,103 - INFO - Fetching DA prices from 2026-05-05 00:00:00+02:00 to 2026-05-08 00:00:00+02:00
+2026-05-21 02:42:54,954 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:42:54,955 - INFO - Fetching actual load from 2026-05-05 00:00:00+02:00 to 2026-05-08 00:00:00+02:00
+2026-05-21 02:42:55,922 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:42:55,922 - INFO - Fetching generation mix from 2026-05-05 00:00:00+02:00 to 2026-05-08 00:00:00+02:00
+2026-05-21 02:42:58,282 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:42:58,283 - INFO - Fetching Open-Meteo data from 2026-05-05 to 2026-05-08
+2026-05-21 02:42:58,906 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:43:03,908 - INFO - Fetching DA prices from 2026-05-08 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-05-21 02:43:04,774 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:43:04,774 - INFO - Fetching actual load from 2026-05-08 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-05-21 02:43:05,509 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:43:05,510 - INFO - Fetching generation mix from 2026-05-08 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-05-21 02:43:07,477 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:43:07,478 - INFO - Fetching Open-Meteo data from 2026-05-08 to 2026-05-11
+2026-05-21 02:43:07,967 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:43:12,970 - INFO - Fetching DA prices from 2026-05-11 00:00:00+02:00 to 2026-05-14 00:00:00+02:00
+2026-05-21 02:43:13,796 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:43:13,797 - INFO - Fetching actual load from 2026-05-11 00:00:00+02:00 to 2026-05-14 00:00:00+02:00
+2026-05-21 02:43:14,841 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:43:14,842 - INFO - Fetching generation mix from 2026-05-11 00:00:00+02:00 to 2026-05-14 00:00:00+02:00
+2026-05-21 02:43:16,742 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:43:16,743 - INFO - Fetching Open-Meteo data from 2026-05-11 to 2026-05-14
+2026-05-21 02:43:18,005 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:43:23,008 - INFO - Fetching DA prices from 2026-05-14 00:00:00+02:00 to 2026-05-17 00:00:00+02:00
+2026-05-21 02:43:23,902 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:43:23,903 - INFO - Fetching actual load from 2026-05-14 00:00:00+02:00 to 2026-05-17 00:00:00+02:00
+2026-05-21 02:43:24,559 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:43:24,559 - INFO - Fetching generation mix from 2026-05-14 00:00:00+02:00 to 2026-05-17 00:00:00+02:00
+2026-05-21 02:43:26,870 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:43:26,871 - INFO - Fetching Open-Meteo data from 2026-05-14 to 2026-05-17
+2026-05-21 02:43:27,443 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:43:32,446 - INFO - Fetching DA prices from 2026-05-17 00:00:00+02:00 to 2026-05-20 00:00:00+02:00
+2026-05-21 02:43:33,460 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-05-21 02:43:33,461 - INFO - Fetching actual load from 2026-05-17 00:00:00+02:00 to 2026-05-20 00:00:00+02:00
+2026-05-21 02:43:34,094 - INFO - Inserted 288 new rows into actual_load.
+2026-05-21 02:43:34,095 - INFO - Fetching generation mix from 2026-05-17 00:00:00+02:00 to 2026-05-20 00:00:00+02:00
+2026-05-21 02:43:35,966 - INFO - Inserted 288 new rows into generation_mix.
+2026-05-21 02:43:35,967 - INFO - Fetching Open-Meteo data from 2026-05-17 to 2026-05-20
+2026-05-21 02:43:36,601 - INFO - Inserted 288 new rows into weather_data.
+2026-05-21 02:43:41,603 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-21 00:00:00+02:00
+2026-05-21 02:43:42,505 - INFO - Inserted 96 new rows into day_ahead_prices.
+2026-05-21 02:43:42,505 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-20 23:13:41.603392+02:00
+2026-05-21 02:43:43,283 - INFO - Inserted 67 new rows into actual_load.
+2026-05-21 02:43:43,284 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-20 23:13:41.603392+02:00
+2026-05-21 02:43:44,618 - INFO - Inserted 91 new rows into generation_mix.
+2026-05-21 02:43:44,618 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-21
+2026-05-21 02:43:45,219 - INFO - Inserted 96 new rows into weather_data.
+2026-05-21 03:08:07,478 - INFO - Inserted 2 new rows into generation_mix.
+2026-05-21 09:49:23,310 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-21 09:49:23,366 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 09:49:26,119 - INFO - Inserted 95 new rows into day_ahead_prices.
+2026-05-21 09:49:26,120 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-21 06:19:23.366027+02:00
+2026-05-21 09:49:26,715 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-21 06:19:23.366027+02:00
+2026-05-21 09:49:27,438 - INFO - Inserted 26 new rows into generation_mix.
+2026-05-21 09:49:27,439 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
+2026-05-21 09:49:29,213 - INFO - Inserted 192 new rows into weather_data.
+2026-05-21 09:49:29,213 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-21 09:58:07,683 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-21 09:58:07,683 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 09:58:09,344 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-21 06:28:07.683250+02:00
+2026-05-21 09:58:09,629 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-21 06:28:07.683250+02:00
+2026-05-21 09:58:10,451 - INFO - Inserted 1 new rows into generation_mix.
+2026-05-21 09:58:10,452 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
+2026-05-21 09:58:10,480 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-21 12:32:09,705 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-21 12:32:09,751 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 12:32:14,713 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-21 09:02:09.751795+02:00
+2026-05-21 12:32:15,121 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-21 09:02:09.751795+02:00
+2026-05-21 12:32:18,014 - INFO - Inserted 10 new rows into generation_mix.
+2026-05-21 12:32:18,015 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
+2026-05-21 12:32:20,147 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-21 13:01:41,495 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-21 13:01:41,504 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 13:01:46,573 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-21 09:31:41.504656+02:00
+2026-05-21 13:01:46,958 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-21 09:31:41.504656+02:00
+2026-05-21 13:01:47,929 - INFO - Inserted 2 new rows into generation_mix.
+2026-05-21 13:01:47,929 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
+2026-05-21 13:01:48,053 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-21 13:11:16,047 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-21 13:11:16,069 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 13:11:24,042 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-21 09:41:16.069643+02:00
+2026-05-21 13:11:25,321 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-21 09:41:16.069643+02:00
+2026-05-21 13:11:28,314 - INFO - Inserted 1 new rows into generation_mix.
+2026-05-21 13:11:28,315 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
+2026-05-21 13:11:28,433 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-21 13:47:37,893 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-21 13:47:37,939 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 13:47:39,857 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-21 10:17:37.939344+02:00
+2026-05-21 13:47:40,287 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-21 10:17:37.939344+02:00
+2026-05-21 13:47:41,229 - INFO - Inserted 2 new rows into generation_mix.
+2026-05-21 13:47:41,230 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
+2026-05-21 13:47:43,201 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-21 13:55:14,463 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-21 13:55:14,475 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-05-21 13:55:16,308 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-21 10:25:14.475591+02:00
+2026-05-21 13:55:16,663 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-21 10:25:14.475591+02:00
+2026-05-21 13:55:17,485 - INFO - Inserted 1 new rows into generation_mix.
+2026-05-21 13:55:17,486 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
+2026-05-21 13:55:17,558 - INFO - === PIPELINE RUN COMPLETE ===
