@@ -107,7 +107,7 @@ On October 1, 2025, European Single Day-Ahead Coupling transitioned from hourly 
 * Zero interpolation-based lookahead leakage.
 
 ### Serverless Cloud Deployment
-![Render Deployment](Images/image_2.jpg))
+![Render Deployment](Images/image_2.png))
 
 
 Successfully ported the architecture from local desktop execution to a decoupled cloud ecosystem. Engineered CORS-compliant REST endpoints and configured Render deployment pipelines for autonomous CI/CD updates.
