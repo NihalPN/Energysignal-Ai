@@ -99,7 +99,6 @@ Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring 
 To ensure the model does not overfit to recent mild conditions, it is subjected to targeted stress tests on historical crisis periods, maintaining a stable 63.8% directional accuracy during severe anomalous supply/demand shocks.
 
 ### SDAC 15-Minute Market Transition Handling
-![Database Query](Images/Screenshot_from_2026-05-21_01-48-38.png)
 
 
 On October 1, 2025, European Single Day-Ahead Coupling transitioned from hourly settlement blocks to **15-minute Market Time Units (MTUs)**. The pipeline successfully executes:
