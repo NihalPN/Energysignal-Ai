@@ -7,21 +7,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        .tab-btn { cursor: pointer; }
-        .tab-btn.active { color: #f87171; border-bottom: 2px solid #ef4444; } /* Red active state matching screenshot */
+        .tab-btn { cursor: pointer; white-space: nowrap; }
+        .tab-btn.active { color: #f87171; border-bottom: 2px solid #ef4444; } 
+        /* Hide scrollbar for mobile tabs */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-[#0f111a] text-gray-100 font-sans p-6 min-h-screen">
+<body class="bg-[#0f111a] text-gray-100 font-sans p-4 md:p-6 min-h-screen">
 
-    <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-bold text-blue-400">⚡ EnergySignal AI - Institutional Terminal</h1>
-        <div class="bg-gray-800 border border-gray-700 px-4 py-2 rounded text-green-400 font-mono text-sm">
-            🇩🇪 Berlin Time: <span id="clock"></span>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+        <h1 class="text-xl md:text-2xl font-bold text-blue-400">⚡ EnergySignal AI Terminal</h1>
+        <div class="bg-gray-800 border border-gray-700 px-3 py-2 rounded text-green-400 font-mono text-xs md:text-sm w-full md:w-auto text-center">
+            🇩🇪 Berlin: <span id="clock"></span>
         </div>
     </div>
 
-    <div class="border-b border-gray-700 mb-6">
-        <ul class="flex flex-wrap text-sm font-medium text-center text-gray-400">
+    <div class="border-b border-gray-700 mb-6 overflow-x-auto no-scrollbar">
+        <ul class="flex text-sm font-medium text-gray-400 w-max">
             <li class="mr-6 pb-2 tab-btn active" onclick="switchTab('tab1', this)">Strategy & AI Analyst</li>
             <li class="mr-6 pb-2 tab-btn" onclick="switchTab('tab2', this)">XGBoost Forecast Monitor</li>
             <li class="mr-6 pb-2 tab-btn" onclick="switchTab('tab3', this)">Live Market Monitor</li>
@@ -30,57 +33,70 @@
 
     <div id="tab1" class="tab-content block">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-gray-800 p-6 rounded border border-gray-700 text-center shadow-lg">
+            <div class="bg-gray-800 p-4 md:p-6 rounded border border-gray-700 text-center shadow-lg">
                 <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2" id="kpi-time-label">Last Cleared Price</p>
-                <p class="text-3xl font-bold text-white" id="kpi-price">€--.--</p>
+                <div id="skel-kpi-1" class="h-8 bg-gray-700 rounded w-24 mx-auto animate-pulse"></div>
+                <p class="text-3xl font-bold text-white hidden" id="kpi-price">€--.--</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded border border-gray-700 text-center shadow-lg">
+            <div class="bg-gray-800 p-4 md:p-6 rounded border border-gray-700 text-center shadow-lg">
                 <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2" id="kpi-forecast-label">XGBoost 24h Forecast</p>
-                <p class="text-3xl font-bold text-yellow-500" id="kpi-forecast">€--.--</p>
+                <div id="skel-kpi-2" class="h-8 bg-gray-700 rounded w-24 mx-auto animate-pulse"></div>
+                <p class="text-3xl font-bold text-yellow-500 hidden" id="kpi-forecast">€--.--</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded border border-gray-700 text-center shadow-lg">
+            <div class="bg-gray-800 p-4 md:p-6 rounded border border-gray-700 text-center shadow-lg">
                 <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Algorithmic Signal</p>
-                <p class="text-2xl font-bold mt-1" id="kpi-signal">Loading...</p>
+                <div id="skel-kpi-3" class="h-8 bg-gray-700 rounded w-40 mx-auto animate-pulse"></div>
+                <p class="text-2xl font-bold mt-1 hidden" id="kpi-signal">Loading...</p>
             </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="col-span-2 bg-gray-800 p-4 rounded border border-gray-700 shadow-lg">
+            
+            <div class="col-span-1 lg:col-span-2 bg-gray-800 p-4 rounded border border-gray-700 shadow-lg">
                 <h2 class="text-lg font-bold mb-4">DE-LU 15-Minute Resolution</h2>
-                <div class="relative h-[400px]">
+                
+                <div id="skel-chart-1" class="h-[300px] md:h-[400px] bg-gray-700 rounded animate-pulse w-full"></div>
+                
+                <div id="canvas-container-1" class="relative h-[300px] md:h-[400px] hidden">
                     <canvas id="chartTab1"></canvas>
                 </div>
             </div>
 
             <div class="col-span-1 bg-gray-800 p-4 rounded border border-gray-700 flex flex-col shadow-lg">
-                <h2 class="text-lg font-bold mb-4 flex items-center">🤖 RAG Market Analyst</h2>
-                <div id="ai-output" class="flex-grow bg-[#0f111a] border border-gray-700 rounded p-4 overflow-y-auto font-mono text-sm mb-4 h-[300px]">
-                    System ready. Click below to fetch live news and generate AI context.
+                <h2 class="text-lg font-bold mb-2 flex items-center">🤖 RAG Market Analyst</h2>
+                <p class="text-xs text-gray-500 mb-4" id="ai-timestamp">Connecting to AI Server...</p>
+                
+                <div class="flex-grow bg-[#0f111a] border border-gray-700 rounded p-4 overflow-y-auto font-mono text-xs md:text-sm h-[300px]">
+                    <div id="skel-ai" class="space-y-3">
+                        <div class="h-3 bg-gray-700 rounded w-3/4 animate-pulse"></div>
+                        <div class="h-3 bg-gray-700 rounded w-full animate-pulse"></div>
+                        <div class="h-3 bg-gray-700 rounded w-5/6 animate-pulse"></div>
+                        <div class="h-3 bg-gray-700 rounded w-full animate-pulse"></div>
+                    </div>
+                    <div id="ai-output" class="hidden text-gray-300"></div>
                 </div>
-                <button id="run-ai-btn" class="w-full bg-[#6200ea] hover:bg-[#7c4dff] text-white font-bold py-2 px-4 rounded transition duration-200">
-                    Run Live AI Analysis
-                </button>
             </div>
         </div>
     </div>
 
     <div id="tab2" class="tab-content hidden">
-        <h2 class="text-2xl font-bold mb-4">Execution & AI Cross-Check</h2>
+        <h2 class="text-xl md:text-2xl font-bold mb-4">Execution & AI Cross-Check</h2>
         
         <div class="bg-gray-800 p-4 rounded border border-gray-700 shadow-lg mb-6">
-            <h3 class="text-lg font-bold mb-4">📉 Visual Tracker: AI Prediction vs Actual Market</h3>
-            <div class="relative h-[300px]">
+            <h3 class="text-sm md:text-lg font-bold mb-4">📉 Visual Tracker: AI Prediction vs Actual Market</h3>
+            <div id="skel-chart-2" class="h-[250px] md:h-[300px] bg-gray-700 rounded animate-pulse w-full"></div>
+            <div id="canvas-container-2" class="relative h-[250px] md:h-[300px] hidden">
                 <canvas id="chartTab2"></canvas>
             </div>
         </div>
 
-        <h3 class="text-lg font-bold mb-4">📊 Execution Tape (Spread & Signals)</h3>
+        <h3 class="text-sm md:text-lg font-bold mb-4">📊 Execution Tape</h3>
         <div class="bg-gray-800 rounded border border-gray-700 shadow-lg overflow-x-auto">
-            <table class="w-full text-sm text-left text-gray-300">
+            <table class="w-full text-xs md:text-sm text-left text-gray-300 min-w-[500px]">
                 <thead class="text-xs text-gray-400 uppercase bg-gray-700 border-b border-gray-600">
                     <tr>
-                        <th class="px-6 py-3 border-r border-gray-600 w-1/2">Delivery Time Block</th>
-                        <th class="px-6 py-3 w-1/2">Predicted Price (€/MWh)</th>
+                        <th class="px-4 py-3 border-r border-gray-600 w-1/2">Delivery Time Block</th>
+                        <th class="px-4 py-3 w-1/2">Predicted Price (€/MWh)</th>
                     </tr>
                 </thead>
                 <tbody id="tab2-table-body">
@@ -90,14 +106,14 @@
     </div>
 
     <div id="tab3" class="tab-content hidden">
-        <h2 class="text-2xl font-bold mb-4">Live Market Horizon</h2>
+        <h2 class="text-xl md:text-2xl font-bold mb-4">Live Market Horizon</h2>
         
         <div class="bg-gray-800 rounded border border-gray-700 shadow-lg overflow-x-auto">
-            <table class="w-full text-sm text-left text-gray-300">
+            <table class="w-full text-xs md:text-sm text-left text-gray-300 min-w-[300px]">
                 <thead class="text-xs text-gray-400 uppercase bg-gray-700 border-b border-gray-600">
                     <tr>
-                        <th class="px-6 py-3 border-r border-gray-600 w-1/2">Delivery Time Block</th>
-                        <th class="px-6 py-3 w-1/2">Clearing Price (€/MWh)</th>
+                        <th class="px-4 py-3 border-r border-gray-600 w-1/2">Delivery Time Block</th>
+                        <th class="px-4 py-3 w-1/2">Clearing Price (€/MWh)</th>
                     </tr>
                 </thead>
                 <tbody id="tab3-table-body">
@@ -107,7 +123,6 @@
     </div>
 
     <script>
-        // Tab Switcher
         function switchTab(tabId, element) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -115,7 +130,6 @@
             element.classList.add('active');
         }
 
-        // Clock
         function updateClock() {
             const now = new Date();
             const options = { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
@@ -123,44 +137,58 @@
         }
         setInterval(updateClock, 1000); updateClock();
 
-        const API_BASE_URL ="https://energysignal-ai.onrender.com"; 
-        let chart1 = null;
-        let chart2 = null;
+        const API_BASE_URL = "https://energysignal-ai.onrender.com"; 
+        let chart1 = null; let chart2 = null;
 
-        async function loadMarketData() {
+        // Hide Skeletons and Show Real Elements
+        function revealUI() {
+            document.querySelectorAll('[id^="skel-"]').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('[id^="kpi-"], [id^="canvas-container-"], #ai-output').forEach(el => el.classList.remove('hidden'));
+        }
+
+        async function initTerminal() {
             try {
-                const response = await fetch(`${API_BASE_URL}/api/v1/dashboard-data`);
-                const data = await response.json();
+                // Fetch Data and AI simultaneously for speed
+                const [dashResponse, aiResponse] = await Promise.all([
+                    fetch(`${API_BASE_URL}/api/v1/dashboard-data`),
+                    fetch(`${API_BASE_URL}/api/v1/rag-analysis`)
+                ]);
+                
+                const data = await dashResponse.json();
+                const aiData = await aiResponse.json();
+
+                revealUI();
+
+                // Populate AI
+                document.getElementById('ai-output').innerText = aiData.analysis;
+                document.getElementById('ai-timestamp').innerText = aiData.last_update ? `Last AI execution: ${aiData.last_update} (Updates Hourly)` : "Live Session Active";
 
                 // Populate KPIs
                 document.getElementById('kpi-time-label').innerText = `Price at ${data.kpis.last_time}`;
                 document.getElementById('kpi-price').innerText = `€${data.kpis.latest_price.toFixed(2)}`;
-                document.getElementById('kpi-forecast-label').innerText = `Forecast (${data.kpis.tomorrow_time} Tomorrow)`;
+                document.getElementById('kpi-forecast-label').innerText = `Forecast (${data.kpis.tomorrow_time})`;
                 document.getElementById('kpi-forecast').innerText = `€${data.kpis.forecast_price.toFixed(2)}`;
                 
                 const signalEl = document.getElementById('kpi-signal');
                 signalEl.innerText = data.kpis.signal;
-                signalEl.className = data.kpis.signal.includes("BUY") ? "text-2xl font-bold mt-1 text-green-400" : "text-2xl font-bold mt-1 text-yellow-500";
+                signalEl.className = data.kpis.signal.includes("BUY") ? "text-xl md:text-2xl font-bold mt-1 text-green-400" : "text-xl md:text-2xl font-bold mt-1 text-yellow-500";
 
-                // Draw Tab 1 Chart
+                // Draw Charts
                 const ctx1 = document.getElementById('chartTab1').getContext('2d');
-                if (chart1) chart1.destroy();
                 chart1 = new Chart(ctx1, {
                     type: 'line',
                     data: {
                         labels: data.tab1.timestamps,
                         datasets: [
-                            { label: 'Actual Prices (7 Days)', data: data.tab1.actuals, borderColor: '#00d2ff', borderWidth: 2, pointRadius: 0, tension: 0.1 },
-                            { label: 'Model Cross-Check', data: data.tab1.cross_check, borderColor: '#ff00ff', borderWidth: 2, borderDash: [2, 2], pointRadius: 0, tension: 0.1 },
-                            { label: 'XGBoost Forecast (Next 24h)', data: data.tab1.forecast, borderColor: '#ffaa00', borderWidth: 2, borderDash: [5, 5], pointRadius: 0, tension: 0.1 }
+                            { label: 'Actual Prices', data: data.tab1.actuals, borderColor: '#00d2ff', borderWidth: 2, pointRadius: 0, tension: 0.1 },
+                            { label: 'Model Cross-Check', data: data.tab1.cross_check, borderColor: '#ff00ff', borderWidth: 2, pointRadius: 0, tension: 0.1 },
+                            { label: 'XGBoost Forecast', data: data.tab1.forecast, borderColor: '#ffaa00', borderWidth: 2, borderDash: [5, 5], pointRadius: 0, tension: 0.1 }
                         ]
                     },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#e5e7eb' } } }, scales: { x: { grid: { color: '#374151' }, ticks: { color: '#9ca3af', maxTicksLimit: 10 } }, y: { grid: { color: '#374151' }, ticks: { color: '#9ca3af' } } } }
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#e5e7eb', boxWidth: 12 } } }, scales: { x: { grid: { color: '#374151' }, ticks: { color: '#9ca3af', maxTicksLimit: 8 } }, y: { grid: { color: '#374151' }, ticks: { color: '#9ca3af' } } } }
                 });
 
-                // Draw Tab 2 Chart (Matching User Screenshot style: White actuals, Green predictions)
                 const ctx2 = document.getElementById('chartTab2').getContext('2d');
-                if (chart2) chart2.destroy();
                 chart2 = new Chart(ctx2, {
                     type: 'line',
                     data: {
@@ -170,12 +198,11 @@
                             { label: 'AI Prediction', data: data.tab2.forecasts, borderColor: '#00ff00', borderWidth: 2, pointRadius: 0, tension: 0.1 }
                         ]
                     },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#e5e7eb' } } }, scales: { x: { grid: { color: '#374151' }, ticks: { color: '#9ca3af', maxTicksLimit: 15 } }, y: { grid: { color: '#374151' }, ticks: { color: '#9ca3af' } } } }
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#e5e7eb', boxWidth: 12 } } }, scales: { x: { grid: { color: '#374151' }, ticks: { color: '#9ca3af', maxTicksLimit: 8 } }, y: { grid: { color: '#374151' }, ticks: { color: '#9ca3af' } } } }
                 });
 
-                // Populate Tab 2 Table
+                // Populate Tables
                 const t2Body = document.getElementById('tab2-table-body');
-                t2Body.innerHTML = "";
                 data.tab2.table.forEach(row => {
                     let textClass = "";
                     if(row.color === 'magenta') textClass = "text-fuchsia-400";
@@ -183,59 +210,29 @@
                     if(row.color === 'green') textClass = "text-green-400 font-bold";
                     if(row.color === 'orange') textClass = "text-yellow-500";
                     if(row.color === 'gray') textClass = "text-gray-500";
-
                     let timeClass = (row.time_color === 'green') ? "text-green-400 font-bold" : (row.time_color === 'gray' ? "text-gray-500" : "text-gray-300");
-
-                    t2Body.innerHTML += `
-                        <tr class="border-b border-gray-700 hover:bg-gray-700">
-                            <td class="px-6 py-2 border-r border-gray-600 ${timeClass}">${row.time}</td>
-                            <td class="px-6 py-2 ${textClass}">${row.status}</td>
-                        </tr>
-                    `;
+                    t2Body.innerHTML += `<tr class="border-b border-gray-700 hover:bg-gray-700"><td class="px-4 py-2 border-r border-gray-600 ${timeClass}">${row.time}</td><td class="px-4 py-2 ${textClass}">${row.status}</td></tr>`;
                 });
 
-                // Populate Tab 3 Table
                 const t3Body = document.getElementById('tab3-table-body');
-                t3Body.innerHTML = "";
                 data.tab3.table.forEach(row => {
                     let priceVal = parseFloat(row.price.replace("€", ""));
                     let priceClass = priceVal < 0 ? "text-red-500" : "text-green-400";
-                    t3Body.innerHTML += `
-                        <tr class="border-b border-gray-700 hover:bg-gray-700">
-                            <td class="px-6 py-3 border-r border-gray-600">${row.time}</td>
-                            <td class="px-6 py-3 ${priceClass}">${row.price}</td>
-                        </tr>
-                    `;
+                    t3Body.innerHTML += `<tr class="border-b border-gray-700 hover:bg-gray-700"><td class="px-4 py-3 border-r border-gray-600">${row.time}</td><td class="px-4 py-3 ${priceClass}">${row.price}</td></tr>`;
                 });
 
             } catch (error) {
-                console.error("Error fetching data:", error);
-                document.getElementById('kpi-signal').innerText = "API Offline (Cold Start?)";
+                console.error("Initialization error:", error);
+                document.getElementById('skel-kpi-3').classList.add('hidden');
+                const errEl = document.getElementById('kpi-signal');
+                errEl.classList.remove('hidden');
+                errEl.innerText = "API Waking Up... (Please refresh in 30s)";
+                errEl.className = "text-sm text-red-400 mt-2 font-mono";
             }
         }
 
-        // RAG Logic
-        document.getElementById('run-ai-btn').addEventListener('click', async () => {
-            const outputBox = document.getElementById('ai-output');
-            const btn = document.getElementById('run-ai-btn');
-            
-            outputBox.innerHTML = '<span class="text-yellow-400">🤖 Prompting Groq LLM... analyzing grid physics and news...</span>';
-            btn.disabled = true;
-            btn.classList.add('opacity-50', 'cursor-not-allowed');
-
-            try {
-                const response = await fetch(`${API_BASE_URL}/api/v1/rag-analysis`);
-                const data = await response.json();
-                outputBox.innerText = data.analysis;
-            } catch (error) {
-                outputBox.innerHTML = `<span class="text-red-400">Failed to connect to AI server. Wait for backend to spin up.</span>`;
-            } finally {
-                btn.disabled = false;
-                btn.classList.remove('opacity-50', 'cursor-not-allowed');
-            }
-        });
-
-        loadMarketData();
+        // Run on load
+        initTerminal();
     </script>
 </body>
 </html>
