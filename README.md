@@ -1,336 +1,202 @@
 # EnergySignal AI: Institutional Power Trading & Grid Monitoring
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Click_Here_to_View-brightgreen?style=for-the-badge&logo=render)](https://energysignalai.onrender.com/)
+[![CI/CD Pipeline](https://img.shields.io/badge/build-passing-brightgreen?logo=github)](https://github.com/NihalPN/Energysignal-Ai/actions)
+
 A production-grade algorithmic trading, forecasting, and real-time anomaly detection platform for the **German (DE-LU) wholesale electricity market**.
 
-Engineered to operate within constrained local hardware (**8GB RAM**) while handling the volatility and operational complexity of European electricity markets.
+Engineered to operate within constrained local hardware (e.g., standard 8GB RAM laptops) while scaling seamlessly to serverless cloud deployments. The platform features a dual-interface architecture: a zero-latency **Decoupled Web Terminal** and a high-performance **PyQt6 Desktop Client**.
 
 ---
 
-## 📸 System Architecture & Dashboard
+## ⚡ System Dashboards & Web Architecture
 
+EnergySignal AI provides a lightweight, highly responsive web dashboard engineered for zero-latency data delivery to remote users. It utilizes a Double-Caching strategy (`fastapi-cache2` on the server and `localStorage` on the client) to protect cloud compute limits.
 
+### Tab 1: Strategy & AI Analyst
+![Web Strategy Tab](Images/strategy_tab.png)
+*(Screenshot: Real-time Chart.js rendering and AI context)*
 
-### 1. Strategy & AI Analyst Terminal
-![Strategy Tab](Images/strategy_tab.png)
+The primary command center for the terminal:
+* **Interactive Visualization:** Plots the last 7 days of historical cleared prices against the model's cross-check logic and the next 24-hour XGBoost forecast.
+* **RAG Market Analyst:** A background `asyncio` loop continuously pre-computes LLM market analysis, comparing live grid physics against historical spikes, defeating cold-start latency.
 
-Main PyQt6 institutional desktop interface featuring:
+### Tab 2: XGBoost Forecast & Execution Monitor
+![Web Forecast Tab](Images/forecast_tab.png))
+*(Screenshot: AI Prediction vs Actual Market tracker)*
 
-- real-time **PyQtGraph** market visualization
-- last 7 days of historical market prices
-- next 24-hour **XGBoost forecast**
-- integrated **RAG analyst** using LanceDB + Groq LLM
-- contextual explanation of market events such as renewable oversupply and load imbalance
+Designed for quantitative execution tracking:
+* **Visual Tracker:** Isolates the AI's 3-day horizon predictions against the actual cleared market prices to visualize algorithmic spread and error margins.
+* **Execution Tape:** A granular 15-minute breakdown of predicted prices, calculating potential profit spreads and explicitly highlighting negative price events or investment signals (e.g., "🟢 BUY 10 MWh").
 
----
+### Tab 3: Live Market Horizon
+![Web Live Monitor Tab](Images/live_monitor.png)
+*(Screenshot: Live clearing price ledger)*
 
-### 2. Forecast Ledger
-![Forecasts Tab](Images/forecast_tab.png)
-
-Forecast execution dashboard displaying:
-
-- next **96 market intervals (15-minute MTUs)**
-- projected price spreads
-- opportunity filtering
-- physical lot profitability estimation
-
----
-
-### 3. Live Market Monitor
-![Live Monitor](Images/live_monitor.png)
-
-Operational monitoring terminal including:
-
-- live Berlin market clock synchronization
-- active 15-minute block identification
-- local SQLite market retrieval
-- real-time anomaly state monitoring
+An operational monitoring view:
+* **Real-Time Ledger:** Synchronizes with the live Berlin market clock to provide an unbroken, raw feed of the latest cleared 15-minute MTU blocks.
 
 ---
 
-### 4. Backtesting Results
-![Backtest Results](Images/backtest_result.png)
+## 🖥️ The Institutional Desktop Client (PyQt6)
+![Desktop Strategy Tab](Images/image_1.png)
+*(Screenshot: Local PyQt6 Trading Client)*
 
-VectorBT backtesting output demonstrating:
-
-- strict train/test separation
-- realistic execution fee modeling
-- physical lot simulation
-- out-of-sample directional forecasting performance
+For dedicated trading environments, the platform also includes a low-level desktop application featuring:
+* **Real-Time PyQtGraph Visualization:** Renders 7 days of historical prices with hardware-accelerated framerates.
+* **Forecast Ledger:** Displays projected price spreads and physical lot profitability estimation directly from the local SQLite database.
 
 ---
 
-# 🏗 Core Architecture
+## 🏗 Core Architecture
 
-## Data Pipeline
+### Automated ETL Data Pipeline
+An autonomous, fault-tolerant ingestion layer designed to merge live market economics with physical grid conditions.
+* **Ingestion Sources:** ENTSO-E Transparency Platform, Open-Meteo DWD ICON weather models, and SMARD feeds.
+* **Execution Hierarchy:** Engineered with strict chronological integrity via a three-stage execution process: `Backfill` -> `Patch Generation` -> `Scheduler` (with retry handling and rate limiting).
 
-Automated ingestion layer for:
+### GPU-Accelerated Machine Learning Engine
+Forecasting stack utilizing **XGBoost Regression**:
+* **Grid-Physics Feature Engineering:** Raw data is transformed into contextual grid-stress indicators (e.g., renewable penetration, grid surplus flags).
+* **Hardware Optimization:** Capable of offloading deep-tree training (`tree_method="hist"`) to available hardware like an NVIDIA T4 GPU, allowing the model to aggressively capture negative price crashes and extreme volatility spikes.
 
-- **ENTSO-E Transparency Platform**
-- **Open-Meteo DWD ICON weather models**
-- local SQLite persistence
-- retry handling and rate limiting
+### Grid Anomaly Detection
+A real-time anomaly monitoring layer designed to identify generation shocks, abnormal demand surges, and supply stress events.
+* **Detection:** Utilizes rolling Z-score detection and grid imbalance monitoring.
+* **Alerting:** Asynchronous Telegram Bot API integration for instant notifications to trading desks.
 
-Features:
+### AI Market Intelligence (RAG Analyst)
+Retrieval-Augmented analyst pipeline replacing resource-heavy databases with local solutions:
+* **Stack:** LanceDB, sentence-transformers, and Groq LLM API.
+* **Capabilities:** Classifies market news, retrieves historical anomaly patterns, compares live market physics against historical spikes, and explains probable price dislocations.
 
-- historical backfill support
-- production patching workflows
-- market data normalization
-- weather-feature synchronization
+### Institutional Backtesting Engine
+VectorBT simulation built to reflect the harsh realities of physical power trading:
+* **Negative Price Stability Protection:** Strict positive offset transformation to ensure stable position sizing under negative prices while preserving absolute P&L accounting.
+* **Market Realities:** Models fixed 10 MWh physical lot executions, execution slippage, and exchange execution fee modeling.
 
----
-
-## Machine Learning Forecasting Engine
-
-Forecasting stack using:
-
-- **XGBoost Regression**
-- engineered market/weather features
-- 15-minute resolution forecasting
-
-Capabilities:
-
-- next-day clearing price prediction
-- directional movement estimation
-- rolling retraining support
-
----
-
-## Backtesting Engine
-
-Institutional-style simulation built with **VectorBT**.
-
-Features:
-
-- fixed **10 MWh physical lot execution**
-- slippage simulation
-- exchange execution fee modeling
-- chronological validation
-- realistic position accounting
+### CI/CD & Testing Infrastructure
+Engineered with production-grade safety rails to ensure continuous, risk-free deployment to live market monitoring environments.
+* **Continuous Integration:** Configured GitHub Actions to trigger automated test suites on every `push` and `pull_request` to the main branch.
+* **Automated Test Suite (`pytest`):** Unit and integration testing covering ETL data integrity, database schema migrations, and deterministic ML tensor shape validation.
+* **Continuous Deployment:** Seamless integration with Render. Successful GitHub Action builds automatically trigger zero-downtime rolling deployments for both the FastAPI backend and the Static Web frontend.
 
 ---
 
-## Grid Anomaly Detection
+## 🚀 Key Engineering Achievements & Validation
 
-Real-time anomaly monitoring layer.
+### Zero Data Leakage Validation
+![Validation Results](Images/Screenshot_from_2026-05-21_18-29-52.png)
+*(Terminal Output: Training XGBoost Baseline across 5 chronological splits)*
 
-Uses:
+Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring out-of-sample testing only (no future data leakage). 
+* **Directional Accuracy:** Validated at **63.84% - 71.79%** directional accuracy on unseen market data.
+* **Error Metrics:** Maintains an average MAE of €26.51 EUR/MWh across highly volatile energy datasets.
 
-- rolling **Z-score detection**
-- grid imbalance monitoring
-- asynchronous Telegram alerts
+### Historical Crisis Stress Testing
+![Stress Test Results](Images/Screenshot_from_2026-05-21_18-14-50.png)
+*(Terminal Output: May 2023 Historical Crisis Data Test)*
 
-Designed to identify:
+To ensure the model does not overfit to recent mild conditions, it is subjected to targeted stress tests on historical crisis periods, maintaining a stable 63.8% directional accuracy during severe anomalous supply/demand shocks.
 
-- generation shocks
-- abnormal demand surges
-- supply stress events
+### SDAC 15-Minute Market Transition Handling
+![Database Query](Images/Screenshot_from_2026-05-21_01-48-38.png)
+*(Terminal Output: Pipeline executing 15-minute MTU database interactions)*
 
----
+On October 1, 2025, European Single Day-Ahead Coupling transitioned from hourly settlement blocks to **15-minute Market Time Units (MTUs)**. The pipeline successfully executes:
+* Automatic legacy hourly normalization.
+* Forward-fill compatibility transformation ensuring tensor shape consistency.
+* Zero interpolation-based lookahead leakage.
 
-## AI Market Intelligence (RAG Analyst)
+### Serverless Cloud Deployment
+![Render Deployment](Images/image_333ca2.jpg)
+*(Dashboard: Live Render Web Service deployment of the FastAPI backend)*
 
-Retrieval-Augmented analyst pipeline using:
+Successfully ported the architecture from local desktop execution to a decoupled cloud ecosystem. Engineered CORS-compliant REST endpoints and configured Render deployment pipelines for autonomous CI/CD updates.
 
-- **LanceDB**
-- sentence-transformers
-- **Groq LLM API**
-
-Capabilities:
-
-- classify market news
-- retrieve historical anomaly patterns
-- compare live market physics against historical spikes
-- explain probable price dislocations
-
----
-
-# 🚀 Key Engineering Achievements
-
-## SDAC 15-Minute Market Transition Handling
-
-On **October 1, 2025**, European Single Day-Ahead Coupling transitioned from hourly settlement blocks to **15-minute Market Time Units (MTUs).**
-
-Pipeline handling includes:
-
-- automatic legacy hourly normalization
-- forward-fill compatibility transformation
-- tensor shape consistency
-- no interpolation-based lookahead leakage
-
----
-
-## Negative Price Stability Protection
-
-German wholesale power markets frequently enter negative pricing due to renewable oversupply.
-
-Backtester safeguards include:
-
-- strict positive offset transformation
-- stable position sizing under negative prices
-- preserved absolute P&L accounting
-
----
-
-## Zero Data Leakage Validation
-
-Validation framework includes:
-
-- strict chronological **TimeSeriesSplit**
-- out-of-sample testing only
-- no future data leakage
-
-Performance:
-
-- **71.79% directional accuracy**
-- validated on unseen market data
-
----
-
-## Hardware-Constrained Optimization
-
+### Hardware-Constrained Optimization
 Designed specifically for local low-memory environments.
-
-Optimization decisions:
-
-- replaced **FAISS** with **LanceDB**
-- disk-backed vector retrieval
-- reduced RAM pressure
-- stable concurrent Pandas + LLM workloads
-
-Target environment:
-
-**8GB RAM laptop deployment**
+* Replaced FAISS with LanceDB for disk-backed vector retrieval.
+* Drastically reduced RAM pressure, ensuring stable concurrent Pandas + LLM workloads for an **8GB RAM laptop deployment target**.
 
 ---
 
-# 🛠 Installation & Setup
+## 🛠 Installation & Setup
 
-## 1. Clone Repository
-
+### 1. Clone Repository & Setup Environment
 ```bash
-git clone https://github.com/NihalPN/Energysignal-Ai.git
+git clone [https://github.com/NihalPN/Energysignal-Ai.git](https://github.com/NihalPN/Energysignal-Ai.git)
 cd Energysignal-Ai
-```
 
----
-
-## 2. Create Virtual Environment
-
-```bash
 python3 -m venv venv
 source venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
 pip install -r requirements.txt
 ```
+### 2. Configure Environment Variables
+Create a .env file in the root directory:
 
----
-
-## 3. Configure Environment Variables
-
-Create `.env`:
-
-```env
+```bash
 ENTSOE_API_KEY=your_entsoe_api_key
 GROQ_API_KEY=your_groq_api_key
+HF_TOKEN=your_huggingface_token
 TELEGRAM_BOT_TOKEN=your_bot_token
 TELEGRAM_CHAT_ID=your_chat_id
 ```
-
----
-
-## 4. Initialize Database
+### 3. Initialize Database & Run Pipeline (Strict Order)
 
 ```bash
 python3 database/schema.py
-```
-
----
-
-## 5. Historical Data Backfill
-
-Download market/weather history:
-
-```bash
 python3 data_pipeline/backfill.py
 python3 data_pipeline/patch_generation.py
+python3 data_pipeline/scheduler.py
 ```
 
----
-
-## 6. Feature Engineering
+### 4. Feature Engineering & Backtesting
 
 ```bash
 python3 features/build_features.py
-```
-
----
-
-## 7. Backtest Strategy
-
-```bash
+python3 models/train_xgboost.py
 python3 signals/backtest_engine.py
 ```
 
----
+### 5. Launch the Application
+Option A: The Decoupled Web Terminal (Split Terminals)
 
-## 8. Launch Desktop Terminal
+
+# Terminal 1: Start the backend API
 
 ```bash
-python3 dashboard/app.py
+uvicorn backend.main:app --reload --port 8000
 ```
 
+# Terminal 2: Serve the frontend
+
+```bash
+cd frontend
+python3 -m http.server 3000
+Navigate to http://localhost:3000
+```
+
+Option B: The PyQt6 Desktop Client
+
+```Bash
+python3 dashboard/app.py
+```
 ---
 
 # 🧠 Technology Stack
+* **Data Engineering:** Python, Pandas, NumPy, SQLite
 
-## Data Engineering
+* **Machine Learning:** XGBoost, Scikit-learn, VectorBT
 
-- Python
-- Pandas
-- NumPy
-- SQLite
+* **AI / Retrieval:** LanceDB, Sentence Transformers, Groq API
 
-## Machine Learning
+* **Cloud & Web Architecture:** FastAPI, Uvicorn, JavaScript, Tailwind CSS, Chart.js, Render
 
-- XGBoost
-- Scikit-learn
-- VectorBT
+* **Desktop Frontend:** PyQt6, PyQtGraph, QDarkTheme
 
-## AI / Retrieval
+* **APIs / Data Sources:** ENTSO-E API, Open-Meteo API, SMARD feeds
 
-- LanceDB
-- Sentence Transformers
-- Groq API
+* **Monitoring:** Telegram Bot API
 
-## APIs / Data Sources
-
-- ENTSO-E API
-- Open-Meteo API
-- SMARD feeds
-
-## Monitoring
-
-- Telegram Bot API
-
-## Frontend
-
-- PyQt6
-- PyQtGraph
-- QDarkTheme
-
----
-
-# Design Principles
-
-This project emphasizes:
-
-- modular architecture
-- realistic market simulation
-- anti-leakage validation
-- hardware efficiency
-- production-style observability
-- explainable AI-assisted market intelligence
+* **DevOps & Testing:** GitHub Actions, `pytest`, Render CI/CD
