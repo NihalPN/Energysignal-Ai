@@ -33,7 +33,7 @@ def build_rag_database():
     # Filter for severe market anomalies (Price > 150 EUR or Negative Prices)
     anomalies = df[(df["price_eur_mwh"] > 150) | (df["price_eur_mwh"] < 0)].copy()
     print(f"Found {len(anomalies)} severe market events to index.")
-    
+
     # ... (Rest of the function remains the same)
 
     records = list()

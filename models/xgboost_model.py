@@ -7,7 +7,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
 
 # --- BULLETPROOF PATHING ---
-# Since this script is inside the 'models/' folder, we go UP one level 
+# Since this script is inside the 'models/' folder, we go UP one level
 # to the main project root, then route to the correct subfolders.
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(CURRENT_DIR)
@@ -16,9 +16,10 @@ DB_PATH = os.path.join(PROJECT_ROOT, "database", "energy_market.db")
 MODEL_DIR = os.path.join(PROJECT_ROOT, "models")
 MODEL_PATH = os.path.join(MODEL_DIR, "xgb_baseline.json")
 
+
 def train_xgboost_baseline():
     print(f"🔋 Resolving database path: {DB_PATH}")
-    
+
     if not os.path.exists(DB_PATH):
         raise FileNotFoundError(f"CRITICAL: Database not found at {DB_PATH}. Check your pipeline.")
 
@@ -74,13 +75,13 @@ def train_xgboost_baseline():
         rmse_scores.append(rmse)
         dir_acc_scores.append(dir_acc)
 
-    print("\n" + "="*50)
+    print("\n" + "=" * 50)
     print("       XGBOOST PRODUCTION VALIDATION RESULTS")
-    print("="*50)
+    print("=" * 50)
     print(f"Average MAE:  {np.mean(mae_scores):.2f} EUR/MWh")
     print(f"Average RMSE: {np.mean(rmse_scores):.2f} EUR/MWh")
     print(f"Average Directional Accuracy: {np.mean(dir_acc_scores) * 100:.2f}%")
-    print("="*50)
+    print("=" * 50)
 
     # Train the final model on the entire dataset to save for inference
     print("\n⚙️ Training final production model on all available data...")
@@ -92,6 +93,7 @@ def train_xgboost_baseline():
     final_model.save_model(MODEL_PATH)
     print(f"✅ Final baseline model saved successfully to {MODEL_PATH}")
     print(f"📊 The model is now fully calibrated with {len(X.columns)} features.")
+
 
 if __name__ == "__main__":
     train_xgboost_baseline()

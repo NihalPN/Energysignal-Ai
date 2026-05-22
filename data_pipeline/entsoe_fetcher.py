@@ -49,7 +49,7 @@ def safe_insert(df, table_name):
 def fetch_and_store_entsoe_data(start_date: str, end_date: str):
     start = pd.Timestamp(start_date, tz=TZ)
     end = pd.Timestamp(end_date, tz=TZ)
-    
+
     # NEW: Define a strict cutoff for "Actuals" so we don't ask for the future
     now_berlin = pd.Timestamp.now(tz=TZ)
     actuals_end = end if end < now_berlin else now_berlin
@@ -60,7 +60,9 @@ def fetch_and_store_entsoe_data(start_date: str, end_date: str):
         da_prices = client.query_day_ahead_prices("DE_LU", start=start, end=end)
 
         # FIX 1: Empty Data Shield for DA Prices
-        if da_prices is None or (isinstance(da_prices, (pd.Series, pd.DataFrame)) and da_prices.empty):
+        if da_prices is None or (
+            isinstance(da_prices, (pd.Series, pd.DataFrame)) and da_prices.empty
+        ):
             logging.warning(f"ENTSO-E returned empty DA prices for {start}. Skipping.")
         else:
             if isinstance(da_prices, pd.Series):
@@ -92,13 +94,15 @@ def fetch_and_store_entsoe_data(start_date: str, end_date: str):
             df_load = df_load.resample("15min").ffill()
             df_load.index = df_load.index.tz_convert(TZ).strftime("%Y-%m-%d %H:%M:%S")
             safe_insert(df_load, "actual_load")
-        
+
         # 3. Fetch Generation by Type (Uses DE Country Code) - STRICTLY up to 'actuals_end'
         logging.info(f"Fetching generation mix from {start} to {actuals_end}")
         generation = client.query_generation("DE", start=start, end=actuals_end)
 
         # FIX 1: Empty Data Shield for Generation Mix
-        if generation is None or (isinstance(generation, (pd.Series, pd.DataFrame)) and generation.empty):
+        if generation is None or (
+            isinstance(generation, (pd.Series, pd.DataFrame)) and generation.empty
+        ):
             logging.warning(f"ENTSO-E returned empty generation mix for {start}. Skipping.")
         else:
             if isinstance(generation.columns, pd.MultiIndex):

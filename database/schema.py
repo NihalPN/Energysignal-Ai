@@ -11,16 +11,13 @@ def init_db():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
-    cursor.execute(
-        """
+    cursor.execute("""
     CREATE TABLE IF NOT EXISTS day_ahead_prices (
         timestamp TEXT PRIMARY KEY,
         price_eur_mwh REAL
-    )"""
-    )
+    )""")
 
-    cursor.execute(
-        """
+    cursor.execute("""
     CREATE TABLE IF NOT EXISTS generation_mix (
         timestamp TEXT PRIMARY KEY,
         wind_onshore REAL,
@@ -29,26 +26,21 @@ def init_db():
         nuclear REAL,
         fossil_gas REAL,
         fossil_hard_coal REAL
-    )"""
-    )
+    )""")
 
-    cursor.execute(
-        """
+    cursor.execute("""
     CREATE TABLE IF NOT EXISTS actual_load (
         timestamp TEXT PRIMARY KEY,
         load_mw REAL
-    )"""
-    )
+    )""")
 
-    cursor.execute(
-        """
+    cursor.execute("""
     CREATE TABLE IF NOT EXISTS weather_data (
         timestamp TEXT PRIMARY KEY,
         temperature_2m REAL,
         wind_speed_10m REAL,
         solar_irradiance REAL
-    )"""
-    )
+    )""")
 
     conn.commit()
     conn.close()
