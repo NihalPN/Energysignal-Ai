@@ -39,7 +39,7 @@ An operational monitoring view:
 ---
 
 ## 🖥️ The Institutional Desktop Client (PyQt6)
-![Desktop Strategy Tab](Images/image_1.png)
+![Desktop Strategy Tab](Images /image_1.png)
 
 For dedicated trading environments, the platform also includes a low-level desktop application featuring:
 * **Real-Time PyQtGraph Visualization:** Renders 7 days of historical prices with hardware-accelerated framerates.
@@ -85,7 +85,7 @@ Engineered with production-grade safety rails to ensure continuous, risk-free de
 ## 🚀 Key Engineering Achievements & Validation
 
 ### Zero Data Leakage Validation
-![Validation Results](Images/Screenshot_from_2026-05-21_18-29-52.png)
+![Validation Results](Images/Screenshot from 2026-05-21 18-29-52.png)
 
 
 Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring out-of-sample testing only (no future data leakage). 
@@ -93,7 +93,7 @@ Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring 
 * **Error Metrics:** Maintains an average MAE of €26.51 EUR/MWh across highly volatile energy datasets.
 
 ### Historical Crisis Stress Testing
-![Stress Test Results](Images/Screenshot_from_2026-05-21_18-14-50.png)
+![Stress Test Results](Images/Screenshot from 2026-05-21_18-14-50.png)
 
 
 To ensure the model does not overfit to recent mild conditions, it is subjected to targeted stress tests on historical crisis periods, maintaining a stable 63.8% directional accuracy during severe anomalous supply/demand shocks.
@@ -107,7 +107,7 @@ On October 1, 2025, European Single Day-Ahead Coupling transitioned from hourly 
 * Zero interpolation-based lookahead leakage.
 
 ### Serverless Cloud Deployment
-![Render Deployment](Images/image_2.jpg)
+![Render Deployment](Images /image_2.jpg)
 
 
 Successfully ported the architecture from local desktop execution to a decoupled cloud ecosystem. Engineered CORS-compliant REST endpoints and configured Render deployment pipelines for autonomous CI/CD updates.
