@@ -16,3 +16,4 @@ langchain-groq
 langchain-community
 huggingface-hub
 python-dotenv
+fastapi-cache2
