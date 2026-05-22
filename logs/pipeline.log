@@ -4357,3 +4357,21 @@
 2026-05-21 17:31:56,220 - INFO - Inserted 14 new rows into generation_mix.
 2026-05-21 17:31:56,221 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
 2026-05-21 17:31:57,725 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-22 19:15:35,709 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-22 19:15:35,756 - INFO - Fetching DA prices from 2026-05-21 00:00:00+02:00 to 2026-05-24 00:00:00+02:00
+2026-05-22 19:15:48,266 - INFO - Inserted 96 new rows into day_ahead_prices.
+2026-05-22 19:15:48,266 - INFO - Fetching actual load from 2026-05-21 00:00:00+02:00 to 2026-05-22 15:45:35.755879+02:00
+2026-05-22 19:15:48,872 - INFO - Inserted 103 new rows into actual_load.
+2026-05-22 19:15:48,873 - INFO - Fetching generation mix from 2026-05-21 00:00:00+02:00 to 2026-05-22 15:45:35.755879+02:00
+2026-05-22 19:15:51,180 - INFO - Inserted 103 new rows into generation_mix.
+2026-05-22 19:15:51,181 - INFO - Fetching Open-Meteo data from 2026-05-21 to 2026-05-24
+2026-05-22 19:15:52,925 - INFO - Inserted 96 new rows into weather_data.
+2026-05-22 19:15:52,925 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-22 20:26:32,838 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-22 20:26:32,873 - INFO - Fetching DA prices from 2026-05-21 00:00:00+02:00 to 2026-05-24 00:00:00+02:00
+2026-05-22 20:26:34,286 - INFO - Fetching actual load from 2026-05-21 00:00:00+02:00 to 2026-05-22 16:56:32.873740+02:00
+2026-05-22 20:26:34,896 - INFO - Inserted 5 new rows into actual_load.
+2026-05-22 20:26:34,896 - INFO - Fetching generation mix from 2026-05-21 00:00:00+02:00 to 2026-05-22 16:56:32.873740+02:00
+2026-05-22 20:26:36,228 - INFO - Inserted 5 new rows into generation_mix.
+2026-05-22 20:26:36,228 - INFO - Fetching Open-Meteo data from 2026-05-21 to 2026-05-24
+2026-05-22 20:26:37,489 - INFO - === PIPELINE RUN COMPLETE ===
