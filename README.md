@@ -15,7 +15,7 @@ EnergySignal AI provides a lightweight, highly responsive web dashboard engineer
 
 ### Tab 1: Strategy & AI Analyst
 ![Web Strategy Tab](Images/strategy_tab.png)
-*(Screenshot: Real-time Chart.js rendering and AI context)*
+
 
 The primary command center for the terminal:
 * **Interactive Visualization:** Plots the last 7 days of historical cleared prices against the model's cross-check logic and the next 24-hour XGBoost forecast.
@@ -23,7 +23,7 @@ The primary command center for the terminal:
 
 ### Tab 2: XGBoost Forecast & Execution Monitor
 ![Web Forecast Tab](Images/forecast_tab.png))
-*(Screenshot: AI Prediction vs Actual Market tracker)*
+
 
 Designed for quantitative execution tracking:
 * **Visual Tracker:** Isolates the AI's 3-day horizon predictions against the actual cleared market prices to visualize algorithmic spread and error margins.
@@ -31,7 +31,7 @@ Designed for quantitative execution tracking:
 
 ### Tab 3: Live Market Horizon
 ![Web Live Monitor Tab](Images/live_monitor.png)
-*(Screenshot: Live clearing price ledger)*
+
 
 An operational monitoring view:
 * **Real-Time Ledger:** Synchronizes with the live Berlin market clock to provide an unbroken, raw feed of the latest cleared 15-minute MTU blocks.
@@ -40,7 +40,6 @@ An operational monitoring view:
 
 ## 🖥️ The Institutional Desktop Client (PyQt6)
 ![Desktop Strategy Tab](Images/image_1.png)
-*(Screenshot: Local PyQt6 Trading Client)*
 
 For dedicated trading environments, the platform also includes a low-level desktop application featuring:
 * **Real-Time PyQtGraph Visualization:** Renders 7 days of historical prices with hardware-accelerated framerates.
@@ -87,7 +86,7 @@ Engineered with production-grade safety rails to ensure continuous, risk-free de
 
 ### Zero Data Leakage Validation
 ![Validation Results](Images/Screenshot_from_2026-05-21_18-29-52.png)
-*(Terminal Output: Training XGBoost Baseline across 5 chronological splits)*
+
 
 Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring out-of-sample testing only (no future data leakage). 
 * **Directional Accuracy:** Validated at **63.84% - 71.79%** directional accuracy on unseen market data.
@@ -95,13 +94,13 @@ Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring 
 
 ### Historical Crisis Stress Testing
 ![Stress Test Results](Images/Screenshot_from_2026-05-21_18-14-50.png)
-*(Terminal Output: May 2023 Historical Crisis Data Test)*
+
 
 To ensure the model does not overfit to recent mild conditions, it is subjected to targeted stress tests on historical crisis periods, maintaining a stable 63.8% directional accuracy during severe anomalous supply/demand shocks.
 
 ### SDAC 15-Minute Market Transition Handling
 ![Database Query](Images/Screenshot_from_2026-05-21_01-48-38.png)
-*(Terminal Output: Pipeline executing 15-minute MTU database interactions)*
+
 
 On October 1, 2025, European Single Day-Ahead Coupling transitioned from hourly settlement blocks to **15-minute Market Time Units (MTUs)**. The pipeline successfully executes:
 * Automatic legacy hourly normalization.
@@ -109,8 +108,8 @@ On October 1, 2025, European Single Day-Ahead Coupling transitioned from hourly 
 * Zero interpolation-based lookahead leakage.
 
 ### Serverless Cloud Deployment
-![Render Deployment](Images/image_333ca2.jpg)
-*(Dashboard: Live Render Web Service deployment of the FastAPI backend)*
+![Render Deployment](Images/image_2.jpg)
+
 
 Successfully ported the architecture from local desktop execution to a decoupled cloud ecosystem. Engineered CORS-compliant REST endpoints and configured Render deployment pipelines for autonomous CI/CD updates.
 
