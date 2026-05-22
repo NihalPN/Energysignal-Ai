@@ -22,7 +22,7 @@ The primary command center for the terminal:
 * **RAG Market Analyst:** A background `asyncio` loop continuously pre-computes LLM market analysis, comparing live grid physics against historical spikes, defeating cold-start latency.
 
 ### Tab 2: XGBoost Forecast & Execution Monitor
-![Web Forecast Tab](Images/forecast_tab.png))
+![Web Forecast Tab](Images/forecast_tab.png)
 
 
 Designed for quantitative execution tracking:
@@ -30,7 +30,7 @@ Designed for quantitative execution tracking:
 * **Execution Tape:** A granular 15-minute breakdown of predicted prices, calculating potential profit spreads and explicitly highlighting negative price events or investment signals (e.g., "🟢 BUY 10 MWh").
 
 ### Tab 3: Live Market Horizon
-![Web Live Monitor Tab](Images/live_monitor.png))
+![Web Live Monitor Tab](Images/live_monitor.png)
 
 
 An operational monitoring view:
@@ -39,7 +39,7 @@ An operational monitoring view:
 ---
 
 ## 🖥️ The Institutional Desktop Client (PyQt6)
-![Desktop Strategy Tab](Images/image_1.png))
+![Desktop Strategy Tab](Images/image_1.png)
 
 For dedicated trading environments, the platform also includes a low-level desktop application featuring:
 * **Real-Time PyQtGraph Visualization:** Renders 7 days of historical prices with hardware-accelerated framerates.
@@ -85,7 +85,7 @@ Engineered with production-grade safety rails to ensure continuous, risk-free de
 ## 🚀 Key Engineering Achievements & Validation
 
 ### Zero Data Leakage Validation
-![Validation Results](Images/Screenshot_1.png))
+![Validation Results](Images/Screenshot_1.png)
 
 
 Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring out-of-sample testing only (no future data leakage). 
@@ -93,13 +93,13 @@ Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring 
 * **Error Metrics:** Maintains an average MAE of €26.51 EUR/MWh across highly volatile energy datasets.
 
 ### Historical Crisis Stress Testing
-![Stress Test Results](Images/Screenshot_2.png))
+![Stress Test Results](Images/Screenshot_2.png)
 
 
 To ensure the model does not overfit to recent mild conditions, it is subjected to targeted stress tests on historical crisis periods, maintaining a stable 63.8% directional accuracy during severe anomalous supply/demand shocks.
 
 ### VectorBT Institutional Backtesting Engine
-![Stress Test Results!](Images/Screenshot_3.png))
+![Stress Test Results!](Images/Screenshot_3.png)
 
 To prove live-market viability, the platform utilizes **VectorBT** to run a true institutional backtesting engine that simulates the exact mechanics and friction of a real trading desk:
 * **Physical Lot Execution:** Trades are locked to realistic 10 MWh physical lot blocks, entirely avoiding the trap of fractional, theoretical trading.
@@ -131,7 +131,7 @@ Designed specifically for local low-memory environments.
 
 ### 1. Clone Repository & Setup Environment
 ```bash
-git clone [https://github.com/NihalPN/Energysignal-Ai.git](https://github.com/NihalPN/Energysignal-Ai.git)
+git clone https://github.com/NihalPN/Energysignal-Ai.git
 cd Energysignal-Ai
 
 python3 -m venv venv
