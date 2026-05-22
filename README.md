@@ -85,7 +85,7 @@ Engineered with production-grade safety rails to ensure continuous, risk-free de
 ## 🚀 Key Engineering Achievements & Validation
 
 ### Zero Data Leakage Validation
-![Validation Results](Images/Screenshot from 2026-05-21 18-29-52.png))
+![Validation Results](Images/Screenshot_1.png))
 
 
 Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring out-of-sample testing only (no future data leakage). 
@@ -93,10 +93,18 @@ Validation framework utilizes a strict chronological `TimeSeriesSplit` ensuring 
 * **Error Metrics:** Maintains an average MAE of €26.51 EUR/MWh across highly volatile energy datasets.
 
 ### Historical Crisis Stress Testing
-![Stress Test Results](Images/Screenshot from 2026-05-21 18-14-50.png))
+![Stress Test Results](Images/Screenshot_2.png))
 
 
 To ensure the model does not overfit to recent mild conditions, it is subjected to targeted stress tests on historical crisis periods, maintaining a stable 63.8% directional accuracy during severe anomalous supply/demand shocks.
+
+### VectorBT Institutional Backtesting Engine
+![Stress Test Results!](Images/Screenshot_3.png))
+
+To prove live-market viability, the platform utilizes **VectorBT** to run a true institutional backtesting engine that simulates the exact mechanics and friction of a real trading desk:
+* **Physical Lot Execution:** Trades are locked to realistic 10 MWh physical lot blocks, entirely avoiding the trap of fractional, theoretical trading.
+* **Market Friction Simulation:** Actively models exchange execution fees and market slippage to calculate true *net* P&L, not just gross theoretical profit.
+* **Negative Price Stability Protection:** The German grid frequently enters negative pricing due to renewable oversupply. The backtester includes strict positive offset transformations to ensure stable position sizing while preserving absolute P&L accounting under these extreme conditions.
 
 ### SDAC 15-Minute Market Transition Handling
 
