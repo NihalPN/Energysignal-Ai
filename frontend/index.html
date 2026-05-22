@@ -123,13 +123,13 @@
         }
         setInterval(updateClock, 1000); updateClock();
 
-        const API_BASE_URL ="https://energysignal-ai.onrender.com/"; 
+        const API_BASE_URL ="https://energysignal-ai.onrender.com"; 
         let chart1 = null;
         let chart2 = null;
 
         async function loadMarketData() {
             try {
-                const response = await fetch(`${API_BASE_URL}api/v1/dashboard-data`);
+                const response = await fetch(`${API_BASE_URL}/api/v1/dashboard-data`);
                 const data = await response.json();
 
                 // Populate KPIs
@@ -224,7 +224,7 @@
             btn.classList.add('opacity-50', 'cursor-not-allowed');
 
             try {
-                const response = await fetch(`${API_BASE_URL}api/v1/rag-analysis`);
+                const response = await fetch(`${API_BASE_URL}/api/v1/rag-analysis`);
                 const data = await response.json();
                 outputBox.innerText = data.analysis;
             } catch (error) {
