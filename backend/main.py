@@ -20,7 +20,7 @@ app = FastAPI(title="EnergySignal AI API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], 
+    allow_origins=["https://energysignalai.onrender.com"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
