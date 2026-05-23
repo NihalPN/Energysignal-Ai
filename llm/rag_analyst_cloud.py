@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings # noqa: E402
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings  # noqa: E402
 
 try:
     from langchain_huggingface import HuggingFaceEndpointEmbeddings
