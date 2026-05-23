@@ -1,4 +1,4 @@
-# EnergySignal AI: Institutional Power Trading & Grid Monitoring
+# EnergySignal AI — Algorithmic Trading System for European Day-Ahead Electricity Markets
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Click_Here_to_View-brightgreen?style=for-the-badge&logo=render)](https://energysignalai.onrender.com/)
 [![CI/CD Pipeline](https://img.shields.io/badge/build-passing-brightgreen?logo=github)](https://github.com/NihalPN/Energysignal-Ai/actions)
