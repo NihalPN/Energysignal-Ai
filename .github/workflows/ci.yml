@@ -26,7 +26,7 @@ jobs:
         
         # NOTE: If your project needs specific libraries to run (like pandas, requests, etc.), 
         # uncomment the line below to install them on the GitHub server so your tests don't fail.
-        # pip install -r requirements.txt
+        # pip install -r requirements-api.txt
         
     - name: Format Check (Black)
       run: |
