@@ -78,7 +78,7 @@ def evaluate_xgboost_model():
     else:
         signal_accuracy = 0.0
 
-    print(f"\n📈 TRADING EDGE METRICS:")
+    print("\n📈 TRADING EDGE METRICS:")
     print(f"General Directional Accuracy (Up/Down): {directional_accuracy:.1f}%")
     print(f"INVEST Signal Win Rate (>€40 Spread): {signal_accuracy:.1f}%")
 

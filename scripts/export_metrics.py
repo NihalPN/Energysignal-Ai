@@ -4,8 +4,7 @@ import sqlite3
 import pandas as pd
 import numpy as np
 import xgboost as xgb
-from sklearn.metrics import mean_absolute_error, mean_squared_error, precision_score, recall_score
-
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(BASE_DIR, "database", "energy_market.db")
 MODEL_PATH = os.path.join(BASE_DIR, "models", "xgb_baseline.json")

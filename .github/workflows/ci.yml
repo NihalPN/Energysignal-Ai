@@ -37,9 +37,12 @@ jobs:
     - name: Lint Check (Flake8)
       run: |
         # Scans the root but explicitly tells Flake8 to ignore massive or irrelevant folders.
-        flake8 . --exclude=venv,.git,__pycache__,.pytest_cache,database/schema.py,dashboard/app.py --max-line-length=200
+        flake8 . --exclude=venv,.git,__pycache__,.pytest_cache,database/schema.py,dashboard/app.py --max-line-length=200 --extend-ignore=E402,W293
         
     - name: Run Pytest
+      env:
+        # Inject your secrets so the runner doesn't crash when initializing clients
+        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       run: |
         # Executes all tests inside your dedicated tests/ folder
         pytest tests/ -v

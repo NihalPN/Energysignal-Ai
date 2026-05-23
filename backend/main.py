@@ -2,17 +2,15 @@ import os
 import sys
 import sqlite3
 import pandas as pd
-import numpy as np
 import xgboost as xgb
 import asyncio
 import math
 from fastapi import FastAPI, BackgroundTasks
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 from fastapi_cache.decorator import cache
-from datetime import datetime, timedelta
-from zoneinfo import ZoneInfo
+from datetime import  timedelta
+
 
 # Setup Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

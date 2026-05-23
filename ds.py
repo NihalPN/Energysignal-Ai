@@ -41,7 +41,7 @@ try:
 
 except Exception as e:
     error_msg = str(e).lower()
-    print(f"\n❌ API CONNECTION FAILED:")
+    print("\n❌ API CONNECTION FAILED:")
     print(f"Error Details: {e}\n")
 
     if "401" in error_msg or "unauthorized" in error_msg:

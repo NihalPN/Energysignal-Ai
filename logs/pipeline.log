@@ -4393,3 +4393,12 @@
 2026-05-23 21:46:34,061 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...
 2026-05-23 21:46:35,926 - INFO - Inserted 96 new rows into weather_data.
 2026-05-23 21:46:35,927 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-23 23:01:12,494 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-23 23:01:12,681 - INFO - Fetching DA prices from 2026-05-22 00:00:00+02:00 to 2026-05-25 00:00:00+02:00
+2026-05-23 23:01:16,152 - INFO - Fetching actual load from 2026-05-22 00:00:00+02:00 to 2026-05-23 19:31:12.681096+02:00
+2026-05-23 23:01:16,793 - INFO - Inserted 5 new rows into actual_load.
+2026-05-23 23:01:16,794 - INFO - Fetching generation mix from 2026-05-22 00:00:00+02:00 to 2026-05-23 19:31:12.681096+02:00
+2026-05-23 23:01:21,861 - INFO - Inserted 5 new rows into generation_mix.
+2026-05-23 23:01:21,861 - INFO - Fetching Open-Meteo data from 2026-05-22 to 2026-05-25
+2026-05-23 23:01:21,862 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...
+2026-05-23 23:01:24,447 - INFO - === PIPELINE RUN COMPLETE ===

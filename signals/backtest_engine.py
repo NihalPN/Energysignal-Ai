@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import sqlite3
 import os
 import xgboost as xgb
@@ -36,7 +35,7 @@ def run_institutional_backtest():
 
     # Define testing features and target
     X_test = test_df.drop(columns=["target_price_24h_ahead", "rolling_7d_avg"])
-    y_test = test_df["target_price_24h_ahead"]
+ 
 
     # THE FIX: Train a fresh model ONLY on the in-sample training data
     print("Training XGBoost model exclusively on the in-sample training set...")

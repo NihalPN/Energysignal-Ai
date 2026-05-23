@@ -4,7 +4,7 @@ import numpy as np
 import xgboost as xgb
 import requests
 from entsoe import EntsoePandasClient
-from sklearn.metrics import mean_absolute_error, r2_score
+from sklearn.metrics import mean_absolute_error
 from dotenv import load_dotenv
 
 # Load keys safely

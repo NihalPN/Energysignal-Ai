@@ -2,7 +2,7 @@ import os
 import sqlite3
 import pandas as pd
 import xgboost as xgb
-import vectorbt as vbt
+
 import warnings
 
 # Suppress pandas deprecation warnings for cleaner terminal output
@@ -35,7 +35,7 @@ def run_institutional_backtest():
     y_train = train_df["target_price_24h_ahead"]
 
     X_test = test_df.drop(columns=["target_price_24h_ahead"])
-    y_actual = test_df["target_price_24h_ahead"]
+   
 
     model = xgb.XGBRegressor(n_estimators=100, learning_rate=0.05, max_depth=5)
     model.fit(X_train, y_train)
@@ -85,7 +85,7 @@ def run_institutional_backtest():
 
     win_rate = (winning_trades / total_trades * 100) if total_trades > 0 else 0
 
-    print(f"\n💰 RAW CASH SUMMARY (Past 30 Days):")
+    print("\n💰 RAW CASH SUMMARY (Past 30 Days):")
     print(f"Total Trades Executed: {total_trades}")
     print(f"Winning Trades: {winning_trades} ({win_rate:.1f}% Win Rate)")
     print(f"Net Cash Profit: €{total_profit:,.2f}")
