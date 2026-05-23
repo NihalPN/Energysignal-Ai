@@ -5,7 +5,7 @@ import pandas as pd
 import xgboost as xgb
 import asyncio
 import math
-from fastapi import FastAPI, BackgroundTasks  # noqa: E402
+from fastapi import FastAPI, BackgroundTasks  # noqa: F402
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 from fastapi_cache.decorator import cache
