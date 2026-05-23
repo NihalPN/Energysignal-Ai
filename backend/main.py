@@ -5,11 +5,11 @@ import pandas as pd
 import xgboost as xgb
 import asyncio
 import math
-from fastapi import FastAPI, BackgroundTasks  # noqa: F401
+from fastapi import FastAPI
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 from fastapi_cache.decorator import cache
-from fastapi.middleware.cors import CORSMiddleware  # noqa: F401
+from fastapi.middleware.cors import CORSMiddleware
 from datetime import timedelta
 
 # Setup Paths
@@ -23,7 +23,7 @@ app = FastAPI(title="EnergySignal AI API")
 
 # Allow your frontend URLs
 app.add_middleware(
-    CORSMiddleware,  # noqa: F821
+    CORSMiddleware,
     allow_origins=["https://energysignalai.onrender.com", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
@@ -39,7 +39,6 @@ if os.path.exists(MODEL_PATH):
     model.load_model(MODEL_PATH)
 
 # --- SERVER SIDE STATE (Locally Stored in RAM) ---
-# This dictionary holds the AI's thoughts so it never makes the user wait
 server_state = {
     "rag_analysis": "System initializing... Booting AI Trading Desk...",
     "last_ai_update": None,
@@ -57,7 +56,23 @@ def fetch_master_features():
     if df.index.tz is None:
         df.index = df.index.tz_localize("UTC")
     df.index = df.index.tz_convert("Europe/Berlin")
-    return df.sort_index()
+    
+    # --- INSTITUTIONAL FIX 1: TIMELINE ENFORCEMENT & DATA HEALING ---
+    # 1. Drop accidental duplicate timestamps just in case
+    df = df[~df.index.duplicated(keep='first')]
+    df = df.sort_index()
+    
+    # 2. Force a perfect 15-minute contiguous timeline (prevents frontend straight-line glitches)
+    df = df.asfreq('15min') 
+    
+    # 3. Use linear interpolation to smoothly bridge missing ENTSO-E market prices
+    if "price_eur_mwh" in df.columns:
+        df["price_eur_mwh"] = df["price_eur_mwh"].interpolate(method="time", limit_direction="forward")
+        
+    # 4. Forward-fill the weather data just in case Open-Meteo dropped an hour
+    df = df.ffill(limit=8) 
+    
+    return df
 
 
 def replace_nan(val):
@@ -128,9 +143,9 @@ async def get_rag_analysis():
 
 
 @app.get("/api/v1/dashboard-data")
-@cache(expire=3600)  # Caches the complex XGBoost math for 1 hour
+@cache(expire=3600)  # RESTORED: Caches the complex XGBoost math for 1 hour
 async def get_dashboard_data():
-    """Your main dashboard logic. It will only actually run once per hour."""
+    """Your main dashboard logic."""
     df_full = fetch_master_features()
     if df_full.empty:
         return {"error": "Database empty"}
@@ -237,12 +252,18 @@ async def get_dashboard_data():
             }
         )
 
+    # --- INSTITUTIONAL FIX 2: SAFE HANDLING OF MISSING TAB 3 ROWS ---
     live_market_df = df_full[df_full.index >= today_midnight].copy()
-    live_market_df = live_market_df.dropna(subset=["price_eur_mwh"])
-    t3_table = [
-        {"time": dt.strftime("%b %d - %H:%M"), "price": f"€{row['price_eur_mwh']:.2f}"}
-        for dt, row in live_market_df.iterrows()
-    ]
+    
+    t3_table = []
+    for dt, row in live_market_df.iterrows():
+        # Safely output the price or "Awaiting Data" if ENTSO-E dropped the row
+        if pd.notna(row.get('price_eur_mwh')):
+            price_str = f"€{row['price_eur_mwh']:.2f}"
+        else:
+            price_str = "Awaiting Data"
+            
+        t3_table.append({"time": dt.strftime("%b %d - %H:%M"), "price": price_str})
 
     return {
         "kpis": {
