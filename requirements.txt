@@ -1,38 +1,31 @@
-# --- Backend & API ---
-fastapi
-uvicorn
-pydantic
-fastapi-cache2
-python-dotenv
-
-# --- Database & ORM ---
-SQLAlchemy
-
-# --- Machine Learning & Data Processing ---
-xgboost
-pandas
-numpy
-scikit-learn
-tzdata
-
-# --- Data Ingestion Pipelines ---
-requests
 entsoe-py
+faiss-cpu
+fastapi
+fastapi-cache2
+groq
+holidays
+httpx
+lancedb
+langchain-community
+langchain-groq
+langchain-huggingface
+numpy
 openmeteo-requests
+pandas
+pydantic
+PyQt6
+PyQt6-sip
+pyqtgraph
+pytest
+python-dotenv
+requests
 requests-cache
 retry-requests
-
-# --- LLM & RAG Stack ---
-groq
-openai
-langchain
-langchain-groq
-langchain-community
-huggingface-hub
-beautifulsoup4
-
-# --- Frontend ---
+scikit-learn
+sentence-transformers
+SQLAlchemy
 streamlit
-# --- Testing & CI/CD ---
-pytest
-sentence_transformers
+tenacity
+torch
+vectorbt
+xgboost
