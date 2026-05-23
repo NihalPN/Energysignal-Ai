@@ -9,7 +9,7 @@ except ImportError:
     # Fallback just in case you haven't run `pip install -U langchain-huggingface` yet
     from langchain_community.embeddings import (
         HuggingFaceInferenceAPIEmbeddings as HuggingFaceEndpointEmbeddings,
-    )   # noqa: F401
+    )  # noqa: F401
 
 load_dotenv()
 # 1. 100% Free Cloud Embeddings (Math done on Hugging Face servers)
