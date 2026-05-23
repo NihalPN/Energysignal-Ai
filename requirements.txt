@@ -35,3 +35,4 @@ beautifulsoup4
 streamlit
 # --- Testing & CI/CD ---
 pytest
+sentence_transformers
