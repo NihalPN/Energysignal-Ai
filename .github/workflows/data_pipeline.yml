@@ -31,7 +31,7 @@ jobs:
       - name: Run Backfill Script
         env:
           ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
-        run: python entsoe_backfill.py
+        run: python data_pipeline/entsoe_backfill.py
 
       - name: Commit and Push Updated Database
         run: |
