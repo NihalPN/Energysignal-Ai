@@ -56,22 +56,24 @@ def fetch_master_features():
     if df.index.tz is None:
         df.index = df.index.tz_localize("UTC")
     df.index = df.index.tz_convert("Europe/Berlin")
-    
+
     # --- INSTITUTIONAL FIX 1: TIMELINE ENFORCEMENT & DATA HEALING ---
     # 1. Drop accidental duplicate timestamps just in case
-    df = df[~df.index.duplicated(keep='first')]
+    df = df[~df.index.duplicated(keep="first")]
     df = df.sort_index()
-    
+
     # 2. Force a perfect 15-minute contiguous timeline (prevents frontend straight-line glitches)
-    df = df.asfreq('15min') 
-    
+    df = df.asfreq("15min")
+
     # 3. Use linear interpolation to smoothly bridge missing ENTSO-E market prices
     if "price_eur_mwh" in df.columns:
-        df["price_eur_mwh"] = df["price_eur_mwh"].interpolate(method="time", limit_direction="forward")
-        
+        df["price_eur_mwh"] = df["price_eur_mwh"].interpolate(
+            method="time", limit_direction="forward"
+        )
+
     # 4. Forward-fill the weather data just in case Open-Meteo dropped an hour
-    df = df.ffill(limit=8) 
-    
+    df = df.ffill(limit=8)
+
     return df
 
 
@@ -254,15 +256,15 @@ async def get_dashboard_data():
 
     # --- INSTITUTIONAL FIX 2: SAFE HANDLING OF MISSING TAB 3 ROWS ---
     live_market_df = df_full[df_full.index >= today_midnight].copy()
-    
+
     t3_table = []
     for dt, row in live_market_df.iterrows():
         # Safely output the price or "Awaiting Data" if ENTSO-E dropped the row
-        if pd.notna(row.get('price_eur_mwh')):
+        if pd.notna(row.get("price_eur_mwh")):
             price_str = f"€{row['price_eur_mwh']:.2f}"
         else:
             price_str = "Awaiting Data"
-            
+
         t3_table.append({"time": dt.strftime("%b %d - %H:%M"), "price": price_str})
 
     return {
