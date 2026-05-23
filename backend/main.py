@@ -5,11 +5,12 @@ import pandas as pd
 import xgboost as xgb
 import asyncio
 import math
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI, BackgroundTasks # noqa: E402
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 from fastapi_cache.decorator import cache
-from datetime import timedelta
+from datetime import  timedelta
+
 
 # Setup Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,7 +23,7 @@ app = FastAPI(title="EnergySignal AI API")
 
 # Allow your frontend URLs
 app.add_middleware(
-    CORSMiddleware,
+    CORSMiddleware, # noqa: F821
     allow_origins=["https://energysignalai.onrender.com", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],

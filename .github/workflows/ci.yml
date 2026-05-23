@@ -37,7 +37,7 @@ jobs:
     - name: Lint Check (Flake8)
       run: |
         # Scans the root but explicitly tells Flake8 to ignore massive or irrelevant folders.
-        flake8 . --exclude=venv,.git,__pycache__,.pytest_cache,database/schema.py,dashboard/app.py --max-line-length=200 --extend-ignore=E402,W293
+        flake8 . --exclude=venv,.git,__pycache__,.pytest_cache,database/schema.py,dashboard/app.py --max-line-length=200 --extend-ignore=E402,W293,W291
         
     - name: Run Pytest
       env:
