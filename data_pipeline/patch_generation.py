@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from database.schema import engine # noqa: E402
+from database.schema import engine  # noqa: E402
 from data_pipeline.entsoe_fetcher import safe_insert
 
 load_dotenv()
