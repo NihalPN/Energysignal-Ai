@@ -11,7 +11,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Adding noqa: E402 so Flake8 ignores these imports coming after executable code
 from datetime import timedelta  # noqa: E402
- # noqa: E402
+
+# noqa: E402
 import streamlit.components.v1 as components  # noqa: E402
 
 

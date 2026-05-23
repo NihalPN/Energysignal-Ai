@@ -9,8 +9,7 @@ from fastapi import FastAPI, BackgroundTasks
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 from fastapi_cache.decorator import cache
-from datetime import  timedelta
-
+from datetime import timedelta
 
 # Setup Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

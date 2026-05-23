@@ -35,7 +35,6 @@ def run_institutional_backtest():
 
     # Define testing features and target
     X_test = test_df.drop(columns=["target_price_24h_ahead", "rolling_7d_avg"])
- 
 
     # THE FIX: Train a fresh model ONLY on the in-sample training data
     print("Training XGBoost model exclusively on the in-sample training set...")

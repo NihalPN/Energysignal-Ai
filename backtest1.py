@@ -35,7 +35,6 @@ def run_institutional_backtest():
     y_train = train_df["target_price_24h_ahead"]
 
     X_test = test_df.drop(columns=["target_price_24h_ahead"])
-   
 
     model = xgb.XGBRegressor(n_estimators=100, learning_rate=0.05, max_depth=5)
     model.fit(X_train, y_train)
