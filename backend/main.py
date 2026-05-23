@@ -9,6 +9,7 @@ from fastapi import FastAPI, BackgroundTasks  # noqa: F401
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 from fastapi_cache.decorator import cache
+from fastapi.middleware.cors import CORSMiddleware  # noqa: F401
 from datetime import timedelta
 
 # Setup Paths
