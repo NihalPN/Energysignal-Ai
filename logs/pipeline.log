@@ -4375,3 +4375,21 @@
 2026-05-22 20:26:36,228 - INFO - Inserted 5 new rows into generation_mix.
 2026-05-22 20:26:36,228 - INFO - Fetching Open-Meteo data from 2026-05-21 to 2026-05-24
 2026-05-22 20:26:37,489 - INFO - === PIPELINE RUN COMPLETE ===
+2026-05-23 21:40:06,813 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-23 21:40:06,842 - INFO - Fetching DA prices from 2026-05-22 00:00:00+02:00 to 2026-05-25 00:00:00+02:00
+2026-05-23 21:40:09,217 - INFO - Inserted 96 new rows into day_ahead_prices.
+2026-05-23 21:40:09,218 - INFO - Fetching actual load from 2026-05-22 00:00:00+02:00 to 2026-05-23 18:10:06.842629+02:00
+2026-05-23 21:40:10,412 - INFO - Inserted 84 new rows into actual_load.
+2026-05-23 21:40:10,412 - INFO - Fetching generation mix from 2026-05-22 00:00:00+02:00 to 2026-05-23 18:10:06.842629+02:00
+2026-05-23 21:40:12,607 - INFO - Inserted 84 new rows into generation_mix.
+2026-05-23 21:40:12,608 - INFO - Fetching Open-Meteo data from 2026-05-22 to 2026-05-25
+2026-05-23 21:40:38,933 - ERROR - Weather Fetcher failed: failed to request 'https://historical-forecast-api.open-meteo.com/v1/forecast': HTTPSConnectionPool(host='historical-forecast-api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=52.52&longitude=13.405&start_date=2026-05-22&end_date=2026-05-25&minutely_15=temperature_2m&minutely_15=wind_speed_10m&minutely_15=shortwave_radiation&models=icon_d2&timezone=Europe%2FBerlin&format=flatbuffers (Caused by ResponseError('too many 504 error responses'))
+2026-05-23 21:40:38,933 - CRITICAL - PIPELINE CRASHED: failed to request 'https://historical-forecast-api.open-meteo.com/v1/forecast': HTTPSConnectionPool(host='historical-forecast-api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=52.52&longitude=13.405&start_date=2026-05-22&end_date=2026-05-25&minutely_15=temperature_2m&minutely_15=wind_speed_10m&minutely_15=shortwave_radiation&models=icon_d2&timezone=Europe%2FBerlin&format=flatbuffers (Caused by ResponseError('too many 504 error responses'))
+2026-05-23 21:46:28,206 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-05-23 21:46:28,221 - INFO - Fetching DA prices from 2026-05-22 00:00:00+02:00 to 2026-05-25 00:00:00+02:00
+2026-05-23 21:46:31,081 - INFO - Fetching actual load from 2026-05-22 00:00:00+02:00 to 2026-05-23 18:16:28.220747+02:00
+2026-05-23 21:46:32,507 - INFO - Fetching generation mix from 2026-05-22 00:00:00+02:00 to 2026-05-23 18:16:28.220747+02:00
+2026-05-23 21:46:34,061 - INFO - Fetching Open-Meteo data from 2026-05-22 to 2026-05-25
+2026-05-23 21:46:34,061 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...
+2026-05-23 21:46:35,926 - INFO - Inserted 96 new rows into weather_data.
+2026-05-23 21:46:35,927 - INFO - === PIPELINE RUN COMPLETE ===

@@ -5,6 +5,7 @@ from retry_requests import retry
 import logging
 import sys
 import os
+from datetime import datetime
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from database.schema import engine
@@ -42,8 +43,17 @@ def safe_insert(df, table_name):
 def fetch_and_store_weather(start_date: str, end_date: str):
     logging.info(f"Fetching Open-Meteo data from {start_date} to {end_date}")
 
-    # THE FIX: Point to the dedicated Historical Forecast API
-    url = "https://historical-forecast-api.open-meteo.com/v1/forecast"
+    # Convert string dates to datetime objects for comparison
+    end_date_obj = datetime.strptime(end_date, "%Y-%m-%d").date()
+    today = datetime.now().date()
+
+    # THE FIX: Dynamic API Routing (Past vs Live/Future)
+    if end_date_obj >= today:
+        url = "https://api.open-meteo.com/v1/forecast"
+        logging.info("⚡ Live Grid Detected: Routing to Production Forecast API...")
+    else:
+        url = "https://historical-forecast-api.open-meteo.com/v1/forecast"
+        logging.info("📚 Backtest Detected: Routing to Historical Archive API...")
 
     params = {
         "latitude": LAT,
