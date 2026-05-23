@@ -1,19 +1,37 @@
-fastapi>=0.100.0
-uvicorn>=0.22.0
-xgboost==3.2.0
-pandas==2.3.3
-numpy==2.2.4
-scikit-learn
+# --- Backend & API ---
+fastapi
+uvicorn
 pydantic
-streamlit
+fastapi-cache2
+python-dotenv
+
+# --- Database & ORM ---
+SQLAlchemy
+
+# --- Machine Learning & Data Processing ---
+xgboost
+pandas
+numpy
+scikit-learn
 tzdata
-requests          
-groq              
-openai            
-langchain     
-beautifulsoup4  
+
+# --- Data Ingestion Pipelines ---
+requests
+entsoe-py
+openmeteo-requests
+requests-cache
+retry-requests
+
+# --- LLM & RAG Stack ---
+groq
+openai
+langchain
 langchain-groq
 langchain-community
 huggingface-hub
-python-dotenv
-fastapi-cache2
+beautifulsoup4
+
+# --- Frontend ---
+streamlit
+# --- Testing & CI/CD ---
+pytest
