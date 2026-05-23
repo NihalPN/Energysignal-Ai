@@ -7,9 +7,9 @@ try:
     from langchain_huggingface import HuggingFaceEndpointEmbeddings
 except ImportError:
     # Fallback just in case you haven't run `pip install -U langchain-huggingface` yet
-    from langchain_community.embeddings import (
+    from langchain_community.embeddings import (  # noqa: F401
         HuggingFaceInferenceAPIEmbeddings as HuggingFaceEndpointEmbeddings,
-    )  # noqa: F401
+    )
 
 load_dotenv()
 # 1. 100% Free Cloud Embeddings (Math done on Hugging Face servers)
