@@ -1,14 +1,14 @@
 {
     "predictive_metrics": {
-        "RMSE_EUR_MWh": 30.38,
-        "MAE_EUR_MWh": 20.89,
-        "sMAPE_Pct": 33.8,
-        "Directional_Accuracy_Pct": 70.77
+        "RMSE_EUR_MWh": 30.95,
+        "MAE_EUR_MWh": 21.03,
+        "sMAPE_Pct": 35.31,
+        "Directional_Accuracy_Pct": 72.62
     },
     "financial_metrics": {
         "Total_OOS_Profit_EUR": 13056.3,
         "Hit_Ratio_Pct": 71.79,
         "Sharpe_Ratio": 1.85
     },
-    "last_updated": "2026-05-20 18:04:45"
+    "last_updated": "2026-05-25 17:58:23"
 }
