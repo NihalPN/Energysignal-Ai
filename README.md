@@ -1,8 +1,16 @@
 # EnergySignal AI — Algorithmic Trading System for European Day-Ahead Electricity Markets
 
+
+
+
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Click_Here_to_View-brightgreen?style=for-the-badge&logo=render)](https://energysignalai.onrender.com/)
 [![CI/CD Pipeline](https://img.shields.io/badge/build-passing-brightgreen?logo=github)](https://github.com/NihalPN/Energysignal-Ai/actions)
 
+
+> **🚧 Live Demo Status:** Currently offline for scheduled infrastructure maintenance (Migrating from local SQLite to Neon Serverless PostgreSQL). The live dashboard will be back online on June 1st. 
+> 
+> *Please see the screenshots below for a full walkthrough of the dashboard and trading terminal!*
+> 
 A production-grade algorithmic trading, forecasting, and real-time anomaly detection platform for the **German (DE-LU) wholesale electricity market**.
 
 Engineered to operate within constrained local hardware (e.g., standard 8GB RAM laptops) while scaling seamlessly to serverless cloud deployments. The platform features a dual-interface architecture: a zero-latency **Decoupled Web Terminal** and a high-performance **PyQt6 Desktop Client**.
