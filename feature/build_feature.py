@@ -1,10 +1,19 @@
-import sqlite3
 import os
 import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
+
 from technical_features import calculate_technical_features
 from renewable_features import calculate_renewable_features
 
-DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "database", "energy_market.db")
+# --- CLOUD DATABASE SETUP ---
+load_dotenv()
+DB_URL = os.getenv("DATABASE_URL")
+if not DB_URL:
+    raise ValueError("❌ CRITICAL: Missing DATABASE_URL in environment variables.")
+
+# Instantiate the cloud connection
+engine = create_engine(DB_URL)
 
 
 def build_and_store_master_features():
@@ -14,10 +23,10 @@ def build_and_store_master_features():
     print("Calculating Renewable Features...")
     ren_df = calculate_renewable_features()
 
-    print("Fetching Weather Data...")
-    conn = sqlite3.connect(DB_PATH)
+    print("Fetching Weather Data from Neon Postgres...")
+    # Read directly from the cloud database via SQLAlchemy
     weather_df = pd.read_sql_query(
-        "SELECT * FROM weather_data", conn, parse_dates=["timestamp"], index_col="timestamp"
+        "SELECT * FROM weather_data", engine, parse_dates=["timestamp"], index_col="timestamp"
     )
 
     print("Merging master feature dataset...")
@@ -70,10 +79,11 @@ def build_and_store_master_features():
     safe_cols_to_check = list(tech_df.columns) + list(weather_df.columns)
     master_df = master_df.dropna(subset=safe_cols_to_check)
 
-    master_df.to_sql("master_features", con=conn, if_exists="replace")
-    conn.close()
+    print("Pushing master features back to Neon Postgres...")
+    # Write the finished dataset back to the cloud using the SQLAlchemy engine
+    master_df.to_sql("master_features", con=engine, if_exists="replace")
 
-    print(f"Feature engineering complete. Master table shape: {master_df.shape}")
+    print(f"✅ Feature engineering complete. Master table shape: {master_df.shape}")
 
 
 if __name__ == "__main__":

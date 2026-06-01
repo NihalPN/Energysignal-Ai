@@ -1,11 +1,12 @@
 import sys
 import os
-import sqlite3
 import pandas as pd
 import numpy as np
 import pyqtgraph as pg
 import qdarktheme
 import xgboost as xgb
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
 from PyQt6.QtWidgets import (
     QApplication,
     QMainWindow,
@@ -30,9 +31,15 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from llm.rag_analyst import analyze_market_condition
 from llm.llm_classifier import fetch_live_german_energy_news
 
-DB_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "database", "energy_market.db"
-)
+# --- CLOUD DATABASE SETUP ---
+load_dotenv()
+DB_URL = os.getenv("DATABASE_URL")
+if not DB_URL:
+    raise ValueError("❌ CRITICAL: Missing DATABASE_URL in environment variables.")
+
+# Create a globally thread-safe SQLAlchemy connection pool
+engine = create_engine(DB_URL)
+
 MODEL_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "models", "xgb_baseline.json"
 )
@@ -46,14 +53,13 @@ class DataWorker(QThread):
 
     def run(self):
         try:
-            conn = sqlite3.connect(DB_PATH)
+            # Query the cloud database directly
             df_full = pd.read_sql_query(
                 "SELECT * FROM master_features",
-                conn,
+                con=engine,
                 index_col="timestamp",
                 parse_dates=["timestamp"],
             )
-            conn.close()
 
             if df_full.empty:
                 raise ValueError("Database is empty. Please run the pipeline first.")
@@ -68,7 +74,7 @@ class DataWorker(QThread):
             model.fit(X_train, y_train)
 
             # THE FIX: .tz_localize(None) strips the timezone awareness so it can safely
-            # be compared to the timezone-naive datetime64[ns] index from SQLite.
+            # be compared to the timezone-naive datetime64[ns] index from Postgres.
             berlin_now = pd.Timestamp.now(tz="Europe/Berlin").tz_localize(None)
             today_midnight = berlin_now.floor("D")
 
@@ -158,13 +164,12 @@ class RAGWorker(QThread):
             news_text = " | ".join(live_news) if live_news else "No major news today."
             self.update_signal.emit(f"📰 Live Headlines: {news_text}\n")
 
-            self.update_signal.emit("📊 Extracting latest grid physics from local database...")
-            conn = sqlite3.connect(DB_PATH)
+            self.update_signal.emit("📊 Extracting latest grid physics from Neon Postgres...")
+            # Query the cloud database directly
             df = pd.read_sql_query(
                 "SELECT * FROM master_features WHERE total_renewable IS NOT NULL AND residual_load IS NOT NULL ORDER BY timestamp DESC LIMIT 1",
-                conn,
+                con=engine,
             )
-            conn.close()
 
             if not df.empty:
                 price = float(df["price_eur_mwh"].head(1).item())
@@ -507,11 +512,9 @@ class TradingTerminal(QMainWindow):
 
     def load_horizon_prices(self, date_str):
         try:
-            conn = sqlite3.connect(DB_PATH)
-            # Fetch EVERYTHING from Today's midnight onwards (Today + Tomorrow actuals if leaked)
+            # Query the cloud database directly
             query = f"SELECT timestamp, price_eur_mwh FROM day_ahead_prices WHERE timestamp >= '{date_str} 00:00:00' AND price_eur_mwh IS NOT NULL ORDER BY timestamp ASC"
-            df = pd.read_sql_query(query, conn)
-            conn.close()
+            df = pd.read_sql_query(query, con=engine)
 
             self.price_table.setRowCount(len(df))
 

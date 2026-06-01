@@ -1,8 +1,9 @@
 import sys
 import os
 import pandas as pd
-import sqlite3
 import xgboost as xgb
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
 # Force Python to recognize the root directory so it can find the 'utils' folder
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -14,19 +15,28 @@ except ImportError:
         pass
 
 
-# Paths
-DB_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "database", "energy_market.db"
-)
+# Force Python to read the .env file locally
+load_dotenv()
+
+# Grab cloud database URL
+DB_URL = os.environ.get("DATABASE_URL")
 
 
 def generate_live_signals():
-    print("Loading latest market data...")
-    conn = sqlite3.connect(DB_PATH)
+    print("☁️ Loading latest market data from Cloud Database...")
+
+    if not DB_URL:
+        raise ValueError("CRITICAL: DATABASE_URL not found in environment variables.")
+
+    engine = create_engine(DB_URL)
     df = pd.read_sql_query(
-        "SELECT * FROM master_features", conn, parse_dates=["timestamp"], index_col="timestamp"
+        "SELECT * FROM master_features", engine, parse_dates=["timestamp"], index_col="timestamp"
     )
-    conn.close()
+
+    # Standardize timezones: Cloud databases store in UTC, we need Berlin time for trading
+    if df.index.tz is None:
+        df.index = df.index.tz_localize("UTC")
+    df.index = df.index.tz_convert("Europe/Berlin")
 
     df = df.sort_index()
 

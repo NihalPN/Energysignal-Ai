@@ -1,19 +1,26 @@
 import pandas as pd
-import sqlite3
 import os
 import holidays
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
-DB_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "database", "energy_market.db"
-)
+# Force Python to read the .env file locally
+load_dotenv()
+
+DB_URL = os.getenv("DATABASE_URL")
+if not DB_URL:
+    raise ValueError("❌ CRITICAL: Missing DATABASE_URL in environment variables.")
+
+engine = create_engine(DB_URL)
 
 
 def calculate_technical_features():
-    conn = sqlite3.connect(DB_PATH)
+    print("Fetching Day-Ahead Prices from Cloud Database...")
+
+    # EXACT ORIGINAL LOGIC, just using engine instead of conn
     prices_df = pd.read_sql_query(
-        "SELECT * FROM day_ahead_prices", conn, parse_dates=["timestamp"], index_col="timestamp"
+        "SELECT * FROM day_ahead_prices", engine, parse_dates=["timestamp"], index_col="timestamp"
     )
-    conn.close()
 
     # Time-based features
     prices_df["hour"] = prices_df.index.hour

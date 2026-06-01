@@ -1,19 +1,27 @@
 import pandas as pd
-import sqlite3
 import os
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
-DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "database", "energy_market.db")
+# Force Python to read the .env file locally
+load_dotenv()
+
+DB_URL = os.getenv("DATABASE_URL")
+if not DB_URL:
+    raise ValueError("❌ CRITICAL: Missing DATABASE_URL in environment variables.")
+
+engine = create_engine(DB_URL)
 
 
 def calculate_renewable_features():
-    conn = sqlite3.connect(DB_PATH)
+    print("Fetching Generation and Load Data from Cloud Database...")
 
-    # Load generation and load data
+    # EXACT ORIGINAL LOGIC, just using engine instead of conn
     gen_df = pd.read_sql_query(
-        "SELECT * FROM generation_mix", conn, parse_dates=["timestamp"], index_col="timestamp"
+        "SELECT * FROM generation_mix", engine, parse_dates=["timestamp"], index_col="timestamp"
     )
     load_df = pd.read_sql_query(
-        "SELECT * FROM actual_load", conn, parse_dates=["timestamp"], index_col="timestamp"
+        "SELECT * FROM actual_load", engine, parse_dates=["timestamp"], index_col="timestamp"
     )
 
     # Merge on timestamp
@@ -28,5 +36,4 @@ def calculate_renewable_features():
     # Calculate Residual Load (Demand that must be covered by thermal/gas plants)
     df["residual_load"] = df["load_mw"] - df["total_renewable"]
 
-    conn.close()
     return df[["total_renewable", "renewable_penetration", "residual_load"]]

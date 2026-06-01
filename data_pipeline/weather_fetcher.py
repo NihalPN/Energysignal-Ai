@@ -3,15 +3,23 @@ import requests_cache
 import pandas as pd
 from retry_requests import retry
 import logging
-import sys
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+from sqlalchemy import create_engine, text
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from database.schema import engine
-
+# --- API & CLOUD DATABASE SETUP ---
+load_dotenv()
 logging.basicConfig(filename="logs/pipeline.log", level=logging.INFO)
 
+DB_URL = os.getenv("DATABASE_URL")
+if not DB_URL:
+    raise ValueError("Missing DATABASE_URL in environment variables")
+
+# Instantiate the cloud connection
+engine = create_engine(DB_URL)
+
+# Setup Open-Meteo client with cache and retry mechanism
 cache_session = requests_cache.CachedSession(".cache", expire_after=3600)
 retry_session = retry(cache_session, retries=5, backoff_factor=0.2)
 openmeteo = openmeteo_requests.Client(session=retry_session)
@@ -30,14 +38,34 @@ def safe_insert(df, table_name):
 
     min_ts = df.index.min()
     max_ts = df.index.max()
-    existing_df = pd.read_sql(
-        f"SELECT timestamp FROM {table_name} WHERE timestamp >= '{min_ts}' AND timestamp <= '{max_ts}'",
-        con=engine,
-    )
-    df_new = df[~df.index.isin(existing_df["timestamp"])]
+
+    try:
+        # THE FIX: SQLAlchemy 2.0 requires text() wrappers and a connection block!
+        with engine.connect() as conn:
+            query = text(
+                f"SELECT timestamp FROM {table_name} WHERE timestamp >= '{min_ts}' AND timestamp <= '{max_ts}'"
+            )
+            existing_df = pd.read_sql(query, con=conn)
+
+        # Convert Postgres timestamps to strictly match our Pandas string index
+        existing_timestamps = (
+            pd.to_datetime(existing_df["timestamp"]).dt.strftime("%Y-%m-%d %H:%M:%S").tolist()
+        )
+    except Exception as e:
+        # We print the error now so we aren't flying blind!
+        print(f"⚠️ SQL Read Error on {table_name}: {e}")
+        existing_timestamps = []
+
+    df_new = df[~df.index.isin(existing_timestamps)]
+
     if not df_new.empty:
+        # Push only the new rows directly to the cloud
         df_new.to_sql(table_name, con=engine, if_exists="append", index_label="timestamp")
         logging.info(f"Inserted {len(df_new)} new rows into {table_name}.")
+    else:
+        print(
+            f"Skipping insert for {table_name}: All {len(df)} rows already exist in the database."
+        )
 
 
 def fetch_and_store_weather(start_date: str, end_date: str):

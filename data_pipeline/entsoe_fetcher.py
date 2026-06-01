@@ -4,10 +4,7 @@ from entsoe import EntsoePandasClient
 from dotenv import load_dotenv
 from tenacity import retry, wait_exponential, stop_after_attempt
 import logging
-import sys
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from database.schema import engine
+from sqlalchemy import create_engine, text
 
 load_dotenv()
 logging.basicConfig(
@@ -16,11 +13,19 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
+# --- API & CLOUD DATABASE SETUP ---
 API_KEY = os.getenv("ENTSOE_API_KEY")
 if not API_KEY:
     raise ValueError("Missing ENTSOE_API_KEY in .env file")
 
+DB_URL = os.getenv("DATABASE_URL")
+if not DB_URL:
+    raise ValueError("Missing DATABASE_URL in environment variables")
+
+# Instantiate the cloud connection
+engine = create_engine(DB_URL)
 client = EntsoePandasClient(api_key=API_KEY)
+
 TZ = "Europe/Berlin"
 COUNTRY_CODE = "10Y1001A1001A82H"
 
@@ -35,14 +40,34 @@ def safe_insert(df, table_name):
 
     min_ts = df.index.min()
     max_ts = df.index.max()
-    existing_df = pd.read_sql(
-        f"SELECT timestamp FROM {table_name} WHERE timestamp >= '{min_ts}' AND timestamp <= '{max_ts}'",
-        con=engine,
-    )
-    df_new = df[~df.index.isin(existing_df["timestamp"])]
+
+    try:
+        # THE FIX: SQLAlchemy 2.0 requires text() wrappers and a connection block!
+        with engine.connect() as conn:
+            query = text(
+                f"SELECT timestamp FROM {table_name} WHERE timestamp >= '{min_ts}' AND timestamp <= '{max_ts}'"
+            )
+            existing_df = pd.read_sql(query, con=conn)
+
+        # Convert Postgres timestamps to strictly match our Pandas string index
+        existing_timestamps = (
+            pd.to_datetime(existing_df["timestamp"]).dt.strftime("%Y-%m-%d %H:%M:%S").tolist()
+        )
+    except Exception as e:
+        # We print the error now so we aren't flying blind!
+        print(f"⚠️ SQL Read Error on {table_name}: {e}")
+        existing_timestamps = []
+
+    df_new = df[~df.index.isin(existing_timestamps)]
+
     if not df_new.empty:
+        # Push only the new rows directly to the cloud
         df_new.to_sql(table_name, con=engine, if_exists="append", index_label="timestamp")
         logging.info(f"Inserted {len(df_new)} new rows into {table_name}.")
+    else:
+        print(
+            f"Skipping insert for {table_name}: All {len(df)} rows already exist in the database."
+        )
 
 
 @retry(wait=wait_exponential(multiplier=2, min=2, max=30), stop=stop_after_attempt(5))

@@ -1,10 +1,14 @@
 import pandas as pd
-import sqlite3
 import os
 import xgboost as xgb
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
+
+# Force Python to read the .env file locally
+load_dotenv()
 
 # --- BULLETPROOF PATHING ---
 # Since this script is inside the 'models/' folder, we go UP one level
@@ -12,25 +16,33 @@ import numpy as np
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(CURRENT_DIR)
 
-DB_PATH = os.path.join(PROJECT_ROOT, "database", "energy_market.db")
 MODEL_DIR = os.path.join(PROJECT_ROOT, "models")
 MODEL_PATH = os.path.join(MODEL_DIR, "xgb_baseline.json")
 
+# Grab credentials from .env
+DB_URL = os.getenv("DATABASE_URL")
+
 
 def train_xgboost_baseline():
-    print(f"🔋 Resolving database path: {DB_PATH}")
+    print("☁️ Connecting to Cloud Database...")
 
-    if not os.path.exists(DB_PATH):
-        raise FileNotFoundError(f"CRITICAL: Database not found at {DB_PATH}. Check your pipeline.")
+    if not DB_URL:
+        raise ValueError("CRITICAL: DATABASE_URL not found in environment variables.")
 
-    conn = sqlite3.connect(DB_PATH)
+    try:
+        # Connect directly to Neon Serverless Postgres
+        engine = create_engine(DB_URL)
+        df = pd.read_sql_query(
+            "SELECT * FROM master_features",
+            engine,
+            parse_dates=["timestamp"],
+            index_col="timestamp",
+        )
+    except Exception as e:
+        raise ConnectionError(f"Failed to connect to the database: {e}")
 
-    df = pd.read_sql_query(
-        "SELECT * FROM master_features", conn, parse_dates=["timestamp"], index_col="timestamp"
-    )
     # Safely drop only the rows where the future target hasn't happened yet
     df = df.dropna(subset=["target_price_24h_ahead"])
-    conn.close()
 
     # Sort strictly by index to prevent lookahead bias
     df = df.sort_index()

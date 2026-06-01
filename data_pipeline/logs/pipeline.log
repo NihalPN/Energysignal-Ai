@@ -235,3 +235,1246 @@
 2026-05-19 20:25:46,337 - INFO - Fetching actual load from 2024-06-28 00:00:00+02:00 to 2024-07-01 00:00:00+02:00
 2026-05-19 20:25:46,703 - INFO - Fetching generation mix from 2024-06-28 00:00:00+02:00 to 2024-07-01 00:00:00+02:00
 2026-05-19 20:25:48,383 - INFO - Fetching Open-Meteo data from 2024-06-28 to 2024-07-01
+2026-06-02 01:00:37,325 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-06-02 01:00:37,349 - INFO - Fetching DA prices from 2026-05-31 00:00:00+02:00 to 2026-06-03 00:00:00+02:00
+2026-06-02 01:00:57,731 - INFO - Inserted 288 new rows into day_ahead_prices.
+2026-06-02 01:00:57,732 - INFO - Fetching actual load from 2026-05-31 00:00:00+02:00 to 2026-06-01 21:30:37.349041+02:00
+2026-06-02 01:00:59,574 - INFO - Inserted 179 new rows into actual_load.
+2026-06-02 01:00:59,574 - INFO - Fetching generation mix from 2026-05-31 00:00:00+02:00 to 2026-06-01 21:30:37.349041+02:00
+2026-06-02 01:01:01,826 - INFO - Inserted 180 new rows into generation_mix.
+2026-06-02 01:01:01,827 - INFO - Fetching Open-Meteo data from 2026-05-31 to 2026-06-03
+2026-06-02 01:01:01,829 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...
+2026-06-02 01:01:20,669 - INFO - Inserted 384 new rows into weather_data.
+2026-06-02 01:01:20,670 - INFO - === PIPELINE RUN COMPLETE ===
+2026-06-02 01:11:10,732 - INFO - Fetching DA prices from 2024-06-02 00:00:00+02:00 to 2024-06-05 00:00:00+02:00
+2026-06-02 01:11:15,225 - INFO - Fetching actual load from 2024-06-02 00:00:00+02:00 to 2024-06-05 00:00:00+02:00
+2026-06-02 01:11:16,145 - INFO - Fetching generation mix from 2024-06-02 00:00:00+02:00 to 2024-06-05 00:00:00+02:00
+2026-06-02 01:11:18,191 - INFO - Fetching Open-Meteo data from 2024-06-02 to 2024-06-05
+2026-06-02 01:11:18,193 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:11:26,878 - INFO - Fetching DA prices from 2024-06-05 00:00:00+02:00 to 2024-06-08 00:00:00+02:00
+2026-06-02 01:11:27,917 - INFO - Fetching actual load from 2024-06-05 00:00:00+02:00 to 2024-06-08 00:00:00+02:00
+2026-06-02 01:11:28,634 - INFO - Fetching generation mix from 2024-06-05 00:00:00+02:00 to 2024-06-08 00:00:00+02:00
+2026-06-02 01:11:30,683 - INFO - Fetching Open-Meteo data from 2024-06-05 to 2024-06-08
+2026-06-02 01:11:30,684 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:11:36,810 - INFO - Fetching DA prices from 2024-06-08 00:00:00+02:00 to 2024-06-11 00:00:00+02:00
+2026-06-02 01:11:37,850 - INFO - Fetching actual load from 2024-06-08 00:00:00+02:00 to 2024-06-11 00:00:00+02:00
+2026-06-02 01:11:38,867 - INFO - Fetching generation mix from 2024-06-08 00:00:00+02:00 to 2024-06-11 00:00:00+02:00
+2026-06-02 01:11:40,821 - INFO - Fetching Open-Meteo data from 2024-06-08 to 2024-06-11
+2026-06-02 01:11:40,822 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:11:47,358 - INFO - Fetching DA prices from 2024-06-11 00:00:00+02:00 to 2024-06-14 00:00:00+02:00
+2026-06-02 01:11:48,193 - INFO - Fetching actual load from 2024-06-11 00:00:00+02:00 to 2024-06-14 00:00:00+02:00
+2026-06-02 01:11:49,012 - INFO - Fetching generation mix from 2024-06-11 00:00:00+02:00 to 2024-06-14 00:00:00+02:00
+2026-06-02 01:11:50,958 - INFO - Fetching Open-Meteo data from 2024-06-11 to 2024-06-14
+2026-06-02 01:11:50,958 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:11:57,598 - INFO - Fetching DA prices from 2024-06-14 00:00:00+02:00 to 2024-06-17 00:00:00+02:00
+2026-06-02 01:11:58,638 - INFO - Fetching actual load from 2024-06-14 00:00:00+02:00 to 2024-06-17 00:00:00+02:00
+2026-06-02 01:11:59,355 - INFO - Fetching generation mix from 2024-06-14 00:00:00+02:00 to 2024-06-17 00:00:00+02:00
+2026-06-02 01:12:01,226 - INFO - Fetching Open-Meteo data from 2024-06-14 to 2024-06-17
+2026-06-02 01:12:01,227 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:12:08,043 - INFO - Fetching DA prices from 2024-06-17 00:00:00+02:00 to 2024-06-20 00:00:00+02:00
+2026-06-02 01:12:09,063 - INFO - Fetching actual load from 2024-06-17 00:00:00+02:00 to 2024-06-20 00:00:00+02:00
+2026-06-02 01:12:09,800 - INFO - Fetching generation mix from 2024-06-17 00:00:00+02:00 to 2024-06-20 00:00:00+02:00
+2026-06-02 01:12:11,726 - INFO - Fetching Open-Meteo data from 2024-06-17 to 2024-06-20
+2026-06-02 01:12:11,727 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:12:17,406 - INFO - Fetching DA prices from 2024-06-20 00:00:00+02:00 to 2024-06-23 00:00:00+02:00
+2026-06-02 01:12:18,299 - INFO - Fetching actual load from 2024-06-20 00:00:00+02:00 to 2024-06-23 00:00:00+02:00
+2026-06-02 01:12:19,733 - INFO - Fetching generation mix from 2024-06-20 00:00:00+02:00 to 2024-06-23 00:00:00+02:00
+2026-06-02 01:12:21,574 - INFO - Fetching Open-Meteo data from 2024-06-20 to 2024-06-23
+2026-06-02 01:12:21,574 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:12:27,499 - INFO - Fetching DA prices from 2024-06-23 00:00:00+02:00 to 2024-06-26 00:00:00+02:00
+2026-06-02 01:12:28,437 - INFO - Fetching actual load from 2024-06-23 00:00:00+02:00 to 2024-06-26 00:00:00+02:00
+2026-06-02 01:12:29,154 - INFO - Fetching generation mix from 2024-06-23 00:00:00+02:00 to 2024-06-26 00:00:00+02:00
+2026-06-02 01:12:31,201 - INFO - Fetching Open-Meteo data from 2024-06-23 to 2024-06-26
+2026-06-02 01:12:31,202 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:12:37,432 - INFO - Fetching DA prices from 2024-06-26 00:00:00+02:00 to 2024-06-29 00:00:00+02:00
+2026-06-02 01:12:38,332 - INFO - Fetching actual load from 2024-06-26 00:00:00+02:00 to 2024-06-29 00:00:00+02:00
+2026-06-02 01:12:39,087 - INFO - Fetching generation mix from 2024-06-26 00:00:00+02:00 to 2024-06-29 00:00:00+02:00
+2026-06-02 01:12:41,136 - INFO - Fetching Open-Meteo data from 2024-06-26 to 2024-06-29
+2026-06-02 01:12:41,136 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:12:47,776 - INFO - Fetching DA prices from 2024-06-29 00:00:00+02:00 to 2024-07-02 00:00:00+02:00
+2026-06-02 01:12:48,712 - INFO - Fetching actual load from 2024-06-29 00:00:00+02:00 to 2024-07-02 00:00:00+02:00
+2026-06-02 01:12:49,273 - INFO - Fetching generation mix from 2024-06-29 00:00:00+02:00 to 2024-07-02 00:00:00+02:00
+2026-06-02 01:12:51,067 - INFO - Fetching Open-Meteo data from 2024-06-29 to 2024-07-02
+2026-06-02 01:12:51,068 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:12:56,993 - INFO - Fetching DA prices from 2024-07-02 00:00:00+02:00 to 2024-07-05 00:00:00+02:00
+2026-06-02 01:12:57,929 - INFO - Fetching actual load from 2024-07-02 00:00:00+02:00 to 2024-07-05 00:00:00+02:00
+2026-06-02 01:12:59,261 - INFO - Fetching generation mix from 2024-07-02 00:00:00+02:00 to 2024-07-05 00:00:00+02:00
+2026-06-02 01:13:01,207 - INFO - Fetching Open-Meteo data from 2024-07-02 to 2024-07-05
+2026-06-02 01:13:01,207 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:13:07,129 - INFO - Fetching DA prices from 2024-07-05 00:00:00+02:00 to 2024-07-08 00:00:00+02:00
+2026-06-02 01:13:08,118 - INFO - Fetching actual load from 2024-07-05 00:00:00+02:00 to 2024-07-08 00:00:00+02:00
+2026-06-02 01:13:08,851 - INFO - Fetching generation mix from 2024-07-05 00:00:00+02:00 to 2024-07-08 00:00:00+02:00
+2026-06-02 01:13:10,832 - INFO - Fetching Open-Meteo data from 2024-07-05 to 2024-07-08
+2026-06-02 01:13:10,832 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:13:16,857 - INFO - Fetching DA prices from 2024-07-08 00:00:00+02:00 to 2024-07-11 00:00:00+02:00
+2026-06-02 01:13:17,796 - INFO - Fetching actual load from 2024-07-08 00:00:00+02:00 to 2024-07-11 00:00:00+02:00
+2026-06-02 01:13:18,575 - INFO - Fetching generation mix from 2024-07-08 00:00:00+02:00 to 2024-07-11 00:00:00+02:00
+2026-06-02 01:13:20,559 - INFO - Fetching Open-Meteo data from 2024-07-08 to 2024-07-11
+2026-06-02 01:13:20,559 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:13:28,815 - INFO - Fetching DA prices from 2024-07-11 00:00:00+02:00 to 2024-07-14 00:00:00+02:00
+2026-06-02 01:13:29,878 - INFO - Fetching actual load from 2024-07-11 00:00:00+02:00 to 2024-07-14 00:00:00+02:00
+2026-06-02 01:13:30,595 - INFO - Fetching generation mix from 2024-07-11 00:00:00+02:00 to 2024-07-14 00:00:00+02:00
+2026-06-02 01:13:32,643 - INFO - Fetching Open-Meteo data from 2024-07-11 to 2024-07-14
+2026-06-02 01:13:32,644 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:13:38,463 - INFO - Fetching DA prices from 2024-07-14 00:00:00+02:00 to 2024-07-17 00:00:00+02:00
+2026-06-02 01:13:39,504 - INFO - Fetching actual load from 2024-07-14 00:00:00+02:00 to 2024-07-17 00:00:00+02:00
+2026-06-02 01:13:40,220 - INFO - Fetching generation mix from 2024-07-14 00:00:00+02:00 to 2024-07-17 00:00:00+02:00
+2026-06-02 01:13:42,268 - INFO - Fetching Open-Meteo data from 2024-07-14 to 2024-07-17
+2026-06-02 01:13:42,268 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:13:48,294 - INFO - Fetching DA prices from 2024-07-17 00:00:00+02:00 to 2024-07-20 00:00:00+02:00
+2026-06-02 01:13:49,230 - INFO - Fetching actual load from 2024-07-17 00:00:00+02:00 to 2024-07-20 00:00:00+02:00
+2026-06-02 01:13:50,052 - INFO - Fetching generation mix from 2024-07-17 00:00:00+02:00 to 2024-07-20 00:00:00+02:00
+2026-06-02 01:13:52,100 - INFO - Fetching Open-Meteo data from 2024-07-17 to 2024-07-20
+2026-06-02 01:13:52,101 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:13:58,739 - INFO - Fetching DA prices from 2024-07-20 00:00:00+02:00 to 2024-07-23 00:00:00+02:00
+2026-06-02 01:13:59,780 - INFO - Fetching actual load from 2024-07-20 00:00:00+02:00 to 2024-07-23 00:00:00+02:00
+2026-06-02 01:14:00,599 - INFO - Fetching generation mix from 2024-07-20 00:00:00+02:00 to 2024-07-23 00:00:00+02:00
+2026-06-02 01:14:02,647 - INFO - Fetching Open-Meteo data from 2024-07-20 to 2024-07-23
+2026-06-02 01:14:02,648 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:14:08,364 - INFO - Fetching DA prices from 2024-07-23 00:00:00+02:00 to 2024-07-26 00:00:00+02:00
+2026-06-02 01:14:09,406 - INFO - Fetching actual load from 2024-07-23 00:00:00+02:00 to 2024-07-26 00:00:00+02:00
+2026-06-02 01:14:10,122 - INFO - Fetching generation mix from 2024-07-23 00:00:00+02:00 to 2024-07-26 00:00:00+02:00
+2026-06-02 01:14:12,068 - INFO - Fetching Open-Meteo data from 2024-07-23 to 2024-07-26
+2026-06-02 01:14:12,068 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:14:19,834 - INFO - Fetching DA prices from 2024-07-26 00:00:00+02:00 to 2024-07-29 00:00:00+02:00
+2026-06-02 01:14:20,851 - INFO - Fetching actual load from 2024-07-26 00:00:00+02:00 to 2024-07-29 00:00:00+02:00
+2026-06-02 01:14:21,695 - INFO - Fetching generation mix from 2024-07-26 00:00:00+02:00 to 2024-07-29 00:00:00+02:00
+2026-06-02 01:14:24,049 - INFO - Fetching Open-Meteo data from 2024-07-26 to 2024-07-29
+2026-06-02 01:14:24,049 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:14:30,794 - INFO - Fetching DA prices from 2024-07-29 00:00:00+02:00 to 2024-08-01 00:00:00+02:00
+2026-06-02 01:14:31,932 - INFO - Fetching actual load from 2024-07-29 00:00:00+02:00 to 2024-08-01 00:00:00+02:00
+2026-06-02 01:14:32,650 - INFO - Fetching generation mix from 2024-07-29 00:00:00+02:00 to 2024-08-01 00:00:00+02:00
+2026-06-02 01:14:35,005 - INFO - Fetching Open-Meteo data from 2024-07-29 to 2024-08-01
+2026-06-02 01:14:35,005 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:14:42,171 - INFO - Fetching DA prices from 2024-08-01 00:00:00+02:00 to 2024-08-04 00:00:00+02:00
+2026-06-02 01:14:43,198 - INFO - Fetching actual load from 2024-08-01 00:00:00+02:00 to 2024-08-04 00:00:00+02:00
+2026-06-02 01:14:43,917 - INFO - Fetching generation mix from 2024-08-01 00:00:00+02:00 to 2024-08-04 00:00:00+02:00
+2026-06-02 01:14:45,730 - INFO - Fetching Open-Meteo data from 2024-08-01 to 2024-08-04
+2026-06-02 01:14:45,730 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:14:52,092 - INFO - Fetching DA prices from 2024-08-04 00:00:00+02:00 to 2024-08-07 00:00:00+02:00
+2026-06-02 01:14:53,028 - INFO - Fetching actual load from 2024-08-04 00:00:00+02:00 to 2024-08-07 00:00:00+02:00
+2026-06-02 01:14:53,950 - INFO - Fetching generation mix from 2024-08-04 00:00:00+02:00 to 2024-08-07 00:00:00+02:00
+2026-06-02 01:14:55,711 - INFO - Fetching Open-Meteo data from 2024-08-04 to 2024-08-07
+2026-06-02 01:14:55,711 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:15:01,584 - INFO - Fetching DA prices from 2024-08-07 00:00:00+02:00 to 2024-08-10 00:00:00+02:00
+2026-06-02 01:15:24,670 - INFO - Fetching actual load from 2024-08-07 00:00:00+02:00 to 2024-08-10 00:00:00+02:00
+2026-06-02 01:15:27,948 - INFO - Fetching generation mix from 2024-08-07 00:00:00+02:00 to 2024-08-10 00:00:00+02:00
+2026-06-02 01:15:33,067 - INFO - Fetching Open-Meteo data from 2024-08-07 to 2024-08-10
+2026-06-02 01:15:33,068 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:15:38,989 - INFO - Fetching DA prices from 2024-08-10 00:00:00+02:00 to 2024-08-13 00:00:00+02:00
+2026-06-02 01:15:46,277 - INFO - Fetching actual load from 2024-08-10 00:00:00+02:00 to 2024-08-13 00:00:00+02:00
+2026-06-02 01:15:47,097 - INFO - Fetching generation mix from 2024-08-10 00:00:00+02:00 to 2024-08-13 00:00:00+02:00
+2026-06-02 01:15:49,825 - INFO - Fetching Open-Meteo data from 2024-08-10 to 2024-08-13
+2026-06-02 01:15:49,825 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:15:56,091 - INFO - Fetching DA prices from 2024-08-13 00:00:00+02:00 to 2024-08-16 00:00:00+02:00
+2026-06-02 01:16:00,920 - INFO - Fetching actual load from 2024-08-13 00:00:00+02:00 to 2024-08-16 00:00:00+02:00
+2026-06-02 01:16:02,458 - INFO - Fetching generation mix from 2024-08-13 00:00:00+02:00 to 2024-08-16 00:00:00+02:00
+2026-06-02 01:16:04,504 - INFO - Fetching Open-Meteo data from 2024-08-13 to 2024-08-16
+2026-06-02 01:16:04,504 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:16:12,374 - INFO - Fetching DA prices from 2024-08-16 00:00:00+02:00 to 2024-08-19 00:00:00+02:00
+2026-06-02 01:16:16,896 - INFO - Fetching actual load from 2024-08-16 00:00:00+02:00 to 2024-08-19 00:00:00+02:00
+2026-06-02 01:16:17,817 - INFO - Fetching generation mix from 2024-08-16 00:00:00+02:00 to 2024-08-19 00:00:00+02:00
+2026-06-02 01:16:21,605 - INFO - Fetching Open-Meteo data from 2024-08-16 to 2024-08-19
+2026-06-02 01:16:21,606 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:16:27,525 - INFO - Fetching DA prices from 2024-08-19 00:00:00+02:00 to 2024-08-22 00:00:00+02:00
+2026-06-02 01:16:28,467 - INFO - Fetching actual load from 2024-08-19 00:00:00+02:00 to 2024-08-22 00:00:00+02:00
+2026-06-02 01:16:30,207 - INFO - Fetching generation mix from 2024-08-19 00:00:00+02:00 to 2024-08-22 00:00:00+02:00
+2026-06-02 01:16:32,358 - INFO - Fetching Open-Meteo data from 2024-08-19 to 2024-08-22
+2026-06-02 01:16:32,358 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:16:38,279 - INFO - Fetching DA prices from 2024-08-22 00:00:00+02:00 to 2024-08-25 00:00:00+02:00
+2026-06-02 01:16:39,321 - INFO - Fetching actual load from 2024-08-22 00:00:00+02:00 to 2024-08-25 00:00:00+02:00
+2026-06-02 01:16:40,140 - INFO - Fetching generation mix from 2024-08-22 00:00:00+02:00 to 2024-08-25 00:00:00+02:00
+2026-06-02 01:16:42,085 - INFO - Fetching Open-Meteo data from 2024-08-22 to 2024-08-25
+2026-06-02 01:16:42,086 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:16:47,874 - INFO - Fetching DA prices from 2024-08-25 00:00:00+02:00 to 2024-08-28 00:00:00+02:00
+2026-06-02 01:16:49,048 - INFO - Fetching actual load from 2024-08-25 00:00:00+02:00 to 2024-08-28 00:00:00+02:00
+2026-06-02 01:16:49,766 - INFO - Fetching generation mix from 2024-08-25 00:00:00+02:00 to 2024-08-28 00:00:00+02:00
+2026-06-02 01:16:51,541 - INFO - Fetching Open-Meteo data from 2024-08-25 to 2024-08-28
+2026-06-02 01:16:51,541 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:16:57,450 - INFO - Fetching DA prices from 2024-08-28 00:00:00+02:00 to 2024-08-31 00:00:00+02:00
+2026-06-02 01:16:58,469 - INFO - Fetching actual load from 2024-08-28 00:00:00+02:00 to 2024-08-31 00:00:00+02:00
+2026-06-02 01:16:59,187 - INFO - Fetching generation mix from 2024-08-28 00:00:00+02:00 to 2024-08-31 00:00:00+02:00
+2026-06-02 01:17:01,132 - INFO - Fetching Open-Meteo data from 2024-08-28 to 2024-08-31
+2026-06-02 01:17:01,133 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:17:08,796 - INFO - Fetching DA prices from 2024-08-31 00:00:00+02:00 to 2024-09-03 00:00:00+02:00
+2026-06-02 01:17:09,734 - INFO - Fetching actual load from 2024-08-31 00:00:00+02:00 to 2024-09-03 00:00:00+02:00
+2026-06-02 01:17:10,656 - INFO - Fetching generation mix from 2024-08-31 00:00:00+02:00 to 2024-09-03 00:00:00+02:00
+2026-06-02 01:17:12,603 - INFO - Fetching Open-Meteo data from 2024-08-31 to 2024-09-03
+2026-06-02 01:17:12,603 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:17:18,627 - INFO - Fetching DA prices from 2024-09-03 00:00:00+02:00 to 2024-09-06 00:00:00+02:00
+2026-06-02 01:17:19,667 - INFO - Fetching actual load from 2024-09-03 00:00:00+02:00 to 2024-09-06 00:00:00+02:00
+2026-06-02 01:17:20,486 - INFO - Fetching generation mix from 2024-09-03 00:00:00+02:00 to 2024-09-06 00:00:00+02:00
+2026-06-02 01:17:22,432 - INFO - Fetching Open-Meteo data from 2024-09-03 to 2024-09-06
+2026-06-02 01:17:22,433 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:17:28,252 - INFO - Fetching DA prices from 2024-09-06 00:00:00+02:00 to 2024-09-09 00:00:00+02:00
+2026-06-02 01:17:29,395 - INFO - Fetching actual load from 2024-09-06 00:00:00+02:00 to 2024-09-09 00:00:00+02:00
+2026-06-02 01:17:30,215 - INFO - Fetching generation mix from 2024-09-06 00:00:00+02:00 to 2024-09-09 00:00:00+02:00
+2026-06-02 01:17:32,161 - INFO - Fetching Open-Meteo data from 2024-09-06 to 2024-09-09
+2026-06-02 01:17:32,161 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:17:38,493 - INFO - Fetching DA prices from 2024-09-09 00:00:00+02:00 to 2024-09-12 00:00:00+02:00
+2026-06-02 01:17:39,431 - INFO - Fetching actual load from 2024-09-09 00:00:00+02:00 to 2024-09-12 00:00:00+02:00
+2026-06-02 01:17:40,250 - INFO - Fetching generation mix from 2024-09-09 00:00:00+02:00 to 2024-09-12 00:00:00+02:00
+2026-06-02 01:17:42,299 - INFO - Fetching Open-Meteo data from 2024-09-09 to 2024-09-12
+2026-06-02 01:17:42,299 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:17:50,167 - INFO - Fetching DA prices from 2024-09-12 00:00:00+02:00 to 2024-09-15 00:00:00+02:00
+2026-06-02 01:17:51,207 - INFO - Fetching actual load from 2024-09-12 00:00:00+02:00 to 2024-09-15 00:00:00+02:00
+2026-06-02 01:17:51,925 - INFO - Fetching generation mix from 2024-09-12 00:00:00+02:00 to 2024-09-15 00:00:00+02:00
+2026-06-02 01:17:53,972 - INFO - Fetching Open-Meteo data from 2024-09-12 to 2024-09-15
+2026-06-02 01:17:53,972 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:18:01,739 - INFO - Fetching DA prices from 2024-09-15 00:00:00+02:00 to 2024-09-18 00:00:00+02:00
+2026-06-02 01:18:03,699 - INFO - Fetching actual load from 2024-09-15 00:00:00+02:00 to 2024-09-18 00:00:00+02:00
+2026-06-02 01:18:04,519 - INFO - Fetching generation mix from 2024-09-15 00:00:00+02:00 to 2024-09-18 00:00:00+02:00
+2026-06-02 01:18:06,770 - INFO - Fetching Open-Meteo data from 2024-09-15 to 2024-09-18
+2026-06-02 01:18:06,770 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:18:13,309 - INFO - Fetching DA prices from 2024-09-18 00:00:00+02:00 to 2024-09-21 00:00:00+02:00
+2026-06-02 01:18:14,247 - INFO - Fetching actual load from 2024-09-18 00:00:00+02:00 to 2024-09-21 00:00:00+02:00
+2026-06-02 01:18:15,065 - INFO - Fetching generation mix from 2024-09-18 00:00:00+02:00 to 2024-09-21 00:00:00+02:00
+2026-06-02 01:18:17,115 - INFO - Fetching Open-Meteo data from 2024-09-18 to 2024-09-21
+2026-06-02 01:18:17,116 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:18:24,253 - INFO - Fetching DA prices from 2024-09-21 00:00:00+02:00 to 2024-09-24 00:00:00+02:00
+2026-06-02 01:18:25,307 - INFO - Fetching actual load from 2024-09-21 00:00:00+02:00 to 2024-09-24 00:00:00+02:00
+2026-06-02 01:18:26,024 - INFO - Fetching generation mix from 2024-09-21 00:00:00+02:00 to 2024-09-24 00:00:00+02:00
+2026-06-02 01:18:28,174 - INFO - Fetching Open-Meteo data from 2024-09-21 to 2024-09-24
+2026-06-02 01:18:28,174 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:18:35,835 - INFO - Fetching DA prices from 2024-09-24 00:00:00+02:00 to 2024-09-27 00:00:00+02:00
+2026-06-02 01:18:36,875 - INFO - Fetching actual load from 2024-09-24 00:00:00+02:00 to 2024-09-27 00:00:00+02:00
+2026-06-02 01:18:37,591 - INFO - Fetching generation mix from 2024-09-24 00:00:00+02:00 to 2024-09-27 00:00:00+02:00
+2026-06-02 01:18:39,744 - INFO - Fetching Open-Meteo data from 2024-09-24 to 2024-09-27
+2026-06-02 01:18:39,744 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:18:46,241 - INFO - Fetching DA prices from 2024-09-27 00:00:00+02:00 to 2024-09-30 00:00:00+02:00
+2026-06-02 01:18:47,115 - INFO - Fetching actual load from 2024-09-27 00:00:00+02:00 to 2024-09-30 00:00:00+02:00
+2026-06-02 01:18:48,035 - INFO - Fetching generation mix from 2024-09-27 00:00:00+02:00 to 2024-09-30 00:00:00+02:00
+2026-06-02 01:18:50,084 - INFO - Fetching Open-Meteo data from 2024-09-27 to 2024-09-30
+2026-06-02 01:18:50,084 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:18:56,418 - INFO - Fetching DA prices from 2024-09-30 00:00:00+02:00 to 2024-10-03 00:00:00+02:00
+2026-06-02 01:18:57,457 - INFO - Fetching actual load from 2024-09-30 00:00:00+02:00 to 2024-10-03 00:00:00+02:00
+2026-06-02 01:18:58,173 - INFO - Fetching generation mix from 2024-09-30 00:00:00+02:00 to 2024-10-03 00:00:00+02:00
+2026-06-02 01:18:59,958 - INFO - Fetching Open-Meteo data from 2024-09-30 to 2024-10-03
+2026-06-02 01:18:59,959 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:19:05,516 - INFO - Fetching DA prices from 2024-10-03 00:00:00+02:00 to 2024-10-06 00:00:00+02:00
+2026-06-02 01:19:07,219 - INFO - Fetching actual load from 2024-10-03 00:00:00+02:00 to 2024-10-06 00:00:00+02:00
+2026-06-02 01:19:08,008 - INFO - Fetching generation mix from 2024-10-03 00:00:00+02:00 to 2024-10-06 00:00:00+02:00
+2026-06-02 01:19:10,667 - INFO - Fetching Open-Meteo data from 2024-10-03 to 2024-10-06
+2026-06-02 01:19:10,668 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:19:16,898 - INFO - Fetching DA prices from 2024-10-06 00:00:00+02:00 to 2024-10-09 00:00:00+02:00
+2026-06-02 01:19:17,837 - INFO - Fetching actual load from 2024-10-06 00:00:00+02:00 to 2024-10-09 00:00:00+02:00
+2026-06-02 01:19:18,657 - INFO - Fetching generation mix from 2024-10-06 00:00:00+02:00 to 2024-10-09 00:00:00+02:00
+2026-06-02 01:19:20,706 - INFO - Fetching Open-Meteo data from 2024-10-06 to 2024-10-09
+2026-06-02 01:19:20,707 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:19:27,447 - INFO - Fetching DA prices from 2024-10-09 00:00:00+02:00 to 2024-10-12 00:00:00+02:00
+2026-06-02 01:19:28,695 - INFO - Fetching actual load from 2024-10-09 00:00:00+02:00 to 2024-10-12 00:00:00+02:00
+2026-06-02 01:19:30,026 - INFO - Fetching generation mix from 2024-10-09 00:00:00+02:00 to 2024-10-12 00:00:00+02:00
+2026-06-02 01:19:32,176 - INFO - Fetching Open-Meteo data from 2024-10-09 to 2024-10-12
+2026-06-02 01:19:32,177 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:19:38,509 - INFO - Fetching DA prices from 2024-10-12 00:00:00+02:00 to 2024-10-15 00:00:00+02:00
+2026-06-02 01:19:39,549 - INFO - Fetching actual load from 2024-10-12 00:00:00+02:00 to 2024-10-15 00:00:00+02:00
+2026-06-02 01:19:40,267 - INFO - Fetching generation mix from 2024-10-12 00:00:00+02:00 to 2024-10-15 00:00:00+02:00
+2026-06-02 01:19:42,094 - INFO - Fetching Open-Meteo data from 2024-10-12 to 2024-10-15
+2026-06-02 01:19:42,094 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:19:47,721 - INFO - Fetching DA prices from 2024-10-15 00:00:00+02:00 to 2024-10-18 00:00:00+02:00
+2026-06-02 01:19:48,664 - INFO - Fetching actual load from 2024-10-15 00:00:00+02:00 to 2024-10-18 00:00:00+02:00
+2026-06-02 01:19:49,584 - INFO - Fetching generation mix from 2024-10-15 00:00:00+02:00 to 2024-10-18 00:00:00+02:00
+2026-06-02 01:19:51,422 - INFO - Fetching Open-Meteo data from 2024-10-15 to 2024-10-18
+2026-06-02 01:19:51,423 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:19:57,465 - INFO - Fetching DA prices from 2024-10-18 00:00:00+02:00 to 2024-10-21 00:00:00+02:00
+2026-06-02 01:19:58,496 - INFO - Fetching actual load from 2024-10-18 00:00:00+02:00 to 2024-10-21 00:00:00+02:00
+2026-06-02 01:19:59,212 - INFO - Fetching generation mix from 2024-10-18 00:00:00+02:00 to 2024-10-21 00:00:00+02:00
+2026-06-02 01:20:01,226 - INFO - Fetching Open-Meteo data from 2024-10-18 to 2024-10-21
+2026-06-02 01:20:01,226 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:20:07,284 - INFO - Fetching DA prices from 2024-10-21 00:00:00+02:00 to 2024-10-24 00:00:00+02:00
+2026-06-02 01:20:17,224 - INFO - Fetching actual load from 2024-10-21 00:00:00+02:00 to 2024-10-24 00:00:00+02:00
+2026-06-02 01:20:17,950 - INFO - Fetching generation mix from 2024-10-21 00:00:00+02:00 to 2024-10-24 00:00:00+02:00
+2026-06-02 01:20:20,303 - INFO - Fetching Open-Meteo data from 2024-10-21 to 2024-10-24
+2026-06-02 01:20:20,304 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:20:27,147 - INFO - Fetching DA prices from 2024-10-24 00:00:00+02:00 to 2024-10-27 00:00:00+02:00
+2026-06-02 01:20:28,182 - INFO - Fetching actual load from 2024-10-24 00:00:00+02:00 to 2024-10-27 00:00:00+02:00
+2026-06-02 01:20:29,005 - INFO - Fetching generation mix from 2024-10-24 00:00:00+02:00 to 2024-10-27 00:00:00+02:00
+2026-06-02 01:20:31,156 - INFO - Fetching Open-Meteo data from 2024-10-24 to 2024-10-27
+2026-06-02 01:20:31,156 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:20:38,513 - INFO - Fetching DA prices from 2024-10-27 00:00:00+02:00 to 2024-10-29 00:00:00+01:00
+2026-06-02 01:20:39,653 - INFO - Fetching actual load from 2024-10-27 00:00:00+02:00 to 2024-10-29 00:00:00+01:00
+2026-06-02 01:20:40,471 - INFO - Fetching generation mix from 2024-10-27 00:00:00+02:00 to 2024-10-29 00:00:00+01:00
+2026-06-02 01:20:42,612 - INFO - Fetching Open-Meteo data from 2024-10-27 to 2024-10-29
+2026-06-02 01:20:42,612 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:20:49,876 - INFO - Fetching DA prices from 2024-10-29 00:00:00+01:00 to 2024-11-01 00:00:00+01:00
+2026-06-02 01:20:50,917 - INFO - Fetching actual load from 2024-10-29 00:00:00+01:00 to 2024-11-01 00:00:00+01:00
+2026-06-02 01:20:51,735 - INFO - Fetching generation mix from 2024-10-29 00:00:00+01:00 to 2024-11-01 00:00:00+01:00
+2026-06-02 01:20:53,718 - INFO - Fetching Open-Meteo data from 2024-10-29 to 2024-11-01
+2026-06-02 01:20:53,718 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:20:59,338 - INFO - Fetching DA prices from 2024-11-01 00:00:00+01:00 to 2024-11-04 00:00:00+01:00
+2026-06-02 01:21:00,336 - INFO - Fetching actual load from 2024-11-01 00:00:00+01:00 to 2024-11-04 00:00:00+01:00
+2026-06-02 01:21:01,769 - INFO - Fetching generation mix from 2024-11-01 00:00:00+01:00 to 2024-11-04 00:00:00+01:00
+2026-06-02 01:21:04,227 - INFO - Fetching Open-Meteo data from 2024-11-01 to 2024-11-04
+2026-06-02 01:21:04,227 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:21:11,993 - INFO - Fetching DA prices from 2024-11-04 00:00:00+01:00 to 2024-11-07 00:00:00+01:00
+2026-06-02 01:21:13,954 - INFO - Fetching actual load from 2024-11-04 00:00:00+01:00 to 2024-11-07 00:00:00+01:00
+2026-06-02 01:21:14,773 - INFO - Fetching generation mix from 2024-11-04 00:00:00+01:00 to 2024-11-07 00:00:00+01:00
+2026-06-02 01:21:16,821 - INFO - Fetching Open-Meteo data from 2024-11-04 to 2024-11-07
+2026-06-02 01:21:16,822 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:21:22,743 - INFO - Fetching DA prices from 2024-11-07 00:00:00+01:00 to 2024-11-10 00:00:00+01:00
+2026-06-02 01:21:24,400 - INFO - Fetching actual load from 2024-11-07 00:00:00+01:00 to 2024-11-10 00:00:00+01:00
+2026-06-02 01:21:26,037 - INFO - Fetching generation mix from 2024-11-07 00:00:00+01:00 to 2024-11-10 00:00:00+01:00
+2026-06-02 01:21:29,826 - INFO - Fetching Open-Meteo data from 2024-11-07 to 2024-11-10
+2026-06-02 01:21:29,826 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:21:36,567 - INFO - Fetching DA prices from 2024-11-10 00:00:00+01:00 to 2024-11-13 00:00:00+01:00
+2026-06-02 01:21:37,607 - INFO - Fetching actual load from 2024-11-10 00:00:00+01:00 to 2024-11-13 00:00:00+01:00
+2026-06-02 01:21:38,324 - INFO - Fetching generation mix from 2024-11-10 00:00:00+01:00 to 2024-11-13 00:00:00+01:00
+2026-06-02 01:21:40,577 - INFO - Fetching Open-Meteo data from 2024-11-10 to 2024-11-13
+2026-06-02 01:21:40,577 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:21:46,500 - INFO - Fetching DA prices from 2024-11-13 00:00:00+01:00 to 2024-11-16 00:00:00+01:00
+2026-06-02 01:21:47,438 - INFO - Fetching actual load from 2024-11-13 00:00:00+01:00 to 2024-11-16 00:00:00+01:00
+2026-06-02 01:21:48,358 - INFO - Fetching generation mix from 2024-11-13 00:00:00+01:00 to 2024-11-16 00:00:00+01:00
+2026-06-02 01:21:50,407 - INFO - Fetching Open-Meteo data from 2024-11-13 to 2024-11-16
+2026-06-02 01:21:50,407 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:21:56,738 - INFO - Fetching DA prices from 2024-11-16 00:00:00+01:00 to 2024-11-19 00:00:00+01:00
+2026-06-02 01:21:57,880 - INFO - Fetching actual load from 2024-11-16 00:00:00+01:00 to 2024-11-19 00:00:00+01:00
+2026-06-02 01:21:58,803 - INFO - Fetching generation mix from 2024-11-16 00:00:00+01:00 to 2024-11-19 00:00:00+01:00
+2026-06-02 01:22:01,158 - INFO - Fetching Open-Meteo data from 2024-11-16 to 2024-11-19
+2026-06-02 01:22:01,158 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:22:07,082 - INFO - Fetching DA prices from 2024-11-19 00:00:00+01:00 to 2024-11-22 00:00:00+01:00
+2026-06-02 01:22:08,121 - INFO - Fetching actual load from 2024-11-19 00:00:00+01:00 to 2024-11-22 00:00:00+01:00
+2026-06-02 01:22:08,941 - INFO - Fetching generation mix from 2024-11-19 00:00:00+01:00 to 2024-11-22 00:00:00+01:00
+2026-06-02 01:22:11,470 - INFO - Fetching Open-Meteo data from 2024-11-19 to 2024-11-22
+2026-06-02 01:22:11,471 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:22:17,935 - INFO - Fetching DA prices from 2024-11-22 00:00:00+01:00 to 2024-11-25 00:00:00+01:00
+2026-06-02 01:22:18,871 - INFO - Fetching actual load from 2024-11-22 00:00:00+01:00 to 2024-11-25 00:00:00+01:00
+2026-06-02 01:22:19,896 - INFO - Fetching generation mix from 2024-11-22 00:00:00+01:00 to 2024-11-25 00:00:00+01:00
+2026-06-02 01:22:22,047 - INFO - Fetching Open-Meteo data from 2024-11-22 to 2024-11-25
+2026-06-02 01:22:22,048 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:22:28,482 - INFO - Fetching DA prices from 2024-11-25 00:00:00+01:00 to 2024-11-28 00:00:00+01:00
+2026-06-02 01:22:29,523 - INFO - Fetching actual load from 2024-11-25 00:00:00+01:00 to 2024-11-28 00:00:00+01:00
+2026-06-02 01:22:30,341 - INFO - Fetching generation mix from 2024-11-25 00:00:00+01:00 to 2024-11-28 00:00:00+01:00
+2026-06-02 01:22:32,205 - INFO - Fetching Open-Meteo data from 2024-11-25 to 2024-11-28
+2026-06-02 01:22:32,205 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:22:38,125 - INFO - Fetching DA prices from 2024-11-28 00:00:00+01:00 to 2024-12-01 00:00:00+01:00
+2026-06-02 01:22:39,243 - INFO - Fetching actual load from 2024-11-28 00:00:00+01:00 to 2024-12-01 00:00:00+01:00
+2026-06-02 01:22:39,967 - INFO - Fetching generation mix from 2024-11-28 00:00:00+01:00 to 2024-12-01 00:00:00+01:00
+2026-06-02 01:22:42,119 - INFO - Fetching Open-Meteo data from 2024-11-28 to 2024-12-01
+2026-06-02 01:22:42,120 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:22:48,040 - INFO - Fetching DA prices from 2024-12-01 00:00:00+01:00 to 2024-12-04 00:00:00+01:00
+2026-06-02 01:22:49,389 - INFO - Fetching actual load from 2024-12-01 00:00:00+01:00 to 2024-12-04 00:00:00+01:00
+2026-06-02 01:22:50,207 - INFO - Fetching generation mix from 2024-12-01 00:00:00+01:00 to 2024-12-04 00:00:00+01:00
+2026-06-02 01:22:52,156 - INFO - Fetching Open-Meteo data from 2024-12-01 to 2024-12-04
+2026-06-02 01:22:52,156 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:22:58,077 - INFO - Fetching DA prices from 2024-12-04 00:00:00+01:00 to 2024-12-07 00:00:00+01:00
+2026-06-02 01:22:59,116 - INFO - Fetching actual load from 2024-12-04 00:00:00+01:00 to 2024-12-07 00:00:00+01:00
+2026-06-02 01:23:00,039 - INFO - Fetching generation mix from 2024-12-04 00:00:00+01:00 to 2024-12-07 00:00:00+01:00
+2026-06-02 01:23:02,098 - INFO - Fetching Open-Meteo data from 2024-12-04 to 2024-12-07
+2026-06-02 01:23:02,099 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:23:07,722 - INFO - Fetching DA prices from 2024-12-07 00:00:00+01:00 to 2024-12-10 00:00:00+01:00
+2026-06-02 01:23:08,742 - INFO - Fetching actual load from 2024-12-07 00:00:00+01:00 to 2024-12-10 00:00:00+01:00
+2026-06-02 01:23:09,562 - INFO - Fetching generation mix from 2024-12-07 00:00:00+01:00 to 2024-12-10 00:00:00+01:00
+2026-06-02 01:23:11,610 - INFO - Fetching Open-Meteo data from 2024-12-07 to 2024-12-10
+2026-06-02 01:23:11,610 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:23:19,376 - INFO - Fetching DA prices from 2024-12-10 00:00:00+01:00 to 2024-12-13 00:00:00+01:00
+2026-06-02 01:23:20,313 - INFO - Fetching actual load from 2024-12-10 00:00:00+01:00 to 2024-12-13 00:00:00+01:00
+2026-06-02 01:23:21,133 - INFO - Fetching generation mix from 2024-12-10 00:00:00+01:00 to 2024-12-13 00:00:00+01:00
+2026-06-02 01:23:23,273 - INFO - Fetching Open-Meteo data from 2024-12-10 to 2024-12-13
+2026-06-02 01:23:23,274 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:23:29,617 - INFO - Fetching DA prices from 2024-12-13 00:00:00+01:00 to 2024-12-16 00:00:00+01:00
+2026-06-02 01:23:31,470 - INFO - Fetching actual load from 2024-12-13 00:00:00+01:00 to 2024-12-16 00:00:00+01:00
+2026-06-02 01:23:33,728 - INFO - Fetching generation mix from 2024-12-13 00:00:00+01:00 to 2024-12-16 00:00:00+01:00
+2026-06-02 01:23:35,878 - INFO - Fetching Open-Meteo data from 2024-12-13 to 2024-12-16
+2026-06-02 01:23:35,878 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:23:41,801 - INFO - Fetching DA prices from 2024-12-16 00:00:00+01:00 to 2024-12-19 00:00:00+01:00
+2026-06-02 01:23:42,842 - INFO - Fetching actual load from 2024-12-16 00:00:00+01:00 to 2024-12-19 00:00:00+01:00
+2026-06-02 01:23:43,659 - INFO - Fetching generation mix from 2024-12-16 00:00:00+01:00 to 2024-12-19 00:00:00+01:00
+2026-06-02 01:23:45,711 - INFO - Fetching Open-Meteo data from 2024-12-16 to 2024-12-19
+2026-06-02 01:23:45,711 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:23:53,679 - INFO - Fetching DA prices from 2024-12-19 00:00:00+01:00 to 2024-12-22 00:00:00+01:00
+2026-06-02 01:23:54,719 - INFO - Fetching actual load from 2024-12-19 00:00:00+01:00 to 2024-12-22 00:00:00+01:00
+2026-06-02 01:23:55,542 - INFO - Fetching generation mix from 2024-12-19 00:00:00+01:00 to 2024-12-22 00:00:00+01:00
+2026-06-02 01:23:57,588 - INFO - Fetching Open-Meteo data from 2024-12-19 to 2024-12-22
+2026-06-02 01:23:57,588 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:24:03,306 - INFO - Fetching DA prices from 2024-12-22 00:00:00+01:00 to 2024-12-25 00:00:00+01:00
+2026-06-02 01:24:04,345 - INFO - Fetching actual load from 2024-12-22 00:00:00+01:00 to 2024-12-25 00:00:00+01:00
+2026-06-02 01:24:05,164 - INFO - Fetching generation mix from 2024-12-22 00:00:00+01:00 to 2024-12-25 00:00:00+01:00
+2026-06-02 01:24:07,213 - INFO - Fetching Open-Meteo data from 2024-12-22 to 2024-12-25
+2026-06-02 01:24:07,214 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:24:13,852 - INFO - Fetching DA prices from 2024-12-25 00:00:00+01:00 to 2024-12-28 00:00:00+01:00
+2026-06-02 01:24:14,893 - INFO - Fetching actual load from 2024-12-25 00:00:00+01:00 to 2024-12-28 00:00:00+01:00
+2026-06-02 01:24:15,814 - INFO - Fetching generation mix from 2024-12-25 00:00:00+01:00 to 2024-12-28 00:00:00+01:00
+2026-06-02 01:24:17,965 - INFO - Fetching Open-Meteo data from 2024-12-25 to 2024-12-28
+2026-06-02 01:24:17,965 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:24:24,501 - INFO - Fetching DA prices from 2024-12-28 00:00:00+01:00 to 2024-12-31 00:00:00+01:00
+2026-06-02 01:24:25,392 - INFO - Fetching actual load from 2024-12-28 00:00:00+01:00 to 2024-12-31 00:00:00+01:00
+2026-06-02 01:24:26,156 - INFO - Fetching generation mix from 2024-12-28 00:00:00+01:00 to 2024-12-31 00:00:00+01:00
+2026-06-02 01:24:28,017 - INFO - Fetching Open-Meteo data from 2024-12-28 to 2024-12-31
+2026-06-02 01:24:28,018 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:24:33,646 - INFO - Fetching DA prices from 2024-12-31 00:00:00+01:00 to 2025-01-03 00:00:00+01:00
+2026-06-02 01:24:34,656 - INFO - Fetching actual load from 2024-12-31 00:00:00+01:00 to 2025-01-03 00:00:00+01:00
+2026-06-02 01:24:35,475 - INFO - Fetching generation mix from 2024-12-31 00:00:00+01:00 to 2025-01-03 00:00:00+01:00
+2026-06-02 01:24:37,727 - INFO - Fetching Open-Meteo data from 2024-12-31 to 2025-01-03
+2026-06-02 01:24:37,728 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:24:45,903 - INFO - Fetching DA prices from 2025-01-03 00:00:00+01:00 to 2025-01-06 00:00:00+01:00
+2026-06-02 01:24:46,943 - INFO - Fetching actual load from 2025-01-03 00:00:00+01:00 to 2025-01-06 00:00:00+01:00
+2026-06-02 01:24:47,660 - INFO - Fetching generation mix from 2025-01-03 00:00:00+01:00 to 2025-01-06 00:00:00+01:00
+2026-06-02 01:24:49,811 - INFO - Fetching Open-Meteo data from 2025-01-03 to 2025-01-06
+2026-06-02 01:24:49,811 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:24:55,734 - INFO - Fetching DA prices from 2025-01-06 00:00:00+01:00 to 2025-01-09 00:00:00+01:00
+2026-06-02 01:24:56,569 - INFO - Fetching actual load from 2025-01-06 00:00:00+01:00 to 2025-01-09 00:00:00+01:00
+2026-06-02 01:24:57,388 - INFO - Fetching generation mix from 2025-01-06 00:00:00+01:00 to 2025-01-09 00:00:00+01:00
+2026-06-02 01:24:59,437 - INFO - Fetching Open-Meteo data from 2025-01-06 to 2025-01-09
+2026-06-02 01:24:59,437 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:25:05,768 - INFO - Fetching DA prices from 2025-01-09 00:00:00+01:00 to 2025-01-12 00:00:00+01:00
+2026-06-02 01:25:08,037 - INFO - Fetching actual load from 2025-01-09 00:00:00+01:00 to 2025-01-12 00:00:00+01:00
+2026-06-02 01:25:08,960 - INFO - Fetching generation mix from 2025-01-09 00:00:00+01:00 to 2025-01-12 00:00:00+01:00
+2026-06-02 01:25:11,416 - INFO - Fetching Open-Meteo data from 2025-01-09 to 2025-01-12
+2026-06-02 01:25:11,417 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:25:18,671 - INFO - Fetching DA prices from 2025-01-12 00:00:00+01:00 to 2025-01-15 00:00:00+01:00
+2026-06-02 01:25:19,710 - INFO - Fetching actual load from 2025-01-12 00:00:00+01:00 to 2025-01-15 00:00:00+01:00
+2026-06-02 01:25:20,429 - INFO - Fetching generation mix from 2025-01-12 00:00:00+01:00 to 2025-01-15 00:00:00+01:00
+2026-06-02 01:25:22,681 - INFO - Fetching Open-Meteo data from 2025-01-12 to 2025-01-15
+2026-06-02 01:25:22,681 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:25:28,603 - INFO - Fetching DA prices from 2025-01-15 00:00:00+01:00 to 2025-01-18 00:00:00+01:00
+2026-06-02 01:25:29,541 - INFO - Fetching actual load from 2025-01-15 00:00:00+01:00 to 2025-01-18 00:00:00+01:00
+2026-06-02 01:25:30,463 - INFO - Fetching generation mix from 2025-01-15 00:00:00+01:00 to 2025-01-18 00:00:00+01:00
+2026-06-02 01:25:32,511 - INFO - Fetching Open-Meteo data from 2025-01-15 to 2025-01-18
+2026-06-02 01:25:32,512 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:25:38,844 - INFO - Fetching DA prices from 2025-01-18 00:00:00+01:00 to 2025-01-21 00:00:00+01:00
+2026-06-02 01:25:39,986 - INFO - Fetching actual load from 2025-01-18 00:00:00+01:00 to 2025-01-21 00:00:00+01:00
+2026-06-02 01:25:40,805 - INFO - Fetching generation mix from 2025-01-18 00:00:00+01:00 to 2025-01-21 00:00:00+01:00
+2026-06-02 01:25:42,750 - INFO - Fetching Open-Meteo data from 2025-01-18 to 2025-01-21
+2026-06-02 01:25:42,751 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:25:48,673 - INFO - Fetching DA prices from 2025-01-21 00:00:00+01:00 to 2025-01-24 00:00:00+01:00
+2026-06-02 01:25:49,612 - INFO - Fetching actual load from 2025-01-21 00:00:00+01:00 to 2025-01-24 00:00:00+01:00
+2026-06-02 01:25:50,328 - INFO - Fetching generation mix from 2025-01-21 00:00:00+01:00 to 2025-01-24 00:00:00+01:00
+2026-06-02 01:25:52,244 - INFO - Fetching Open-Meteo data from 2025-01-21 to 2025-01-24
+2026-06-02 01:25:52,244 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:25:58,299 - INFO - Fetching DA prices from 2025-01-24 00:00:00+01:00 to 2025-01-27 00:00:00+01:00
+2026-06-02 01:25:59,238 - INFO - Fetching actual load from 2025-01-24 00:00:00+01:00 to 2025-01-27 00:00:00+01:00
+2026-06-02 01:26:00,056 - INFO - Fetching generation mix from 2025-01-24 00:00:00+01:00 to 2025-01-27 00:00:00+01:00
+2026-06-02 01:26:01,901 - INFO - Fetching Open-Meteo data from 2025-01-24 to 2025-01-27
+2026-06-02 01:26:01,901 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:26:09,051 - INFO - Fetching DA prices from 2025-01-27 00:00:00+01:00 to 2025-01-30 00:00:00+01:00
+2026-06-02 01:26:10,091 - INFO - Fetching actual load from 2025-01-27 00:00:00+01:00 to 2025-01-30 00:00:00+01:00
+2026-06-02 01:26:10,910 - INFO - Fetching generation mix from 2025-01-27 00:00:00+01:00 to 2025-01-30 00:00:00+01:00
+2026-06-02 01:26:12,959 - INFO - Fetching Open-Meteo data from 2025-01-27 to 2025-01-30
+2026-06-02 01:26:12,959 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:26:18,881 - INFO - Fetching DA prices from 2025-01-30 00:00:00+01:00 to 2025-02-02 00:00:00+01:00
+2026-06-02 01:26:19,921 - INFO - Fetching actual load from 2025-01-30 00:00:00+01:00 to 2025-02-02 00:00:00+01:00
+2026-06-02 01:26:20,742 - INFO - Fetching generation mix from 2025-01-30 00:00:00+01:00 to 2025-02-02 00:00:00+01:00
+2026-06-02 01:26:22,994 - INFO - Fetching Open-Meteo data from 2025-01-30 to 2025-02-02
+2026-06-02 01:26:22,994 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:26:28,813 - INFO - Fetching DA prices from 2025-02-02 00:00:00+01:00 to 2025-02-05 00:00:00+01:00
+2026-06-02 01:26:29,548 - INFO - Fetching actual load from 2025-02-02 00:00:00+01:00 to 2025-02-05 00:00:00+01:00
+2026-06-02 01:26:30,105 - INFO - Fetching generation mix from 2025-02-02 00:00:00+01:00 to 2025-02-05 00:00:00+01:00
+2026-06-02 01:26:31,886 - INFO - Fetching Open-Meteo data from 2025-02-02 to 2025-02-05
+2026-06-02 01:26:31,886 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:26:37,520 - INFO - Fetching DA prices from 2025-02-05 00:00:00+01:00 to 2025-02-08 00:00:00+01:00
+2026-06-02 01:26:38,558 - INFO - Fetching actual load from 2025-02-05 00:00:00+01:00 to 2025-02-08 00:00:00+01:00
+2026-06-02 01:26:39,479 - INFO - Fetching generation mix from 2025-02-05 00:00:00+01:00 to 2025-02-08 00:00:00+01:00
+2026-06-02 01:26:41,425 - INFO - Fetching Open-Meteo data from 2025-02-05 to 2025-02-08
+2026-06-02 01:26:41,425 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:26:49,499 - INFO - Fetching DA prices from 2025-02-08 00:00:00+01:00 to 2025-02-11 00:00:00+01:00
+2026-06-02 01:26:50,538 - INFO - Fetching actual load from 2025-02-08 00:00:00+01:00 to 2025-02-11 00:00:00+01:00
+2026-06-02 01:26:51,255 - INFO - Fetching generation mix from 2025-02-08 00:00:00+01:00 to 2025-02-11 00:00:00+01:00
+2026-06-02 01:26:53,267 - INFO - Fetching Open-Meteo data from 2025-02-08 to 2025-02-11
+2026-06-02 01:26:53,268 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:26:59,226 - INFO - Fetching DA prices from 2025-02-11 00:00:00+01:00 to 2025-02-14 00:00:00+01:00
+2026-06-02 01:27:00,164 - INFO - Fetching actual load from 2025-02-11 00:00:00+01:00 to 2025-02-14 00:00:00+01:00
+2026-06-02 01:27:01,188 - INFO - Fetching generation mix from 2025-02-11 00:00:00+01:00 to 2025-02-14 00:00:00+01:00
+2026-06-02 01:27:03,751 - INFO - Fetching Open-Meteo data from 2025-02-11 to 2025-02-14
+2026-06-02 01:27:03,751 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:27:09,671 - INFO - Fetching DA prices from 2025-02-14 00:00:00+01:00 to 2025-02-17 00:00:00+01:00
+2026-06-02 01:27:10,711 - INFO - Fetching actual load from 2025-02-14 00:00:00+01:00 to 2025-02-17 00:00:00+01:00
+2026-06-02 01:27:11,530 - INFO - Fetching generation mix from 2025-02-14 00:00:00+01:00 to 2025-02-17 00:00:00+01:00
+2026-06-02 01:27:13,376 - INFO - Fetching Open-Meteo data from 2025-02-14 to 2025-02-17
+2026-06-02 01:27:13,376 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:27:21,550 - INFO - Fetching DA prices from 2025-02-17 00:00:00+01:00 to 2025-02-20 00:00:00+01:00
+2026-06-02 01:27:22,692 - INFO - Fetching actual load from 2025-02-17 00:00:00+01:00 to 2025-02-20 00:00:00+01:00
+2026-06-02 01:27:23,510 - INFO - Fetching generation mix from 2025-02-17 00:00:00+01:00 to 2025-02-20 00:00:00+01:00
+2026-06-02 01:27:25,429 - INFO - Fetching Open-Meteo data from 2025-02-17 to 2025-02-20
+2026-06-02 01:27:25,430 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:27:30,983 - INFO - Fetching DA prices from 2025-02-20 00:00:00+01:00 to 2025-02-23 00:00:00+01:00
+2026-06-02 01:27:31,908 - INFO - Fetching actual load from 2025-02-20 00:00:00+01:00 to 2025-02-23 00:00:00+01:00
+2026-06-02 01:27:32,829 - INFO - Fetching generation mix from 2025-02-20 00:00:00+01:00 to 2025-02-23 00:00:00+01:00
+2026-06-02 01:27:34,733 - INFO - Fetching Open-Meteo data from 2025-02-20 to 2025-02-23
+2026-06-02 01:27:34,734 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:27:40,596 - INFO - Fetching DA prices from 2025-02-23 00:00:00+01:00 to 2025-02-26 00:00:00+01:00
+2026-06-02 01:27:42,046 - INFO - Fetching actual load from 2025-02-23 00:00:00+01:00 to 2025-02-26 00:00:00+01:00
+2026-06-02 01:27:42,864 - INFO - Fetching generation mix from 2025-02-23 00:00:00+01:00 to 2025-02-26 00:00:00+01:00
+2026-06-02 01:27:45,425 - INFO - Fetching Open-Meteo data from 2025-02-23 to 2025-02-26
+2026-06-02 01:27:45,426 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:27:51,266 - INFO - Fetching DA prices from 2025-02-26 00:00:00+01:00 to 2025-03-01 00:00:00+01:00
+2026-06-02 01:27:52,287 - INFO - Fetching actual load from 2025-02-26 00:00:00+01:00 to 2025-03-01 00:00:00+01:00
+2026-06-02 01:27:53,105 - INFO - Fetching generation mix from 2025-02-26 00:00:00+01:00 to 2025-03-01 00:00:00+01:00
+2026-06-02 01:27:55,460 - INFO - Fetching Open-Meteo data from 2025-02-26 to 2025-03-01
+2026-06-02 01:27:55,460 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:28:03,533 - INFO - Fetching DA prices from 2025-03-01 00:00:00+01:00 to 2025-03-04 00:00:00+01:00
+2026-06-02 01:28:04,471 - INFO - Fetching actual load from 2025-03-01 00:00:00+01:00 to 2025-03-04 00:00:00+01:00
+2026-06-02 01:28:05,905 - INFO - Fetching generation mix from 2025-03-01 00:00:00+01:00 to 2025-03-04 00:00:00+01:00
+2026-06-02 01:28:07,953 - INFO - Fetching Open-Meteo data from 2025-03-01 to 2025-03-04
+2026-06-02 01:28:07,954 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:28:13,671 - INFO - Fetching DA prices from 2025-03-04 00:00:00+01:00 to 2025-03-07 00:00:00+01:00
+2026-06-02 01:28:14,608 - INFO - Fetching actual load from 2025-03-04 00:00:00+01:00 to 2025-03-07 00:00:00+01:00
+2026-06-02 01:28:15,429 - INFO - Fetching generation mix from 2025-03-04 00:00:00+01:00 to 2025-03-07 00:00:00+01:00
+2026-06-02 01:28:17,578 - INFO - Fetching Open-Meteo data from 2025-03-04 to 2025-03-07
+2026-06-02 01:28:17,579 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:28:26,062 - INFO - Fetching DA prices from 2025-03-07 00:00:00+01:00 to 2025-03-10 00:00:00+01:00
+2026-06-02 01:28:27,204 - INFO - Fetching actual load from 2025-03-07 00:00:00+01:00 to 2025-03-10 00:00:00+01:00
+2026-06-02 01:28:27,921 - INFO - Fetching generation mix from 2025-03-07 00:00:00+01:00 to 2025-03-10 00:00:00+01:00
+2026-06-02 01:28:29,968 - INFO - Fetching Open-Meteo data from 2025-03-07 to 2025-03-10
+2026-06-02 01:28:29,969 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:28:35,891 - INFO - Fetching DA prices from 2025-03-10 00:00:00+01:00 to 2025-03-13 00:00:00+01:00
+2026-06-02 01:28:36,830 - INFO - Fetching actual load from 2025-03-10 00:00:00+01:00 to 2025-03-13 00:00:00+01:00
+2026-06-02 01:28:37,650 - INFO - Fetching generation mix from 2025-03-10 00:00:00+01:00 to 2025-03-13 00:00:00+01:00
+2026-06-02 01:28:39,902 - INFO - Fetching Open-Meteo data from 2025-03-10 to 2025-03-13
+2026-06-02 01:28:39,902 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:28:45,826 - INFO - Fetching DA prices from 2025-03-13 00:00:00+01:00 to 2025-03-16 00:00:00+01:00
+2026-06-02 01:28:46,867 - INFO - Fetching actual load from 2025-03-13 00:00:00+01:00 to 2025-03-16 00:00:00+01:00
+2026-06-02 01:28:47,786 - INFO - Fetching generation mix from 2025-03-13 00:00:00+01:00 to 2025-03-16 00:00:00+01:00
+2026-06-02 01:28:50,142 - INFO - Fetching Open-Meteo data from 2025-03-13 to 2025-03-16
+2026-06-02 01:28:50,142 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:28:58,278 - INFO - Fetching DA prices from 2025-03-16 00:00:00+01:00 to 2025-03-19 00:00:00+01:00
+2026-06-02 01:28:59,356 - INFO - Fetching actual load from 2025-03-16 00:00:00+01:00 to 2025-03-19 00:00:00+01:00
+2026-06-02 01:29:00,180 - INFO - Fetching generation mix from 2025-03-16 00:00:00+01:00 to 2025-03-19 00:00:00+01:00
+2026-06-02 01:29:02,943 - INFO - Fetching Open-Meteo data from 2025-03-16 to 2025-03-19
+2026-06-02 01:29:02,943 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:29:08,864 - INFO - Fetching DA prices from 2025-03-19 00:00:00+01:00 to 2025-03-22 00:00:00+01:00
+2026-06-02 01:29:09,700 - INFO - Fetching actual load from 2025-03-19 00:00:00+01:00 to 2025-03-22 00:00:00+01:00
+2026-06-02 01:29:10,521 - INFO - Fetching generation mix from 2025-03-19 00:00:00+01:00 to 2025-03-22 00:00:00+01:00
+2026-06-02 01:29:12,669 - INFO - Fetching Open-Meteo data from 2025-03-19 to 2025-03-22
+2026-06-02 01:29:12,670 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:29:20,742 - INFO - Fetching DA prices from 2025-03-22 00:00:00+01:00 to 2025-03-25 00:00:00+01:00
+2026-06-02 01:29:21,785 - INFO - Fetching actual load from 2025-03-22 00:00:00+01:00 to 2025-03-25 00:00:00+01:00
+2026-06-02 01:29:22,601 - INFO - Fetching generation mix from 2025-03-22 00:00:00+01:00 to 2025-03-25 00:00:00+01:00
+2026-06-02 01:29:24,650 - INFO - Fetching Open-Meteo data from 2025-03-22 to 2025-03-25
+2026-06-02 01:29:24,650 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:29:30,394 - INFO - Fetching DA prices from 2025-03-25 00:00:00+01:00 to 2025-03-28 00:00:00+01:00
+2026-06-02 01:29:31,408 - INFO - Fetching actual load from 2025-03-25 00:00:00+01:00 to 2025-03-28 00:00:00+01:00
+2026-06-02 01:29:32,126 - INFO - Fetching generation mix from 2025-03-25 00:00:00+01:00 to 2025-03-28 00:00:00+01:00
+2026-06-02 01:29:34,350 - INFO - Fetching Open-Meteo data from 2025-03-25 to 2025-03-28
+2026-06-02 01:29:34,350 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:29:39,910 - INFO - Fetching DA prices from 2025-03-28 00:00:00+01:00 to 2025-04-01 00:00:00+02:00
+2026-06-02 01:29:41,035 - INFO - Fetching actual load from 2025-03-28 00:00:00+01:00 to 2025-04-01 00:00:00+02:00
+2026-06-02 01:29:41,751 - INFO - Fetching generation mix from 2025-03-28 00:00:00+01:00 to 2025-04-01 00:00:00+02:00
+2026-06-02 01:29:44,259 - INFO - Fetching Open-Meteo data from 2025-03-28 to 2025-04-01
+2026-06-02 01:29:44,259 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:29:52,275 - INFO - Fetching DA prices from 2025-04-01 00:00:00+02:00 to 2025-04-04 00:00:00+02:00
+2026-06-02 01:29:53,833 - INFO - Fetching actual load from 2025-04-01 00:00:00+02:00 to 2025-04-04 00:00:00+02:00
+2026-06-02 01:29:54,549 - INFO - Fetching generation mix from 2025-04-01 00:00:00+02:00 to 2025-04-04 00:00:00+02:00
+2026-06-02 01:29:57,112 - INFO - Fetching Open-Meteo data from 2025-04-01 to 2025-04-04
+2026-06-02 01:29:57,113 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:30:03,034 - INFO - Fetching DA prices from 2025-04-04 00:00:00+02:00 to 2025-04-07 00:00:00+02:00
+2026-06-02 01:30:59,163 - INFO - Fetching actual load from 2025-04-04 00:00:00+02:00 to 2025-04-07 00:00:00+02:00
+2026-06-02 01:31:18,007 - INFO - Fetching generation mix from 2025-04-04 00:00:00+02:00 to 2025-04-07 00:00:00+02:00
+2026-06-02 01:31:39,718 - INFO - Fetching Open-Meteo data from 2025-04-04 to 2025-04-07
+2026-06-02 01:31:39,718 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:31:46,968 - INFO - Fetching DA prices from 2025-04-07 00:00:00+02:00 to 2025-04-10 00:00:00+02:00
+2026-06-02 01:32:02,343 - INFO - Fetching actual load from 2025-04-07 00:00:00+02:00 to 2025-04-10 00:00:00+02:00
+2026-06-02 01:32:04,699 - INFO - Fetching generation mix from 2025-04-07 00:00:00+02:00 to 2025-04-10 00:00:00+02:00
+2026-06-02 01:32:09,000 - INFO - Fetching Open-Meteo data from 2025-04-07 to 2025-04-10
+2026-06-02 01:32:09,000 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:32:17,380 - INFO - Fetching DA prices from 2025-04-10 00:00:00+02:00 to 2025-04-13 00:00:00+02:00
+2026-06-02 01:32:24,565 - INFO - Fetching actual load from 2025-04-10 00:00:00+02:00 to 2025-04-13 00:00:00+02:00
+2026-06-02 01:32:25,588 - INFO - Fetching generation mix from 2025-04-10 00:00:00+02:00 to 2025-04-13 00:00:00+02:00
+2026-06-02 01:32:31,501 - INFO - Fetching Open-Meteo data from 2025-04-10 to 2025-04-13
+2026-06-02 01:32:31,501 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:32:40,216 - INFO - Fetching DA prices from 2025-04-13 00:00:00+02:00 to 2025-04-16 00:00:00+02:00
+2026-06-02 01:32:44,430 - INFO - Fetching actual load from 2025-04-13 00:00:00+02:00 to 2025-04-16 00:00:00+02:00
+2026-06-02 01:32:48,116 - INFO - Fetching generation mix from 2025-04-13 00:00:00+02:00 to 2025-04-16 00:00:00+02:00
+2026-06-02 01:32:51,274 - INFO - Fetching Open-Meteo data from 2025-04-13 to 2025-04-16
+2026-06-02 01:32:51,274 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:32:57,793 - INFO - Fetching DA prices from 2025-04-16 00:00:00+02:00 to 2025-04-19 00:00:00+02:00
+2026-06-02 01:33:01,736 - INFO - Fetching actual load from 2025-04-16 00:00:00+02:00 to 2025-04-19 00:00:00+02:00
+2026-06-02 01:33:06,241 - INFO - Fetching generation mix from 2025-04-16 00:00:00+02:00 to 2025-04-19 00:00:00+02:00
+2026-06-02 01:33:09,620 - INFO - Fetching Open-Meteo data from 2025-04-16 to 2025-04-19
+2026-06-02 01:33:09,620 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:33:18,208 - INFO - Fetching DA prices from 2025-04-19 00:00:00+02:00 to 2025-04-22 00:00:00+02:00
+2026-06-02 01:33:22,319 - INFO - Fetching actual load from 2025-04-19 00:00:00+02:00 to 2025-04-22 00:00:00+02:00
+2026-06-02 01:33:25,492 - INFO - Fetching generation mix from 2025-04-19 00:00:00+02:00 to 2025-04-22 00:00:00+02:00
+2026-06-02 01:33:28,974 - INFO - Fetching Open-Meteo data from 2025-04-19 to 2025-04-22
+2026-06-02 01:33:28,974 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:33:35,024 - INFO - Fetching DA prices from 2025-04-22 00:00:00+02:00 to 2025-04-25 00:00:00+02:00
+2026-06-02 01:33:38,599 - INFO - Fetching actual load from 2025-04-22 00:00:00+02:00 to 2025-04-25 00:00:00+02:00
+2026-06-02 01:33:39,725 - INFO - Fetching generation mix from 2025-04-22 00:00:00+02:00 to 2025-04-25 00:00:00+02:00
+2026-06-02 01:33:45,049 - INFO - Fetching Open-Meteo data from 2025-04-22 to 2025-04-25
+2026-06-02 01:33:45,050 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:33:50,973 - INFO - Fetching DA prices from 2025-04-25 00:00:00+02:00 to 2025-04-28 00:00:00+02:00
+2026-06-02 01:33:53,037 - INFO - Fetching actual load from 2025-04-25 00:00:00+02:00 to 2025-04-28 00:00:00+02:00
+2026-06-02 01:33:54,878 - INFO - Fetching generation mix from 2025-04-25 00:00:00+02:00 to 2025-04-28 00:00:00+02:00
+2026-06-02 01:33:58,055 - INFO - Fetching Open-Meteo data from 2025-04-25 to 2025-04-28
+2026-06-02 01:33:58,056 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:34:05,105 - INFO - Fetching DA prices from 2025-04-28 00:00:00+02:00 to 2025-05-01 00:00:00+02:00
+2026-06-02 01:34:10,448 - INFO - Fetching actual load from 2025-04-28 00:00:00+02:00 to 2025-05-01 00:00:00+02:00
+2026-06-02 01:34:11,265 - INFO - Fetching generation mix from 2025-04-28 00:00:00+02:00 to 2025-05-01 00:00:00+02:00
+2026-06-02 01:34:13,620 - INFO - Fetching Open-Meteo data from 2025-04-28 to 2025-05-01
+2026-06-02 01:34:13,620 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:34:19,844 - INFO - Fetching DA prices from 2025-05-01 00:00:00+02:00 to 2025-05-04 00:00:00+02:00
+2026-06-02 01:34:28,058 - INFO - Fetching actual load from 2025-05-01 00:00:00+02:00 to 2025-05-04 00:00:00+02:00
+2026-06-02 01:34:35,291 - INFO - Fetching generation mix from 2025-05-01 00:00:00+02:00 to 2025-05-04 00:00:00+02:00
+2026-06-02 01:34:45,670 - INFO - Fetching Open-Meteo data from 2025-05-01 to 2025-05-04
+2026-06-02 01:34:45,670 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:34:52,105 - INFO - Fetching DA prices from 2025-05-04 00:00:00+02:00 to 2025-05-07 00:00:00+02:00
+2026-06-02 01:35:00,722 - INFO - Fetching actual load from 2025-05-04 00:00:00+02:00 to 2025-05-07 00:00:00+02:00
+2026-06-02 01:35:06,866 - INFO - Fetching generation mix from 2025-05-04 00:00:00+02:00 to 2025-05-07 00:00:00+02:00
+2026-06-02 01:35:14,219 - INFO - Fetching Open-Meteo data from 2025-05-04 to 2025-05-07
+2026-06-02 01:35:14,219 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:35:20,469 - INFO - Fetching DA prices from 2025-05-07 00:00:00+02:00 to 2025-05-10 00:00:00+02:00
+2026-06-02 01:35:24,275 - INFO - Fetching actual load from 2025-05-07 00:00:00+02:00 to 2025-05-10 00:00:00+02:00
+2026-06-02 01:35:26,733 - INFO - Fetching generation mix from 2025-05-07 00:00:00+02:00 to 2025-05-10 00:00:00+02:00
+2026-06-02 01:35:29,908 - INFO - Fetching Open-Meteo data from 2025-05-07 to 2025-05-10
+2026-06-02 01:35:29,909 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:35:36,240 - INFO - Fetching DA prices from 2025-05-10 00:00:00+02:00 to 2025-05-13 00:00:00+02:00
+2026-06-02 01:35:38,921 - INFO - Fetching actual load from 2025-05-10 00:00:00+02:00 to 2025-05-13 00:00:00+02:00
+2026-06-02 01:35:39,943 - INFO - Fetching generation mix from 2025-05-10 00:00:00+02:00 to 2025-05-13 00:00:00+02:00
+2026-06-02 01:35:42,196 - INFO - Fetching Open-Meteo data from 2025-05-10 to 2025-05-13
+2026-06-02 01:35:42,197 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:35:48,118 - INFO - Fetching DA prices from 2025-05-13 00:00:00+02:00 to 2025-05-16 00:00:00+02:00
+2026-06-02 01:35:49,257 - INFO - Fetching actual load from 2025-05-13 00:00:00+02:00 to 2025-05-16 00:00:00+02:00
+2026-06-02 01:35:50,285 - INFO - Fetching generation mix from 2025-05-13 00:00:00+02:00 to 2025-05-16 00:00:00+02:00
+2026-06-02 01:35:52,539 - INFO - Fetching Open-Meteo data from 2025-05-13 to 2025-05-16
+2026-06-02 01:35:52,539 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:35:58,359 - INFO - Fetching DA prices from 2025-05-16 00:00:00+02:00 to 2025-05-19 00:00:00+02:00
+2026-06-02 01:35:59,399 - INFO - Fetching actual load from 2025-05-16 00:00:00+02:00 to 2025-05-19 00:00:00+02:00
+2026-06-02 01:36:04,212 - INFO - Fetching generation mix from 2025-05-16 00:00:00+02:00 to 2025-05-19 00:00:00+02:00
+2026-06-02 01:36:06,734 - INFO - Fetching Open-Meteo data from 2025-05-16 to 2025-05-19
+2026-06-02 01:36:06,734 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:36:14,436 - INFO - Fetching DA prices from 2025-05-19 00:00:00+02:00 to 2025-05-22 00:00:00+02:00
+2026-06-02 01:36:19,778 - INFO - Fetching actual load from 2025-05-19 00:00:00+02:00 to 2025-05-22 00:00:00+02:00
+2026-06-02 01:36:22,953 - INFO - Fetching generation mix from 2025-05-19 00:00:00+02:00 to 2025-05-22 00:00:00+02:00
+2026-06-02 01:36:26,638 - INFO - Fetching Open-Meteo data from 2025-05-19 to 2025-05-22
+2026-06-02 01:36:26,639 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:36:33,997 - INFO - Fetching DA prices from 2025-05-22 00:00:00+02:00 to 2025-05-25 00:00:00+02:00
+2026-06-02 01:36:35,342 - INFO - Fetching actual load from 2025-05-22 00:00:00+02:00 to 2025-05-25 00:00:00+02:00
+2026-06-02 01:36:36,222 - INFO - Fetching generation mix from 2025-05-22 00:00:00+02:00 to 2025-05-25 00:00:00+02:00
+2026-06-02 01:36:38,827 - INFO - Fetching Open-Meteo data from 2025-05-22 to 2025-05-25
+2026-06-02 01:36:38,828 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:36:45,260 - INFO - Fetching DA prices from 2025-05-25 00:00:00+02:00 to 2025-05-28 00:00:00+02:00
+2026-06-02 01:36:49,476 - INFO - Fetching actual load from 2025-05-25 00:00:00+02:00 to 2025-05-28 00:00:00+02:00
+2026-06-02 01:36:50,395 - INFO - Fetching generation mix from 2025-05-25 00:00:00+02:00 to 2025-05-28 00:00:00+02:00
+2026-06-02 01:36:55,106 - INFO - Fetching Open-Meteo data from 2025-05-25 to 2025-05-28
+2026-06-02 01:36:55,106 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:37:01,951 - INFO - Fetching DA prices from 2025-05-28 00:00:00+02:00 to 2025-05-31 00:00:00+02:00
+2026-06-02 01:37:06,577 - INFO - Fetching actual load from 2025-05-28 00:00:00+02:00 to 2025-05-31 00:00:00+02:00
+2026-06-02 01:37:10,672 - INFO - Fetching generation mix from 2025-05-28 00:00:00+02:00 to 2025-05-31 00:00:00+02:00
+2026-06-02 01:37:13,641 - INFO - Fetching Open-Meteo data from 2025-05-28 to 2025-05-31
+2026-06-02 01:37:13,641 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:37:20,487 - INFO - Fetching DA prices from 2025-05-31 00:00:00+02:00 to 2025-06-03 00:00:00+02:00
+2026-06-02 01:37:23,677 - INFO - Fetching actual load from 2025-05-31 00:00:00+02:00 to 2025-06-03 00:00:00+02:00
+2026-06-02 01:37:24,701 - INFO - Fetching generation mix from 2025-05-31 00:00:00+02:00 to 2025-06-03 00:00:00+02:00
+2026-06-02 01:37:28,695 - INFO - Fetching Open-Meteo data from 2025-05-31 to 2025-06-03
+2026-06-02 01:37:28,695 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:37:36,767 - INFO - Fetching DA prices from 2025-06-03 00:00:00+02:00 to 2025-06-06 00:00:00+02:00
+2026-06-02 01:37:39,219 - INFO - Fetching actual load from 2025-06-03 00:00:00+02:00 to 2025-06-06 00:00:00+02:00
+2026-06-02 01:37:40,060 - INFO - Fetching generation mix from 2025-06-03 00:00:00+02:00 to 2025-06-06 00:00:00+02:00
+2026-06-02 01:37:42,928 - INFO - Fetching Open-Meteo data from 2025-06-03 to 2025-06-06
+2026-06-02 01:37:42,929 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:37:49,671 - INFO - Fetching DA prices from 2025-06-06 00:00:00+02:00 to 2025-06-09 00:00:00+02:00
+2026-06-02 01:37:51,427 - INFO - Fetching actual load from 2025-06-06 00:00:00+02:00 to 2025-06-09 00:00:00+02:00
+2026-06-02 01:37:53,375 - INFO - Fetching generation mix from 2025-06-06 00:00:00+02:00 to 2025-06-09 00:00:00+02:00
+2026-06-02 01:37:55,729 - INFO - Fetching Open-Meteo data from 2025-06-06 to 2025-06-09
+2026-06-02 01:37:55,729 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:38:01,447 - INFO - Fetching DA prices from 2025-06-09 00:00:00+02:00 to 2025-06-12 00:00:00+02:00
+2026-06-02 01:38:03,409 - INFO - Fetching actual load from 2025-06-09 00:00:00+02:00 to 2025-06-12 00:00:00+02:00
+2026-06-02 01:38:04,535 - INFO - Fetching generation mix from 2025-06-09 00:00:00+02:00 to 2025-06-12 00:00:00+02:00
+2026-06-02 01:38:06,583 - INFO - Fetching Open-Meteo data from 2025-06-09 to 2025-06-12
+2026-06-02 01:38:06,584 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:38:12,505 - INFO - Fetching DA prices from 2025-06-12 00:00:00+02:00 to 2025-06-15 00:00:00+02:00
+2026-06-02 01:38:14,058 - INFO - Fetching actual load from 2025-06-12 00:00:00+02:00 to 2025-06-15 00:00:00+02:00
+2026-06-02 01:38:15,243 - INFO - Fetching generation mix from 2025-06-12 00:00:00+02:00 to 2025-06-15 00:00:00+02:00
+2026-06-02 01:38:17,541 - INFO - Fetching Open-Meteo data from 2025-06-12 to 2025-06-15
+2026-06-02 01:38:17,541 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:38:25,468 - INFO - Fetching DA prices from 2025-06-15 00:00:00+02:00 to 2025-06-18 00:00:00+02:00
+2026-06-02 01:38:26,449 - INFO - Fetching actual load from 2025-06-15 00:00:00+02:00 to 2025-06-18 00:00:00+02:00
+2026-06-02 01:38:27,371 - INFO - Fetching generation mix from 2025-06-15 00:00:00+02:00 to 2025-06-18 00:00:00+02:00
+2026-06-02 01:38:29,623 - INFO - Fetching Open-Meteo data from 2025-06-15 to 2025-06-18
+2026-06-02 01:38:29,623 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:38:36,242 - INFO - Fetching DA prices from 2025-06-18 00:00:00+02:00 to 2025-06-21 00:00:00+02:00
+2026-06-02 01:38:37,814 - INFO - Fetching actual load from 2025-06-18 00:00:00+02:00 to 2025-06-21 00:00:00+02:00
+2026-06-02 01:38:38,696 - INFO - Fetching generation mix from 2025-06-18 00:00:00+02:00 to 2025-06-21 00:00:00+02:00
+2026-06-02 01:38:42,423 - INFO - Fetching Open-Meteo data from 2025-06-18 to 2025-06-21
+2026-06-02 01:38:42,423 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:38:48,551 - INFO - Fetching DA prices from 2025-06-21 00:00:00+02:00 to 2025-06-24 00:00:00+02:00
+2026-06-02 01:38:50,001 - INFO - Fetching actual load from 2025-06-21 00:00:00+02:00 to 2025-06-24 00:00:00+02:00
+2026-06-02 01:38:50,819 - INFO - Fetching generation mix from 2025-06-21 00:00:00+02:00 to 2025-06-24 00:00:00+02:00
+2026-06-02 01:38:53,176 - INFO - Fetching Open-Meteo data from 2025-06-21 to 2025-06-24
+2026-06-02 01:38:53,176 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:38:58,997 - INFO - Fetching DA prices from 2025-06-24 00:00:00+02:00 to 2025-06-27 00:00:00+02:00
+2026-06-02 01:39:00,035 - INFO - Fetching actual load from 2025-06-24 00:00:00+02:00 to 2025-06-27 00:00:00+02:00
+2026-06-02 01:39:01,367 - INFO - Fetching generation mix from 2025-06-24 00:00:00+02:00 to 2025-06-27 00:00:00+02:00
+2026-06-02 01:39:03,621 - INFO - Fetching Open-Meteo data from 2025-06-24 to 2025-06-27
+2026-06-02 01:39:03,621 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:39:09,544 - INFO - Fetching DA prices from 2025-06-27 00:00:00+02:00 to 2025-06-30 00:00:00+02:00
+2026-06-02 01:39:11,095 - INFO - Fetching actual load from 2025-06-27 00:00:00+02:00 to 2025-06-30 00:00:00+02:00
+2026-06-02 01:39:12,120 - INFO - Fetching generation mix from 2025-06-27 00:00:00+02:00 to 2025-06-30 00:00:00+02:00
+2026-06-02 01:39:14,680 - INFO - Fetching Open-Meteo data from 2025-06-27 to 2025-06-30
+2026-06-02 01:39:14,680 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:39:20,603 - INFO - Fetching DA prices from 2025-06-30 00:00:00+02:00 to 2025-07-03 00:00:00+02:00
+2026-06-02 01:39:22,257 - INFO - Fetching actual load from 2025-06-30 00:00:00+02:00 to 2025-07-03 00:00:00+02:00
+2026-06-02 01:39:23,071 - INFO - Fetching generation mix from 2025-06-30 00:00:00+02:00 to 2025-07-03 00:00:00+02:00
+2026-06-02 01:39:25,739 - INFO - Fetching Open-Meteo data from 2025-06-30 to 2025-07-03
+2026-06-02 01:39:25,740 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:39:32,993 - INFO - Fetching DA prices from 2025-07-03 00:00:00+02:00 to 2025-07-06 00:00:00+02:00
+2026-06-02 01:39:33,931 - INFO - Fetching actual load from 2025-07-03 00:00:00+02:00 to 2025-07-06 00:00:00+02:00
+2026-06-02 01:39:35,362 - INFO - Fetching generation mix from 2025-07-03 00:00:00+02:00 to 2025-07-06 00:00:00+02:00
+2026-06-02 01:39:37,924 - INFO - Fetching Open-Meteo data from 2025-07-03 to 2025-07-06
+2026-06-02 01:39:37,925 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:39:43,847 - INFO - Fetching DA prices from 2025-07-06 00:00:00+02:00 to 2025-07-09 00:00:00+02:00
+2026-06-02 01:39:45,501 - INFO - Fetching actual load from 2025-07-06 00:00:00+02:00 to 2025-07-09 00:00:00+02:00
+2026-06-02 01:39:46,426 - INFO - Fetching generation mix from 2025-07-06 00:00:00+02:00 to 2025-07-09 00:00:00+02:00
+2026-06-02 01:39:48,575 - INFO - Fetching Open-Meteo data from 2025-07-06 to 2025-07-09
+2026-06-02 01:39:48,575 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:39:54,397 - INFO - Fetching DA prices from 2025-07-09 00:00:00+02:00 to 2025-07-12 00:00:00+02:00
+2026-06-02 01:39:55,434 - INFO - Fetching actual load from 2025-07-09 00:00:00+02:00 to 2025-07-12 00:00:00+02:00
+2026-06-02 01:39:56,254 - INFO - Fetching generation mix from 2025-07-09 00:00:00+02:00 to 2025-07-12 00:00:00+02:00
+2026-06-02 01:39:58,714 - INFO - Fetching Open-Meteo data from 2025-07-09 to 2025-07-12
+2026-06-02 01:39:58,715 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:40:04,737 - INFO - Fetching DA prices from 2025-07-12 00:00:00+02:00 to 2025-07-15 00:00:00+02:00
+2026-06-02 01:40:07,007 - INFO - Fetching actual load from 2025-07-12 00:00:00+02:00 to 2025-07-15 00:00:00+02:00
+2026-06-02 01:40:08,030 - INFO - Fetching generation mix from 2025-07-12 00:00:00+02:00 to 2025-07-15 00:00:00+02:00
+2026-06-02 01:40:11,717 - INFO - Fetching Open-Meteo data from 2025-07-12 to 2025-07-15
+2026-06-02 01:40:11,718 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:40:17,538 - INFO - Fetching DA prices from 2025-07-15 00:00:00+02:00 to 2025-07-18 00:00:00+02:00
+2026-06-02 01:40:20,217 - INFO - Fetching actual load from 2025-07-15 00:00:00+02:00 to 2025-07-18 00:00:00+02:00
+2026-06-02 01:40:21,138 - INFO - Fetching generation mix from 2025-07-15 00:00:00+02:00 to 2025-07-18 00:00:00+02:00
+2026-06-02 01:40:23,699 - INFO - Fetching Open-Meteo data from 2025-07-15 to 2025-07-18
+2026-06-02 01:40:23,699 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:40:31,668 - INFO - Fetching DA prices from 2025-07-18 00:00:00+02:00 to 2025-07-21 00:00:00+02:00
+2026-06-02 01:40:33,016 - INFO - Fetching actual load from 2025-07-18 00:00:00+02:00 to 2025-07-21 00:00:00+02:00
+2026-06-02 01:40:33,836 - INFO - Fetching generation mix from 2025-07-18 00:00:00+02:00 to 2025-07-21 00:00:00+02:00
+2026-06-02 01:40:36,088 - INFO - Fetching Open-Meteo data from 2025-07-18 to 2025-07-21
+2026-06-02 01:40:36,088 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:40:42,720 - INFO - Fetching DA prices from 2025-07-21 00:00:00+02:00 to 2025-07-24 00:00:00+02:00
+2026-06-02 01:40:43,973 - INFO - Fetching actual load from 2025-07-21 00:00:00+02:00 to 2025-07-24 00:00:00+02:00
+2026-06-02 01:40:44,895 - INFO - Fetching generation mix from 2025-07-21 00:00:00+02:00 to 2025-07-24 00:00:00+02:00
+2026-06-02 01:40:47,045 - INFO - Fetching Open-Meteo data from 2025-07-21 to 2025-07-24
+2026-06-02 01:40:47,046 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:40:52,796 - INFO - Fetching DA prices from 2025-07-24 00:00:00+02:00 to 2025-07-27 00:00:00+02:00
+2026-06-02 01:40:54,316 - INFO - Fetching actual load from 2025-07-24 00:00:00+02:00 to 2025-07-27 00:00:00+02:00
+2026-06-02 01:40:55,238 - INFO - Fetching generation mix from 2025-07-24 00:00:00+02:00 to 2025-07-27 00:00:00+02:00
+2026-06-02 01:41:00,154 - INFO - Fetching Open-Meteo data from 2025-07-24 to 2025-07-27
+2026-06-02 01:41:00,155 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:41:06,444 - INFO - Fetching DA prices from 2025-07-27 00:00:00+02:00 to 2025-07-30 00:00:00+02:00
+2026-06-02 01:41:08,036 - INFO - Fetching actual load from 2025-07-27 00:00:00+02:00 to 2025-07-30 00:00:00+02:00
+2026-06-02 01:41:09,223 - INFO - Fetching generation mix from 2025-07-27 00:00:00+02:00 to 2025-07-30 00:00:00+02:00
+2026-06-02 01:41:11,314 - INFO - Fetching Open-Meteo data from 2025-07-27 to 2025-07-30
+2026-06-02 01:41:11,314 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:41:18,568 - INFO - Fetching DA prices from 2025-07-30 00:00:00+02:00 to 2025-08-02 00:00:00+02:00
+2026-06-02 01:41:20,428 - INFO - Fetching actual load from 2025-07-30 00:00:00+02:00 to 2025-08-02 00:00:00+02:00
+2026-06-02 01:41:21,544 - INFO - Fetching generation mix from 2025-07-30 00:00:00+02:00 to 2025-08-02 00:00:00+02:00
+2026-06-02 01:41:23,603 - INFO - Fetching Open-Meteo data from 2025-07-30 to 2025-08-02
+2026-06-02 01:41:23,604 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:41:29,525 - INFO - Fetching DA prices from 2025-08-02 00:00:00+02:00 to 2025-08-05 00:00:00+02:00
+2026-06-02 01:41:30,565 - INFO - Fetching actual load from 2025-08-02 00:00:00+02:00 to 2025-08-05 00:00:00+02:00
+2026-06-02 01:41:31,487 - INFO - Fetching generation mix from 2025-08-02 00:00:00+02:00 to 2025-08-05 00:00:00+02:00
+2026-06-02 01:41:33,453 - INFO - Fetching Open-Meteo data from 2025-08-02 to 2025-08-05
+2026-06-02 01:41:33,454 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:41:39,107 - INFO - Fetching DA prices from 2025-08-05 00:00:00+02:00 to 2025-08-08 00:00:00+02:00
+2026-06-02 01:41:40,191 - INFO - Fetching actual load from 2025-08-05 00:00:00+02:00 to 2025-08-08 00:00:00+02:00
+2026-06-02 01:41:41,276 - INFO - Fetching generation mix from 2025-08-05 00:00:00+02:00 to 2025-08-08 00:00:00+02:00
+2026-06-02 01:41:43,673 - INFO - Fetching Open-Meteo data from 2025-08-05 to 2025-08-08
+2026-06-02 01:41:43,674 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:41:52,462 - INFO - Fetching DA prices from 2025-08-08 00:00:00+02:00 to 2025-08-11 00:00:00+02:00
+2026-06-02 01:41:53,399 - INFO - Fetching actual load from 2025-08-08 00:00:00+02:00 to 2025-08-11 00:00:00+02:00
+2026-06-02 01:41:54,322 - INFO - Fetching generation mix from 2025-08-08 00:00:00+02:00 to 2025-08-11 00:00:00+02:00
+2026-06-02 01:41:56,575 - INFO - Fetching Open-Meteo data from 2025-08-08 to 2025-08-11
+2026-06-02 01:41:56,575 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:42:02,805 - INFO - Fetching DA prices from 2025-08-11 00:00:00+02:00 to 2025-08-14 00:00:00+02:00
+2026-06-02 01:42:04,870 - INFO - Fetching actual load from 2025-08-11 00:00:00+02:00 to 2025-08-14 00:00:00+02:00
+2026-06-02 01:42:05,996 - INFO - Fetching generation mix from 2025-08-11 00:00:00+02:00 to 2025-08-14 00:00:00+02:00
+2026-06-02 01:42:08,254 - INFO - Fetching Open-Meteo data from 2025-08-11 to 2025-08-14
+2026-06-02 01:42:08,254 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:42:15,298 - INFO - Fetching DA prices from 2025-08-14 00:00:00+02:00 to 2025-08-17 00:00:00+02:00
+2026-06-02 01:42:16,747 - INFO - Fetching actual load from 2025-08-14 00:00:00+02:00 to 2025-08-17 00:00:00+02:00
+2026-06-02 01:42:18,182 - INFO - Fetching generation mix from 2025-08-14 00:00:00+02:00 to 2025-08-17 00:00:00+02:00
+2026-06-02 01:42:20,744 - INFO - Fetching Open-Meteo data from 2025-08-14 to 2025-08-17
+2026-06-02 01:42:20,744 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:42:27,165 - INFO - Fetching DA prices from 2025-08-17 00:00:00+02:00 to 2025-08-20 00:00:00+02:00
+2026-06-02 01:42:28,211 - INFO - Fetching actual load from 2025-08-17 00:00:00+02:00 to 2025-08-20 00:00:00+02:00
+2026-06-02 01:42:29,138 - INFO - Fetching generation mix from 2025-08-17 00:00:00+02:00 to 2025-08-20 00:00:00+02:00
+2026-06-02 01:42:31,249 - INFO - Fetching Open-Meteo data from 2025-08-17 to 2025-08-20
+2026-06-02 01:42:31,250 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:42:36,904 - INFO - Fetching DA prices from 2025-08-20 00:00:00+02:00 to 2025-08-23 00:00:00+02:00
+2026-06-02 01:42:38,355 - INFO - Fetching actual load from 2025-08-20 00:00:00+02:00 to 2025-08-23 00:00:00+02:00
+2026-06-02 01:42:39,240 - INFO - Fetching generation mix from 2025-08-20 00:00:00+02:00 to 2025-08-23 00:00:00+02:00
+2026-06-02 01:42:41,530 - INFO - Fetching Open-Meteo data from 2025-08-20 to 2025-08-23
+2026-06-02 01:42:41,530 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:42:47,759 - INFO - Fetching DA prices from 2025-08-23 00:00:00+02:00 to 2025-08-26 00:00:00+02:00
+2026-06-02 01:42:48,902 - INFO - Fetching actual load from 2025-08-23 00:00:00+02:00 to 2025-08-26 00:00:00+02:00
+2026-06-02 01:42:49,618 - INFO - Fetching generation mix from 2025-08-23 00:00:00+02:00 to 2025-08-26 00:00:00+02:00
+2026-06-02 01:42:51,730 - INFO - Fetching Open-Meteo data from 2025-08-23 to 2025-08-26
+2026-06-02 01:42:51,731 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:42:57,589 - INFO - Fetching DA prices from 2025-08-26 00:00:00+02:00 to 2025-08-29 00:00:00+02:00
+2026-06-02 01:42:58,630 - INFO - Fetching actual load from 2025-08-26 00:00:00+02:00 to 2025-08-29 00:00:00+02:00
+2026-06-02 01:42:59,446 - INFO - Fetching generation mix from 2025-08-26 00:00:00+02:00 to 2025-08-29 00:00:00+02:00
+2026-06-02 01:43:02,624 - INFO - Fetching Open-Meteo data from 2025-08-26 to 2025-08-29
+2026-06-02 01:43:02,624 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:43:08,545 - INFO - Fetching DA prices from 2025-08-29 00:00:00+02:00 to 2025-09-01 00:00:00+02:00
+2026-06-02 01:43:09,688 - INFO - Fetching actual load from 2025-08-29 00:00:00+02:00 to 2025-09-01 00:00:00+02:00
+2026-06-02 01:43:10,712 - INFO - Fetching generation mix from 2025-08-29 00:00:00+02:00 to 2025-09-01 00:00:00+02:00
+2026-06-02 01:43:13,068 - INFO - Fetching Open-Meteo data from 2025-08-29 to 2025-09-01
+2026-06-02 01:43:13,069 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:43:18,888 - INFO - Fetching DA prices from 2025-09-01 00:00:00+02:00 to 2025-09-04 00:00:00+02:00
+2026-06-02 01:43:19,929 - INFO - Fetching actual load from 2025-09-01 00:00:00+02:00 to 2025-09-04 00:00:00+02:00
+2026-06-02 01:43:20,748 - INFO - Fetching generation mix from 2025-09-01 00:00:00+02:00 to 2025-09-04 00:00:00+02:00
+2026-06-02 01:43:23,410 - INFO - Fetching Open-Meteo data from 2025-09-01 to 2025-09-04
+2026-06-02 01:43:23,411 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:43:29,334 - INFO - Fetching DA prices from 2025-09-04 00:00:00+02:00 to 2025-09-07 00:00:00+02:00
+2026-06-02 01:43:30,373 - INFO - Fetching actual load from 2025-09-04 00:00:00+02:00 to 2025-09-07 00:00:00+02:00
+2026-06-02 01:43:31,192 - INFO - Fetching generation mix from 2025-09-04 00:00:00+02:00 to 2025-09-07 00:00:00+02:00
+2026-06-02 01:43:33,446 - INFO - Fetching Open-Meteo data from 2025-09-04 to 2025-09-07
+2026-06-02 01:43:33,446 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:43:39,265 - INFO - Fetching DA prices from 2025-09-07 00:00:00+02:00 to 2025-09-10 00:00:00+02:00
+2026-06-02 01:43:40,306 - INFO - Fetching actual load from 2025-09-07 00:00:00+02:00 to 2025-09-10 00:00:00+02:00
+2026-06-02 01:43:41,228 - INFO - Fetching generation mix from 2025-09-07 00:00:00+02:00 to 2025-09-10 00:00:00+02:00
+2026-06-02 01:43:43,583 - INFO - Fetching Open-Meteo data from 2025-09-07 to 2025-09-10
+2026-06-02 01:43:43,584 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:43:49,505 - INFO - Fetching DA prices from 2025-09-10 00:00:00+02:00 to 2025-09-13 00:00:00+02:00
+2026-06-02 01:43:50,956 - INFO - Fetching actual load from 2025-09-10 00:00:00+02:00 to 2025-09-13 00:00:00+02:00
+2026-06-02 01:43:51,672 - INFO - Fetching generation mix from 2025-09-10 00:00:00+02:00 to 2025-09-13 00:00:00+02:00
+2026-06-02 01:43:54,131 - INFO - Fetching Open-Meteo data from 2025-09-10 to 2025-09-13
+2026-06-02 01:43:54,131 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:43:59,950 - INFO - Fetching DA prices from 2025-09-13 00:00:00+02:00 to 2025-09-16 00:00:00+02:00
+2026-06-02 01:44:01,093 - INFO - Fetching actual load from 2025-09-13 00:00:00+02:00 to 2025-09-16 00:00:00+02:00
+2026-06-02 01:44:02,117 - INFO - Fetching generation mix from 2025-09-13 00:00:00+02:00 to 2025-09-16 00:00:00+02:00
+2026-06-02 01:44:04,370 - INFO - Fetching Open-Meteo data from 2025-09-13 to 2025-09-16
+2026-06-02 01:44:04,371 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:44:10,258 - INFO - Fetching DA prices from 2025-09-16 00:00:00+02:00 to 2025-09-19 00:00:00+02:00
+2026-06-02 01:44:11,334 - INFO - Fetching actual load from 2025-09-16 00:00:00+02:00 to 2025-09-19 00:00:00+02:00
+2026-06-02 01:44:12,153 - INFO - Fetching generation mix from 2025-09-16 00:00:00+02:00 to 2025-09-19 00:00:00+02:00
+2026-06-02 01:44:14,175 - INFO - Fetching Open-Meteo data from 2025-09-16 to 2025-09-19
+2026-06-02 01:44:14,176 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:44:19,805 - INFO - Fetching DA prices from 2025-09-19 00:00:00+02:00 to 2025-09-22 00:00:00+02:00
+2026-06-02 01:44:20,755 - INFO - Fetching actual load from 2025-09-19 00:00:00+02:00 to 2025-09-22 00:00:00+02:00
+2026-06-02 01:44:21,471 - INFO - Fetching generation mix from 2025-09-19 00:00:00+02:00 to 2025-09-22 00:00:00+02:00
+2026-06-02 01:44:24,235 - INFO - Fetching Open-Meteo data from 2025-09-19 to 2025-09-22
+2026-06-02 01:44:24,236 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:44:30,152 - INFO - Fetching DA prices from 2025-09-22 00:00:00+02:00 to 2025-09-25 00:00:00+02:00
+2026-06-02 01:44:31,096 - INFO - Fetching actual load from 2025-09-22 00:00:00+02:00 to 2025-09-25 00:00:00+02:00
+2026-06-02 01:44:32,019 - INFO - Fetching generation mix from 2025-09-22 00:00:00+02:00 to 2025-09-25 00:00:00+02:00
+2026-06-02 01:44:34,134 - INFO - Fetching Open-Meteo data from 2025-09-22 to 2025-09-25
+2026-06-02 01:44:34,135 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:44:39,711 - INFO - Fetching DA prices from 2025-09-25 00:00:00+02:00 to 2025-09-28 00:00:00+02:00
+2026-06-02 01:44:40,720 - INFO - Fetching actual load from 2025-09-25 00:00:00+02:00 to 2025-09-28 00:00:00+02:00
+2026-06-02 01:44:41,541 - INFO - Fetching generation mix from 2025-09-25 00:00:00+02:00 to 2025-09-28 00:00:00+02:00
+2026-06-02 01:44:43,772 - INFO - Fetching Open-Meteo data from 2025-09-25 to 2025-09-28
+2026-06-02 01:44:43,773 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:44:50,639 - INFO - Fetching DA prices from 2025-09-28 00:00:00+02:00 to 2025-10-01 00:00:00+02:00
+2026-06-02 01:44:51,679 - INFO - Fetching actual load from 2025-09-28 00:00:00+02:00 to 2025-10-01 00:00:00+02:00
+2026-06-02 01:44:52,395 - INFO - Fetching generation mix from 2025-09-28 00:00:00+02:00 to 2025-10-01 00:00:00+02:00
+2026-06-02 01:44:54,654 - INFO - Fetching Open-Meteo data from 2025-09-28 to 2025-10-01
+2026-06-02 01:44:54,655 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:45:01,083 - INFO - Fetching DA prices from 2025-10-01 00:00:00+02:00 to 2025-10-04 00:00:00+02:00
+2026-06-02 01:45:09,968 - INFO - Fetching actual load from 2025-10-01 00:00:00+02:00 to 2025-10-04 00:00:00+02:00
+2026-06-02 01:45:14,105 - INFO - Fetching generation mix from 2025-10-01 00:00:00+02:00 to 2025-10-04 00:00:00+02:00
+2026-06-02 01:45:21,477 - INFO - Fetching Open-Meteo data from 2025-10-01 to 2025-10-04
+2026-06-02 01:45:21,478 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:45:33,749 - INFO - Fetching DA prices from 2025-10-04 00:00:00+02:00 to 2025-10-07 00:00:00+02:00
+2026-06-02 01:45:38,884 - INFO - Fetching actual load from 2025-10-04 00:00:00+02:00 to 2025-10-07 00:00:00+02:00
+2026-06-02 01:45:40,214 - INFO - Fetching generation mix from 2025-10-04 00:00:00+02:00 to 2025-10-07 00:00:00+02:00
+2026-06-02 01:45:45,337 - INFO - Fetching Open-Meteo data from 2025-10-04 to 2025-10-07
+2026-06-02 01:45:45,337 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:45:51,872 - INFO - Fetching DA prices from 2025-10-07 00:00:00+02:00 to 2025-10-10 00:00:00+02:00
+2026-06-02 01:45:55,884 - INFO - Fetching actual load from 2025-10-07 00:00:00+02:00 to 2025-10-10 00:00:00+02:00
+2026-06-02 01:45:59,672 - INFO - Fetching generation mix from 2025-10-07 00:00:00+02:00 to 2025-10-10 00:00:00+02:00
+2026-06-02 01:46:05,612 - INFO - Fetching Open-Meteo data from 2025-10-07 to 2025-10-10
+2026-06-02 01:46:05,613 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:46:11,536 - INFO - Fetching DA prices from 2025-10-10 00:00:00+02:00 to 2025-10-13 00:00:00+02:00
+2026-06-02 01:46:16,874 - INFO - Fetching actual load from 2025-10-10 00:00:00+02:00 to 2025-10-13 00:00:00+02:00
+2026-06-02 01:46:18,206 - INFO - Fetching generation mix from 2025-10-10 00:00:00+02:00 to 2025-10-13 00:00:00+02:00
+2026-06-02 01:46:25,380 - INFO - Fetching Open-Meteo data from 2025-10-10 to 2025-10-13
+2026-06-02 01:46:25,381 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:46:32,275 - INFO - Fetching DA prices from 2025-10-13 00:00:00+02:00 to 2025-10-16 00:00:00+02:00
+2026-06-02 01:46:36,434 - INFO - Fetching actual load from 2025-10-13 00:00:00+02:00 to 2025-10-16 00:00:00+02:00
+2026-06-02 01:46:37,355 - INFO - Fetching generation mix from 2025-10-13 00:00:00+02:00 to 2025-10-16 00:00:00+02:00
+2026-06-02 01:46:41,861 - INFO - Fetching Open-Meteo data from 2025-10-13 to 2025-10-16
+2026-06-02 01:46:41,862 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:46:47,783 - INFO - Fetching DA prices from 2025-10-16 00:00:00+02:00 to 2025-10-19 00:00:00+02:00
+2026-06-02 01:46:49,028 - INFO - Fetching actual load from 2025-10-16 00:00:00+02:00 to 2025-10-19 00:00:00+02:00
+2026-06-02 01:46:50,052 - INFO - Fetching generation mix from 2025-10-16 00:00:00+02:00 to 2025-10-19 00:00:00+02:00
+2026-06-02 01:46:52,613 - INFO - Fetching Open-Meteo data from 2025-10-16 to 2025-10-19
+2026-06-02 01:46:52,613 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:46:58,432 - INFO - Fetching DA prices from 2025-10-19 00:00:00+02:00 to 2025-10-22 00:00:00+02:00
+2026-06-02 01:46:59,473 - INFO - Fetching actual load from 2025-10-19 00:00:00+02:00 to 2025-10-22 00:00:00+02:00
+2026-06-02 01:47:00,396 - INFO - Fetching generation mix from 2025-10-19 00:00:00+02:00 to 2025-10-22 00:00:00+02:00
+2026-06-02 01:47:03,570 - INFO - Fetching Open-Meteo data from 2025-10-19 to 2025-10-22
+2026-06-02 01:47:03,570 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:47:10,209 - INFO - Fetching DA prices from 2025-10-22 00:00:00+02:00 to 2025-10-25 00:00:00+02:00
+2026-06-02 01:47:11,454 - INFO - Fetching actual load from 2025-10-22 00:00:00+02:00 to 2025-10-25 00:00:00+02:00
+2026-06-02 01:47:12,580 - INFO - Fetching generation mix from 2025-10-22 00:00:00+02:00 to 2025-10-25 00:00:00+02:00
+2026-06-02 01:47:16,267 - INFO - Fetching Open-Meteo data from 2025-10-22 to 2025-10-25
+2026-06-02 01:47:16,267 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:47:22,496 - INFO - Fetching DA prices from 2025-10-25 00:00:00+02:00 to 2025-10-27 00:00:00+01:00
+2026-06-02 01:47:24,253 - INFO - Fetching actual load from 2025-10-25 00:00:00+02:00 to 2025-10-27 00:00:00+01:00
+2026-06-02 01:47:25,073 - INFO - Fetching generation mix from 2025-10-25 00:00:00+02:00 to 2025-10-27 00:00:00+01:00
+2026-06-02 01:47:27,735 - INFO - Fetching Open-Meteo data from 2025-10-25 to 2025-10-27
+2026-06-02 01:47:27,736 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:47:33,555 - INFO - Fetching DA prices from 2025-10-27 00:00:00+01:00 to 2025-10-30 00:00:00+01:00
+2026-06-02 01:47:34,904 - INFO - Fetching actual load from 2025-10-27 00:00:00+01:00 to 2025-10-30 00:00:00+01:00
+2026-06-02 01:47:36,029 - INFO - Fetching generation mix from 2025-10-27 00:00:00+01:00 to 2025-10-30 00:00:00+01:00
+2026-06-02 01:47:40,229 - INFO - Fetching Open-Meteo data from 2025-10-27 to 2025-10-30
+2026-06-02 01:47:40,229 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:47:46,253 - INFO - Fetching DA prices from 2025-10-30 00:00:00+01:00 to 2025-11-02 00:00:00+01:00
+2026-06-02 01:47:47,396 - INFO - Fetching actual load from 2025-10-30 00:00:00+01:00 to 2025-11-02 00:00:00+01:00
+2026-06-02 01:47:48,112 - INFO - Fetching generation mix from 2025-10-30 00:00:00+01:00 to 2025-11-02 00:00:00+01:00
+2026-06-02 01:47:50,547 - INFO - Fetching Open-Meteo data from 2025-10-30 to 2025-11-02
+2026-06-02 01:47:50,547 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:47:58,439 - INFO - Fetching DA prices from 2025-11-02 00:00:00+01:00 to 2025-11-05 00:00:00+01:00
+2026-06-02 01:47:59,478 - INFO - Fetching actual load from 2025-11-02 00:00:00+01:00 to 2025-11-05 00:00:00+01:00
+2026-06-02 01:48:00,298 - INFO - Fetching generation mix from 2025-11-02 00:00:00+01:00 to 2025-11-05 00:00:00+01:00
+2026-06-02 01:48:03,969 - INFO - Fetching Open-Meteo data from 2025-11-02 to 2025-11-05
+2026-06-02 01:48:03,970 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:48:09,908 - INFO - Fetching DA prices from 2025-11-05 00:00:00+01:00 to 2025-11-08 00:00:00+01:00
+2026-06-02 01:48:11,419 - INFO - Fetching actual load from 2025-11-05 00:00:00+01:00 to 2025-11-08 00:00:00+01:00
+2026-06-02 01:48:12,280 - INFO - Fetching generation mix from 2025-11-05 00:00:00+01:00 to 2025-11-08 00:00:00+01:00
+2026-06-02 01:48:14,840 - INFO - Fetching Open-Meteo data from 2025-11-05 to 2025-11-08
+2026-06-02 01:48:14,841 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:48:21,479 - INFO - Fetching DA prices from 2025-11-08 00:00:00+01:00 to 2025-11-11 00:00:00+01:00
+2026-06-02 01:48:22,724 - INFO - Fetching actual load from 2025-11-08 00:00:00+01:00 to 2025-11-11 00:00:00+01:00
+2026-06-02 01:48:23,543 - INFO - Fetching generation mix from 2025-11-08 00:00:00+01:00 to 2025-11-11 00:00:00+01:00
+2026-06-02 01:48:26,310 - INFO - Fetching Open-Meteo data from 2025-11-08 to 2025-11-11
+2026-06-02 01:48:26,310 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:48:33,254 - INFO - Fetching DA prices from 2025-11-11 00:00:00+01:00 to 2025-11-14 00:00:00+01:00
+2026-06-02 01:48:34,602 - INFO - Fetching actual load from 2025-11-11 00:00:00+01:00 to 2025-11-14 00:00:00+01:00
+2026-06-02 01:48:35,421 - INFO - Fetching generation mix from 2025-11-11 00:00:00+01:00 to 2025-11-14 00:00:00+01:00
+2026-06-02 01:48:38,084 - INFO - Fetching Open-Meteo data from 2025-11-11 to 2025-11-14
+2026-06-02 01:48:38,085 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:48:44,416 - INFO - Fetching DA prices from 2025-11-14 00:00:00+01:00 to 2025-11-17 00:00:00+01:00
+2026-06-02 01:48:45,868 - INFO - Fetching actual load from 2025-11-14 00:00:00+01:00 to 2025-11-17 00:00:00+01:00
+2026-06-02 01:48:47,584 - INFO - Fetching generation mix from 2025-11-14 00:00:00+01:00 to 2025-11-17 00:00:00+01:00
+2026-06-02 01:48:50,398 - INFO - Fetching Open-Meteo data from 2025-11-14 to 2025-11-17
+2026-06-02 01:48:50,398 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:48:56,342 - INFO - Fetching DA prices from 2025-11-17 00:00:00+01:00 to 2025-11-20 00:00:00+01:00
+2026-06-02 01:48:57,435 - INFO - Fetching actual load from 2025-11-17 00:00:00+01:00 to 2025-11-20 00:00:00+01:00
+2026-06-02 01:48:58,359 - INFO - Fetching generation mix from 2025-11-17 00:00:00+01:00 to 2025-11-20 00:00:00+01:00
+2026-06-02 01:49:02,219 - INFO - Fetching Open-Meteo data from 2025-11-17 to 2025-11-20
+2026-06-02 01:49:02,220 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:49:08,991 - INFO - Fetching DA prices from 2025-11-20 00:00:00+01:00 to 2025-11-23 00:00:00+01:00
+2026-06-02 01:49:10,135 - INFO - Fetching actual load from 2025-11-20 00:00:00+01:00 to 2025-11-23 00:00:00+01:00
+2026-06-02 01:49:11,159 - INFO - Fetching generation mix from 2025-11-20 00:00:00+01:00 to 2025-11-23 00:00:00+01:00
+2026-06-02 01:49:13,987 - INFO - Fetching Open-Meteo data from 2025-11-20 to 2025-11-23
+2026-06-02 01:49:13,987 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:49:21,281 - INFO - Fetching DA prices from 2025-11-23 00:00:00+01:00 to 2025-11-26 00:00:00+01:00
+2026-06-02 01:49:22,218 - INFO - Fetching actual load from 2025-11-23 00:00:00+01:00 to 2025-11-26 00:00:00+01:00
+2026-06-02 01:49:23,208 - INFO - Fetching generation mix from 2025-11-23 00:00:00+01:00 to 2025-11-26 00:00:00+01:00
+2026-06-02 01:49:26,316 - INFO - Fetching Open-Meteo data from 2025-11-23 to 2025-11-26
+2026-06-02 01:49:26,317 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:49:32,134 - INFO - Fetching DA prices from 2025-11-26 00:00:00+01:00 to 2025-11-29 00:00:00+01:00
+2026-06-02 01:49:33,174 - INFO - Fetching actual load from 2025-11-26 00:00:00+01:00 to 2025-11-29 00:00:00+01:00
+2026-06-02 01:49:34,097 - INFO - Fetching generation mix from 2025-11-26 00:00:00+01:00 to 2025-11-29 00:00:00+01:00
+2026-06-02 01:49:36,556 - INFO - Fetching Open-Meteo data from 2025-11-26 to 2025-11-29
+2026-06-02 01:49:36,556 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:49:42,476 - INFO - Fetching DA prices from 2025-11-29 00:00:00+01:00 to 2025-12-02 00:00:00+01:00
+2026-06-02 01:49:43,620 - INFO - Fetching actual load from 2025-11-29 00:00:00+01:00 to 2025-12-02 00:00:00+01:00
+2026-06-02 01:49:44,643 - INFO - Fetching generation mix from 2025-11-29 00:00:00+01:00 to 2025-12-02 00:00:00+01:00
+2026-06-02 01:49:47,409 - INFO - Fetching Open-Meteo data from 2025-11-29 to 2025-12-02
+2026-06-02 01:49:47,410 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:49:53,230 - INFO - Fetching DA prices from 2025-12-02 00:00:00+01:00 to 2025-12-05 00:00:00+01:00
+2026-06-02 01:49:54,269 - INFO - Fetching actual load from 2025-12-02 00:00:00+01:00 to 2025-12-05 00:00:00+01:00
+2026-06-02 01:49:55,191 - INFO - Fetching generation mix from 2025-12-02 00:00:00+01:00 to 2025-12-05 00:00:00+01:00
+2026-06-02 01:49:57,639 - INFO - Fetching Open-Meteo data from 2025-12-02 to 2025-12-05
+2026-06-02 01:49:57,639 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:50:03,317 - INFO - Fetching DA prices from 2025-12-05 00:00:00+01:00 to 2025-12-08 00:00:00+01:00
+2026-06-02 01:50:07,786 - INFO - Fetching actual load from 2025-12-05 00:00:00+01:00 to 2025-12-08 00:00:00+01:00
+2026-06-02 01:50:11,678 - INFO - Fetching generation mix from 2025-12-05 00:00:00+01:00 to 2025-12-08 00:00:00+01:00
+2026-06-02 01:50:14,544 - INFO - Fetching Open-Meteo data from 2025-12-05 to 2025-12-08
+2026-06-02 01:50:14,545 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:50:22,310 - INFO - Fetching DA prices from 2025-12-08 00:00:00+01:00 to 2025-12-11 00:00:00+01:00
+2026-06-02 01:50:24,787 - INFO - Fetching actual load from 2025-12-08 00:00:00+01:00 to 2025-12-11 00:00:00+01:00
+2026-06-02 01:50:26,014 - INFO - Fetching generation mix from 2025-12-08 00:00:00+01:00 to 2025-12-11 00:00:00+01:00
+2026-06-02 01:50:29,469 - INFO - Fetching Open-Meteo data from 2025-12-08 to 2025-12-11
+2026-06-02 01:50:29,470 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:50:37,973 - INFO - Fetching DA prices from 2025-12-11 00:00:00+01:00 to 2025-12-14 00:00:00+01:00
+2026-06-02 01:50:39,735 - INFO - Fetching actual load from 2025-12-11 00:00:00+01:00 to 2025-12-14 00:00:00+01:00
+2026-06-02 01:50:40,759 - INFO - Fetching generation mix from 2025-12-11 00:00:00+01:00 to 2025-12-14 00:00:00+01:00
+2026-06-02 01:50:43,699 - INFO - Fetching Open-Meteo data from 2025-12-11 to 2025-12-14
+2026-06-02 01:50:43,699 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:50:50,371 - INFO - Fetching DA prices from 2025-12-14 00:00:00+01:00 to 2025-12-17 00:00:00+01:00
+2026-06-02 01:50:51,614 - INFO - Fetching actual load from 2025-12-14 00:00:00+01:00 to 2025-12-17 00:00:00+01:00
+2026-06-02 01:50:52,636 - INFO - Fetching generation mix from 2025-12-14 00:00:00+01:00 to 2025-12-17 00:00:00+01:00
+2026-06-02 01:50:55,258 - INFO - Fetching Open-Meteo data from 2025-12-14 to 2025-12-17
+2026-06-02 01:50:55,259 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:51:02,860 - INFO - Fetching DA prices from 2025-12-17 00:00:00+01:00 to 2025-12-20 00:00:00+01:00
+2026-06-02 01:51:04,003 - INFO - Fetching actual load from 2025-12-17 00:00:00+01:00 to 2025-12-20 00:00:00+01:00
+2026-06-02 01:51:04,924 - INFO - Fetching generation mix from 2025-12-17 00:00:00+01:00 to 2025-12-20 00:00:00+01:00
+2026-06-02 01:51:08,203 - INFO - Fetching Open-Meteo data from 2025-12-17 to 2025-12-20
+2026-06-02 01:51:08,203 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:51:14,433 - INFO - Fetching DA prices from 2025-12-20 00:00:00+01:00 to 2025-12-23 00:00:00+01:00
+2026-06-02 01:51:15,574 - INFO - Fetching actual load from 2025-12-20 00:00:00+01:00 to 2025-12-23 00:00:00+01:00
+2026-06-02 01:51:16,598 - INFO - Fetching generation mix from 2025-12-20 00:00:00+01:00 to 2025-12-23 00:00:00+01:00
+2026-06-02 01:51:19,241 - INFO - Fetching Open-Meteo data from 2025-12-20 to 2025-12-23
+2026-06-02 01:51:19,241 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:51:25,091 - INFO - Fetching DA prices from 2025-12-23 00:00:00+01:00 to 2025-12-26 00:00:00+01:00
+2026-06-02 01:51:26,838 - INFO - Fetching actual load from 2025-12-23 00:00:00+01:00 to 2025-12-26 00:00:00+01:00
+2026-06-02 01:51:27,759 - INFO - Fetching generation mix from 2025-12-23 00:00:00+01:00 to 2025-12-26 00:00:00+01:00
+2026-06-02 01:51:30,087 - INFO - Fetching Open-Meteo data from 2025-12-23 to 2025-12-26
+2026-06-02 01:51:30,087 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:51:35,652 - INFO - Fetching DA prices from 2025-12-26 00:00:00+01:00 to 2025-12-29 00:00:00+01:00
+2026-06-02 01:51:36,873 - INFO - Fetching actual load from 2025-12-26 00:00:00+01:00 to 2025-12-29 00:00:00+01:00
+2026-06-02 01:51:37,898 - INFO - Fetching generation mix from 2025-12-26 00:00:00+01:00 to 2025-12-29 00:00:00+01:00
+2026-06-02 01:51:40,765 - INFO - Fetching Open-Meteo data from 2025-12-26 to 2025-12-29
+2026-06-02 01:51:40,765 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:51:46,688 - INFO - Fetching DA prices from 2025-12-29 00:00:00+01:00 to 2026-01-01 00:00:00+01:00
+2026-06-02 01:51:47,727 - INFO - Fetching actual load from 2025-12-29 00:00:00+01:00 to 2026-01-01 00:00:00+01:00
+2026-06-02 01:51:48,753 - INFO - Fetching generation mix from 2025-12-29 00:00:00+01:00 to 2026-01-01 00:00:00+01:00
+2026-06-02 01:51:52,433 - INFO - Fetching Open-Meteo data from 2025-12-29 to 2026-01-01
+2026-06-02 01:51:52,433 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:52:00,102 - INFO - Fetching DA prices from 2026-01-01 00:00:00+01:00 to 2026-01-04 00:00:00+01:00
+2026-06-02 01:52:02,473 - INFO - Fetching actual load from 2026-01-01 00:00:00+01:00 to 2026-01-04 00:00:00+01:00
+2026-06-02 01:52:04,111 - INFO - Fetching generation mix from 2026-01-01 00:00:00+01:00 to 2026-01-04 00:00:00+01:00
+2026-06-02 01:52:06,672 - INFO - Fetching Open-Meteo data from 2026-01-01 to 2026-01-04
+2026-06-02 01:52:06,672 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:52:13,105 - INFO - Fetching DA prices from 2026-01-04 00:00:00+01:00 to 2026-01-07 00:00:00+01:00
+2026-06-02 01:52:14,249 - INFO - Fetching actual load from 2026-01-04 00:00:00+01:00 to 2026-01-07 00:00:00+01:00
+2026-06-02 01:52:15,170 - INFO - Fetching generation mix from 2026-01-04 00:00:00+01:00 to 2026-01-07 00:00:00+01:00
+2026-06-02 01:52:17,834 - INFO - Fetching Open-Meteo data from 2026-01-04 to 2026-01-07
+2026-06-02 01:52:17,835 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:52:23,655 - INFO - Fetching DA prices from 2026-01-07 00:00:00+01:00 to 2026-01-10 00:00:00+01:00
+2026-06-02 01:52:24,798 - INFO - Fetching actual load from 2026-01-07 00:00:00+01:00 to 2026-01-10 00:00:00+01:00
+2026-06-02 01:52:25,927 - INFO - Fetching generation mix from 2026-01-07 00:00:00+01:00 to 2026-01-10 00:00:00+01:00
+2026-06-02 01:52:28,185 - INFO - Fetching Open-Meteo data from 2026-01-07 to 2026-01-10
+2026-06-02 01:52:28,185 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:52:33,799 - INFO - Fetching DA prices from 2026-01-10 00:00:00+01:00 to 2026-01-13 00:00:00+01:00
+2026-06-02 01:52:34,836 - INFO - Fetching actual load from 2026-01-10 00:00:00+01:00 to 2026-01-13 00:00:00+01:00
+2026-06-02 01:52:35,963 - INFO - Fetching generation mix from 2026-01-10 00:00:00+01:00 to 2026-01-13 00:00:00+01:00
+2026-06-02 01:52:38,192 - INFO - Fetching Open-Meteo data from 2026-01-10 to 2026-01-13
+2026-06-02 01:52:38,192 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:52:43,817 - INFO - Fetching DA prices from 2026-01-13 00:00:00+01:00 to 2026-01-16 00:00:00+01:00
+2026-06-02 01:52:45,181 - INFO - Fetching actual load from 2026-01-13 00:00:00+01:00 to 2026-01-16 00:00:00+01:00
+2026-06-02 01:52:46,308 - INFO - Fetching generation mix from 2026-01-13 00:00:00+01:00 to 2026-01-16 00:00:00+01:00
+2026-06-02 01:52:48,768 - INFO - Fetching Open-Meteo data from 2026-01-13 to 2026-01-16
+2026-06-02 01:52:48,768 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:52:54,490 - INFO - Fetching DA prices from 2026-01-16 00:00:00+01:00 to 2026-01-19 00:00:00+01:00
+2026-06-02 01:52:55,423 - INFO - Fetching actual load from 2026-01-16 00:00:00+01:00 to 2026-01-19 00:00:00+01:00
+2026-06-02 01:52:56,652 - INFO - Fetching generation mix from 2026-01-16 00:00:00+01:00 to 2026-01-19 00:00:00+01:00
+2026-06-02 01:52:59,418 - INFO - Fetching Open-Meteo data from 2026-01-16 to 2026-01-19
+2026-06-02 01:52:59,419 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:53:05,139 - INFO - Fetching DA prices from 2026-01-19 00:00:00+01:00 to 2026-01-22 00:00:00+01:00
+2026-06-02 01:53:06,280 - INFO - Fetching actual load from 2026-01-19 00:00:00+01:00 to 2026-01-22 00:00:00+01:00
+2026-06-02 01:53:07,408 - INFO - Fetching generation mix from 2026-01-19 00:00:00+01:00 to 2026-01-22 00:00:00+01:00
+2026-06-02 01:53:09,708 - INFO - Fetching Open-Meteo data from 2026-01-19 to 2026-01-22
+2026-06-02 01:53:09,708 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:53:15,377 - INFO - Fetching DA prices from 2026-01-22 00:00:00+01:00 to 2026-01-25 00:00:00+01:00
+2026-06-02 01:53:16,524 - INFO - Fetching actual load from 2026-01-22 00:00:00+01:00 to 2026-01-25 00:00:00+01:00
+2026-06-02 01:53:17,856 - INFO - Fetching generation mix from 2026-01-22 00:00:00+01:00 to 2026-01-25 00:00:00+01:00
+2026-06-02 01:53:20,312 - INFO - Fetching Open-Meteo data from 2026-01-22 to 2026-01-25
+2026-06-02 01:53:20,313 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:53:26,226 - INFO - Fetching DA prices from 2026-01-25 00:00:00+01:00 to 2026-01-28 00:00:00+01:00
+2026-06-02 01:53:27,243 - INFO - Fetching actual load from 2026-01-25 00:00:00+01:00 to 2026-01-28 00:00:00+01:00
+2026-06-02 01:53:28,300 - INFO - Fetching generation mix from 2026-01-25 00:00:00+01:00 to 2026-01-28 00:00:00+01:00
+2026-06-02 01:53:30,759 - INFO - Fetching Open-Meteo data from 2026-01-25 to 2026-01-28
+2026-06-02 01:53:30,760 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:53:37,297 - INFO - Fetching DA prices from 2026-01-28 00:00:00+01:00 to 2026-01-31 00:00:00+01:00
+2026-06-02 01:53:38,235 - INFO - Fetching actual load from 2026-01-28 00:00:00+01:00 to 2026-01-31 00:00:00+01:00
+2026-06-02 01:53:39,158 - INFO - Fetching generation mix from 2026-01-28 00:00:00+01:00 to 2026-01-31 00:00:00+01:00
+2026-06-02 01:53:41,719 - INFO - Fetching Open-Meteo data from 2026-01-28 to 2026-01-31
+2026-06-02 01:53:41,719 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:53:49,999 - INFO - Fetching DA prices from 2026-01-31 00:00:00+01:00 to 2026-02-03 00:00:00+01:00
+2026-06-02 01:53:51,141 - INFO - Fetching actual load from 2026-01-31 00:00:00+01:00 to 2026-02-03 00:00:00+01:00
+2026-06-02 01:53:52,165 - INFO - Fetching generation mix from 2026-01-31 00:00:00+01:00 to 2026-02-03 00:00:00+01:00
+2026-06-02 01:53:55,033 - INFO - Fetching Open-Meteo data from 2026-01-31 to 2026-02-03
+2026-06-02 01:53:55,034 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:54:00,853 - INFO - Fetching DA prices from 2026-02-03 00:00:00+01:00 to 2026-02-06 00:00:00+01:00
+2026-06-02 01:54:03,738 - INFO - Fetching actual load from 2026-02-03 00:00:00+01:00 to 2026-02-06 00:00:00+01:00
+2026-06-02 01:54:04,866 - INFO - Fetching generation mix from 2026-02-03 00:00:00+01:00 to 2026-02-06 00:00:00+01:00
+2026-06-02 01:54:07,426 - INFO - Fetching Open-Meteo data from 2026-02-03 to 2026-02-06
+2026-06-02 01:54:07,426 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:54:14,782 - INFO - Fetching DA prices from 2026-02-06 00:00:00+01:00 to 2026-02-09 00:00:00+01:00
+2026-06-02 01:54:15,721 - INFO - Fetching actual load from 2026-02-06 00:00:00+01:00 to 2026-02-09 00:00:00+01:00
+2026-06-02 01:54:17,052 - INFO - Fetching generation mix from 2026-02-06 00:00:00+01:00 to 2026-02-09 00:00:00+01:00
+2026-06-02 01:54:19,816 - INFO - Fetching Open-Meteo data from 2026-02-06 to 2026-02-09
+2026-06-02 01:54:19,816 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:54:25,947 - INFO - Fetching DA prices from 2026-02-09 00:00:00+01:00 to 2026-02-12 00:00:00+01:00
+2026-06-02 01:54:27,089 - INFO - Fetching actual load from 2026-02-09 00:00:00+01:00 to 2026-02-12 00:00:00+01:00
+2026-06-02 01:54:27,925 - INFO - Fetching generation mix from 2026-02-09 00:00:00+01:00 to 2026-02-12 00:00:00+01:00
+2026-06-02 01:54:30,214 - INFO - Fetching Open-Meteo data from 2026-02-09 to 2026-02-12
+2026-06-02 01:54:30,215 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:54:37,009 - INFO - Fetching DA prices from 2026-02-12 00:00:00+01:00 to 2026-02-15 00:00:00+01:00
+2026-06-02 01:54:38,048 - INFO - Fetching actual load from 2026-02-12 00:00:00+01:00 to 2026-02-15 00:00:00+01:00
+2026-06-02 01:54:39,073 - INFO - Fetching generation mix from 2026-02-12 00:00:00+01:00 to 2026-02-15 00:00:00+01:00
+2026-06-02 01:54:42,760 - INFO - Fetching Open-Meteo data from 2026-02-12 to 2026-02-15
+2026-06-02 01:54:42,761 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:54:48,682 - INFO - Fetching DA prices from 2026-02-15 00:00:00+01:00 to 2026-02-18 00:00:00+01:00
+2026-06-02 01:54:49,724 - INFO - Fetching actual load from 2026-02-15 00:00:00+01:00 to 2026-02-18 00:00:00+01:00
+2026-06-02 01:54:50,850 - INFO - Fetching generation mix from 2026-02-15 00:00:00+01:00 to 2026-02-18 00:00:00+01:00
+2026-06-02 01:54:54,026 - INFO - Fetching Open-Meteo data from 2026-02-15 to 2026-02-18
+2026-06-02 01:54:54,027 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:55:00,461 - INFO - Fetching DA prices from 2026-02-18 00:00:00+01:00 to 2026-02-21 00:00:00+01:00
+2026-06-02 01:55:02,935 - INFO - Fetching actual load from 2026-02-18 00:00:00+01:00 to 2026-02-21 00:00:00+01:00
+2026-06-02 01:55:04,574 - INFO - Fetching generation mix from 2026-02-18 00:00:00+01:00 to 2026-02-21 00:00:00+01:00
+2026-06-02 01:55:07,747 - INFO - Fetching Open-Meteo data from 2026-02-18 to 2026-02-21
+2026-06-02 01:55:07,747 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:55:14,258 - INFO - Fetching DA prices from 2026-02-21 00:00:00+01:00 to 2026-02-24 00:00:00+01:00
+2026-06-02 01:55:15,287 - INFO - Fetching actual load from 2026-02-21 00:00:00+01:00 to 2026-02-24 00:00:00+01:00
+2026-06-02 01:55:16,557 - INFO - Fetching generation mix from 2026-02-21 00:00:00+01:00 to 2026-02-24 00:00:00+01:00
+2026-06-02 01:55:21,166 - INFO - Fetching Open-Meteo data from 2026-02-21 to 2026-02-24
+2026-06-02 01:55:21,166 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:55:26,751 - INFO - Fetching DA prices from 2026-02-24 00:00:00+01:00 to 2026-02-27 00:00:00+01:00
+2026-06-02 01:55:27,719 - INFO - Fetching actual load from 2026-02-24 00:00:00+01:00 to 2026-02-27 00:00:00+01:00
+2026-06-02 01:55:28,641 - INFO - Fetching generation mix from 2026-02-24 00:00:00+01:00 to 2026-02-27 00:00:00+01:00
+2026-06-02 01:55:33,046 - INFO - Fetching Open-Meteo data from 2026-02-24 to 2026-02-27
+2026-06-02 01:55:33,046 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:55:38,969 - INFO - Fetching DA prices from 2026-02-27 00:00:00+01:00 to 2026-03-02 00:00:00+01:00
+2026-06-02 01:55:40,112 - INFO - Fetching actual load from 2026-02-27 00:00:00+01:00 to 2026-03-02 00:00:00+01:00
+2026-06-02 01:55:40,931 - INFO - Fetching generation mix from 2026-02-27 00:00:00+01:00 to 2026-03-02 00:00:00+01:00
+2026-06-02 01:55:44,515 - INFO - Fetching Open-Meteo data from 2026-02-27 to 2026-03-02
+2026-06-02 01:55:44,516 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:55:50,439 - INFO - Fetching DA prices from 2026-03-02 00:00:00+01:00 to 2026-03-05 00:00:00+01:00
+2026-06-02 01:55:51,480 - INFO - Fetching actual load from 2026-03-02 00:00:00+01:00 to 2026-03-05 00:00:00+01:00
+2026-06-02 01:55:52,401 - INFO - Fetching generation mix from 2026-03-02 00:00:00+01:00 to 2026-03-05 00:00:00+01:00
+2026-06-02 01:55:55,577 - INFO - Fetching Open-Meteo data from 2026-03-02 to 2026-03-05
+2026-06-02 01:55:55,577 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:56:01,499 - INFO - Fetching DA prices from 2026-03-05 00:00:00+01:00 to 2026-03-08 00:00:00+01:00
+2026-06-02 01:56:02,642 - INFO - Fetching actual load from 2026-03-05 00:00:00+01:00 to 2026-03-08 00:00:00+01:00
+2026-06-02 01:56:03,666 - INFO - Fetching generation mix from 2026-03-05 00:00:00+01:00 to 2026-03-08 00:00:00+01:00
+2026-06-02 01:56:06,638 - INFO - Fetching Open-Meteo data from 2026-03-05 to 2026-03-08
+2026-06-02 01:56:06,638 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:56:14,403 - INFO - Fetching DA prices from 2026-03-08 00:00:00+01:00 to 2026-03-11 00:00:00+01:00
+2026-06-02 01:56:15,649 - INFO - Fetching actual load from 2026-03-08 00:00:00+01:00 to 2026-03-11 00:00:00+01:00
+2026-06-02 01:56:16,469 - INFO - Fetching generation mix from 2026-03-08 00:00:00+01:00 to 2026-03-11 00:00:00+01:00
+2026-06-02 01:56:19,385 - INFO - Fetching Open-Meteo data from 2026-03-08 to 2026-03-11
+2026-06-02 01:56:19,386 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:56:25,772 - INFO - Fetching DA prices from 2026-03-11 00:00:00+01:00 to 2026-03-14 00:00:00+01:00
+2026-06-02 01:56:26,812 - INFO - Fetching actual load from 2026-03-11 00:00:00+01:00 to 2026-03-14 00:00:00+01:00
+2026-06-02 01:56:27,733 - INFO - Fetching generation mix from 2026-03-11 00:00:00+01:00 to 2026-03-14 00:00:00+01:00
+2026-06-02 01:56:30,089 - INFO - Fetching Open-Meteo data from 2026-03-11 to 2026-03-14
+2026-06-02 01:56:30,090 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:56:36,937 - INFO - Fetching DA prices from 2026-03-14 00:00:00+01:00 to 2026-03-17 00:00:00+01:00
+2026-06-02 01:56:37,975 - INFO - Fetching actual load from 2026-03-14 00:00:00+01:00 to 2026-03-17 00:00:00+01:00
+2026-06-02 01:56:39,716 - INFO - Fetching generation mix from 2026-03-14 00:00:00+01:00 to 2026-03-17 00:00:00+01:00
+2026-06-02 01:56:43,272 - INFO - Fetching Open-Meteo data from 2026-03-14 to 2026-03-17
+2026-06-02 01:56:43,272 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:56:51,064 - INFO - Fetching DA prices from 2026-03-17 00:00:00+01:00 to 2026-03-20 00:00:00+01:00
+2026-06-02 01:56:52,313 - INFO - Fetching actual load from 2026-03-17 00:00:00+01:00 to 2026-03-20 00:00:00+01:00
+2026-06-02 01:56:53,234 - INFO - Fetching generation mix from 2026-03-17 00:00:00+01:00 to 2026-03-20 00:00:00+01:00
+2026-06-02 01:56:55,898 - INFO - Fetching Open-Meteo data from 2026-03-17 to 2026-03-20
+2026-06-02 01:56:55,898 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:57:02,128 - INFO - Fetching DA prices from 2026-03-20 00:00:00+01:00 to 2026-03-23 00:00:00+01:00
+2026-06-02 01:57:03,783 - INFO - Fetching actual load from 2026-03-20 00:00:00+01:00 to 2026-03-23 00:00:00+01:00
+2026-06-02 01:57:04,602 - INFO - Fetching generation mix from 2026-03-20 00:00:00+01:00 to 2026-03-23 00:00:00+01:00
+2026-06-02 01:57:08,083 - INFO - Fetching Open-Meteo data from 2026-03-20 to 2026-03-23
+2026-06-02 01:57:08,084 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:57:14,109 - INFO - Fetching DA prices from 2026-03-23 00:00:00+01:00 to 2026-03-26 00:00:00+01:00
+2026-06-02 01:57:15,149 - INFO - Fetching actual load from 2026-03-23 00:00:00+01:00 to 2026-03-26 00:00:00+01:00
+2026-06-02 01:57:16,071 - INFO - Fetching generation mix from 2026-03-23 00:00:00+01:00 to 2026-03-26 00:00:00+01:00
+2026-06-02 01:57:18,632 - INFO - Fetching Open-Meteo data from 2026-03-23 to 2026-03-26
+2026-06-02 01:57:18,632 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:57:24,555 - INFO - Fetching DA prices from 2026-03-26 00:00:00+01:00 to 2026-03-30 00:00:00+02:00
+2026-06-02 01:57:25,801 - INFO - Fetching actual load from 2026-03-26 00:00:00+01:00 to 2026-03-30 00:00:00+02:00
+2026-06-02 01:57:27,440 - INFO - Fetching generation mix from 2026-03-26 00:00:00+01:00 to 2026-03-30 00:00:00+02:00
+2026-06-02 01:57:31,024 - INFO - Fetching Open-Meteo data from 2026-03-26 to 2026-03-30
+2026-06-02 01:57:31,025 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:57:37,870 - INFO - Fetching DA prices from 2026-03-30 00:00:00+02:00 to 2026-04-02 00:00:00+02:00
+2026-06-02 01:57:39,012 - INFO - Fetching actual load from 2026-03-30 00:00:00+02:00 to 2026-04-02 00:00:00+02:00
+2026-06-02 01:57:39,830 - INFO - Fetching generation mix from 2026-03-30 00:00:00+02:00 to 2026-04-02 00:00:00+02:00
+2026-06-02 01:57:42,494 - INFO - Fetching Open-Meteo data from 2026-03-30 to 2026-04-02
+2026-06-02 01:57:42,494 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:57:48,826 - INFO - Fetching DA prices from 2026-04-02 00:00:00+02:00 to 2026-04-05 00:00:00+02:00
+2026-06-02 01:57:49,867 - INFO - Fetching actual load from 2026-04-02 00:00:00+02:00 to 2026-04-05 00:00:00+02:00
+2026-06-02 01:57:50,685 - INFO - Fetching generation mix from 2026-04-02 00:00:00+02:00 to 2026-04-05 00:00:00+02:00
+2026-06-02 01:57:53,451 - INFO - Fetching Open-Meteo data from 2026-04-02 to 2026-04-05
+2026-06-02 01:57:53,452 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:57:59,681 - INFO - Fetching DA prices from 2026-04-05 00:00:00+02:00 to 2026-04-08 00:00:00+02:00
+2026-06-02 01:58:01,131 - INFO - Fetching actual load from 2026-04-05 00:00:00+02:00 to 2026-04-08 00:00:00+02:00
+2026-06-02 01:58:02,258 - INFO - Fetching generation mix from 2026-04-05 00:00:00+02:00 to 2026-04-08 00:00:00+02:00
+2026-06-02 01:58:04,921 - INFO - Fetching Open-Meteo data from 2026-04-05 to 2026-04-08
+2026-06-02 01:58:04,922 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:58:11,049 - INFO - Fetching DA prices from 2026-04-08 00:00:00+02:00 to 2026-04-11 00:00:00+02:00
+2026-06-02 01:58:12,705 - INFO - Fetching actual load from 2026-04-08 00:00:00+02:00 to 2026-04-11 00:00:00+02:00
+2026-06-02 01:58:13,625 - INFO - Fetching generation mix from 2026-04-08 00:00:00+02:00 to 2026-04-11 00:00:00+02:00
+2026-06-02 01:58:16,186 - INFO - Fetching Open-Meteo data from 2026-04-08 to 2026-04-11
+2026-06-02 01:58:16,186 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:58:24,156 - INFO - Fetching DA prices from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-06-02 01:58:25,402 - INFO - Fetching actual load from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-06-02 01:58:26,324 - INFO - Fetching generation mix from 2026-04-11 00:00:00+02:00 to 2026-04-14 00:00:00+02:00
+2026-06-02 01:58:28,987 - INFO - Fetching Open-Meteo data from 2026-04-11 to 2026-04-14
+2026-06-02 01:58:28,987 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:58:36,548 - INFO - Fetching DA prices from 2026-04-14 00:00:00+02:00 to 2026-04-17 00:00:00+02:00
+2026-06-02 01:58:37,590 - INFO - Fetching actual load from 2026-04-14 00:00:00+02:00 to 2026-04-17 00:00:00+02:00
+2026-06-02 01:58:38,407 - INFO - Fetching generation mix from 2026-04-14 00:00:00+02:00 to 2026-04-17 00:00:00+02:00
+2026-06-02 01:58:40,762 - INFO - Fetching Open-Meteo data from 2026-04-14 to 2026-04-17
+2026-06-02 01:58:40,762 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:58:46,584 - INFO - Fetching DA prices from 2026-04-17 00:00:00+02:00 to 2026-04-20 00:00:00+02:00
+2026-06-02 01:58:47,728 - INFO - Fetching actual load from 2026-04-17 00:00:00+02:00 to 2026-04-20 00:00:00+02:00
+2026-06-02 01:58:48,546 - INFO - Fetching generation mix from 2026-04-17 00:00:00+02:00 to 2026-04-20 00:00:00+02:00
+2026-06-02 01:58:51,107 - INFO - Fetching Open-Meteo data from 2026-04-17 to 2026-04-20
+2026-06-02 01:58:51,108 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:58:58,565 - INFO - Fetching DA prices from 2026-04-20 00:00:00+02:00 to 2026-04-23 00:00:00+02:00
+2026-06-02 01:58:59,709 - INFO - Fetching actual load from 2026-04-20 00:00:00+02:00 to 2026-04-23 00:00:00+02:00
+2026-06-02 01:59:00,529 - INFO - Fetching generation mix from 2026-04-20 00:00:00+02:00 to 2026-04-23 00:00:00+02:00
+2026-06-02 01:59:02,883 - INFO - Fetching Open-Meteo data from 2026-04-20 to 2026-04-23
+2026-06-02 01:59:02,884 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:59:08,976 - INFO - Fetching DA prices from 2026-04-23 00:00:00+02:00 to 2026-04-26 00:00:00+02:00
+2026-06-02 01:59:09,950 - INFO - Fetching actual load from 2026-04-23 00:00:00+02:00 to 2026-04-26 00:00:00+02:00
+2026-06-02 01:59:10,973 - INFO - Fetching generation mix from 2026-04-23 00:00:00+02:00 to 2026-04-26 00:00:00+02:00
+2026-06-02 01:59:13,225 - INFO - Fetching Open-Meteo data from 2026-04-23 to 2026-04-26
+2026-06-02 01:59:13,226 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:59:19,661 - INFO - Fetching DA prices from 2026-04-26 00:00:00+02:00 to 2026-04-29 00:00:00+02:00
+2026-06-02 01:59:20,702 - INFO - Fetching actual load from 2026-04-26 00:00:00+02:00 to 2026-04-29 00:00:00+02:00
+2026-06-02 01:59:21,932 - INFO - Fetching generation mix from 2026-04-26 00:00:00+02:00 to 2026-04-29 00:00:00+02:00
+2026-06-02 01:59:24,184 - INFO - Fetching Open-Meteo data from 2026-04-26 to 2026-04-29
+2026-06-02 01:59:24,184 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:59:30,620 - INFO - Fetching DA prices from 2026-04-29 00:00:00+02:00 to 2026-05-02 00:00:00+02:00
+2026-06-02 01:59:31,762 - INFO - Fetching actual load from 2026-04-29 00:00:00+02:00 to 2026-05-02 00:00:00+02:00
+2026-06-02 01:59:32,788 - INFO - Fetching generation mix from 2026-04-29 00:00:00+02:00 to 2026-05-02 00:00:00+02:00
+2026-06-02 01:59:35,346 - INFO - Fetching Open-Meteo data from 2026-04-29 to 2026-05-02
+2026-06-02 01:59:35,347 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:59:41,372 - INFO - Fetching DA prices from 2026-05-02 00:00:00+02:00 to 2026-05-05 00:00:00+02:00
+2026-06-02 01:59:42,412 - INFO - Fetching actual load from 2026-05-02 00:00:00+02:00 to 2026-05-05 00:00:00+02:00
+2026-06-02 01:59:43,334 - INFO - Fetching generation mix from 2026-05-02 00:00:00+02:00 to 2026-05-05 00:00:00+02:00
+2026-06-02 01:59:45,969 - INFO - Fetching Open-Meteo data from 2026-05-02 to 2026-05-05
+2026-06-02 01:59:45,969 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 01:59:51,817 - INFO - Fetching DA prices from 2026-05-05 00:00:00+02:00 to 2026-05-08 00:00:00+02:00
+2026-06-02 01:59:52,858 - INFO - Fetching actual load from 2026-05-05 00:00:00+02:00 to 2026-05-08 00:00:00+02:00
+2026-06-02 01:59:53,984 - INFO - Fetching generation mix from 2026-05-05 00:00:00+02:00 to 2026-05-08 00:00:00+02:00
+2026-06-02 01:59:56,340 - INFO - Fetching Open-Meteo data from 2026-05-05 to 2026-05-08
+2026-06-02 01:59:56,340 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 02:00:04,005 - INFO - Fetching DA prices from 2026-05-08 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-06-02 02:00:21,532 - INFO - Fetching actual load from 2026-05-08 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-06-02 02:00:30,720 - INFO - Fetching generation mix from 2026-05-08 00:00:00+02:00 to 2026-05-11 00:00:00+02:00
+2026-06-02 02:00:41,054 - INFO - Fetching Open-Meteo data from 2026-05-08 to 2026-05-11
+2026-06-02 02:00:41,055 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 02:00:48,284 - INFO - Fetching DA prices from 2026-05-11 00:00:00+02:00 to 2026-05-14 00:00:00+02:00
+2026-06-02 02:00:53,257 - INFO - Fetching actual load from 2026-05-11 00:00:00+02:00 to 2026-05-14 00:00:00+02:00
+2026-06-02 02:00:54,917 - INFO - Fetching generation mix from 2026-05-11 00:00:00+02:00 to 2026-05-14 00:00:00+02:00
+2026-06-02 02:01:01,061 - INFO - Fetching Open-Meteo data from 2026-05-11 to 2026-05-14
+2026-06-02 02:01:01,062 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 02:01:06,971 - INFO - Fetching DA prices from 2026-05-14 00:00:00+02:00 to 2026-05-17 00:00:00+02:00
+2026-06-02 02:01:10,891 - INFO - Fetching actual load from 2026-05-14 00:00:00+02:00 to 2026-05-17 00:00:00+02:00
+2026-06-02 02:01:13,350 - INFO - Fetching generation mix from 2026-05-14 00:00:00+02:00 to 2026-05-17 00:00:00+02:00
+2026-06-02 02:01:15,194 - INFO - Fetching Open-Meteo data from 2026-05-14 to 2026-05-17
+2026-06-02 02:01:15,195 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 02:01:21,587 - INFO - Fetching DA prices from 2026-05-17 00:00:00+02:00 to 2026-05-20 00:00:00+02:00
+2026-06-02 02:01:23,181 - INFO - Fetching actual load from 2026-05-17 00:00:00+02:00 to 2026-05-20 00:00:00+02:00
+2026-06-02 02:01:24,101 - INFO - Fetching generation mix from 2026-05-17 00:00:00+02:00 to 2026-05-20 00:00:00+02:00
+2026-06-02 02:01:26,457 - INFO - Fetching Open-Meteo data from 2026-05-17 to 2026-05-20
+2026-06-02 02:01:26,458 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 02:01:32,687 - INFO - Fetching DA prices from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-06-02 02:01:37,414 - INFO - Fetching actual load from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-06-02 02:01:42,023 - INFO - Fetching generation mix from 2026-05-20 00:00:00+02:00 to 2026-05-23 00:00:00+02:00
+2026-06-02 02:01:45,504 - INFO - Fetching Open-Meteo data from 2026-05-20 to 2026-05-23
+2026-06-02 02:01:45,505 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 02:01:51,325 - INFO - Fetching DA prices from 2026-05-23 00:00:00+02:00 to 2026-05-26 00:00:00+02:00
+2026-06-02 02:01:54,824 - INFO - Fetching actual load from 2026-05-23 00:00:00+02:00 to 2026-05-26 00:00:00+02:00
+2026-06-02 02:01:56,250 - INFO - Inserted 58 new rows into actual_load.
+2026-06-02 02:01:56,250 - INFO - Fetching generation mix from 2026-05-23 00:00:00+02:00 to 2026-05-26 00:00:00+02:00
+2026-06-02 02:01:59,219 - INFO - Inserted 57 new rows into generation_mix.
+2026-06-02 02:01:59,220 - INFO - Fetching Open-Meteo data from 2026-05-23 to 2026-05-26
+2026-06-02 02:01:59,221 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 02:02:07,506 - INFO - Fetching DA prices from 2026-05-26 00:00:00+02:00 to 2026-05-29 00:00:00+02:00
+2026-06-02 02:02:12,839 - INFO - Inserted 97 new rows into day_ahead_prices.
+2026-06-02 02:02:12,840 - INFO - Fetching actual load from 2026-05-26 00:00:00+02:00 to 2026-05-29 00:00:00+02:00
+2026-06-02 02:02:20,010 - INFO - Inserted 235 new rows into actual_load.
+2026-06-02 02:02:20,010 - INFO - Fetching generation mix from 2026-05-26 00:00:00+02:00 to 2026-05-29 00:00:00+02:00
+2026-06-02 02:02:23,796 - INFO - Inserted 234 new rows into generation_mix.
+2026-06-02 02:02:23,797 - INFO - Fetching Open-Meteo data from 2026-05-26 to 2026-05-29
+2026-06-02 02:02:23,798 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 02:02:25,128 - INFO - Inserted 96 new rows into weather_data.
+2026-06-02 02:02:30,130 - INFO - Fetching DA prices from 2026-05-29 00:00:00+02:00 to 2026-06-01 00:00:00+02:00
+2026-06-02 02:02:35,778 - INFO - Inserted 191 new rows into day_ahead_prices.
+2026-06-02 02:02:35,779 - INFO - Fetching actual load from 2026-05-29 00:00:00+02:00 to 2026-06-01 00:00:00+02:00
+2026-06-02 02:02:37,314 - INFO - Inserted 192 new rows into actual_load.
+2026-06-02 02:02:37,315 - INFO - Fetching generation mix from 2026-05-29 00:00:00+02:00 to 2026-06-01 00:00:00+02:00
+2026-06-02 02:02:41,513 - INFO - Inserted 192 new rows into generation_mix.
+2026-06-02 02:02:41,514 - INFO - Fetching Open-Meteo data from 2026-05-29 to 2026-06-01
+2026-06-02 02:02:41,514 - INFO - 📚 Backtest Detected: Routing to Historical Archive API...
+2026-06-02 02:02:43,048 - INFO - Inserted 96 new rows into weather_data.
+2026-06-02 02:02:48,050 - INFO - Fetching DA prices from 2026-06-01 00:00:00+02:00 to 2026-06-02 00:00:00+02:00
+2026-06-02 02:02:50,119 - INFO - Fetching actual load from 2026-06-01 00:00:00+02:00 to 2026-06-01 22:32:48.050473+02:00
+2026-06-02 02:02:52,572 - INFO - Inserted 4 new rows into actual_load.
+2026-06-02 02:02:52,573 - INFO - Fetching generation mix from 2026-06-01 00:00:00+02:00 to 2026-06-01 22:32:48.050473+02:00
+2026-06-02 02:02:54,006 - INFO - Inserted 4 new rows into generation_mix.
+2026-06-02 02:02:54,006 - INFO - Fetching Open-Meteo data from 2026-06-01 to 2026-06-02
+2026-06-02 02:02:54,006 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...

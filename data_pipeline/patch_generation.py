@@ -4,18 +4,45 @@ from entsoe import EntsoePandasClient
 import os
 from dotenv import load_dotenv
 import sys
+from sqlalchemy import create_engine
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from database.schema import engine  # noqa: F401
-from data_pipeline.entsoe_fetcher import safe_insert
-
+# Force Python to read the .env file locally
 load_dotenv()
-client = EntsoePandasClient(api_key=os.getenv("ENTSOE_API_KEY"))
+
+# Setup Paths
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Grab credentials from .env
+ENTSOE_API_KEY = os.getenv("ENTSOE_API_KEY")
+DB_URL = os.getenv("DATABASE_URL")
+
+if not ENTSOE_API_KEY or not DB_URL:
+    raise ValueError("Missing ENTSOE_API_KEY or DATABASE_URL in environment variables.")
+
+client = EntsoePandasClient(api_key=ENTSOE_API_KEY)
+engine = create_engine(DB_URL)
 TZ = "Europe/Berlin"
 
 
+def cloud_insert(df, table_name):
+    """Pushes the dataframe directly to Neon Serverless Postgres."""
+    try:
+        # Pushing to the cloud in chunks to avoid overwhelming the connection
+        df.to_sql(
+            table_name,
+            engine,
+            if_exists="append",
+            index=True,
+            index_label="timestamp",
+            chunksize=500,
+        )
+        print(f"✅ Successfully inserted {len(df)} rows into {table_name}")
+    except Exception as e:
+        print(f"❌ Database Insert Error: {e}")
+
+
 def patch_generation():
-    print("Patching 30 days of Generation Data using Country Code 'DE'...")
+    print("Patching 730 days of Generation Data using Country Code 'DE' to Cloud DB...")
 
     final_end_time = pd.Timestamp.now(tz=TZ).floor("D") + pd.Timedelta(days=1)
     current_start = final_end_time - pd.Timedelta(days=730)
@@ -26,14 +53,14 @@ def patch_generation():
         print(
             f"Fetching Generation: {current_start.strftime('%Y-%m-%d')} to {current_end.strftime('%Y-%m-%d')}"
         )
+
         try:
             # Note: We use 'DE' here, not 'DE_LU'
             generation = client.query_generation("DE", start=current_start, end=current_end)
 
             # ENTSO-E sometimes returns a MultiIndex (e.g. 'Wind Onshore', 'Actual Aggregated')
             if isinstance(generation.columns, pd.MultiIndex):
-                # Using int("0") to prevent the AI formatter from deleting the index bracket
-                first_level = int("0")
+                first_level = 0
                 generation.columns = generation.columns.get_level_values(first_level)
 
             # Drop duplicated columns (e.g. Hydro Pumped Storage returning twice)
@@ -52,17 +79,21 @@ def patch_generation():
             df_gen = df_gen[cols_to_keep]
 
             df_gen = df_gen.resample("15min").ffill()
-            df_gen.index = df_gen.index.strftime("%Y-%m-%d %H:%M:%S")
 
-            safe_insert(df_gen, "generation_mix")
+            # Keep index as datetime object for SQLAlchemy, just remove tz info if Postgres expects naive UTC
+            if df_gen.index.tz is not None:
+                df_gen.index = df_gen.index.tz_convert("UTC").tz_localize(None)
+
+            cloud_insert(df_gen, "generation_mix")
 
         except Exception as e:
             print(f"Error fetching chunk: {e}")
 
         current_start = current_end
+        # Be polite to the ENTSO-E API so they don't block your IP
         time.sleep(4)
 
-    print("Generation patch complete!")
+    print("Cloud Generation patch complete!")
 
 
 if __name__ == "__main__":
