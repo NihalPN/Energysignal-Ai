@@ -1,16 +1,20 @@
 import os
 import sys
-import sqlite3
 import pandas as pd
 import xgboost as xgb
 import asyncio
 import math
+from sqlalchemy import create_engine
 from fastapi import FastAPI
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 from fastapi_cache.decorator import cache
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import timedelta
+from dotenv import load_dotenv
+
+# Force Python to read the .env file locally (ignored in cloud if variables are set)
+load_dotenv()
 
 # Setup Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +34,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DB_PATH = os.path.join(BASE_DIR, "database", "energy_market.db")
+# Cloud Database URL (Pulled from Render Environment Variables or local .env)
+DB_URL = os.environ.get("DATABASE_URL")
 MODEL_PATH = os.path.join(BASE_DIR, "models", "xgb_baseline.json")
 
 # Load Model
@@ -46,13 +51,26 @@ server_state = {
 
 
 def fetch_master_features():
-    if not os.path.exists(DB_PATH):
+    if not DB_URL:
+        print("⚠️ DATABASE_URL not set. Waiting for database connection...")
         return pd.DataFrame()
-    conn = sqlite3.connect(DB_PATH)
-    df = pd.read_sql_query(
-        "SELECT * FROM master_features", conn, index_col="timestamp", parse_dates=["timestamp"]
-    )
-    conn.close()
+
+    try:
+        # Connect directly to Neon Serverless Postgres
+        engine = create_engine(DB_URL)
+        df = pd.read_sql_query(
+            "SELECT * FROM master_features",
+            engine,
+            index_col="timestamp",
+            parse_dates=["timestamp"],
+        )
+    except Exception as e:
+        print(f"Database Connection Error: {e}")
+        return pd.DataFrame()
+
+    if df.empty:
+        return df
+
     if df.index.tz is None:
         df.index = df.index.tz_localize("UTC")
     df.index = df.index.tz_convert("Europe/Berlin")
@@ -145,12 +163,12 @@ async def get_rag_analysis():
 
 
 @app.get("/api/v1/dashboard-data")
-@cache(expire=3600)  # RESTORED: Caches the complex XGBoost math for 1 hour
+@cache(expire=3600)  # Caches the complex XGBoost math for 1 hour
 async def get_dashboard_data():
     """Your main dashboard logic."""
     df_full = fetch_master_features()
     if df_full.empty:
-        return {"error": "Database empty"}
+        return {"error": "Database empty or disconnected"}
 
     berlin_now = pd.Timestamp.now(tz="Europe/Berlin")
     today_midnight = berlin_now.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -245,12 +263,13 @@ async def get_dashboard_data():
                 color = "gray"
                 time_color = "white"
             time_label += " (Forecast)"
+
         t2_table.append(
             {
                 "time": time_label,
                 "status": status,
                 "color": color,
-                "time_color": time_color if "time_color" in locals() else "gray",
+                "time_color": time_color,
             }
         )
 
