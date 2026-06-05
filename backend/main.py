@@ -35,6 +35,13 @@ app.add_middleware(
 
 # Cloud Database URL (Pulled from Render Environment Variables or local .env)
 DB_URL = os.environ.get("DATABASE_URL")
+if not DB_URL:
+    print("⚠️ WARNING: DATABASE_URL is not set!")
+    engine = None
+else:
+    # Create a globally thread-safe SQLAlchemy connection pool
+    engine = create_engine(DB_URL)
+
 MODEL_PATH = os.path.join(BASE_DIR, "models", "xgb_baseline.json")
 
 # Load Model
@@ -50,13 +57,11 @@ server_state = {
 
 
 def fetch_master_features():
-    if not DB_URL:
-        print("⚠️ DATABASE_URL not set. Waiting for database connection...")
+    if engine is None:
         return pd.DataFrame()
 
     try:
         # Connect directly to Neon Serverless Postgres
-        engine = create_engine(DB_URL)
         df = pd.read_sql_query(
             "SELECT * FROM master_features",
             engine,
@@ -70,16 +75,15 @@ def fetch_master_features():
     if df.empty:
         return df
 
-    if df.index.tz is None:
-        df.index = df.index.tz_localize("UTC")
-    df.index = df.index.tz_convert("Europe/Berlin")
+    # THE FIX: We completely removed the tz_localize("UTC") and tz_convert
+    # to match PyQt perfectly. The database timestamps remain clean and raw.
 
     # --- INSTITUTIONAL FIX 1: TIMELINE ENFORCEMENT & DATA HEALING ---
     # 1. Drop accidental duplicate timestamps just in case
     df = df[~df.index.duplicated(keep="first")]
     df = df.sort_index()
 
-    # 2. Force a perfect 15-minute contiguous timeline (prevents frontend straight-line glitches)
+    # 2. Force a perfect 15-minute contiguous timeline
     df = df.asfreq("15min")
 
     # 3. Use linear interpolation to smoothly bridge missing ENTSO-E market prices
@@ -108,7 +112,8 @@ async def run_ai_loop():
             print("Running hourly Background AI Task...")
             df_full = fetch_master_features()
             if not df_full.empty:
-                berlin_now = pd.Timestamp.now(tz="Europe/Berlin")
+                # FIXED: Match PyQt timezone stripping
+                berlin_now = pd.Timestamp.now(tz="Europe/Berlin").tz_localize(None)
                 df_current = df_full[df_full.index <= berlin_now]
                 history_df = df_current.tail(1)
 
@@ -148,9 +153,7 @@ async def run_ai_loop():
 
 @app.on_event("startup")
 async def startup():
-    # 1. Initialize the Endpoint Cache for the Math
     FastAPICache.init(InMemoryBackend())
-    # 2. Fire the AI Background Loop to defeat Cold Starts
     asyncio.create_task(run_ai_loop())
 
 
@@ -168,8 +171,9 @@ async def get_dashboard_data():
     if df_full.empty:
         return {"error": "Database empty or disconnected"}
 
-    berlin_now = pd.Timestamp.now(tz="Europe/Berlin")
-    today_midnight = berlin_now.replace(hour=0, minute=0, second=0, microsecond=0)
+    # FIXED: Exactly matches PyQt timezone behavior so Pandas joins seamlessly
+    berlin_now = pd.Timestamp.now(tz="Europe/Berlin").tz_localize(None)
+    today_midnight = berlin_now.floor("D")
     yesterday_midnight = today_midnight - pd.Timedelta(days=1)
 
     df_current = df_full[df_full.index <= berlin_now]
@@ -210,14 +214,18 @@ async def get_dashboard_data():
         [None] * (len(history_df) - 1) + [last_pink_point] + [replace_nan(x) for x in predictions]
     )
 
+    # --- TAB 2 LOGIC ---
     feature_df = df_full[df_full.index >= yesterday_midnight].copy()
     X_to_predict = feature_df.drop(columns=["target_price_24h_ahead"], errors="ignore")
     raw_preds = model.predict(X_to_predict)
     pred_dates = X_to_predict.index + pd.Timedelta(days=1)
+    
+    # Because we stripped timezones above, this dataframe join will now perfectly succeed!
     pred_df = pd.DataFrame({"AI Forecast": raw_preds}, index=pred_dates)
     actuals_df = df_full[df_full.index >= today_midnight][["price_eur_mwh"]]
     actuals_df.rename(columns={"price_eur_mwh": "Actual Price"}, inplace=True)
     combined_df = pred_df.join(actuals_df, how="outer")
+    
     end_of_d2 = today_midnight + pd.Timedelta(days=3) - pd.Timedelta(minutes=15)
     combined_df = combined_df[
         (combined_df.index >= today_midnight) & (combined_df.index <= end_of_d2)
@@ -271,18 +279,23 @@ async def get_dashboard_data():
             }
         )
 
-    # --- INSTITUTIONAL FIX 2: SAFE HANDLING OF MISSING TAB 3 ROWS ---
-    live_market_df = df_full[df_full.index >= today_midnight].copy()
-
+    # --- TAB 3 LOGIC (Bypass AI, Direct DB read) ---
     t3_table = []
-    for dt, row in live_market_df.iterrows():
-        # Safely output the price or "Awaiting Data" if ENTSO-E dropped the row
-        if pd.notna(row.get("price_eur_mwh")):
-            price_str = f"€{row['price_eur_mwh']:.2f}"
-        else:
-            price_str = "Awaiting Data"
-
-        t3_table.append({"time": dt.strftime("%b %d - %H:%M"), "price": price_str})
+    if engine is not None:
+        try:
+            query_date = today_midnight.strftime('%Y-%m-%d')
+            query = f"SELECT timestamp, price_eur_mwh FROM day_ahead_prices WHERE timestamp >= '{query_date} 00:00:00' AND price_eur_mwh IS NOT NULL ORDER BY timestamp ASC"
+            
+            live_market_df = pd.read_sql_query(query, engine)
+            
+            for _, row in live_market_df.iterrows():
+                ts = pd.Timestamp(row["timestamp"])
+                t3_table.append({
+                    "time": ts.strftime("%b %d - %H:%M"), 
+                    "price": f"€{row['price_eur_mwh']:.2f}"
+                })
+        except Exception as e:
+            print(f"Tab 3 Error: {e}")
 
     return {
         "kpis": {
