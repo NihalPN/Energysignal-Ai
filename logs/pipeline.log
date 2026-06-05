@@ -6651,3 +6651,46 @@ DETAIL:  Key ("timestamp")=(2024-05-28 00:00:00) already exists.
 2026-06-02 03:28:47,884 - INFO - Fetching Open-Meteo data from 2026-05-31 to 2026-06-03
 2026-06-02 03:28:47,885 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...
 2026-06-02 03:29:06,011 - INFO - === PIPELINE RUN COMPLETE ===
+2026-06-03 17:30:15,722 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-06-03 17:30:15,806 - INFO - Fetching DA prices from 2026-06-02 00:00:00+02:00 to 2026-06-05 00:00:00+02:00
+2026-06-03 17:31:06,098 - INFO - Inserted 96 new rows into day_ahead_prices.
+2026-06-03 17:31:06,098 - INFO - Fetching actual load from 2026-06-02 00:00:00+02:00 to 2026-06-03 14:00:15.806141+02:00
+2026-06-03 17:31:19,820 - ERROR - ENTSO-E Fetcher failed for 20260602 to 20260605: Can't reconnect until invalid transaction is rolled back.  Please rollback() fully before proceeding (Background on this error at: https://sqlalche.me/e/20/8s2b)
+2026-06-03 17:31:21,822 - INFO - Fetching DA prices from 2026-06-02 00:00:00+02:00 to 2026-06-05 00:00:00+02:00
+2026-06-03 17:31:37,848 - INFO - Fetching actual load from 2026-06-02 00:00:00+02:00 to 2026-06-03 14:01:21.822269+02:00
+2026-06-03 17:31:42,757 - INFO - Inserted 6 new rows into actual_load.
+2026-06-03 17:31:42,758 - INFO - Fetching generation mix from 2026-06-02 00:00:00+02:00 to 2026-06-03 14:01:21.822269+02:00
+2026-06-03 17:31:49,488 - INFO - Inserted 6 new rows into generation_mix.
+2026-06-03 17:31:49,489 - INFO - Fetching Open-Meteo data from 2026-06-02 to 2026-06-05
+2026-06-03 17:31:49,490 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...
+2026-06-03 17:32:08,746 - INFO - === PIPELINE RUN COMPLETE ===
+2026-06-04 17:30:05,111 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-06-04 17:30:05,152 - INFO - Fetching DA prices from 2026-06-03 00:00:00+02:00 to 2026-06-06 00:00:00+02:00
+2026-06-04 17:31:02,549 - INFO - Fetching actual load from 2026-06-03 00:00:00+02:00 to 2026-06-04 14:00:05.152103+02:00
+2026-06-04 17:31:08,172 - INFO - Inserted 10 new rows into actual_load.
+2026-06-04 17:31:08,173 - INFO - Fetching generation mix from 2026-06-03 00:00:00+02:00 to 2026-06-04 14:00:05.152103+02:00
+2026-06-04 17:31:23,124 - INFO - Inserted 9 new rows into generation_mix.
+2026-06-04 17:31:23,124 - INFO - Fetching Open-Meteo data from 2026-06-03 to 2026-06-06
+2026-06-04 17:31:23,125 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...
+2026-06-04 17:36:30,783 - INFO - === PIPELINE RUN COMPLETE ===
+2026-06-05 17:30:33,581 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-06-05 17:30:33,626 - INFO - Fetching DA prices from 2026-06-04 00:00:00+02:00 to 2026-06-07 00:00:00+02:00
+2026-06-05 17:31:00,504 - ERROR - ENTSO-E Fetcher failed for 20260604 to 20260607: 503 Server Error: Service Unavailable for url: https://web-api.tp.entsoe.eu/api?documentType=A44&in_Domain=10Y1001A1001A82H&out_Domain=10Y1001A1001A82H&offset=100&contract_MarketAgreement.type=A01&classificationSequence_AttributeInstanceComponent.position=1&securityToken=c174a659-4f7d-4fcc-8ff1-3dae26733c29&periodStart=202606022200&periodEnd=202606072200
+2026-06-05 17:31:02,506 - INFO - Fetching DA prices from 2026-06-04 00:00:00+02:00 to 2026-06-07 00:00:00+02:00
+2026-06-05 17:31:16,386 - INFO - Inserted 96 new rows into day_ahead_prices.
+2026-06-05 17:31:16,386 - INFO - Fetching actual load from 2026-06-04 00:00:00+02:00 to 2026-06-05 14:01:02.506081+02:00
+2026-06-05 17:31:19,239 - INFO - Inserted 10 new rows into actual_load.
+2026-06-05 17:31:19,239 - INFO - Fetching generation mix from 2026-06-04 00:00:00+02:00 to 2026-06-05 14:01:02.506081+02:00
+2026-06-05 17:31:34,613 - INFO - Inserted 12 new rows into generation_mix.
+2026-06-05 17:31:34,614 - INFO - Fetching Open-Meteo data from 2026-06-04 to 2026-06-07
+2026-06-05 17:31:34,615 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...
+2026-06-05 17:31:53,462 - INFO - === PIPELINE RUN COMPLETE ===
+2026-06-05 22:31:20,080 - INFO - === STARTING DAILY PIPELINE RUN ===
+2026-06-05 22:31:20,094 - INFO - Fetching DA prices from 2026-06-04 00:00:00+02:00 to 2026-06-07 00:00:00+02:00
+2026-06-05 22:31:33,751 - INFO - Fetching actual load from 2026-06-04 00:00:00+02:00 to 2026-06-05 19:01:20.094368+02:00
+2026-06-05 22:31:39,604 - INFO - Inserted 5 new rows into actual_load.
+2026-06-05 22:31:39,605 - INFO - Fetching generation mix from 2026-06-04 00:00:00+02:00 to 2026-06-05 19:01:20.094368+02:00
+2026-06-05 22:31:43,146 - INFO - Inserted 5 new rows into generation_mix.
+2026-06-05 22:31:43,147 - INFO - Fetching Open-Meteo data from 2026-06-04 to 2026-06-07
+2026-06-05 22:31:43,148 - INFO - ⚡ Live Grid Detected: Routing to Production Forecast API...
+2026-06-05 22:32:01,937 - INFO - === PIPELINE RUN COMPLETE ===

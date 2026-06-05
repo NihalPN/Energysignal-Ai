@@ -8,7 +8,6 @@ from sqlalchemy import create_engine
 from fastapi import FastAPI
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
-from fastapi_cache.decorator import cache
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import timedelta
 from dotenv import load_dotenv
@@ -163,9 +162,8 @@ async def get_rag_analysis():
 
 
 @app.get("/api/v1/dashboard-data")
-@cache(expire=3600)  # Caches the complex XGBoost math for 1 hour
 async def get_dashboard_data():
-    """Your main dashboard logic."""
+    """Your main dashboard logic. Executes instantly without caching delay."""
     df_full = fetch_master_features()
     if df_full.empty:
         return {"error": "Database empty or disconnected"}

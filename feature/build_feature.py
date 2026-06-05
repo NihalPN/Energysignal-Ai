@@ -75,16 +75,24 @@ def build_and_store_master_features():
     # Define the Target Variable: The price 24 hours (96 steps) into the future
     master_df["target_price_24h_ahead"] = master_df["price_eur_mwh"].shift(-96)
 
-    # Stop deleting tomorrow's prices!
-    safe_cols_to_check = list(tech_df.columns) + list(weather_df.columns)
-    master_df = master_df.dropna(subset=safe_cols_to_check)
+    # --- DIAGNOSTIC AND BULLETPROOF CLEANUP ---
+    print(f"📊 Extracted timeline boundary BEFORE dropna: {master_df.index.min()} to {master_df.index.max()}")
+    
+    # 1. Ensure we don't drop rows due to tomorrow's missing future targets
+    # 2. Only drop rows if essential price or core tracking features are completely missing
+    critical_cols = ['price_eur_mwh', 'hour', 'day_of_week']
+    master_df = master_df.dropna(subset=critical_cols)
+    
+    # 3. For any minor gaps in weather forecasts or technical attributes for tomorrow, forward fill them
+    master_df = master_df.ffill(limit=96) 
 
+    print(f"✅ Extracted timeline boundary AFTER dropna: {master_df.index.min()} to {master_df.index.max()}")
     print("Pushing master features back to Neon Postgres...")
+    
     # Write the finished dataset back to the cloud using the SQLAlchemy engine
-    master_df.to_sql("master_features", con=engine, if_exists="replace")
+    master_df.to_sql("master_features", con=engine, if_exists="replace", index_label="timestamp")
 
     print(f"✅ Feature engineering complete. Master table shape: {master_df.shape}")
-
 
 if __name__ == "__main__":
     build_and_store_master_features()
