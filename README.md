@@ -41,6 +41,8 @@ Electricity is a unique commodity because it cannot yet be stored efficiently at
 
 ## 🖥️ System Dashboards & Interfaces
 
+![Architecture Diagram](Images/Screenshot from 2026-06-15 12-09-25.png)
+
 ### ⚡ Decoupled Web Terminal Architecture
 
 EnergySignal AI provides a lightweight, highly responsive web dashboard engineered for zero-latency data delivery to remote users. It utilizes a Double-Caching strategy (fastapi-cache2 on the server and localStorage on the client) to protect cloud compute limits.
