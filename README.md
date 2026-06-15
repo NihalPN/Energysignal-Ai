@@ -147,6 +147,7 @@ GROQ_API_KEY=your_groq_api_key
 HF_TOKEN=your_huggingface_token
 TELEGRAM_BOT_TOKEN=your_bot_token
 TELEGRAM_CHAT_ID=your_chat_id
+DATABASE_URL = your_postgresql_url
 ```
 ### 3. Initialize Database & Run Pipeline (Strict Order)
 
