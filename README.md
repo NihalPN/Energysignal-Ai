@@ -10,12 +10,12 @@ EnergySignal AI is a production-style quantitative analytics tool designed to pr
 
 This platform has been rigorously evaluated on out-of-sample historical market data, achieving institutional-grade stability:
 
-- **63.84%** average directional accuracy across unseen market data.
-- **26.51 EUR/MWh** MAE (Mean Absolute Error) maintaining tight tracking through highly volatile periods.
-- **39.85 EUR/MWh** RMSE (Root Mean Squared Error) aggressively penalizing major prediction misses to protect trading capital.
-- **63.8%** directional accuracy sustained specifically during targeted historical crisis-period stress tests.
-- **€12,459.60** total backtested net profit generated through automated algorithmic execution.
-- **72.97%** win rate across 37 executed trades using strict risk-management spread thresholds.
+- **63.84%** average directional accuracy across unseen out-of-sample market data.
+- **26.51 EUR/MWh** MAE (Mean Absolute Error) maintaining steady tracking through highly volatile settlement periods.
+- **39.85 EUR/MWh** RMSE (Root Mean Squared Error), capturing larger variance deviations during sudden market shocks.
+- **63.8%** directional accuracy sustained specifically during historical energy crisis stress tests (May 2023 data).
+- **€12,459.60** simulated backtested net profit generated through constrained algorithmic execution.
+- **72.97%** win rate across a selective sample of 37 simulated trades under strict execution thresholds (see limitations breakdown below).
 
 ## 🏗️ System Architecture & Data Flow
 
@@ -83,7 +83,14 @@ To ensure the machine learning models do not overfit to recent mild conditions, 
 ### VectorBT Institutional Backtesting Engine
 ![Stress Test Results!](Images/Screenshot_3.png)
 Simulates the exact mechanics and friction of a real trading desk. It enforces physical lot execution (fixed 10 MWh blocks), factors in exchange execution fees and market slippage, and applies positive offset transformations to preserve stable position sizing under negative prices.
+### ⚠️ Statistical Context & Backtest Limitations
 
+A rigorous review of the terminal logs and simulation metrics reveals critical engineering constraints that are vital to address before transitioning this architecture toward production environments:
+
+* **Sample Size Constraint (37 Trades):** While the VectorBT backtest shows a high simulated win rate (72.97%), the sample size is restricted to exactly **37 executed trades**. This low count is an intentional consequence of a highly restrictive mathematical spread-threshold filter. It prevents over-trading during noisy regimes but introduces an increased susceptibility to variance. A wider 3-to-5 year historical data window is required to prove statistical significance.
+* **Console Logging Telemetry:** The console output displays labels such as `"INSTITUTIONAL BACKTEST RESULTS"` and `"Applying Institutional Feature Engineering..."`. These are hardcoded log-formatting strings used during development to distinguish simulations that factor in market friction (exchange fees, physical 10 MWh lot sizing, and slippage) from idealized, frictionless mathematical models. They reflect architecture constraints, not live asset management.
+* **Overfitting Risks & Mitigation:** Machine learning pipelines evaluating energy markets are highly vulnerable to historical regime shifts. Although the model maintained a stable 63.8% directional accuracy during a targeted crisis stress test, true production-grade verification requires continuous walk-forward optimization to account for post-2025 structural transformations in European Single Day-Ahead Coupling (SDAC) rules.
+ 
 ### Serverless Cloud Deployment
 
 Successfully ported from local execution to a decoupled cloud ecosystem. Features CORS-compliant REST endpoints and configured Render deployment pipelines for autonomous rolling updates.
