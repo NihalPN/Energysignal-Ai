@@ -138,15 +138,15 @@ This project is engineered with production-grade safety rails to ensure continuo
 
 ## 📂 Project Structure
 
-/backend # FastAPI server, routers, and asynchronous RAG API logic
-/dashboard # PyQt6 desktop client and application logic
-/data_pipeline # Ingestion scripts (backfill, patch_generation, scheduler)
-/database # PostgreSQL schema setup and migration scripts
-/features # Feature engineering and transformation logic (build_features)
-/frontend # Static web assets (HTML/JS) for the decoupled web terminal
-/Images # Project screenshots and UI assets
-/models # XGBoost model training and evaluation scripts
-/signals # VectorBT backtesting engine and execution logic
+/backend         # FastAPI server, routers, and asynchronous RAG API logic
+/dashboard       # PyQt6 desktop client and application logic
+/data_pipeline   # Ingestion scripts (backfill, patch_generation, scheduler)
+/database        # PostgreSQL schema setup and migration scripts
+/features        # Feature engineering and transformation logic (build_features)
+/frontend        # Static web assets (HTML/JS) for the decoupled web terminal
+/Images          # Project screenshots and UI assets
+/models          # XGBoost model training and evaluation scripts
+/signals         # VectorBT backtesting engine and execution logic
 
 ## 🛠️ Technology Stack
 
