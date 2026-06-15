@@ -19,7 +19,7 @@ This platform has been rigorously evaluated on out-of-sample historical market d
 
 ## 🏗️ System Architecture & Data Flow
 
-
+![Architecture Diagram](Images/ar.png)
 
 ### 🔄 How Data Flows
 
@@ -41,7 +41,6 @@ Electricity is a unique commodity because it cannot yet be stored efficiently at
 
 ## 🖥️ System Dashboards & Interfaces
 
-![Architecture Diagram](Images/Screenshot from 2026-06-15 12-09-25.png)
 
 ### ⚡ Decoupled Web Terminal Architecture
 
