@@ -1,6 +1,6 @@
 # EnergySignal AI
 
-**End-to-end European power market forecasting and backtesting platform with automated validation, market drivers analysis, and AI-assisted analytics.**
+** Production-style Python/FastAPI backend for real-time energy-market analytics with automated validation, market drivers analysis, and AI-assisted analytics.**
 
 ## 📝 Project Overview
 
